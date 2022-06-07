@@ -21,7 +21,7 @@ SET ENV VAR -->No Need
 //CREATE SERVER
 >sudo npm install -g jshint         --> install compiler for node glbally
 >sudo npm install -g nodemon        --> install nodemon globally 
->sudo npm install -g express        -->install express globally
+>sudo npm install -g express-generator   -->install express globally
 >express --view=pug  server         -->create a templat called "server"
 >https://www.freecodecamp.org/news/how-to-enable-es6-and-beyond-syntax-with-node-and-express-68d3e11fe1ab/-->Convert Express template to ES6 if requires
 

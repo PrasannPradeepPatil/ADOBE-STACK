@@ -1,3 +1,4 @@
+
 //STRUCTURE 
 /*
 const var = require('')                  -->IMPORT , EXPORT(ES5) , IMPORT EXPORT(ES6)

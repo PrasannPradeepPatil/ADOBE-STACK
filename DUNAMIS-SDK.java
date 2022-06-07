@@ -68,3 +68,10 @@ dunamis-internal/dunamis-service
            are of importance) 
 
   */
+
+  //STEPS
+  /*
+   1.Create a req response cycle on node
+   2.Implement IAAS Functionality
+   
+   */

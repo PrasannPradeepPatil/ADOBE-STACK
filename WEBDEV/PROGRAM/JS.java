@@ -54,21 +54,31 @@ const readXlsxFile = require('read-excel-file/node');
 
 //IMPORT , EXPORT (ES5 - NODE)
 /*
-//SINLE(ANY  FN)                           
-module1.js                                        module2.js
-async function fnName(){}                        var fnName = require('externalmodulename' OR './modulename1' OR '../modulename1') 
-let fnName = async function fnNameOpt() =>{}     fnName(args)            
-let fnName = async() =>{}
-module.exports = fnName            
+//MULTIPLE FNS AND CLASSES
+module1.js                                       
+async function fnName1(){}                        
+let fnName2 = async function fnNameOpt() =>{}    
+let fnName3 = async() =>{}                       
+class className1{} 
+class className2{}                               
+
+module.exports = {
+    fnName1,
+    fnName2,
+    fnName3,
+    className1,
+    className2
+}
 
 
-
-//MULTIPLE(ONLY EXPRESSION/ARROW FN)
-module1.js                                module2.js                     
-exports.fnName1  = async() =>{}           var {fnName1,fnName2} = require('externalmodulename' OR './modulename1' OR '../modulename1') 
-exports.fnName2 = async() =>{}            fnName1(arg)   
-
-
+module2.js
+var module1 = require('externalmodulename' OR './modulename1' OR '../modulename1') 
+var val = module1.fnName1(args)            
+var obj = new module1.className1()     
+OR
+var {fnName1,className1} = require('externalmodulename' OR './modulename1' OR '../modulename1') 
+var val = fnName1()
+var obj = new className1()   
 
 */
 

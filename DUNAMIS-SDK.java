@@ -17,7 +17,7 @@ DUNSMIS SDK SAMPLES
  export ARTIFACTORY_API_KEY=AKCp8mZ8QX71vFuLXxWcgwuCVasMLo8DpZXt1YMmXdXiohPuW7GkHLD3nB6HU4cacSvzit6ms     FOR LINUX
 >metabuild prepare -p win32
 
-BUILD DUNAMIS SDK SAMPLES
+
 1.Build dunamis-sdk-sample.sln(C:\Users\prasannpradp\Desktop\DUNAMIS\dunamis-sdk-sampleapps\dist\msvs_win32\project\dunamis-sdk-sample.sln)
 In visual studio select open a project or soln and open the dunamis-sdk-sample.sln file
 On menu bar click build > build soln

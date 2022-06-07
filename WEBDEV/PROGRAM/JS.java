@@ -58,7 +58,8 @@ const readXlsxFile = require('read-excel-file/node');
 module1.js                                       
 async function fnName1(){}                        
 let fnName2 = async function fnNameOpt() =>{}    
-let fnName3 = async() =>{}                       
+let fnName3 = async() =>{}   
+exports.fnName4 = async() =>{} //only for arrow fn                   
 class className1{} 
 class className2{}                               
 

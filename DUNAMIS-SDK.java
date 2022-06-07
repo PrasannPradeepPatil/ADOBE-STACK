@@ -1,33 +1,55 @@
 //RUN
 /*
+1.SETUP
 DUNAMIS SDK
 >cd dunamis-sdk
 >call .venv/scripts/activate
 >set ARTIFACTORY_API_KEY=AKCp8mZ8QX71vFuLXxWcgwuCVasMLo8DpZXt1YMmXdXiohPuW7GkHLD3nB6HU4cacSvzit6ms       FOR WINDOWS
  export ARTIFACTORY_API_KEY=AKCp8mZ8QX71vFuLXxWcgwuCVasMLo8DpZXt1YMmXdXiohPuW7GkHLD3nB6HU4cacSvzit6ms    FOR LINUX
->metabuild prepare -p win32
-
+>metabuild prepare -p win32 
+ Create a dist folder
 
 DUNSMIS SDK SAMPLES
+>Indide of dunamis-sdk-sample write the file META.users.yaml
 >cd dunamis-sdk
 >call .venv/scripts/activate
 >cd  dunamis-sdk-sample
->call .venv/scripts/activate
 >set ARTIFACTORY_API_KEY=AKCp8mZ8QX71vFuLXxWcgwuCVasMLo8DpZXt1YMmXdXiohPuW7GkHLD3nB6HU4cacSvzit6ms       FOR WINDOWS
  export ARTIFACTORY_API_KEY=AKCp8mZ8QX71vFuLXxWcgwuCVasMLo8DpZXt1YMmXdXiohPuW7GkHLD3nB6HU4cacSvzit6ms     FOR LINUX
->metabuild prepare -p win32
+>metabuild prepare -p win32 -t //:console-app
+  Creates dunamis-sdk-sample.sln C:\Users\prasannpradp\Desktop\DUNAMIS\dunamis-sdk-sampleapps\dist\msvs_win32\project\dunamis-sdk-sample.sln
+  Open dunamis-sdk-sample.sln in Visual studio
+  Click View --> Click Solution Explorer which brings soln explorer on right -->-->In soln expl under dunamis-sdk-sample see console.app , right click and set as startup project
 
 
-1.Build dunamis-sdk-sample.sln(C:\Users\prasannpradp\Desktop\DUNAMIS\dunamis-sdk-sampleapps\dist\msvs_win32\project\dunamis-sdk-sample.sln)
-In visual studio select open a project or soln and open the dunamis-sdk-sample.sln file
-On menu bar click build > build soln
+2.TEST
+dunamis-sdk-sample/main.cpp/main() method -->Calls API directly
+dunamis-sdk-test/eventtransformer_test.cpp -->calls the method inside API's; use for more data
+Put break point at rc = dunamis_setIaasMapping ;rc = dunamis_iaasToIngestSDM; after cout << ouptutjson
+Press the run button 
+dunamis_setIaasMapping()  ip: configGuid,iaasCSViaasCSV
+                          op: store filename = configGuid , fileContent = iaasCSV at C:\Users\prasannpradp\AppData\Roaming\com.adobe.dunamis\configGuid
+                              return error
+dunamis_iaasToIngestSDM() ip:configGuid,ipJson,opJSON
+                          op:based on configGuid find the file and acc to rules of file transform ipJson to opJson
+                            return opJson 
 
-2.Run the build file(C:\Users\prasannpradp\Desktop\DUNAMIS\dunamis-sdk-sampleapps\dist\msvs_win32\Debug\x64\build)
-After building the   file you can find the .app file
+
+
+
+
+
+
+
+
+
+
+
 
 
 
  */
+
 
 //META , DIST FOLDER
 /*
@@ -75,3 +97,12 @@ dunamis-internal/dunamis-service
    2.Implement IAAS Functionality
    
    */
+
+   //TO DOS
+   /*
+    *optional	
+dunamis_setIaasMapping(configGUID, in csv string)
+
+global	anytime	offline	-	Attaches CSV to configGUID, returns success or error
+optional	dunamis_iaasToIngestSDM(configGUID, in JSON string, out JSON string)
+    */

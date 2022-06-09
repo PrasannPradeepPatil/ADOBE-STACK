@@ -102,70 +102,44 @@ app.use(function(err, req, res, next) {  // error handler
 
 
 
-//CONNECT DB TO SERVER(MONGODB TO SERVER)
-/* #region Main */ 
-
-//CONNECT MONGODB TO SERVER(ATLAS AND COMPASS)
+//CONNECT NODE TO MONGODB SERVER(ATLAS SERVER WHICH WILL HOST OUR DATABASE):https://www.youtube.com/watch?v=ngc9gnGgUdA&t=522s  :10:30 TO 13:00
 /*
-connec tmongodb to ATLAS server  --> https://www.youtube.com/watch?v=ngc9gnGgUdA&t=522s  :10:30 TO 13:00
-connect COMPASS to mongodb  -->mongod -->start mongodb server at 127.0.0.1:27107
-                              In Compass Connect ->ConnectTo ->Connection string = mongodb://127.0.0.1:27107 --> connect compass to mongoDB
+Create Cluster/Database: Got to Atlas-->Create New Cluster/Database-->Select shared clustere-->Select the region you are in and select create
+Create User    : Go to Database Acess,create user with username and password
+Create Network : Go to Network Acess, creaate network with current IP adress
+Connect cluster to node server : Go to Cluster/Database and connect cluster and select Cnnect to Application
+                                 copy the URL and replace <usernamae> <password> with your username and password by removing <>  
+                                 node runs at 3000 by default;react runs on 3000 by default(hence 1st run node then react so that react runs on 3001;mongodb runs on 5000 as written in code while connecting to mongoDB)
+View Database: Go to Cluster/Database and view collections
 
-const CONNECTION_URL = 'connection url received from atlas'; (connect to atlas using the link given in ATLAS below)
-const PORT = process.env.PORT||5000;(client runs at 3000, server runs at 3000 so 1st run server and then run client so client automatically runs at 3001;so server runs at 30002 )
-mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })            
+
+var mongoose = require('mongoose')
+const CONNECTION_URL =  process.env.MONGODB_CONNECTION_URL||'Atlas URL'; (Look above)
+const PORT = process.env.MONGODB_CONNECTION_PORT||5000;                  (Look above)
+mongoose.connect(CONNECTION_URL)            
   .then(() => app.listen(PORT, () => console.log(`Server Running on Port: http://localhost:${PORT}`)))
   .catch((error) => console.log(`${error} did not connect`));
 
-mongoose.set('useFindAndModify', false);
-*/
-
-//MONGODB SHELL:Shell view of DB:-https://gist.github.com/bradtraversy/f407d642bdc3b31681bc7e56d95485b6
-/*
-//CONNECT
->mongod -->start mongodb server at 127.0.0.1:27107 -->CONNECT TO DATABASE
->mongo  --> enter mongo shell
-
-//CREATE  
-                                                    ___filename.json--> [{_id:1234,name:'pras'},{_id:1235,name:'patil'}]
-                                                     /
->mongoimport --db dbName -collection collName  --filename filename.json --json jsonArray  -->create a database ; create a collection ; add documents from filename.json   documents are stored in array in filename.json
->use dbName                                                                               -->create database "database" or use preexisting "database" (db = databaseName)
->db.createCollection('collectionName')                                                    -->create in database "db" , collection "createCollection"
-
-//READ
->use db
->db.collectionName.methodsUsedInProgramming()
-     +
-    >show database  --> shows all databases
-    >use dbName      -->shows collection in db
-    >show collection 
-
-//UPDATE
->use db
->db.collectionName.methodsUsedInProgramming()
 
 
-//DELETE
->use db
->db.collectionName.methodsUsedInProgramming()
-        + 
-        >use db                       --> drop database db
-        >db.dropDatabase()  
-        >db.collectionName.remove({}) -->remove document from collection
 
 */
 
 
-/* #endregion */  
+
+
+
 const MONGODB_CONNECTION_PORT = process.env.MONGODB_CONNECTION_PORT|| 5000;  
-const MONGODB_CONNECTION_URL = process.env.MONGODB_CONNECTION_URL;
-mongoose.connect(MONGODB_CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => app.listen(MONGODB_CONNECTION_PORT, () => console.log(`Server Running on Port: http://localhost:${MONGODB_CONNECTION_PORT}`)))
+const MONGODB_CONNECTION_URL = process.env.MONGODB_CONNECTION_URL || 'mongodb+srv://prasannpradp:Wxyz12345@cluster0.t3xqogu.mongodb.net/?retryWrites=true&w=majority';
+mongoose.connect(MONGODB_CONNECTION_URL)
+  .then(() => app.listen(MONGODB_CONNECTION_PORT, () => console.log(`MongoDB Server Running on Port: http://localhost:${MONGODB_CONNECTION_PORT}`)))
   .catch((error) => console.log(`${error} did not connect`));
 
-mongoose.set('useFindAndModify', false);
+
 
 //EXPORT
 module.exports = app;    
+
+
+
 

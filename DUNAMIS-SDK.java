@@ -13,7 +13,7 @@ DUNSMIS SDK SAMPLES
 >Indide of dunamis-sdk-sample write the file META.users.yaml
 >cd dunamis-sdk
 >call .venv/scripts/activate
->cd  dunamis-sdk-sample
+>cd ../dunamis-sdk-sampleapps
 >set ARTIFACTORY_API_KEY=AKCp8mZ8QX71vFuLXxWcgwuCVasMLo8DpZXt1YMmXdXiohPuW7GkHLD3nB6HU4cacSvzit6ms       FOR WINDOWS
  export ARTIFACTORY_API_KEY=AKCp8mZ8QX71vFuLXxWcgwuCVasMLo8DpZXt1YMmXdXiohPuW7GkHLD3nB6HU4cacSvzit6ms     FOR LINUX
 >metabuild prepare -p win32 -t //:console-app
@@ -24,7 +24,6 @@ DUNSMIS SDK SAMPLES
 
 2.TEST
 dunamis-sdk-sample/main.cpp/main() method -->Calls API directly
-dunamis-sdk-test/eventtransformer_test.cpp -->calls the method inside API's; use for more data
 Put break point at rc = dunamis_setIaasMapping ;rc = dunamis_iaasToIngestSDM; after cout << ouptutjson
 Press the run button 
 dunamis_setIaasMapping()  ip: configGuid,iaasCSViaasCSV
@@ -35,10 +34,9 @@ dunamis_iaasToIngestSDM() ip:configGuid,ipJson,opJSON
                             return opJson 
 
 
-
-
-
-
+MORE TEST CASES
+2 API's ke andar ke methods -- dunamis-sdk-test/eventtransformer_test.cpp 
+iaasCSV -- - dunamis-sdk-test/testconstants.cpp
 
 
 

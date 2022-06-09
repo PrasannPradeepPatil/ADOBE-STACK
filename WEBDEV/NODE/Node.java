@@ -1,3 +1,40 @@
+//REMAINING
+/*
+ //MONGODB SHELL:Shell view of DB:-https://gist.github.com/bradtraversy/f407d642bdc3b31681bc7e56d95485b6
+//CONNECT
+>mongod -->start mongodb server at 127.0.0.1:27107 -->CONNECT TO DATABASE
+>mongo  --> enter mongo shell
+
+//CREATE  
+                                                    ___filename.json--> [{_id:1234,name:'pras'},{_id:1235,name:'patil'}]
+                                                     /
+>mongoimport --db dbName -collection collName  --filename filename.json --json jsonArray  -->create a database ; create a collection ; add documents from filename.json   documents are stored in array in filename.json
+>use dbName                                                                               -->create database "database" or use preexisting "database" (db = databaseName)
+>db.createCollection('collectionName')                                                    -->create in database "db" , collection "createCollection"
+
+//READ
+>use db
+>db.collectionName.methodsUsedInProgramming()
+     +
+    >show database  --> shows all databases
+    >use dbName      -->shows collection in db
+    >show collection 
+
+//UPDATE
+>use db
+>db.collectionName.methodsUsedInProgramming()
+
+
+//DELETE
+>use db
+>db.collectionName.methodsUsedInProgramming()
+        + 
+        >use db                       --> drop database db
+        >db.dropDatabase()  
+        >db.collectionName.remove({}) -->remove document from collection
+
+ */
+
 //INSTALL NODE(WINDOWS(WITHOUT SUDO) , LINUX(WITH SUDO))
 /*
 //INSTALL NODE(WINDOWS)
@@ -34,8 +71,8 @@ SET ENV VAR -->No Need
 //RUN SERVER  
 >cd server
 >sudo npx kill-port 3000 5000 -->kill the port if already in use for server, mongodb connection to server
->sudo npm start   -->run server at http://127.0.0.1:3000( server runs at 3000,client runs at 3000 so 1st run server and then run client so client ;because asks to run at other server and  runs at 3001)
-                  -->connects mongodb to server at  http://127.0.0.1:5000
+>sudo npm start   -->run server at http://127.0.0.1:portNo(node runs at 3000 by default;react runs on 3000 by default(hence 1st run node then react so that react runs on 3001;mongodb runs on 5000 as written in code while connecting to mongoDB))
+                   
                     package.json
                     "scripts": {
                             "start": "node ./bin/www"    -->npm start = node ./bin/www 
@@ -78,7 +115,10 @@ app.js                  -------------------------------------------------routes 
 app.use(cors());app.use(fn(req, res, next){app.use('/posts',postsRouter) router.post('/', createPost)             exports.createPost =async (req, res) =>{}              models for DB 
 for baseURL/endpt perform fn,custom fn,send to routes                    for baseURL/endpt call fn in controller  for for baseURL/endpt receive req                                                                     
                                                                                                                   perform operation on DB and and send response  
-   
+mongoose.connect(MONGODB_CONNECTION_URL,
+connect node to mongodb server(ATLAS server wjoch will host DB)
+
+
   
                                
 */

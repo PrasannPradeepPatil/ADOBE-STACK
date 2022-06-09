@@ -5,7 +5,7 @@
 STRING DATATYPES
                   Storage Size     characters that can be stored 
 1.CHAR (x)        64 KB            x fixed characters,x max is upto n characters  -->  English = 1 byte , Europe , = 2bytes , Asian = 30 bytes
-2. VARCHAR (x)    64KB             upto x characters ,x max is upto n characters        You can calculate n for each
+2.VARCHAR (x)     64KB             upto x characters ,x max is upto n characters        You can calculate n for each
 3.TINYTEXT        255 bytes        upto n characters                                    Eg If we use CHAR (10) my sql will reserve 30 bytes for asian
 4.TEXT            64KB             upto n characters                                                      
 4.MEDIUMTEXT      16 MB            upto n characters                                                         

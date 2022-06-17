@@ -1249,7 +1249,7 @@ s.remove()x     s.replace(“char 1”,”char2” OR ‘RE1’ , ’RE2’ )   
             
 
 #size
-s.length()                            -> returns length of string
+s.length                             -> returns length of string
 
 
 
@@ -1289,7 +1289,7 @@ let  obj = {key: value ; key : value}; (new bject({key:value}) is default  const
 
 1. lookup , insert , length
 #lookup
-obj.staticKey /object[dynamicKey]     --> return the value at dynamickey(key not known) , statickKey(key known)
+obj.staticKey/obj["staticKey"] OR object[dynamicKey]     --> return the value at dynamickey(key not known) , statickKey(key known)
 Object.keys(obj)                      --> return  array of keys of instance members whose enumerate = True 
 Object.entries(obj)                   --> return arrays of  arrays of key value pair of  instance members whose enumerate = True 
                                            
@@ -1297,9 +1297,9 @@ Object.entries(obj)                   --> return arrays of  arrays of key value 
 
 
 #insert
-Obj.add(obj)       X
-Obj.set(index,obj) X
-delete obj.member                    --> delete object members
+obj.staticKey/obj["staticKey"] OR object[dynamicKey]  =val -->add key value
+obj.staticKey/obj["staticKey"] OR object[dynamicKey]  =val  -->set key value
+delete obj.staticKey/obj["staticKey"] OR object[dynamicKey]                     --> delete object members
             
 
 #size

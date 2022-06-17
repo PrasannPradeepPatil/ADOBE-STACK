@@ -19,7 +19,7 @@ DUNSMIS SDK SAMPLES
 >metabuild prepare -p win32 -t //:console-app
   Creates dunamis-sdk-sample.sln C:\Users\prasannpradp\Desktop\DUNAMIS\dunamis-sdk-sampleapps\dist\msvs_win32\project\dunamis-sdk-sample.sln
   Open dunamis-sdk-sample.sln in Visual studio
-  Click View --> Click Solution Explorer which brings soln explorer on right -->-->In soln expl under dunamis-sdk-sample see console.app , right click and set as startup project
+  Click View --> Click Solution Explorer which brings soln explorer on right -->-->In soln expl under dunamis-sdk-sample see console-app , right click and set as startup project
 
 
 2.TEST

@@ -1,10 +1,10 @@
-
+package SRC;
 
 import java.util.*;
 
 
 
-public class ALGORITHM {
+public class ALGORITHMM{
 
     //TIME SPACE COMPLEXITY
     /* #region Main */

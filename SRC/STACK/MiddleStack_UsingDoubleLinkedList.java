@@ -1,4 +1,4 @@
-package STACK;
+package SRC.STACK;
 
 
 public class MiddleStack_UsingDoubleLinkedList {

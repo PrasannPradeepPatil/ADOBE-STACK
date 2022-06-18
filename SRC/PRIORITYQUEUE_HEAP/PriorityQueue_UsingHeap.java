@@ -1,4 +1,4 @@
-package PRIORITYQUEUE_HEAP;
+package SRC.PRIORITYQUEUE_HEAP;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;

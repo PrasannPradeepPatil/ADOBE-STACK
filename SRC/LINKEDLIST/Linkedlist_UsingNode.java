@@ -1,4 +1,4 @@
-package LINKEDLIST;
+package SRC.LINKEDLIST;
 import java.util.*;
 
 //LINKED LIST DEFINATIOONS

@@ -1,4 +1,4 @@
-package PRIORITYQUEUE_HEAP;
+package SRC.PRIORITYQUEUE_HEAP;
 public class Heapify {
 
     /*

@@ -1,4 +1,4 @@
-package MISCALLENOUS;
+package SRC.MISCALLENOUS;
 import java.util.*;
 
 class RandomisedSet {

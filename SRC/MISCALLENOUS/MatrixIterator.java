@@ -1,4 +1,4 @@
-package MISCALLENOUS;
+package SRC.MISCALLENOUS;
 
 class MatrixIterator {
 

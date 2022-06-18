@@ -1,4 +1,4 @@
-package STACK;
+package SRC.STACK;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;

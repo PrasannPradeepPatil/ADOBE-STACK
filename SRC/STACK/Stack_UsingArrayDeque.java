@@ -1,4 +1,4 @@
-package STACK;
+package SRC.STACK;
 
 import java.util.ArrayDeque;
 import java.util.Arrays;

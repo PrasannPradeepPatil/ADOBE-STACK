@@ -1,4 +1,4 @@
-package HASHMAPS;
+package SRC.HASHMAPS;
 
 public class MapOpenAdressing {
     /*

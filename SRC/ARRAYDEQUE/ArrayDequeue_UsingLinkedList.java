@@ -1,4 +1,4 @@
-package ARRAYDEQUE;
+package SRC.ARRAYDEQUE;
 import java.util.Arrays;
 import java.util.LinkedList;
 

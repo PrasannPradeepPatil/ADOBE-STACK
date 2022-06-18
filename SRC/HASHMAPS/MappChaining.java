@@ -1,4 +1,4 @@
-package HASHMAPS;
+package SRC.HASHMAPS;
 import java.util.Arrays;
 import java.util.LinkedList;
 

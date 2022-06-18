@@ -1,4 +1,4 @@
-package ALGORITHM;
+package SRC.ALGORITHM;
 import java.util.*;
 
 public class Sorting {

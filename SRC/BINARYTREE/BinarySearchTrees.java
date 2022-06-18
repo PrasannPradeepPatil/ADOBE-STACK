@@ -1,4 +1,4 @@
-package BINARYTREE;
+package SRC.BINARYTREE;
 import java.util.*;
 
 //BST DEFN(DUE TO DEFN BST HAS SOME METHODS DIFFERENT FROM BT )

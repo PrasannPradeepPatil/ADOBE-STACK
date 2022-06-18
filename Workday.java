@@ -8,10 +8,7 @@
 6.What is Serialization
 7.SingleTon
 8.Given set of objects and was told to assign relations between them how I see fit.
-
-
-
- */
+*/
 
 //JS,WEB
 /*
@@ -38,21 +35,16 @@
 //DSA
 /*
 1.LOOK AT DSA
-2.creating a function to find repeating digits between a range of integers. 
-3.Reverse an integer without using string operations.
-4.reverse a string without using reverse/split functions
-5. median of a sorted array
-6.bunch of string manipulation through implementing a custom comparator so that strings get ordered a certain way.
-7.BFS traverse of a 2D matrix with memoization to find the shortest weighted path.
-8.find the level of a binary tree
-9.Given a list of lists, find the smallest interval of numbers that includes a number from each list.
-  Given K sorted integer arrays filled on average with N elements, how do you find a minimal span of numbers 
-  that contain at least one number from each array (inclusive of the boundaries).
-10.Determine if given strings are anagrams of each other.
-11.Find the first non-repeating character in a string.
-12.given a String of [a-z] characters, find and return the first character that appears only once
-13.Given a String of [a-z, A-Z, 0-9], find length of the longest substring that satisfies the following rules: a substring cannot contain digits [0-9], a substring should contain at least one capital character [A-Z].
-     e.g. given the String "aqW9ertyz", the longest valid substring has length 3 ("aqW").
+1.reverse int without converting to string -- https://leetcode.com/problems/reverse-integer/
+2.find repeating digits between a range of integers-- https://stackoverflow.com/questions/44380384/how-i-find-numbers-with-repeating-digits-within-a-range
+3.First non repeating character of string-- stringFirstUniqueCharacter
+4.Determine if given strings are anagrams of each other --stringCompare2StringsForAnagrammm,matrixCompareRowsForAnagramsGrouping
+5.median of 2 sorted arrays -- arrayCompare2ArrayForMedian
+6.Given a list of lists, find the smallest interval of numbers that includes a number from each list -- https://www.geeksforgeeks.org/find-smallest-range-containing-elements-from-k-lists/
+7.Level of Binary Tree -- DFSLevelOrder
+8.Longest substr without numbers and atleast 1 capital character EG "aqW9ertyz" ka "aqW"-- https://stackoverflow.com/questions/39388558/java-find-the-longest-substring-without-any-number-and-at-least-one-upper-case
+9.BFS traverse of a 2D matrix with memoization to find the shortest weighted path. -- maxtrixTraversal() KA BFS , graphUnDirShortestLongestPath(),https://www.geeksforgeeks.org/shortest-distance-two-cells-matrix-grid/
+
 */
 
 //SYSTEM DESIGN
@@ -74,7 +66,7 @@
 
 //PROJECTS
 /*
-1.LOOK AT PROJECTS IN RESUME,LINKEDIN, FLAIRLABS
+1.LOOK AT PROJECTS IN RESUME
 2.AGILE APPROACH
  */
 

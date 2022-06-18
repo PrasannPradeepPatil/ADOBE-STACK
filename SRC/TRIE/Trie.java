@@ -16,10 +16,6 @@ ALL SUM SAME AS NARYTREE (there it was ArrayList here it is array with index as 
 EACH NODE HAS 26 CHILDREN:ROOT IS  NULL
 isEndOfWord  mantained in Node class ; which gives us words in tries EG DFSPrePostOrderNoOfWordsI,II, DFSPrePostOrderListOfWordsI,II,
 
-
-
-
-
 */
 
 

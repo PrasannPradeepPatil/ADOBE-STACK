@@ -15,7 +15,7 @@ SAME AS BT
 SAME AS BT
 +
 LEFTNODE <(! <=)ROOTNODE <(! <=) RIGHTNODE
-ALL SUM SAME AS BsT 
+ALL SUM SAME AS BST 
 
 COMPLETE TREE
 MaxNoOfNode  = MaxNoOfNodesOnLeftMostTree                                           EG DFSPrePostInOrderMaxNoOfNodeI,DFSPrePostInOrderMaxNoOfNodeII
@@ -240,7 +240,6 @@ public class BinaryAVLTree {
     /*
     HeightOfBinTree   -->DFSPrePostInOrderMaxNoOfNode
      */
-    
     public void DFSPrePostInOrderNoOfNode(Node root ,int val){
         /*
           root-- 7        -->travel travel left-right;top-bottom(DFS)
@@ -326,7 +325,79 @@ return 2^lh-1 -- 3 /         \  2
         */
 
     }
-    public void DFSPrePostInOrderMaxNoOfNode(Node root){
+    public void DFSPrePostInOrderInsert(Node root ,int val){
+        /*
+        root-- 4       -->Travel left -righ ; top bottom (DFS)
+                /  \        and insert node to mantain BST 
+                2     5      and retur root [4,2,1,3,5,6,7] 
+            / \    / \    NOTE : WE INSERT AT LEAF NODE ONLY SO NO NEED TO WORRY ABOUT MIDDLE INSERTION IN MIDDLE
+            1  3   6  7            EG: Look in VISUALISATION-->BINARY SEARCH TREE
+            /  \ /\  /\  / \
+            n  n  n n n n  n n
+
+            */
+        
+        //RECURSIVE IP-OP TREE
+        /*
+        WHILE COMING BOTTOM-UP YOU NEED RETURN VALUE(RET TYPE) -->RETURN VALUE WILL  CARRY LEFT SUBTREE IN LEFT AND RIGHT SUBTREE IN RIGHT 
+        */
+
+        //RECURSIVE IP-OP TREE
+        /*
+
+        
+        Consider Inserting   5
+                    4 l=2N;r=7N                                 
+                /          \  7N                                                  
+               /            \ 
+              2              7   l=5N r=8N
+             /   \          /    \                     -- return balanced root  
+            /     \      6N/      \  8N                    
+           /       \      /        \
+          1         3     6 l,r=5N  8 l=6N;r=6N
+                          /                           -- return new Node(val)
+                         /
+                         5 INSERT
+
+
+        public Node DFSPrePostInOrderInsert(Node root,int val) {
+                                                               --while coming bottom-top
+        if(root == null){                                       return  new Node(val)  at null and move up
+            return new Node(val);}                               pass to next node                 
+              
+       Node left =  null;
+       Node right = null;
+       if(root.val > val){                                      --while coming left,right 
+           left= DFSPrePostInOrderInsert(root.left,val);        if root val > val  move left;if root val < val move right ( (left <(!<=)root<(!<=) right so left subtree < right subtree) 
+           root.left = left } -\                                   left,right hold   left and right subtree 
+        if(root.val < val){     \--------------------------------\                                
+            right = DFSPrePostInOrderInsert(root.right,val);    \
+            root.right = right} -----------------------------------> while coming top bottom 
+                                                                  /   root.left = left  
+                                                                 /   root.right = right
+        return helper.balance(root)   ------------------------       return  helper.balance(root) and  pass to next node 
+        }
+
+        //OVERRIDE
+        public void DFSPrePostInOrderInsert(int val) {
+            return  DFSPrePostInOrderInsert(root, val);
+        }
+
+        Time :O(log2 n) if it is balanced tree  as we throw half nodes
+            :O(log2 n) as it cannot be unbalanced tree 
+        Space:O(h)  =O(log n) if it is balanced tree  as we traverse entire height 
+            :O(h) =O(log2 n) as it cannot be unbalanced tree 
+
+        //BST:You have to travel  top-bottom left or right  and insert node acc to BST property                  Time:O(log2 n) /O(n)
+        //BAT:You have to travel  top-bottom left or right  and insert node acc to BST property and also balance Time:O(log2 n) /O(log2 n)
+
+
+         */
+        
+    }
+
+    //DFSROOTTOLEAF
+    public void DFSRootToLeafMaxNoOfNodes(Node root){
         /*
           root-- 7        -->travel travel left-right;top-bottom            (DFS)
                 /  \         and return max no of nodes on path from root to leaf(root to leaf)
@@ -406,80 +477,7 @@ return 2^lh-1 -- 3 /         \  2
 
 
 
-     
-
     }
-    public void DFSPrePostInOrderInsert(Node root ,int val){
-        /*
-        root-- 4       -->Travel left -righ ; top bottom (DFS)
-                /  \        and insert node to mantain BST 
-                2     5      and retur root [4,2,1,3,5,6,7] 
-            / \    / \    NOTE : WE INSERT AT LEAF NODE ONLY SO NO NEED TO WORRY ABOUT MIDDLE INSERTION IN MIDDLE
-            1  3   6  7            EG: Look in VISUALISATION-->BINARY SEARCH TREE
-            /  \ /\  /\  / \
-            n  n  n n n n  n n
-
-            */
-        
-        //RECURSIVE IP-OP TREE
-        /*
-        WHILE COMING BOTTOM-UP YOU NEED RETURN VALUE(RET TYPE) -->RETURN VALUE WILL  CARRY LEFT SUBTREE IN LEFT AND RIGHT SUBTREE IN RIGHT 
-        */
-
-        //RECURSIVE IP-OP TREE
-        /*
-
-        
-        Consider Inserting   5
-                    4 l=2N;r=7N                                 
-                /          \  7N                                                  
-               /            \ 
-              2              7   l=5N r=8N
-             /   \          /    \                     -- return balanced root  
-            /     \      6N/      \  8N                    
-           /       \      /        \
-          1         3     6 l,r=5N  8 l=6N;r=6N
-                          /                           -- return new Node(val)
-                         /
-                         5 INSERT
-
-
-        public Node DFSPrePostInOrderInsert(Node root,int val) {
-                                                               --while coming bottom-top
-        if(root == null){                                       return  new Node(val)  at null and move up
-            return new Node(val);}                               pass to next node                 
-              
-       Node left =  null;
-       Node right = null;
-       if(root.val > val){                                      --while coming left,right 
-           left= DFSPrePostInOrderInsert(root.left,val);        if root val > val  move left;if root val < val move right ( (left <(!<=)root<(!<=) right so left subtree < right subtree) 
-           root.left = left } -\                                   left,right hold   left and right subtree 
-        if(root.val < val){     \--------------------------------\                                
-            right = DFSPrePostInOrderInsert(root.right,val);    \
-            root.right = right} -----------------------------------> while coming top bottom 
-                                                                  /   root.left = left  
-                                                                 /   root.right = right
-        return helper.balance(root)   ------------------------       return  helper.balance(root) and  pass to next node 
-        }
-
-        //OVERRIDE
-        public void DFSPrePostInOrderInsert(int val) {
-            return  DFSPrePostInOrderInsert(root, val);
-        }
-
-        Time :O(log2 n) if it is balanced tree  as we throw half nodes
-            :O(log2 n) as it cannot be unbalanced tree 
-        Space:O(h)  =O(log n) if it is balanced tree  as we traverse entire height 
-            :O(h) =O(log2 n) as it cannot be unbalanced tree 
-
-        //BST:You have to travel  top-bottom left or right  and insert node acc to BST property                  Time:O(log2 n) /O(n)
-        //BAT:You have to travel  top-bottom left or right  and insert node acc to BST property and also balance Time:O(log2 n) /O(log2 n)
-
-
-         */
-        
-    }
-
 
 
  

@@ -8,8 +8,6 @@ EACH NODE HAS N CHILDREN;
 
 
 2.NARY  TEST CASES
-Same as BT
-+
 [1,null,2,3,4,5,null,null,6,7,null,8,null,9,10,null,null,11,null,12,null,13,null,null,14] --> nodes are level wise ; each group of children sepereate by null
 
             1   
@@ -489,12 +487,12 @@ public class NARYTree {
     }  
     
 
-    //DFSPREPOSTINORDER
+    //DFSROOTTOLEAF
     /*
     HeightOfNaryTree   -->DFSPrePostInOrderMaxNoOfNode    HeightOfBinTree =  MaxDepthOfBinTree
     MaxDepthOfNaryTree -->DFSPrePostInOrderMaxNoOfNode 
      */
-    public void DFSPrePostOrderMaxNoOfNode(Node root){
+    public void DFSRootToLeafMaxNoOfNode(Node root){
         /*
           root-- 7        -->travel travel left-right;top-bottom            (DFS)
                 /  \         and return max no of nodes on path from root to leaf(root to leaf)

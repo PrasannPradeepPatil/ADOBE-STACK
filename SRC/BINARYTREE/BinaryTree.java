@@ -3,40 +3,39 @@ import java.util.*;
 import java.util.Stack;
 
 
-
-
-
-
-//BINARY TREE DEFINATIONS(FIND THEM BEFORE DIFFERENT TRAERSALS)
+//BINARY TREE DEFINATIONS
 /*
 1.
-HeightOfNode      = longest path from NodeToLeaf              = max no of nodes/edges NodeToLeaf        
-DepthOfNode       = path    from nodeToRoot                   = no of nodes/edges  rootToNode
-HeightOfBinTree   =longest  path from rootToLeaf              = max no of nodes/edges rootToLeaf     HeightOfBinTree =  MaxDepthOfBinTree
-MaxDepthOfBinTree =longest  path from leafToRoot =rootToLeaf  = max no of nodes/edges rootToLeaf
-MinDepthOfTree    =shortest path from leafToRoot =rootToLeaf  = max no of nodes/edges rootToLeaf
-DiameterOfBinTree =longest  path from leafToLeaf              = max no of nodes/edges rLeafToLeaf 
-SizeOfBinTree                                                  = no of nodes/edges in a tree
+HeightOfBinTree   =longest path(max nodes/edges)from rootToLeaf              =DFSPrePostInOrderMaxNoOfNode(),DFSRootToLeafPathsKaMaxNoOfNodes()
+MaxDepthOfBinTree =longest path(max nodes/edges)from leafToRoot =rootToLeaf  =DFSPrePostInOrderMaxNoOfNode(),DFSRootToLeafPathsKaMaxNoOfNodes()
+MinDepthOfTree    =shortes path(max nodes/edges)from leafToRoot =rootToLeaf  =DFSPrePostInOrderMinNoOfNode(),DFSRootToLeafPathsKaMinNoOfNodes()
+DiameterOfBinTree =longest path(max nodes/edges)from leafToLeaf              =DFSAnyToAnyPathsKaMaxNoOfNodes()
+SizeOfBinTree     =no of nodes/edges in a tree                               =DFSPrePostInOrderNoOfNodes()
+     |                             \
+     |                              \ ________________________________________|                                           
      |                                                                        |
-     |                                                                        |
-   height/maxdepth/mindepth balanced binary Tree                    = O(log n)  nodes or edges depends on defn of Path whether it is noOfnodes or noOfegdes  
-   height/maxdepth/mindepth unbalance left/right skewed binary Tree = O(n)       noOfEdges = NoOfNodes-1  
-   size of a balanced binary tree                                   = O(n)
-   size of a unbalance left/right skewed binary Tree                = O(n)
+ height/maxdepth/mindepth balanced BT           = O(log n)   nodes or edges depends on defn of Path whether it is noOfnodes or noOfegdes  
+ height/maxdepth/mindepth unbalance l/r skew BT = O(n)       noOfEdges = noOfNodes-1  
+ size of a balanced binary tree                 = O(n)
+ size of a unbalance l/r skew BT                = O(n)
+ **HeightOfBinTree =  MaxDepthOfBinTree
 
+
+
+                                 
 2.
-Balanced Binary Tree          = All nodes have equal heights on left and right                                           (|heightOfLeftSubtree-heightOfRightSUbtree|<=1 ) 
-    |- Full Binary Tree       = All nodes have 0 OR 2  nodes                                                             (!((root.left == null && root.right == null) || (root.left!=null && root.right != null)))
-    |- Complete Binary Trees  = All all levels are completely filled except last which has all nodes as left as possible (index <= noOfnodes index is index of node level wise)     
-    |- Perfect Binary Tree    = All nodes have 2 children and all leaves are at same level.                              (sizeof tree == 2^(height  of tree +1) – 1 )
-Unbalanced Binary Tree        = All nodes have unequal heights on left and right                                         (--) 
-    |- Left skewed            = Most of nodes have left child  ie it is fully on left side
-    |- Right  skewed          = Most nodes have right child  ie it is fully on right  side
-    Eg https://cs.stackexchange.com/questions/32397/is-there-a-difference-between-perfect-full-and-complete-tree#:~:text=4%20Answers&text=Yes%2C%20there%20is%20a%20difference,has%200%20or%202%20children.&text=Perfect%20Binary%20Tree%3A%20A%20Binary,leaves%20are%20at%20same%20level.    
-Binary Tree        =each node has max 2 children             
-Binary Search Tree =each node has max 2 children;lefnode <(! <=)rootnode <(! <=) rightnode                                 (properties in BST)
-Binary AVL Tree    =each node has max 2 children;lefnode <(! <=)rootnode <(! <=) rightnode;balanced                        (properties in BAT)
+Balanced Binary Tree      =All nodes have height difference less than or equal to 1(|heightOfLeftSubtree-heightOfRightSUbtree|<=1 )                                    =DFSPrePostInOrderIsBalanced()
+ |- Full Binary Tree      =All nodes have 0 OR 2  nodes(root.left == null && root.right == null) || (root.left!=null && root.right != null)                            =DFSPrePostInOrderisFull()
+ |- Complete Binary Trees =All levels are completely filled except last which has all nodes as left as possible (index <= noOfnodes index is index of node level wise) =DFSPrePostInOrderisComplete()   
+ |- Perfect Binary Tree   =All nodes have 2 child and all leaves are at same level(sizeof tree == 2^(height  of tree +1) – 1 )                                         =DFSPrePostInOrderisPerfect()
 
+Unbalanced Binary Tree    =All nodes have height difference greater than 1 (|heightOfLeftSubtree-heightOfRightSUbtree| > 1 ) 
+    |- Left skewed        =Most of nodes have left child  ie it is fully on left side(--)
+    |- Right  skewed      =Most nodes have right child  ie it is fully on right  side(--)
+
+Binary Tree               =Each node has max 2 children             
+Binary Search Tree        =Each node has max 2 children;lefnode <(! <=)rootnode <(! <=) rightnode                                                                       =DFSPrePostInOrderIsBSTI,DFSPrePostInOrderIsBST            
+Binary AVL Tree           =Each node has max 2 children;lefnode <(! <=)rootnode <(! <=) rightnode;balanced                                                             =DFSPrePostInOrderIsBATI,DFSPrePostInOrderIsBAT                      
 
 
 3.TEST CASES
@@ -286,7 +285,7 @@ int right = sumOfNodes(root.right);
 
                                                         if(root.left != null && root.right != null){}       --root.left , root.right  cant be null inside fn 
                                                                                                             EG 
-                                                                                                            DFSPrePostInOrderSiblingsI,DFSPrePostInOrderSiblingsII
+                                                                                                            DFSPrePostInOrderAreSiblingsI,DFSPrePostInOrderAreSiblingsII
                                                                                                             DFSPrePostInOrderInvertI,DFSPrePostInOrderInvertII              (DONT DO NULL CHECK BECAUSE YOU NEED ROOT.LEFT AND ROOT.RIGHT  NULL VALUES FOR SWAPPING  EG:CONSIDER [1,2,null])
                                                                                                             DFSPrePostInOrderDoubleI,DFSPrePostInOrderDobleII               (DONT DO NULL CHECK BECAUSE YOU NEED ROOT.LEFT AND ROOT.RIGHT  NULL VALUES FOR ASSIGNING EG:CONSIDER [1,2,null])
                                                                                                             DFSPrePostInOrderFalattenToLLI,DFSPrePostInOrderFalattenToLLII  (DONT DO NULL CHECK BECAUSE ROOT.LEFT AND ROOT.RIGHT ARE REQUIRED AS WE  ASSIGNING THEM VAUES EVEN IF THEY ARE NULL EG: CONSIDER[1,2,null,5,6] )
@@ -381,7 +380,7 @@ public class BinaryTree {
           /  \         Left-right,Top-bottom(ROOT,LEFT,RIGHT)-->[7,4,1,6,9,8,10]        
          4    9        Right-left,Top-Bottom(ROOT,RIGHT,LEFT)-->[7,9,10,8,4,6,1]
         / \    / \             
-        1  6   8  10   POSTORDER
+       1  6   8  10    POSTORDER
       /  \ /\  /\ / \  Left-Righ;Bottom-topt(LEFT,RIGHT,ROOT) -->[1,6,4,8,10,9,7] 
       n  n  n n n n  n Right-Left;Bottom-top (RIGHT,LEFT,ROOT)-->[10,8,9,6,1,4,7]
 
@@ -757,31 +756,38 @@ public class BinaryTree {
         /*
                  7        Traverse top to bottom , left to right   (DFS)
                 /\         and return path of nodes  at each level (LevelOrder)
-               / \         LEFT-RIGHT
-              /   \        left-right;top-bottom -->[ [7] , [4,9], [1,6,8,10] ]
-             4    9        left-right;bottom-top   -->[[1,6,8,10],[4,9],[7]] 
+               /  \        LEFT-RIGHT
+              /    \       left-right;top-bottom -->[ [7] , [4,9], [1,6,8,10] ]
+             4      9      left-right;bottom-top   -->[[1,6,8,10],[4,9],[7]] 
              / \    / \    RIGHT-LEFT
             1  6   8  10   right-left;top-bottom -->[ [7] , [9,4], [10,8,6,1] ] 
                            right-left;bottom-top -->[[[10,8,6,1],[9,4],[7] ]
+                           
                            LEFT-RIGHT ALTERNATE
-                           left-ight  alternate(zigzag);top-bottom -->[[7] , [9,4], [1,6,8,10] 
+                           left-right  alternate(zigzag);top-bottom -->[[7] , [9,4], [1,6,8,10] 
                            left-right alternate(zigzag);bottom-top -->[[1,6,8,10],[9,4],[7]]
+                           RIGHT-LEFT ALTERNATRE
+                           --
+
                            LEFT VIEW
                            left-view;top-bottom    (nodes you will see considering you are standing on left of tree )    -->[7,4,1]
                            left-view;bottom-top    (nodes you will see considering you are standing on left of tree )    -->[1,4,7]
                            RIGHT-VIEW
                            right-view ;top-bottom  (nodes you will see considering you are standing on right of tree )  -->[7,9,10]
                            right-viewbottom-top   (nodes you will see considering you are standing on right of tree )  -->[10,9,7]
+                           
                            LEFT-BOUNDARY
                            leftboundary;top-bottom  (nodes you will see while going from root to leftmost leaf node preferring travelling  the left subtree over the right subtree; if root doesnt have left subtree then root is itself left boundary) -- [7,4,1]
                            leftboundary;bottom-top (nodes you will see while going from root to leftmost leaf node preferring travelling  the left subtree over the right subtree; if root doesnt have left subtree then root is itself left boundary) -- [1,4,7]
                            RIGHT-BOUNDARY
                            rightboundary;top-bottom(nodes you will see while going from root to rightmost leaf node preferring travelling  the right subtree over the right subtree; if root doesnt have left subtree then root is itself left boundary) -- [7,9,10]
                            rightboundary;top-bottom (nodes you will see while going from root to rightmost leaf node preferring travelling  the right subtree over the right subtree; if root doesnt have left subtree then root is itself left boundary) -- [10,9,7]
+                           
                            LEAF NODE
                            leafnode;top to bottom      (nodes at leaf) -[1,6,8,10]
+                           
                            ANTICLOCKWISE
-                           anticlockwise;top to bottom(nodes you see while travellting leftboundary,leafNodes ,rightboundary  ) -[7,4,1,6,8,10,9,7]
+                           anticlockwise;top to bottom(nodes you see while travellting rightboundary,leftboundary,leafNodes   ) -[7,4,1,6,8,10,9,7]
                            CLOCKWISE
                            clockwise;top to bottom (nodes you see while travellting leftboundary,leafNodes ,rightboundary  ) -[7,9,10,8,6,1,4,7]
  
@@ -1234,8 +1240,8 @@ public class BinaryTree {
         /*
          root-- 7      -->Traverse  left-right,top-bottom (DFS)
                /  \       return path of nodes  from root to any node with given val (RootToANy)
-              4    9      val = 9 [[7,9]]]  
-             / \    / \   val = 10 [[7,9,10]]
+              4    9      val = 10 [[7,9,10]]
+             / \    / \   
              1  6   8  10 
            /  \ /\  /\  / \
           n  n  n n n n  n n
@@ -1291,13 +1297,36 @@ public class BinaryTree {
         path.remove(path.size()-1);     
 
      }
+    public int  DFSLeafToLeaf     (Node root){
+        /*
+         root-- 7      ---->Traverse  left-right,top-bottom (DFS)
+               /  \        return path of leaf node to leaf node  (LeafToLeaf)     
+              4    9      ** LEAF TO LEAF not ncessarily pass throught root
+             / \    / \    Eg:Returning all paths for leaf to leaf is tedious
+             1  6   8  10 
+           /  \ /\  /\  / \
+          n  n  n n n n  n n
+
+        */
+          
+        //RECURSIVE IP OP TREE
+        /*
+        Returning all paths for leaf to leaf is tedious
+        */
+
+        
+
+        return 0;
+
+
+    }
     public int  DFSAnyToAny       (Node root){
         
         /*
-         root-- 7      -->-->Traverse  left-right,top-bottom (DFS)
-               /  \      return path of any node to any node  (AnyToAny)    -- returning any to any path is tedious so I have done any to any path max sum of nodes
+         root-- 7      -->Traverse  left-right,top-bottom (DFS)
+               /  \       return path of any node to any node  (AnyToAny)    
               4    9      ** ANY TO ANY not ncessarily pass throught root
-             / \    / \  
+             / \    / \    Eg:Returning all paths for any to any is tedious
              1  6   8  10 
            /  \ /\  /\  / \
           n  n  n n n n  n n
@@ -1307,57 +1336,7 @@ public class BinaryTree {
 
         //RECURSIVE IP OP TREE
         /*
-                     7 l=15;r=8                                  
-            15  /          \  8                                                  
-               /            \ 
-    l=8;r=7  4                1   l=0,r=7
-             /  \               \  
-         8  /    \ 7             \  1               --return  max(max(l,r) + root.val ,root.val) 
-           /      \               \
- l=0;r=0  8  l,   7 l=0,r=0        1 l=0;r=6
-         /\       /\              /\
-       0/  \ 0  0/  \0          0/  \1              
-        n  n    n    n           n   6 l=0,r=0
-                                  0  /\ 0
-                                    /  \
-                                    n   n             -- return 0
-
-        public int  DFSAnyToAny       (Node root)                               
-
-                                                        --while going top-bottom
-            if (root == null){return 0;}                  return 0  at null and  start moving up 
-                                                        
-                                                        --while going lefty,right
-            int left = DFSAnyToAny(root.left);             left,right holds the sum of nodes of left and right subtree
-            int right = DFSAnyToAny(root.right);
-
-
-                                                        --while coming bottom-up
-            temp1 = max(max(l,r) + root.val ,root.val)    required path does not pass through our node4(find the calculation for path till node4 which we will pass ahead)
-                                                        max(l,r)+root.val                 -- max sumOfNode from left and right  + node 4 ka val
-                                                        (max(l,r) + root.val ,root.val) -- node4 alone can be greater that path with max sum till node4 as there may be -ve vals along the path so compare root also
-                                                                                                    and pass it  to next node
-            temp2 = l+r+root.val                          required path  passes through our node 4(find the calculation for path through node4 which is our main calcuation)
-                                                        l+r+root.val                      -- sumofNodes rom left and right  + node 4 ka val
-
-            ans = max(temp,l+r+1)                          max of not passing through node4 and passing through node 4 is answer   
-            res = max(res,ans)                             find maximum path of all answers                                              //res is global var                      
-    
-            return temp1 ;                                  we dont return res but temp1 which is the val we need to pass ahead when node4 is not answer
-        }
-
-        //OVERRIDE
-        public int  DFSAnyToAny(Node root){
-            return DFSAnyToAny(root);
-        }
-
-
-        Time :O(n) if it is balanced tree  as we traverse all nodes in tree
-            :O(n)  if it is unbalanced completely left/right skewed tree  as we traverse all nodes in tree
-        Space:O(h) = O(log n) if it is balanced tree  as we traverse entire height 
-                :O(h) = O(n) if it is unbalanced completely left/right skewed tree   as we traverse entire height 
-                +
-                O(n) we are  using list that takes extra space
+        Returning all paths for any to any is tedious
         */
 
         return 0;
@@ -1366,96 +1345,13 @@ public class BinaryTree {
  
 
     }
-    public int  DFSLeafToLeaf     (Node root){
-        /*
-         root-- 7      ---->Traverse  left-right,top-bottom (DFS)
-               /  \       return path of leaf node to leaf node  (LeafToLeaf)     -- returning leaf to leaf path is tedious so I have done leaf to leaf  path max no of nodes
-              4    9      ** LEAF TO LEAF not ncessarily pass throught root
-             / \    / \  
-             1  6   8  10 
-           /  \ /\  /\  / \
-          n  n  n n n n  n n
-
-        */
-          
-        //RECURSIVE IP OP TREE
-        /*
-                    7 l=12;r=8                                  
-            12  /          \  8                                                  
-               /            \ 
-    l=8;r=7  4                1   l=0,r=7
-             /  \               \  
-         8  /    \ 7             \  1               --return  max(l,r) + root.val   
-           /      \               \
- l=0;r=0  8  l,   7 l=0,r=0        1 l=0;r=6
-         /\       /\              /\
-       0/  \ 0  0/  \0          0/  \1              
-        n  n    n    n           n   6 l=0,r=0
-                                  0  /\ 0
-                                    /  \
-                                    n   n             -- return 0
-
-
-        public int  DFSLeafToLeaf     (Node root
-                                                    --while going top-bottom
-            if (root == null){return 0 ;}              return 0  at null and  start moving up 
-
-            int left = DFSLeafToLeaf(root.left);      --while going left-right 
-            int right = DFSLeafToLeaf(root.right);      left , right holds the sum of nodes of left and right subtree
-
-                                                    -- while coming bottom-top
-
-                                                        NEED FOR NULL CHECK:root.left , root.right  being   null yeild different results 
-                                                        if left is null then left returns 0 , right returns sumofNodes(+ve/-ve) ;for +ve max(l,r) takes sumOfNodes of right where leaf present no issue ; for -ve max(l,r) takes sumOfNodes of left but leaf present on right                                                                                                                             
-            if(root.left == null){                       if left is null find sumOfNodes on right subtree + root val 
-            return right+root.val }                    if right is null find sum of nodes on left subtree + root val
-        if(root.right == null){                       and return else wont encounter base
-            return left + root.val}                        
-            OR                                      
-            if(root.left==null||root.right==null)       if left or right is null find max of sumOfNodes on left and right subtree + root val  
-                return Math.max(left,right)+root.val}   This is "INVALID" as sumofNodes can be -ve unlike noOfNodes so taking max here we may end up on the null node where leaf is not present                              
-            
-                
-            temp1 =max(l,r) + root.val                   required path does not pass through our node4(find the calculation for path till node4 which we will pass ahead)
-                                                        max(l,r)+root.val                   --  max   sumofNodes  from left and right + node 4 ka  val 
-                                                        (max(l,r) + root.val ,root.val)X  -- root alone can be greater that the sum of l,r,root as there may be -ve vals so compare root also
-                                                                                                    BUT  root is not a leaf node so we shouldnt compare with root.val
-            temp2 = l+r+root.val                         required path  pass through our node 4(node 4 bolega mai hi answer nahi hu )
-                                                        l+r+root.val                       --  sumofNodes  from left and right  + node 4 ka  val 
-            
-            ans = temp2                                   max of not passing through node4 and passing through node 4 is answer  BUT temp may have a path sum from leaf to any node so if temp becomes greater ans might store leaf to any node which is not as require                                                                                         
-            res = max(res,ans)                            max path of all answers                                              
-    
-
-            return temp1 ;                                 we dont return res but temp which is the val we need to pass ahead
-        }
-
-        //OVERRIDE
-        public int  DFSLeafToLeaf(Node root){
-            return DFSLeafToLeaf(root);
-        }
-
-        Time :O(n) if it is balanced tree  as we traverse all nodes in tree
-            :O(n)  if it is unbalanced completely left/right skewed tree  as we traverse all nodes in tree
-        Space:O(h) = O(log n) if it is balanced tree  as we traverse entire height 
-             :O(h) = O(n) if it is unbalanced completely left/right skewed tree   as we traverse entire height 
-              +
-              O(n) we are  using list that takes extra space
-        */
-
-        
-
-        return 0;
-
-
-    }
     public int  DFSTopToBottom(Node root, int currentsum, int targetSum, Map<Integer, Integer> map) {
         /*
-         root-- 10      -->-->Traverse  left-right,top-bottom (DFS) 
+         root-- 10      -->Traverse  left-right,top-bottom (DFS) 
                /  \       return path of  top to bottom node(top to bottom means any to any just your traversal  must be top to bottom) -- returning top to bottom path is tedious 
-              5    3                                                                                                                            so I have done top to bottom   paths that have targetSum
-             / \     \  ** TOP TO BOTTOM not ncessarily pass throught root                                                                      EG 5,3 ; 5,2,1 ; 3-11,16 for target  = 8
-            3  2     -11 
+              5    3     ** TOP TO BOTTOM not ncessarily pass throught root                                                                                                                         so I have done top to bottom   paths that have targetSum
+             / \     \     Eg:Returning all paths for any to any is tedious                                                               
+            3  2     -11     
 
 
 
@@ -1534,24 +1430,7 @@ rs=1              rs=0     rs=1
     }
 
     
-
- 
     //DFSPREPOSTINORDER
-    /*
-    HeightOfBinTree   -->DFSPrePostInOrderMaxNoOfNode    HeightOfBinTree =  MaxDepthOfBinTree
-    MaxDepthOfBinTree -->DFSPrePostInOrderMaxNoOfNode 
-    MinDepthOfBinTree -->DFSPrePostInOrderMinNoOfNode
-    SizeOfBinTree     -->DFSPrePostInOrderNoOfNodes
-
-    Balanced Binary Tree -->DFSPrePostInOrderIsBalanced
-    Full Binary Tree     -->DFSPrePostInOrderisFull                                 
-    Complete Binary Tree -->DFSPrePostInOrderisComplete
-    Perfect Binary tree  -->DFSPrePostInOrderisPerfect  
-    
-    BinarySearchTree   -->DFSPrePostInOrderIsBSTI,DFSPrePostInOrderIsBST
-    BinaryAVLTree      -->DFSPrePostInOrderIsBATI,DFSPrePostInOrderIsBAT
-
-    */
     public void DFSPrePostInOrderNoOfNodes  (Node root){
         /*
           root-- 7        -->travel left-right;top-bottom      (DFS)
@@ -1813,133 +1692,6 @@ rs=1              rs=0     rs=1
         */
 
     }
-    public void DFSPrePostInOrderMaxNoOfNode(Node root){
-        /*
-          root-- 7        -->travel travel left-right;top-bottom            (DFS)
-                /  \         and return max no of nodes on path from root to leaf(root to leaf)
-               4    9        3
-              / \    / \     
-             1  6   8  10    
-             /  \ /\  /\  / \
-            n  n  n n n n  n n
-           */
-
-        //RECURSIVE IP OP TREE
-        /*
-        return DFSRootToLeafPathsKaMaxNoOfNodes(root,0);
-        */
-
-        //RECURSIVE IP OP TREE
-        /*          
-                  7 l=2r=1                                   
-             2   /          \  1                                                  
-                /            \ 
-        l=1;r=1  4                1   l=0,r=0
-                /  \                
-            1  /    \ 1     --return max(left,right)+1
-              /      \              
-        l=0;r=0  8        7 l=0;r=0   
-            /\       /\      
-          0/  \ 0  0/  \0    -- return 0
-        n  n    n    n   
-
-        public int     DFSPrePostInOrderMaxNoOfNode(Node root)
-
-                                                                --while going top-bottom
-            if(root==null) {return 0;}                            return 0 at null andmove up 
-                                                                pass to next node
-
-            int left = DFSPrePostInOrderMaxNoOfNode(root.left);   --while going left-right  
-            int right =DFSPrePostInOrderMaxNoOfNode(root.right);    left,right n holds the max no of nodes of left and right subtree
-
-                                                                --while going bottom-top
-            return Math.max(left,right) + 1;                        max no of nodes  on left ,right subtree + node ka 1 
-                                                                    pass to next node
-        }
-
-        //OVERRIDE
-        public int DFSPrePostInOrderMaxNoOfNode(Node root){
-            return DFSPrePostInOrderMaxNoOfNode(root);
-
-        }
-
-        Time :O(n) if it is balanced tree  as we traverse all nodes in tree
-            :O(n)  if it is unbalanced completely left/right skewed tree  as we traverse all nodes in tree
-        Space:O(h) = O(log n) if it is balanced tree  as we traverse entire height 
-            :O(h) = O(n) if it is unbalanced completely left/right skewed tree   as we traverse entire height 
-            +
-            O(n) we are  using list that takes extra space
-
-        */
-
-
-
-     
-
-    }
-    public void DFSPrePostInOrderMinNoOfNode(Node root){
-        /*
-          root-- 7        -->travel travel left-right;top-bottom                 (DFS)
-                /  \         and return min no of nodes on path from root to leaf(root to leaf)
-               4    9        3
-              / \    / \     
-             1  6   8  10    
-             /  \ /\  /\  / \
-            n  n  n n n n  n n
-           */
-
-        //RECURSIVE IP OP TREE
-        /*
-        SAME AS DFSRootToLeafPathsKaMinNoOfNodes()  
-        */
-
-        //RECURSIVE IP-OP TREE
-        /* 
-                   7  l=2r=1                                   
-            2   /          \  1                                                  
-               /            \ 
-    l=1;r=1  4                1   l=0,r=0
-             /  \                
-         1  /    \ 1     --return min(left,right)+1
-           /      \              
- l=0;r=0  8        7 l=0;r=0   
-         /\       /\      
-       0/  \ 0  0/  \0    -- return 0
-        n  n    n    n   
-
-
-        public int     DFSPrePostInOrderMinNoOfNode (Node root)
-
-                                                                --while going top-bottom
-            if(root==null) {return 0;}                            return 0 at null andmove up
-                                                                pass to next node
-
-            int left = DFSPrePostInOrderMinNoOfNode(root.left);   --while going left-right   
-            int right  =DFSPrePostInOrderMinNoOfNode(root.right);    left,right   holds the min no of nodes of left and right subtree
-
-                                                                --while going bottom-top
-            return min(left,right) + 1;                             min no of nodes  on left ,right subtree + node ka 1 
-                                                                    pass to next node
-        }
-
-        //OVERRIDE
-        public int  DFSPrePostInOrderMinNoOfNode(Node root){
-            return DFSPrePostInOrderMinNoOfNode(root);
-
-        }
-        Time :O(n) if it is balanced tree  as we traverse all nodes in tree
-            :O(n)  if it is unbalanced completely left/right skewed tree  as we traverse all nodes in tree
-        Space:O(h) = O(log n) if it is balanced tree  as we traverse entire height 
-            :O(h) = O(n) if it is unbalanced completely left/right skewed tree   as we traverse entire height 
-            +
-            O(n) we are  using list that takes extra space
-        */
-     
-        
-         
-     
-
-    }
     public void DFSPrePostInOrderSumOfNodes (Node root){
         /*
           root-- 7        --travel left-right;top-bottom      (DFS)
@@ -2109,7 +1861,7 @@ rs=1              rs=0     rs=1
            root-- 7        -->travel left-right;top-bottom       (DFS)
                  /  \         and  if contains return true false 
                 4    9        and if contains return node or null Eg 4
-               / \    / \      and if contains eturn node and its subtrenodes or null  Eg [4,1,6]
+               / \    / \     and if contains return node and its subtrenodes or null  Eg [4,1,6]
               1  6   8  10    
               /  \ /\  /\  / \
              n  n  n n n n  n n
@@ -2768,7 +2520,7 @@ rs=1              rs=0     rs=1
 
 
     }
-    public void DFSPrePostInOrderSiblings   (Node root ,int n1 , int n2){
+    public void DFSPrePostInOrderAreSiblings   (Node root ,int n1 , int n2){
         /*
            root-- 7        -->travel left-right;top-bottom         (DFS)
                  /  \         and  return whether  nodes are siblings ie belong to same parent
@@ -2782,7 +2534,7 @@ rs=1              rs=0     rs=1
   
         //RECURSION IP-OP TREE
         /* 
-        public void DFSPrePostInOrderSiblings(Node root ,int n1 , int n2){                                                                                                 
+        public void DFSPrePostInOrderAreSiblings(Node root ,int n1 , int n2){                                                                                                 
                                                                        -- while going top-bottom   
             if (root == null){return;}                                  return at null and  start moving up 
             if(root.left != null && root.right != null){                 NEED FOR NULL CHECK-root.left , root.right  cant be null inside fn 
@@ -2793,14 +2545,14 @@ rs=1              rs=0     rs=1
                 }                                                                  
             }
     
-            DFSPrePostInOrderSiblings(root.left,n1,n2);              --while going left-right
-            DFSPrePostInOrderSiblings(root.right,n1,n2);
+            DFSPrePostInOrderAreSiblings(root.left,n1,n2);              --while going left-right
+            DFSPrePostInOrderAreSiblings(root.right,n1,n2);
         }
 
         //OVERRIDE
         public boolean pathBoolean = false;
-        public void DFSPrePostInOrderSiblings(Node root ,int n1 , int n2){
-            DFSPrePostInOrderSiblings(root,n1,n2);
+        public void DFSPrePostInOrderAreSiblings(Node root ,int n1 , int n2){
+            DFSPrePostInOrderAreSiblings(root,n1,n2);
             return pathBoolean;
 
         }
@@ -2830,13 +2582,13 @@ rs=1              rs=0     rs=1
      n  n    n    n   n  n      n  n
 
 
-        public boolean DFSPrePostInOrderSiblings(Node root , int n1, int n2)
+        public boolean DFSPrePostInOrderAreSiblings(Node root , int n1, int n2)
                                                                             --while going top-bottom
             if(root==null) {return false;}                                     return false at null and move up 
                                                                                 pass to next node
 
-            boolean left = DFSPrePostInOrderSiblings(root.left, n1, m2);   --while going left-right 
-            boolean right = DFSPrePostInOrderSiblings(root.right ,n1, n2);  left,right  hold whether  left and right subtree are siblings
+            boolean left = DFSPrePostInOrderAreSiblings(root.left, n1, m2);   --while going left-right 
+            boolean right = DFSPrePostInOrderAreSiblings(root.right ,n1, n2);  left,right  hold whether  left and right subtree are siblings
 
                                                                             -- while coming  bottom-top 
             if (root.left != null && root.right != null) {                    NEED FOR NULL CHECK-root.left , root.right  cant be null inside fn       
@@ -2854,8 +2606,8 @@ rs=1              rs=0     rs=1
         }
 
         //OVERRIDE
-        public boolean DFSPrePostInOrderSiblings(Node root , int n1, int n2){
-            return DFSPrePostInOrderSiblings(root, n1, n2)
+        public boolean DFSPrePostInOrderAreSiblings(Node root , int n1, int n2){
+            return DFSPrePostInOrderAreSiblings(root, n1, n2)
         }
 
         Time :O(n) if it is balanced tree  as we traverse all nodes in tree
@@ -2961,9 +2713,9 @@ rs=1              rs=0     rs=1
     }
     public void DFSPrePostInOrderIOSucessor (Node root, Node node){
         /*
-        5   -- Traverse the tree in in order fashion and return the inorder sucessor(ie node we will enc after given node while travelling inOrder) 
-        /\      Eg: 6 -->5
-       3  6
+        5   -- Traverse the tree in inorder fashion and 
+        /\     return the inorder sucessor(ie node we will enc after given node while travelling inOrder)  
+       3  6    Eg: 6 -->5
        /\
       2  4
       /
@@ -3200,9 +2952,9 @@ rs=1              rs=0     rs=1
         /*
            7            7      -->travel left-right;top-bottom       (DFS)
          /  \           /\         and invert binary tree about y axis 
-        4    9         6  4       
+        4    9         9  4       
         / \  / \      /\  /\
-       1  6  3  2    2  3 1 6
+       1  6  3  2    2  3 6 1
 
          */
  
@@ -3334,11 +3086,11 @@ rs=1              rs=0     rs=1
         /*
            7            7      -->travel left-right;top-bottom       (DFS)
          /  \           /\         and  souble tree by inserting a duplicate node on left  
-        4    9         7  4
+        4    9         7  9
                       /   /
-                     6   4
+                     4   9
                      /
-                    6 
+                    4
 
 
 
@@ -3429,133 +3181,6 @@ rs=1              rs=0     rs=1
         
         
         
-    }
-    public void DFSPrePostInOrderFlattenToLL(Node root , List<Integer> path){
-        /*
-           7            7      -->travel left-right;top-bottom      (DFS)
-         /  \            \         Flatten binary tree to EQUIVALENT LL 
-        4    9            4        The "linked list" should use the same TreeNode class where the right child pointer points to the next node in the list and the left child pointer is always null.
-        / \  / \           \       The "linked list" should be in the same order as a pre-order traversal of the binary tree.
-       1  6  3  2           1
-                             \
-                              6
-                               \
-                                9
-                                 \
-                                  3
-                                   \
-                                    2
-
-         */
- 
-
-  
-            
-        //RECURSION IP - OP TREE
-        /*   
-        public void DFSPrePostInOrderFlattenToLL(Node root , List<Integer> path)
-                                                -- while going top-bottom   
-            if (root == null){return;}               return at null and  start moving up 
-            X                                       NEED FOR NULL CHECK: root.left , root.right  cant be null inside fn  BUT DONT DO NULL CHECK BECAUSE ROOT.LEFT AND ROOT.RIGHT ARE REQUIRED AS WE  ASSIGNING THEM VAUES EVEN IF THEY ARE NULL  EG: CONSIDER[1,2,null,5,6]                               
-            path.add(root.val);                      add to path then later while overloading  (actually root.left , root,right is done in   overload  to ye udhar ke liye hai )
-                                                    iterate this path from index 1 
-                                                    root.left = null  root.right node = new Node(value of list)
-
-
-            DFSPrePostInOrderFlattenToLL(root.left,path); -- while coming left-right
-            DFSPrePostInOrderFlattenToLL(root.right,path);
-        }
-
-        //OVERLOAD
-        public void DFSPrePostInOrderFlattenToLL(TreeNode root) {  
-            List<Integer> path  = new ArrayList<>();
-            DFSPrePostInOrderFlattenToLL(root,path);
-            
-            if(path.size() == 0 || path.size() == 1){
-                return;
-            }
-            
-            for(int i = 1 ; i < path.size();i++){    
-                root.left = null;
-                root.right = new TreeNode(path.get(i));
-                
-                root = root.right;
-                
-            }
-        }
-
-    
-        
-        Time :O(n) if it is balanced tree  as we traverse all nodes in tree 
-            :O(n)  if it is unbalanced completely left/right skewed tree  as we traverse all nodes in tree
-        Space:O(h) = O(log n) if it is balanced tree  as we traverse entire height 
-                :O(h) = O(n) if it is unbalanced completely left/right skewed tree   as we traverse entire height 
-                +
-                O(n) as we use list  
-        */ 
- 
-        
-        //RECURSION IP OP TREE
-        /*
-        /WHILE COMING BOTTOM-UP YOU CANT RETURN VALUE(VOID TYPE) -->IF L,R WILL KEEP LEFT RIGHT SUBTREE ;SO WHILE COMING BOTTOM-TOP WHAT TO RETURN ? L?R?
-        */
-
-        //RECURSION IP - OP TREE MODIFIED
-        /*    
-        public void DFSPrePostInOrderFlattenToLL(Node root){
-                                                    -- while going top-bottom   
-            if (root == null){return;}                return at null and  start moving up 
-    
-
-                                                    --while going right-left
-            DFSPrePostInOrderFlattenToLL(root.right);  first go to right then to left
-            DFSPrePostInOrderFlattenToLL(root.left);   because this will give exact order of LL
-
-                                                    --while going bottom-top
-                                                    NEED FOR NULL CHECK: root.left , root.right  cant be null inside fn  BUT DONT DO NULL CHECK BECAUSE ROOT.LEFT AND ROOT.RIGHT ARE REQUIRED AS WE  ASSIGNING THEM VAUES EVEN IF THEY ARE NULL  EG: CONSIDER[1,2,null,5,6]                               
-            root.left = null;                        root.left = null ; root.right = previousNode                                    
-            if(pn!=null)root.right = previousNode;   store previousNode(allows duplicate node in BT)/previosNode value(allows only unique BT values) then previousNode will be available with us                                                            EG
-            previousNode =root             
-                                                     4   7             7
-                                                    /    \           \
-                                                 1 4      9 3         4
-                                                   /\     / \          \
-                                                  /  \   /   \          1
-                                                 1    6  3   2           \
-                                                6      9 2    null        6
-                                                                           \
-                                                                            9
-                                                                             \
-                                                                              3
-                                                                               \
-                                                                                2
-                                                                                 \
-                                                                                 null
-        }
-
-        //OVERLODAD
-        Node previousNode = null;
-        public void DFSPrePostInOrderFlattenToLL(TreeNode root) {  
-            DFSPrePostInOrderFlattenToLL(root);
-         
-        }
-
-
-       Time :O(n) if it is balanced tree  as we traverse all nodes in tree 
-            :O(n)  if it is unbalanced completely left/right skewed tree  as we traverse all nodes in tree
-        Space:O(h) = O(log n) if it is balanced tree  as we traverse entire height 
-             :O(h) = O(n) if it is unbalanced completely left/right skewed tree   as we traverse entire height 
-               +
-             O(1) as we use dont use list
-
-        
-        
-
-            */ 
-
-
-
-   
     }
     public void DFSPrePostInOrderCompare2TreeForEqual     (Node n1, Node n2){
         /*
@@ -3656,7 +3281,7 @@ rs=1              rs=0     rs=1
   
   
 }
-    public void DFSPrePostInOrderCompare2TreesForMerging  (Node n1, Node n2){
+    public void DFSPrePostInOrderCompare2TreesForMergingByAddition  (Node n1, Node n2){
         /*
                1            1    =>   2      -->travel left-right;top-bottom        (DFS)
              /  \           /\        /\        merge the binary tree such that 
@@ -3685,7 +3310,7 @@ rs=1              rs=0     rs=1
         n/  \ n                                                            --  return null/fn1/n2 depending on nullnes of n1,n2      
         n  n   
 
-        public Node    DFSPrePostInOrderCompare2TreesForMerging(Node n1, Node n2){     
+        public Node    DFSPrePostInOrderCompare2TreesForMergingByAddition(Node n1, Node n2){     
                                                                         --while going top-bottom
                                                                             NEED FOR NULL CHECK:WHILE CHECKING 2 NODES SIMULTANEOUSLY(NULL WHILE COMING DOWN ONLY NOT WHILE GOING UP AS YOU USE N1,N2 IN RECURSIVE CALL)
             if(n1 == null && n2 == null){                                                     n1,n2 both being null yeild a different result ; either being null yeild a different result 
@@ -3696,8 +3321,8 @@ rs=1              rs=0     rs=1
                 return n1;}
             n1.val = n1.val + n2.val;                                           add values of n1,n2 to n1 value
             
-            Node left = DFSPrePostInOrderCompare2TreesForMerging(n1.left,n2.left);          --while goig left-right
-            Node right = DFSPrePostInOrderCompare2TreesForMerging(n1.right,n2.right);         left riht holds left and right subtree 
+            Node left = DFSPrePostInOrderCompare2TreesForMergingByAddition(n1.left,n2.left);          --while goig left-right
+            Node right = DFSPrePostInOrderCompare2TreesForMergingByAddition(n1.right,n2.right);         left riht holds left and right subtree 
                 
                                                                                 --while going bottom-top
             n1.left = left;                                                     connect left tree to n1 ka left
@@ -3707,8 +3332,8 @@ rs=1              rs=0     rs=1
         }
 
         //OVERRIDE
-        public Node DFSPrePostInOrderCompare2TreesForMerging(Node n1, Node n2){
-            return DFSPrePostInOrderCompare2TreesForMerging(n1, n2)
+        public Node DFSPrePostInOrderCompare2TreesForMergingByAddition(Node n1, Node n2){
+            return DFSPrePostInOrderCompare2TreesForMergingByAddition(n1, n2)
         }
 
          Time :O(n) if it is balanced tree  as we traverse all nodes in tree 
@@ -3782,10 +3407,10 @@ rs=1              rs=0     rs=1
     public void DFSPrePostInOrderCompare2TreesForConnect(Node root) {
         /*
             1----null         --Travel left-right;top-bottom  (DFS)
-            /   \                class Node{l,r,next}
-          2-----3---null         Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NUL
-        /  \    \               Initially, all next pointers are set to NULL.
-        4--- 5--- 6--null
+            /   \               Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NUL 
+          2-----3---null        Initially, all next pointers are set to NULL.  
+        /  \    \               class Node{l,r,next} 
+        4--- 5--- 6--null      
         /          \
         7---------  8--null
             */
@@ -4390,13 +4015,7 @@ rs=1              rs=0     rs=1
 
 
 
-    //DFSROOTOLEAF(HEIGHT,MAXDEPTH,MINDEPTH OF BINARY TREE)
-    /*
-    HeightOfBinTree     --> DFSRootToLeafPathsKaMaxNoOfNodes    HeightOfBinTree =  MaxDepthOfBinTree
-    MaxDepthOfBinTree  -->DFSRootToLeafPathsKaMaxNoOfNodes
-    MinDepthOfBinTree  -->DFSRootToLeafPathsKaMinNoOfNodes
-
-    */
+    //DFSROOTOLEAF
     public void DFSRootToLeafPathsKaNoOfNodesList (Node root ,List<Integer> pathCountList , int pathCount){
           /*
           root-- 7        -->travel left-right ,top-bottom            (DFS)
@@ -5129,14 +4748,184 @@ rs=1              rs=0     rs=1
  
      }
     
+                  
+    //DFSLEAFTOLEAF
+    public void  DFSLeafToLeafPathsKaMaxSumOfNodes(Node root){
+        /*
+         root-- 7      -->Traverse left-right ,top-bottom  (DFS)
+               /  \       return leaf to leaf  path max no of nodes  (LeafToLeaf)    
+              4    9      
+             / \    / \  
+             1  6   8  10 
+           /  \ /\  /\  / \
+          n  n  n n n n  n n
+
+        */
+          
+
+        //RECURSION IP -OP TREE
+        /*
+                  7 l=12;r=8                                  
+            12  /          \  8                                                  
+               /            \ 
+    l=8;r=7  4                1   l=0,r=7
+             /  \               \  
+         8  /    \ 7             \  1               --return  max(l,r) + root.val   
+           /      \               \
+ l=0;r=0  8  l,   7 l=0,r=0        1 l=0;r=6
+         /\       /\              /\
+       0/  \ 0  0/  \0          0/  \1              
+        n  n    n    n           n   6 l=0,r=0
+                                  0  /\ 0
+                                    /  \
+                                    n   n             -- return 0
+    public int  DFSLeafToLeafPathsKaMaxSumOfNodes(Node root)
 
 
-    //DFSANYTOANY(DIAMETER OF BIN TREE)
-    /* 
-    DiameterOfBinTree  --> DFSAnyToAnyPathsKaMaxNoOfNodes
+                                        --while going top-bottom  
+        if(root==null) {return 0 ;}     return 0  at null and start moving up 
+
+    
+
+        int left = DFSLeafToLeafPathsKaMaxSumOfNodes(root.left);   --while going left-right  
+        int right = DFSLeafToLeafPathsKaMaxSumOfNodes(root.right);   left-right  holds sum of nodes from left and right 
+
+                                                --while coming up 
+                                                  NEED FOR NULL CHECK:root.left , root.right  being   null yeild different results 
+                                                  if left is null then left returns 0 , right returns sumofNodes(+ve/-ve) ;for +ve max(l,r) takes sumOfNodes of right where leaf present no issue ; for -ve max(l,r) takes sumOfNodes of left but leaf present on right                                                                                                                             
+        if(root.left == null){                    if left is null find sumOfNodes on right subtree + root val 
+          return right+root.val }                 if right is null find sum of nodes on left subtree + root val
+       if(root.right == null){                    and return else wont encounter base
+          return left + root.val}                        
+         OR                                      
+        if(root.left==null||root.right==null)      if left or right is null find max of sumOfNodes on left and right subtree + root val  
+            return Math.max(left,right)+root.val}  This is "INVALID" as sumofNodes can be -ve unlike noOfNodes so taking max here we may end up on the null node where leaf is not present                              
+                                           
+
+        temp1 =max(l,r) + root.val                 required path does not pass through our node4(find the calculation for path till node4 which we will pass ahead)
+                                                   max(l,r)+root.val                   --  max   sumofNodes  from left,right + node 4 ka  val 
+                                                  (max(l,r) + root.val ,root.val)X  -- root alone can be greater that the sum of l,r,root as there may be -ve vals so compare root also 
+                                                                                                 BUT  root is not a leaf node so we shouldnt compare with root.val
+                                                                                                 and pass the val to next node 
+        temp2 = l+r+root.val                       required path  pass through our node 4(node 4 bolega mai hi answer nahi hu )
+                                                   l+r+root.val                       --  max   sumofNodes from left + right + node 4 ka  val 
+        
+        ans = temp2                                 max of not passing through node4 and passing through node 4 is answer  BUT temp may have a path sum from leaf to any node so if temp becomes greater ans might store leaf to any node which is not as require                                                                                         
+        res = max(res,ans)                          max path of all answers                                              
  
-                                                                          
-    */
+
+        return temp1 ;                              we dont return res but temp which is the val we need to pass ahead
+       }
+
+       //OVERRIDE
+        public int  DFSLeafToLeafPathsKaMaxSumOfNodes(Node root){
+            return DFSLeafToLeafPathsKaMaxSumOfNodes(root);
+        }
+
+
+        Time :O(n) if it is balanced tree  as we traverse all nodes in tree
+            :O(n)  if it is unbalanced completely left/right skewed tree  as we traverse all nodes in tree
+        Space:O(h) = O(log n) if it is balanced tree  as we traverse entire height 
+             :O(h) = O(n) if it is unbalanced completely left/right skewed tree   as we traverse entire height 
+              +
+              O(n) we are  using list that takes extra space
+        */
+
+
+
+
+
+
+    }
+    public void  DFSLeafToLeafPathsKaMinSumOfNodes(Node root){
+        /*
+         root-- 7      -->Traverse left-right ,top-bottom  (DFS)
+               /  \       return leaf to leaf  path min no of nodes  (LeafToLeaf)    
+              4    9      
+             / \    / \  
+             1  6   8  10 
+           /  \ /\  /\  / \
+          n  n  n n n n  n n
+
+        */
+          
+
+        //RECURSION IP -OP TREE
+        /*
+                   7 l=11;r=1                                  
+             11  /          \  1                                                  
+               /             \ 
+    l=8;r=7  4                1   l=0,r=1
+             /  \               \  
+         8  /    \ 7             \  1               --return min(l,r) + root.val 
+           /      \               \
+ l=0;r=0  8  l,   7 l=0,r=0        1 l=0;r=6
+         /\       /\              /\
+       0/  \ 0  0/  \0          0/  \ 6           
+        n  n    n    n           n   6 l=0,r=0
+                                  0  /\ 0
+                                    /  \
+                                    n   n             -- return 0
+    public int  DFSLeafToLeafPathsKaMinSumOfNodes(Node root)
+                                    
+                                        --while going top-bottom  
+        if(root==null) {return 0 ;}       return 0  at null and start moving up 
+
+
+        int left = DFSLeafToLeafPathsKaMaxSumOfNodes(root.left);  -- while going left-right
+        int right = DFSLeafToLeafPathsKaMaxSumOfNodes(root.right);   left-right holds sum from left and right subtree
+
+
+                                         --while going bottom-top
+                                           NEED FOR NULL CHECK:Root.left,root.right(outside recursive call)  either being null yeild different result in code ;so  add null check where either one of them is null 
+                                           if left is null then left returns 0 , right returns sumofNodes(+ve/-ve) ;for +ve min(l,r) takes sumOfNodes of left where leaf not present so issue ; for -ve min(l,r) takes sumOfNodes of right  leaf present on right so no issue                                                                                                                            
+        if(root.left == null){             if left is null find sumOfNodes on right subtree + root val 
+          return right+root.val }          if right is null find sum of nodes on left subtree + root val
+       if(root.right == null){             and return else wont encounter base
+          return left + root.val}                        
+         OR                                      
+        if(root.left==null||root.right==null)       if left or right is null find min of sumOfNodes on left and right subtree + root val  
+            return Math.min(left,right)+root.val}   This is "INVALID" as sumofNodes can be -ve unlike noOfNodes so taking min here we may end up on the null node where leaf is not present                              
+                                                
+
+
+        temp1 =min(l,r) + root.val          required path does not pass through our node4(find the calculation for path till node4 which we will pass ahead)
+                                             min(l,r)+root.val                 --  min  sumofNodes  from left,right  + node 4 ka  val 
+                                            (min(l,r) + root.val ,root.val)X  -- root alone can be greater that the sum of l,r,root as there may be -ve vals so compare root also
+                                                                                 BUT  root is not a leaf node so we shouldnt compare with root.val
+                                                                                 and pass the val ahead to next node
+        temp2 = l+r+root.val                required path  pass through our node 4(node 4 bolega mai hi answer nahi hu )
+                                             l+r+root.val                       --   sumofNodes from left + right + node 4 ka  val 
+        
+        ans = temp2                         min of not passing through node4 and passing through node 4 is answer  BUT temp may have a path sum from leaf to any node so if temp becomes greater ans might store leaf to any node which is not as require                                                                                         
+        res = min(res,ans)                  max path of all answers                                              
+ 
+
+
+        return temp1 ;                       we dont return res but temp which is the val we need to pass ahead
+       }
+
+        public int  DFSLeafToLeafPathsKaMinSumOfNodes(Node root){
+            return DFSLeafToLeafPathsKaMinSumOfNodes(root);
+        }
+
+        Time :O(n) if it is balanced tree  as we traverse all nodes in tree
+            :O(n)  if it is unbalanced completely left/right skewed tree  as we traverse all nodes in tree
+        Space:O(h) = O(log n) if it is balanced tree  as we traverse entire height 
+             :O(h) = O(n) if it is unbalanced completely left/right skewed tree   as we traverse entire height 
+              +
+              O(n) we are  using list that takes extra space
+        */
+
+
+
+
+
+    }
+
+
+
+    //DFSANYTOANY
     public void DFSAnyToAnyPathsKaMaxNoOfNodes(Node root){
         /*
          root-- 7      -->Traverse left-right ,top-bottom  (DFS)
@@ -5486,182 +5275,94 @@ rs=1              rs=0     rs=1
     }
     
 
-             
-    //DFSLEAFTOLEAF
-    public void  DFSLeafToLeafPathsKaMaxSumOfNodes(Node root){
+
+
+    //DFSTOPTOBOTTOM
+    public int  DFSTopToBottomPathsWithTargetSum(Node root, int currentsum, int targetSum, Map<Integer, Integer> map) {
         /*
-         root-- 7      -->Traverse left-right ,top-bottom  (DFS)
-               /  \       return leaf to leaf  path max no of nodes  (LeafToLeaf)    
-              4    9      
-             / \    / \  
-             1  6   8  10 
-           /  \ /\  /\  / \
-          n  n  n n n n  n n
+         root-- 10      -->Traverse  left-right,top-bottom (DFS) 
+               /  \       return path of  top to bottom node(top to bottom means any to any just your traversal  must be top to bottom) paths that have targetSum  
+              5    3      ** TOP TO BOTTOM not ncessarily pass throught root                                                                                                            
+             / \     \    EG 5,3 ; 5,2,1 ; 3-11,16 for target  = 8                                                                
+            3  2     -11  
+
+
 
         */
-          
+        
 
-        //RECURSION IP -OP TREE
-        /*
-                  7 l=12;r=8                                  
-            12  /          \  8                                                  
-               /            \ 
-    l=8;r=7  4                1   l=0,r=7
-             /  \               \  
-         8  /    \ 7             \  1               --return  max(l,r) + root.val   
-           /      \               \
- l=0;r=0  8  l,   7 l=0,r=0        1 l=0;r=6
-         /\       /\              /\
-       0/  \ 0  0/  \0          0/  \1              
-        n  n    n    n           n   6 l=0,r=0
-                                  0  /\ 0
-                                    /  \
-                                    n   n             -- return 0
-    public int  DFSLeafToLeafPathsKaMaxSumOfNodes(Node root)
-
-
-                                        --while going top-bottom  
-        if(root==null) {return 0 ;}     return 0  at null and start moving up 
 
     
+        //RECURSIVE IP OP TREE   
+        /*
+        Consider  for target  = 8  paths will be  5,3 ; 3,-11
+               10  l= 1,r=1,rs=0  
+              /  \
+          1  /    \  1
+            /      \  
+  l=1,r=0  5       3     l=0,r=1                                                                                                               
+  rs=0     / \       \   rs=0                      --return temp(temp =  left + right +  noOfPathsWithRequiredSum   )
+         1/   \0      \1
+         /     \       \                                                     
+l=0;r=0 3      2 l,r=0 -11 l=0;r=0
+rs=1              rs=0     rs=1 
+                                                  --return 0
 
-        int left = DFSLeafToLeafPathsKaMaxSumOfNodes(root.left);   --while going left-right  
-        int right = DFSLeafToLeafPathsKaMaxSumOfNodes(root.right);   left-right  holds sum of nodes from left and right 
+                                       
 
-                                                --while coming up 
-                                                  NEED FOR NULL CHECK:root.left , root.right  being   null yeild different results 
-                                                  if left is null then left returns 0 , right returns sumofNodes(+ve/-ve) ;for +ve max(l,r) takes sumOfNodes of right where leaf present no issue ; for -ve max(l,r) takes sumOfNodes of left but leaf present on right                                                                                                                             
-        if(root.left == null){                    if left is null find sumOfNodes on right subtree + root val 
-          return right+root.val }                 if right is null find sum of nodes on left subtree + root val
-       if(root.right == null){                    and return else wont encounter base
-          return left + root.val}                        
-         OR                                      
-        if(root.left==null||root.right==null)      if left or right is null find max of sumOfNodes on left and right subtree + root val  
-            return Math.max(left,right)+root.val}  This is "INVALID" as sumofNodes can be -ve unlike noOfNodes so taking max here we may end up on the null node where leaf is not present                              
-                                           
 
-        temp1 =max(l,r) + root.val                 required path does not pass through our node4(find the calculation for path till node4 which we will pass ahead)
-                                                   max(l,r)+root.val                   --  max   sumofNodes  from left,right + node 4 ka  val 
-                                                  (max(l,r) + root.val ,root.val)X  -- root alone can be greater that the sum of l,r,root as there may be -ve vals so compare root also 
-                                                                                                 BUT  root is not a leaf node so we shouldnt compare with root.val
-                                                                                                 and pass the val to next node 
-        temp2 = l+r+root.val                       required path  pass through our node 4(node 4 bolega mai hi answer nahi hu )
-                                                   l+r+root.val                       --  max   sumofNodes from left + right + node 4 ka  val 
+
+        public int  DFSTopToBottom(Node root, int currentsum, int targetSum, Map<Integer, Integer> map)                                                               
+                                                                            -- while going down     
+            if (root == null){return 0 ;}                                        return 0 at null and  start moving up     
+            currentsum               = currentsum + root.val;                   find no of paths with target sum
+            int requiredSum          = currentsum - targetSum;                  suppose node3 is the curent node(look in question)                                                                                                   
+            int noOfPathsWithCurrentSum  = map.getOrDefault(currentsum, 0) + 1; sum of node 10-3(curretsum)  - sum of node 10(requiredSum) = sum of node 5-3(targetSum)     
+            int noOfPathsWithRequiredSum = map.getOrDefault(requiredSum, 0);    sum of node 10(requiredSum) =  sum of node 10-3(curretsum) -sum of node 5-3(targetSum)       
+            map.put(currentsum,noOfPathsWithCurrentSum);                        now count no of paths with required sum which will be equal to no of paths with target sum                                            
+            |
+            |
+            Default SUM = 0 KA COUNT=1 MAIN METHOD ME SET KARNA PADEGA
+
+
+                                                                                                                
+            int left = DFSTopToBottom(root.left,currentsum,targetSum,map);  --while going left-right 
+            int right = DFSTopToBottom(root.right,currentsum,targetSum,map)    left right holds the no  of paths with requires sum fro  of left and right subtree
         
-        ans = temp2                                 max of not passing through node4 and passing through node 4 is answer  BUT temp may have a path sum from leaf to any node so if temp becomes greater ans might store leaf to any node which is not as require                                                                                         
-        res = max(res,ans)                          max path of all answers                                              
- 
+        
+                                                                                while going bottom-up
+            temp =  left + right +  noOfPathsWithRequiredSum                     noOfPathsWithSUm till node                                                
+            map.put(currentsum, map.get(currentsum) - 1);                          update map  
+                                                                                            
+                                                                            
+            return temp;
+        }
 
-        return temp1 ;                              we dont return res but temp which is the val we need to pass ahead
-       }
-
-       //OVERRIDE
-        public int  DFSLeafToLeafPathsKaMaxSumOfNodes(Node root){
-            return DFSLeafToLeafPathsKaMaxSumOfNodes(root);
+        //OVERRIDE
+        public int DFSTopToBottom(Node root, int targetSum) {
+            Map<Integer,Integer> map = new HashMap<>();
+            map.put(0, 1);                                   //Default sum = 0 has one count
+            int currentsum = 0;
+            return DFSTopToBottom(root,currentsum,targetSum,map);
         }
 
 
+                        
         Time :O(n) if it is balanced tree  as we traverse all nodes in tree
             :O(n)  if it is unbalanced completely left/right skewed tree  as we traverse all nodes in tree
         Space:O(h) = O(log n) if it is balanced tree  as we traverse entire height 
              :O(h) = O(n) if it is unbalanced completely left/right skewed tree   as we traverse entire height 
               +
               O(n) we are  using list that takes extra space
-        */
-
-
-
-
-
-
-    }
-    public void  DFSLeafToLeafPathsKaMinSumOfNodes(Node root){
-        /*
-         root-- 7      -->Traverse left-right ,top-bottom  (DFS)
-               /  \       return leaf to leaf  path min no of nodes  (LeafToLeaf)    
-              4    9      
-             / \    / \  
-             1  6   8  10 
-           /  \ /\  /\  / \
-          n  n  n n n n  n n
 
         */
-          
 
-        //RECURSION IP -OP TREE
-        /*
-                   7 l=11;r=1                                  
-             11  /          \  1                                                  
-               /             \ 
-    l=8;r=7  4                1   l=0,r=1
-             /  \               \  
-         8  /    \ 7             \  1               --return min(l,r) + root.val 
-           /      \               \
- l=0;r=0  8  l,   7 l=0,r=0        1 l=0;r=6
-         /\       /\              /\
-       0/  \ 0  0/  \0          0/  \ 6           
-        n  n    n    n           n   6 l=0,r=0
-                                  0  /\ 0
-                                    /  \
-                                    n   n             -- return 0
-    public int  DFSLeafToLeafPathsKaMinSumOfNodes(Node root)
-                                    
-                                        --while going top-bottom  
-        if(root==null) {return 0 ;}       return 0  at null and start moving up 
-
-
-        int left = DFSLeafToLeafPathsKaMaxSumOfNodes(root.left);  -- while going left-right
-        int right = DFSLeafToLeafPathsKaMaxSumOfNodes(root.right);   left-right holds sum from left and right subtree
-
-
-                                         --while going bottom-top
-                                           NEED FOR NULL CHECK:Root.left,root.right(outside recursive call)  either being null yeild different result in code ;so  add null check where either one of them is null 
-                                           if left is null then left returns 0 , right returns sumofNodes(+ve/-ve) ;for +ve min(l,r) takes sumOfNodes of left where leaf not present so issue ; for -ve min(l,r) takes sumOfNodes of right  leaf present on right so no issue                                                                                                                            
-        if(root.left == null){             if left is null find sumOfNodes on right subtree + root val 
-          return right+root.val }          if right is null find sum of nodes on left subtree + root val
-       if(root.right == null){             and return else wont encounter base
-          return left + root.val}                        
-         OR                                      
-        if(root.left==null||root.right==null)       if left or right is null find min of sumOfNodes on left and right subtree + root val  
-            return Math.min(left,right)+root.val}   This is "INVALID" as sumofNodes can be -ve unlike noOfNodes so taking min here we may end up on the null node where leaf is not present                              
-                                                
-
-
-        temp1 =min(l,r) + root.val          required path does not pass through our node4(find the calculation for path till node4 which we will pass ahead)
-                                             min(l,r)+root.val                 --  min  sumofNodes  from left,right  + node 4 ka  val 
-                                            (min(l,r) + root.val ,root.val)X  -- root alone can be greater that the sum of l,r,root as there may be -ve vals so compare root also
-                                                                                 BUT  root is not a leaf node so we shouldnt compare with root.val
-                                                                                 and pass the val ahead to next node
-        temp2 = l+r+root.val                required path  pass through our node 4(node 4 bolega mai hi answer nahi hu )
-                                             l+r+root.val                       --   sumofNodes from left + right + node 4 ka  val 
-        
-        ans = temp2                         min of not passing through node4 and passing through node 4 is answer  BUT temp may have a path sum from leaf to any node so if temp becomes greater ans might store leaf to any node which is not as require                                                                                         
-        res = min(res,ans)                  max path of all answers                                              
- 
-
-
-        return temp1 ;                       we dont return res but temp which is the val we need to pass ahead
-       }
-
-        public int  DFSLeafToLeafPathsKaMinSumOfNodes(Node root){
-            return DFSLeafToLeafPathsKaMinSumOfNodes(root);
-        }
-
-        Time :O(n) if it is balanced tree  as we traverse all nodes in tree
-            :O(n)  if it is unbalanced completely left/right skewed tree  as we traverse all nodes in tree
-        Space:O(h) = O(log n) if it is balanced tree  as we traverse entire height 
-             :O(h) = O(n) if it is unbalanced completely left/right skewed tree   as we traverse entire height 
-              +
-              O(n) we are  using list that takes extra space
-        */
-
-
-
+        return 0;
 
 
     }
 
-
+    
     
 
     //CONSTRUCT
@@ -5841,6 +5542,133 @@ rs=1              rs=0     rs=1
 
         
     }
+    public void binaryTreeFlattenToLL(Node root , List<Integer> path){
+        /*
+           7            7      -->travel left-right;top-bottom      (DFS)
+         /  \            \         Flatten binary tree to EQUIVALENT LL 
+        4    9            4        The "linked list" should use the same TreeNode class where the right child pointer points to the next node in the list and the left child pointer is always null.
+        / \  / \           \       The "linked list" should be in the same order as a pre-order traversal of the binary tree.
+       1  6  3  2           1
+                             \
+                              6
+                               \
+                                9
+                                 \
+                                  3
+                                   \
+                                    2
+
+         */
+ 
+
+  
+            
+        //RECURSION IP - OP TREE
+        /*   
+        public void binaryTreeFlattenToLL(Node root , List<Integer> path)
+                                                -- while going top-bottom   
+            if (root == null){return;}               return at null and  start moving up 
+            X                                       NEED FOR NULL CHECK: root.left , root.right  cant be null inside fn  BUT DONT DO NULL CHECK BECAUSE ROOT.LEFT AND ROOT.RIGHT ARE REQUIRED AS WE  ASSIGNING THEM VAUES EVEN IF THEY ARE NULL  EG: CONSIDER[1,2,null,5,6]                               
+            path.add(root.val);                      add to path then later while overloading  (actually root.left , root,right is done in   overload  to ye udhar ke liye hai )
+                                                    iterate this path from index 1 
+                                                    root.left = null  root.right node = new Node(value of list)
+
+
+            binaryTreeFlattenToLL(root.left,path); -- while coming left-right
+            binaryTreeFlattenToLL(root.right,path);
+        }
+
+        //OVERLOAD
+        public void binaryTreeFlattenToLL(TreeNode root) {  
+            List<Integer> path  = new ArrayList<>();
+            binaryTreeFlattenToLL(root,path);
+            
+            if(path.size() == 0 || path.size() == 1){
+                return;
+            }
+            
+            for(int i = 1 ; i < path.size();i++){    
+                root.left = null;
+                root.right = new TreeNode(path.get(i));
+                
+                root = root.right;
+                
+            }
+        }
+
+    
+        
+        Time :O(n) if it is balanced tree  as we traverse all nodes in tree 
+            :O(n)  if it is unbalanced completely left/right skewed tree  as we traverse all nodes in tree
+        Space:O(h) = O(log n) if it is balanced tree  as we traverse entire height 
+                :O(h) = O(n) if it is unbalanced completely left/right skewed tree   as we traverse entire height 
+                +
+                O(n) as we use list  
+        */ 
+ 
+        
+        //RECURSION IP OP TREE
+        /*
+        /WHILE COMING BOTTOM-UP YOU CANT RETURN VALUE(VOID TYPE) -->IF L,R WILL KEEP LEFT RIGHT SUBTREE ;SO WHILE COMING BOTTOM-TOP WHAT TO RETURN ? L?R?
+        */
+
+        //RECURSION IP - OP TREE MODIFIED
+        /*    
+        public void binaryTreeFlattenToLL(Node root){
+                                                    -- while going top-bottom   
+            if (root == null){return;}                return at null and  start moving up 
+    
+
+                                                    --while going right-left
+            binaryTreeFlattenToLL(root.right);  first go to right then to left
+            binaryTreeFlattenToLL(root.left);   because this will give exact order of LL
+
+                                                    --while going bottom-top
+                                                    NEED FOR NULL CHECK: root.left , root.right  cant be null inside fn  BUT DONT DO NULL CHECK BECAUSE ROOT.LEFT AND ROOT.RIGHT ARE REQUIRED AS WE  ASSIGNING THEM VAUES EVEN IF THEY ARE NULL  EG: CONSIDER[1,2,null,5,6]                               
+            root.left = null;                        root.left = null ; root.right = previousNode                                    
+            if(pn!=null)root.right = previousNode;   store previousNode(allows duplicate node in BT)/previosNode value(allows only unique BT values) then previousNode will be available with us                                                            EG
+            previousNode =root             
+                                                     4   7             7
+                                                    /    \           \
+                                                 1 4      9 3         4
+                                                   /\     / \          \
+                                                  /  \   /   \          1
+                                                 1    6  3   2           \
+                                                6      9 2    null        6
+                                                                           \
+                                                                            9
+                                                                             \
+                                                                              3
+                                                                               \
+                                                                                2
+                                                                                 \
+                                                                                 null
+        }
+
+        //OVERLODAD
+        Node previousNode = null;
+        public void binaryTreeFlattenToLL(TreeNode root) {  
+            binaryTreeFlattenToLL(root);
+         
+        }
+
+
+       Time :O(n) if it is balanced tree  as we traverse all nodes in tree 
+            :O(n)  if it is unbalanced completely left/right skewed tree  as we traverse all nodes in tree
+        Space:O(h) = O(log n) if it is balanced tree  as we traverse entire height 
+             :O(h) = O(n) if it is unbalanced completely left/right skewed tree   as we traverse entire height 
+               +
+             O(1) as we use dont use list
+
+        
+        
+
+            */ 
+
+
+
+   
+    }
     public void binaryTreeSerializeDeserialize(){
         /*
         Question
@@ -5886,7 +5714,6 @@ rs=1              rs=0     rs=1
         
         */
     }
-
 
 
 

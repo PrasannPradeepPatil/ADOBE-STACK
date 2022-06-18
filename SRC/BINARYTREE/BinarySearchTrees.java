@@ -16,7 +16,7 @@ SAME AS BT
 SAME AS BT 
 +
 LEFTNODE <(! <=)ROOTNODE <(! <=) RIGHTNODE
-left subtree < right subtree                                                                EG:DFSPrePosttInOrderContains,II(BST);DFSPrePosttInOrderInsertI,II(BT)); 
+left subtree < right subtree                                                                 EG:DFSPrePosttInOrderContains,II(BST);DFSPrePosttInOrderInsertI,II(BT)); 
 left subtree < right subtree  so ancestor will be at splitting point                             DFSPrePostInOrderLowestComonAncestorI,II(BST) 
 left-right;bottom-top(top middle me ie inorder) will give nodes in purely ascending order     EG:DFSPrePosttInOrderkthMinNodeI,II(BST); DFSPrePosttInOrderkthMaxNodeI,II(BST); DFSPrePosttInOrderIsBSTI,II(BT)); 
 right-left;bottom-top(top middle me ie inorder) will give nodes in purely descending order       

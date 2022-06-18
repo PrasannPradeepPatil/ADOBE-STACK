@@ -3,9 +3,9 @@ package SRC.HASHMAPS;
 public class MapOpenAdressing {
     /*
       MAP
-      K|V ----> | HashFn |  ---->  k,v    --> k , v pair comes then hashtabe decides index based on key
-                                   ------    and the key value pair  is stored in hashtable at that index
-                                    k,v
+      k,v----> | HashFn |  ---->  k,v    --> k , v pair comes then hashtabe decides index based on key
+                                ------    and the key value pair  is stored in hashtable at that index
+                                  k,v
                          HashMap, HashTable,HashBucket
 
 
@@ -50,9 +50,9 @@ public class MapOpenAdressing {
     private int hashfunction(int key, int i) {
         /*
         RETURNS AN INDEX
-        LINEAR PROBING:  return ((key % array.length) + i) % array.length
-        QUADRATIC PROBING: return ((key % array.length) + i^2) % array.length; }
-        DOUBLE HASHING : return (  ( (key%array.length)   +   i*(prime- (key%prime)) ) %array.length  )   prime is prime number just less than array lengt
+        LINEAR PROBING    :return (key % array.length + i) % array.length
+        QUADRATIC PROBING :return (key % array.length + i^2) % array.length; 
+        DOUBLE HASHING    :return (key%array.length   + i*(prime- key%prime) ) %array.length  )   prime is prime number just less than array length
          */
         return ((key % array.length) + i) % array.length; }
     private int hashIndex(int key) {
@@ -62,13 +62,13 @@ public class MapOpenAdressing {
          so we need to traverse the array to find empty place
 
 
-          LINEAR PROBING:  if there is a collision then searches for empty by increasing by i
-                          ADV: Small increment in i so we do not fear running out of array length immediately
-                          DISADV : Small increment in I causes clustering
-          QUADRATIC PROBING:   if there is a collision then searches for empty by increasing by i^2
+          LINEAR PROBING    :if there is a collision then searches for empty by increasing by i
+                             ADV: Small increment in i so we do not fear running out of array length immediately
+                             DISADV : Small increment in i causes clustering
+          QUADRATIC PROBING :if there is a collision then searches for empty by increasing by i^2
                              ADV: Large  increment in i^2 so no clusterring
                              DISADV :large  increment in i^2  so we do fear running out of array length
-          DOUBLE HASHING:  if there is a collision then searches for empty by increasing by prime
+          DOUBLE HASHING    :if there is a collision then searches for empty by increasing by prime
 
 
 

@@ -27,7 +27,20 @@
  https://www.educative.io/courses/grokking-the-coding-interview
  https://github.com/Chanda-Abdul/Grokking-the-Coding-Interview-Patterns  
   
+//IMP IMPLEMENTATIONS
+1.Stack using any DS
+  Stack using queue(Follow up:use a single queue)
+  Dual stack using array
+  middle stack using doubly linkedlist
+  
 
+2.Queue using any DS
+  Queue using Stack(Follow up: amortised:O(1))
+  
+
+3. LRU Cache using DoublyLinkledList and HashMap
+
+4.Trie
 
 */
 

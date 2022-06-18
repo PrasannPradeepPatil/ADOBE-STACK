@@ -1,11 +1,14 @@
-package MISCALLENOUS;
+package SRC.MISCALLENOUS;
 import java.util.*;
 
 public class stringEncodeDecode {
     /*
-    ["abc","de","eff"] --Encode and decode a list of strings 
-                         The encoded string is then sent over the network 
-                         The string is decoded back to the original list of strings.
+    ["abc","de","eff"]
+      |
+      |
+    encoode() :convert list string  into a sequence of bits(smallest encoded string) 
+    decode() :converting back to list of string
+    
     */
 
     public String encode(List<String> list) {

@@ -2,11 +2,13 @@ package SRC.MISCALLENOUS;
 import java.util.*;
 public class arrayDataStreamMedian {
     /*
-    arrayDataStreamMedian() initializes the  object.
-    void addNum(int num) adds the integer num from the data stream to the data structure.
-    double findMedian() returns the median of all elements so far.
-                        median is the median of the sorted array
-                        median of odd numbers is middle element ; median of even no is avg of 2 middle elements
+
+    [1,2,3,4]
+    |
+    arrayDataStreamMedian():initializes dataStream object
+    add(int vak)           :adds val to data stream at end
+    getMedian()            :returns  median of data stream(median is mmiddle for odd,avg of middle for even of the sorted array) 
+                           
     */
 
     //USING INSERTION SORT
@@ -21,7 +23,7 @@ public class arrayDataStreamMedian {
         median = (double) 0.0;
     }
     
-    public void addNum(int num) {
+    public void add(int num) {
                                                      //ADD TO LIST IN SORTED MANNER
         int ptr = 0;                               --add elememnt to list at the correct index
         while(ptr <= list.size() -1){                NOTE: We can find index BY BS and improve time from O(n) to O(log n)
@@ -53,7 +55,7 @@ public class arrayDataStreamMedian {
     Time:O(n + n) as we iterate through whole array to insert and then insert at the position
     Space:O(n) as we use list
     
-    public double findMedian() {
+    public double getMedian() {
         return median;                                  --return median
     }
 
@@ -76,7 +78,7 @@ public class arrayDataStreamMedian {
 
 
     
-    public void addNum(int num) {
+    public void add(int num) {
         maxHeap.add(num);                              --add num to maxheap                 
                                                          remove from maxHeap and add to minHeap
         minHeap.add(maxHeap.remove());                   balance maxHeap and minHeap because maxHeap must have 1 element extra
@@ -90,7 +92,7 @@ public class arrayDataStreamMedian {
     
     }
     
-    public double findMedian() {
+    public double getMedian() {
         if(maxHeap.size() > minHeap.size() ){        --if maxHeap size > minHeap size
             return (double) maxHeap.peek();                means maxHeap has 1 element extra which is medianm
         else                                           else
@@ -153,4 +155,3 @@ public class arrayDataStreamMedian {
     
     */
 }
-

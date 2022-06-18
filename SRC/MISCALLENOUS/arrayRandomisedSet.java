@@ -1,14 +1,14 @@
 package SRC.MISCALLENOUS;
 import java.util.*;
 
-class RandomisedSet {
+class arrayRandomisedSet {
     /*
     [1,2,3] 
     |
-    RandomizedSet(): Initializes the RandomizedSet object.
-    insert(int val): Inserts an item val into the set if not present;returns true if the item was not present, false otherwise.
-    remove(int val): Removes an item val from the set if present;returns true if the item was present, false otherwise.
-    getRandom()     : Returns a random element from the current set of elements (it's guaranteed that at least one element exists when this method is called). Each element must have the same probability of being returned.
+    arrayRandomisedSet(): Initializes the arrayRandomisedSet object.
+    add(int val)   :add value to randomised set and return true if not exists  ; return false if exists
+    remove(int val):remove item from set and return true if exists; return false if not exists
+    getRandom()    :returns a random element from the current set of elements (random meand Each element must have the same probability of being returned and it's guaranteed that at least one element exists when this method is called)
     
     All fns must be implemented in "average" of O(1) complexity
     
@@ -18,7 +18,7 @@ class RandomisedSet {
     List<Integer> list;
     
     //CONSTRUCTOR
-    public RandomisedSet() {
+    public arrayRandomisedSet() {
         /*
         {}  --initialise map which will hold vakue as key and its index in our list as value
         []    initialise list which will hold the inserted value
@@ -28,7 +28,7 @@ class RandomisedSet {
     }
     
     //INSERT
-    public boolean insert(int val) {
+    public boolean add(int val) {
         /*
         {1:0,2:1,3:2}     --if map contains value
         [1,2,3]                return false

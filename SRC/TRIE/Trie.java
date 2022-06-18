@@ -1,4 +1,4 @@
-package TRIE;
+package SRC.TRIE;
 import java.util.*;
 import java.util.HashMap;
 import java.util.List;

@@ -42,13 +42,13 @@ public class BasicsAlgorithm {
     stringCompare2StringForIsomorphic()                                                              --ARRAY--MULTIPOINTERS SORT SEARCH X ;HASHMAP
     stringCompare2StringsForAnagram()                                                                --ARRAY--MULTIPOINTERS SORT SEARCH ;MATHS
     stringCompare2StringsForAnagramMissingCharacters()                                               --ARRAY--MULTIPOINTERS SORT SEARCH ;MATHS
-    stringSubsequenceKaCommonKaLongestLength()/KaString()                                              --LCS
-    stringSubstringKaCommonKaLongestLength()                                                           --LCS
-    stringSupersequenceKaCommonKaShortestLength()/KaString()                                           --LCS
-    stringSubstringKaCharacterContainingOtherStringKaIndex()                                                    --ARRAY--MULTIPOINTERS,KMP   
-    stringSubsequenceKaCharacterContainingOtherStringIsPossible()                                                         --ARRAY--MULTIPOINTERS              ;LCS
-    stringSubStringKaCharacterContainingAnagramOfOtherStringKaStringAndCount()                                             --ARRAY MULTIPTR SLIDING WINDOW
-    stringSubstringKaCharacterContainingCharactersOfOtherStringKaLongestShortestLengthAndStringAndCount()                          --ARRAY MULTIPTR SLIDING WINDOW
+    stringSubsequenceKaCommonKaLongestLength()/KaString()                                            --LCS
+    stringSubstringKaCommonKaLongestLength()                                                         --LCS
+    stringSupersequenceKaCommonKaShortestLength()/KaString()                                         --LCS
+    stringSubstringKaCharacterContainingOtherStringKaIndex()                                         --ARRAY--MULTIPOINTERS,KMP   
+    stringSubsequenceKaCharacterContainingOtherStringIsPossible()                                    --ARRAY--MULTIPOINTERS              ;LCS
+    stringSubStringKaCharacterContainingAnagramOfOtherStringKaStringAndCount()                        --ARRAY MULTIPTR SLIDING WINDOW
+    stringSubstringKaCharacterContainingCharactersOfOtherStringKaLongestShortestLengthAndStringAndCount()  --ARRAY MULTIPTR SLIDING WINDOW
     matrixCompareRowForIntersection                                                                  --MATRIX
     matrixCompareRowForCommon                                                                        --MATRIX
     matrixCompareRowForUnion                                                                         --MATRIX
@@ -60,22 +60,16 @@ public class BasicsAlgorithm {
     matrixCompareRowsForMergingMeetingRoomIntervalII                                                 --MATRIX
     matrixCompareRowsForAnagramsGrouping                                                             --MATRIX
 
-                         
-
-    IMPLEMENTATION IMP
-    1.Stack using any DS
-      Stack using queue(Follow up:use a single queue)
-      Dual stack using array
-      middle stack using doubly linkedlist
-      
-
-    2.Queue using any DS
-      Queue using Stack(Follow up: amortised:O(1))
-      
-
-    3. LRU Cache using DoublyLinkledList and HashMap
-
-    4.Trie
+    ALGORITHM
+    1.DUTCHFLAG ALGORITHM                                                                           --arrayGroupIn3PartsByRange(),arrayGroupIn3PartsBy012()
+    2.KADANES ALGORITHM                                                                             --arraySubArrayKaSumMaxMinKaArray
+    3.TOPOLOGICAL-SORT ALGORITHM                                                                    --graphDirAcyclicTopologicalSort, search in recursion methods that use this algo 
+    4.UNIO-FIND ALGORITHM                                                                           --graphUndirUnionFind(), search in recursion methods that use this algo 
+    5.KAHNS ALGORITHM                                                                               --graphDirAcyclicTopologicalSort()
+    6.DIJKSHTRAS ALGORITHM                                                                          --graphUnDirShortestLongestPath
+    7.BELLMAN FORD ALGORITHM                                                                        --graphUnDirShortestLongestPath
+    8.PRIMS ALGORITHM                                                                               --graphDirUndirMinimumSpanningTree()
+    9.KRUSJALS ALGORITHM                                                                            --graphDirUndirMinimumSpanningTree                         
 
     
     */
@@ -3525,7 +3519,7 @@ public class BasicsAlgorithm {
         
         */
 
-         //USING MULTIPOINTERS (ARRAY REQUIRES MULTIPLE PTR) -->DUTCH FLAG ALGO
+         //USING MULTIPOINTERS (ARRAY REQUIRES MULTIPLE PTR) -->DUTCHFLAG ALGO
          /*
          [7,8,11,22,1,3,11,6,7]
           |                  |

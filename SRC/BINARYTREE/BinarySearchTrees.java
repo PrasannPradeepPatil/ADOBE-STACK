@@ -1461,11 +1461,15 @@ l=0,r=0  1 l,r=0 3     6 l,r=0  7  l=0,r=0
     public void binarySearchTreeSerializeDeserialize(){
         /*
         Question
-        3          Serialize and deserialize a BST with smallest encoded string
-        /\         Serialization is converting a data structure or object into a sequence of bits so that it can be stored in a file 
-        9 20       Deserialization is converting back that data structire
+        3          
+        /\         
+        9 20       
             /\
-            15 7    
+            15 7   
+            |
+            |
+        serialize()   :convert BST  into a sequence of bits(smallest encoded string) 
+        deserialize() :converting back to BST
         */
 
         /*

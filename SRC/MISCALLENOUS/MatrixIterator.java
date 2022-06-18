@@ -1,13 +1,14 @@
 package SRC.MISCALLENOUS;
 
-class MatrixIterator {
+class matrixIterator {
 
     /*
     [[1,2],[3,4],[],[],[5,6],[]]
-    
-    matrixIteratot(int[][] arr) : initializes 2D array.
-    next()                      : returns the next element from the 2D array and moves the pointer one step forward. You may assume that all the calls to next are valid.
-    hasNext()                   : returns true if there are still some elements in the arr, and false otherwise
+    |
+    |
+    matrixIteratot(int[][] arr) : initializes matrix.
+    next()                      : returns the next element from matrix 
+    hasNext()                   : returns true if matrix still has elements 
                                 Eg:
                                 int[][] arr = new int[][]{{1,2},{3,4},{},{},{5,6},{}}
                                 MatrixIterator matrixIterator = new MatrixIterator(arr);
@@ -23,7 +24,7 @@ class MatrixIterator {
     int[][] arr;
 
     //CONSTRUCTOR
-    public MatrixIterator(int[][] arr) {
+    public matrixIterator(int[][] arr) {
         /*
         [[1,2],[3,4],[],[],[5,6],[]]
          | |

@@ -6,10 +6,10 @@ public class MappChaining {
     /*
 
       MAP
-      K|V ----> | HashFn |  ---->  k,v    --> k , v pair comes then hashtabe decides index based on key
+      k,v  ----> | HashFn |  ---->  k,v    --> k , v pair comes then hashtabe decides index based on key
                                    ------    and the key value pair  is stored in hashtable at that index
                                     k,v
-                          HashMap, HashTable,HashBucket
+                           HashMap, HashTable,HashBucket
         CHAINING
         [
         |k|v|-->|k|v|          -->array stores the Linked List of key value pair
@@ -47,10 +47,6 @@ public class MappChaining {
         ptr = 0;
 
 
-    }
-    @Override
-    public String toString() {
-        return Arrays.toString(arr);
     }
     private int hashfunction(int key){
         // RETURNS AN INDEX

@@ -1,31 +1,29 @@
-package SRC.STACK;
+package SRC.MISCALLENOUS;
 
 import java.util.*;
 
 
-public class LRUCache_UsingDoubleLinkedListHashMap {
+public class arrayLRUCache {
     /*
 
     [[1,1], [2,2]]  maxSize = 2
     |
     |
-    put(value,key) :add key value pair to LRUCache if not exists ; if key value pair exists override them
-                   when you add element it becomes most recent 
-    get(key)      :return value of key is key exists otherwise return  -1
-                   if you get element it becomes most recent 
-
+    LRUCache_UsingDoubleLinkedListHashMap(size):initialises LRU CACHE object by capacity
+    add(value,key) :add key value pair to LRUCache if not exists; override if exists;when you add element it becomes most recent 
+    get(key)       :return value of key is key exists ;return  -1 if not exists ; if you get element it becomes most recent 
                    if the size goes beyond maxSize remove the least recently used key value pair
 
-    EG:Cache Size = 2
-    put(1 2) -->{1: 2}    (the most recently added  is kept at the rightmost position)
-    put(2,3) -->{1:2,2:3} (the most recently added one is kept at the rightmost position)
-    put(1,5) -->{2:3,1:5} (the most recently added one is kept at the rightmost position and size > maxSize so remove least recently used)
-    put(4,5) -->{1:5,4:5} (the most recently added one is kept at the rightmost position and size > maxSize so remove least recently used)
-    put(6,7) -->{1:5,4:5} (the most recently added one is kept at the rightmost position and size > maxSize so remove least recently used)
-    get(1)   -->{4:5,1:5} (the most recently get is kepot at right) return 5
-    put(3,2)  -->{1:2,3:2}(the most recently added one is kept at the rightmost position and size > maxSize so remove least recently used)
-    get(7)   -->rturn -1    
-    
+                    EG:Cache Size = 2
+                    add(1 2) -->{1: 2}    (the most recently added  is kept at the rightmost position)
+                    add(2,3) -->{1:2,2:3} (the most recently added one is kept at the rightmost position)
+                    add(1,5) -->{2:3,1:5} (the most recently added one is kept at the rightmost position and size > maxSize so remove least recently used)
+                    add(4,5) -->{1:5,4:5} (the most recently added one is kept at the rightmost position and size > maxSize so remove least recently used)
+                    add(6,7) -->{1:5,4:5} (the most recently added one is kept at the rightmost position and size > maxSize so remove least recently used)
+                    get(1)   -->{4:5,1:5} (the most recently get is kepot at right) return 5
+                    add(3,2)  -->{1:2,3:2}(the most recently added one is kept at the rightmost position and size > maxSize so remove least recently used)
+                    get(7)   -->rturn -1    
+                  
     */
 
     //CLASS NODE
@@ -45,7 +43,7 @@ public class LRUCache_UsingDoubleLinkedListHashMap {
     private int size;
     private int maxSize;
     private Node head, tail;
-    public LRUCache_UsingDoubleLinkedListHashMap(int capacity) {
+    public arrayLRUCache(int capacity) {
     /*
     |p|v|n| --|p|v|n|
      |         |
@@ -179,7 +177,7 @@ public class LRUCache_UsingDoubleLinkedListHashMap {
     }
     
     //INSERT
-    public void put(int key, int value) {
+    public void add(int key, int value) {
         /*
         { 1:|1,1| ,2:|2,32|       h--|1,1|--|2,2|--t        -- !if map.containsKey(key)
                                                                    create a newNode with key and value

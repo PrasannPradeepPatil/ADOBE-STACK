@@ -1,4 +1,5 @@
-package TRIE;
+package SRC.TRIE;
+
 
 public class Triee {
     /*

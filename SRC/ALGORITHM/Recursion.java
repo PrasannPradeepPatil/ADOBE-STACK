@@ -4226,7 +4226,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
         }
 
 
-    //ARRAY-- MULTIPOINTER KADANES ALGO
+    //ARRAY-- MULTIPOINTER(KADANES ALGORITHM)
     /*
     IDENTIFY
     ARRAY KA SUBARRAY/SUBSTRING     
@@ -4238,7 +4238,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
                           Eg:[1,2,3,-2,5] -- return [1,2,3,-2,5] with maxsum = 9
         */
 
-        //USING MULTIPONTER KADANES ALGO(Array ka subarray)
+        //USING MULTIPONTER(KADANES ALGORITHM) (Array ka subarray)
         /* 
         [1,2,3,-2,5] 
         |
@@ -4305,7 +4305,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
         */
 
         
-        //USING MULTIPONTER KADANES ALGO(Array ka subarray)
+        //USING MULTIPONTER(KADANES ALGORITHM)(Array ka subarray)
         /*
         [1,2,3,-2,5]
         |
@@ -9694,7 +9694,6 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
 
 
 
-
     //GRAPH-- DFS, BFS
     /*   
     n0----n1---Node/vertice(N/V) 
@@ -9855,6 +9854,7 @@ n2 is connected to n0,n3  n2 is connected to n0,n3                      n0 conne
     }
     public void graphUndirUnionFind(){
 
+      //UNION-FIND ALGORITHM 
       /*
       //UNION FIND BY RANK AND PATH CPOMPRESSION
       Class UnionFind(){
@@ -10466,7 +10466,7 @@ n2 is connected to n0,n3  n2 is connected to n0,n3                      n0 conne
       Space:O(N+E +  N) -- graphMap(N+E) , visited arr and queue(N) 
       */
 
-      //UNION-FIND -->Only for Undirected graph as union find works for undirected graph only
+      //UNION-FIND ALGORITHM -->Only for Undirected graph as union find works for undirected graph only
       /*
       public int graphDirUndirConnectedComponentsCount(int[][] edges, int n){
                                                     
@@ -10582,7 +10582,7 @@ n2 is connected to n0,n3  n2 is connected to n0,n3                      n0 conne
 
       //BFS ITERATIVE(KAHNS ALGORITHM)
       /*
-      Backtracking makes it difficult to implement BFS iterative; but we can do BFS with Kahns algo
+      Backtracking makes it difficult to implement BFS iterative; but we can do BFS with Kahns algorithm
 
 
       public void graphDirAcyclicTopologicalSort(Map<Integer,List<Integer>> graphMap,boolean[] visited,List<Integer> topoList, int n){
@@ -10618,7 +10618,7 @@ n2 is connected to n0,n3  n2 is connected to n0,n3                      n0 conne
                   queue.add(neighBourNode); }                    
             }                                                            
         }                                                                
-      }                                                            EXPLANATION OF KAHNS ALGO :
+      }                                                            EXPLANATION OF KAHNS ALGORITHM :
                                                                   1st we add nodes with 0 indegree becsuse node has 0 dependency
                                                                     
                                                                   Then when we go to neighbourNode we reduce indegree of that neighbourNode because we are not considering that parent again as we are doing BFS
@@ -10717,7 +10717,7 @@ n2 is connected to n0,n3  n2 is connected to n0,n3                      n0 conne
       
       */
 
-      //DFS RECURSIVE;DFS ITERATIVE;BFS ITERATIVE(Topological sort)
+      //DFS RECURSIVE;DFS ITERATIVE;BFS ITERATIVE(TOPOLOGICAL-SORT ALGORITHM)
       /*
       public void graphDirCycleDetection(int[][] edgs , int n){
         List<Integer> topoList = graphDirAcyclicTopologicalSort(edges,n);
@@ -10891,7 +10891,7 @@ n2 is connected to n0,n3  n2 is connected to n0,n3                      n0 conne
       
       */
     
-      //UNION FIND -->Only for Undirected graph as union find works for undirected graph only
+      //UNIO-FIND ALGORITHM -->Only for Undirected graph as union find works for undirected graph only
       /*
       public void graphUnDirCycleDetection(int[][] edges , int n){                                           
         UnionFind  uf = new UnionFind();                                          
@@ -10935,7 +10935,7 @@ n2 is connected to n0,n3  n2 is connected to n0,n3                      n0 conne
       numOfCourses = 5
       */
       
-      //DFS RECURSIVE;DFS ITERATIVE;BFS ITERATIVE(Topological sort)
+      //DFS RECURSIVE;DFS ITERATIVE;BFS ITERATIVE(TOPOLOGICAL-SORT ALGORITHM  )
       /*
       public boolean graphCourseSchedule(int[][] edgs , int n){
         List<Integer> topoList = graphDirAcyclicTopologicalSort(edges,n);
@@ -10966,7 +10966,7 @@ n2 is connected to n0,n3  n2 is connected to n0,n3                      n0 conne
       numOfCourses = 5
       */
       
-      //DFS RECURSIVE;DFS ITERATIVE;BFS ITERATIVE(Topological sort)
+      //DFS RECURSIVE;DFS ITERATIVE;BFS ITERATIVE(TOPOLOGICAL-SORT ALGORITHM   )
       /*
       public List<Integer> graphCourseScheduleII(int[][] edgs , int n){
         List<Integer> topoList = graphDirAcyclicTopologicalSort(edges,n);
@@ -11156,7 +11156,7 @@ n2 is connected to n0,n3  n2 is connected to n0,n3                      n0 conne
 
       */
     
-      //BFS ITERATIVE(Dijkshtras)  -->For +ve weighted graph ie weights >=0 
+      //BFS ITERATIVE(DIJKSHTRAS ALGORITHM)  -->For +ve weighted graph ie weights >=0 
       /*
       public void graphUnDirShortestLongestPath(List<List<Node>> graphArr,boolean[] visited, int[] dist,int startNode,int n){
           BFSIterative(graphArr,visited,dist,startNode,n); -- perform BFS on every node if not visitesd(Graph may be multiple components and DFS traverses only one component ;hence we perform DFS on every node)
@@ -11230,7 +11230,7 @@ n2 is connected to n0,n3  n2 is connected to n0,n3                      n0 conne
 
       */
     
-      //BFS ITERATIVE(Bellman Ford) -->For weighted graph ie weight = anything 
+      //BFS ITERATIVE(BELLMAN FORD ALGORITHM) -->For weighted graph ie weight = anything 
       //                            -->For positive weight cycle graph ie the sum of a cycle in graph must be positive
       /*
       
@@ -11562,7 +11562,7 @@ n2 is connected to n0,n3  n2 is connected to n0,n3                      n0 conne
                           3    4           
       */
 
-      //BFS ITERATIVE(Prim's algorithm)
+      //BFS ITERATIVE(PRIMS  ALGORITHM)
       /*
 
       public int[] graphDirUndirMinimumSpanningTree(ArrayList<ArrayList<Node>> graphArr,boolean[] mst, int[] weight,int[] parent,int n){
@@ -11649,7 +11649,7 @@ n2 is connected to n0,n3  n2 is connected to n0,n3                      n0 conne
       
       */
 
-      //BFS ITERATIVE(Prim's algorithm optimised)
+      //BFS ITERATIVE(PRIM'S ALGORITHM optimised)
       /*
       public int[] graphDirUndirMinimumSpanningTree(ArrayList<ArrayList<Node>> graphArr,boolean[] mst, int[] weight,int[] parent,int n){
         return BFSItrative(graphArr,visitedMST,weight,mst,n); -- perform BFS on every node if not visitesd(Graph may be multiple components and BFS traverses only one component ;hence we perform BFS on every node)
@@ -11716,7 +11716,7 @@ n2 is connected to n0,n3  n2 is connected to n0,n3                      n0 conne
       
       */
 
-      //UNION-FIND(Kruskals Algorithm) -->Only for Undirected graph as union find works for undirected graph only
+      //UNION-FIND(KRUSJALS ALGORITHM) -->Only for Undirected graph as union find works for undirected graph only
       /*
 
       public int[] graphDirUndirMinimumSpanningTree(int[][] edges, int n){

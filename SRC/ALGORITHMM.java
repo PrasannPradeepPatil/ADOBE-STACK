@@ -82,7 +82,7 @@ public class ALGORITHMM{
     //NOTE
     /*
     SOME   ALGO LOOK  O(N^2) but are O(N) AS THEY RETURN WITHOUT GOING BACK TO OUTER LOOP
-    Eg:stringPallindromeRemainAfter1deletion()
+    Eg:stringPallindromeWith1deletion()
     */
 
 

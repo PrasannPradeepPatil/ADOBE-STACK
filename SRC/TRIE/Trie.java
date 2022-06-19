@@ -9,12 +9,14 @@ import java.util.List;
 
 //TRIE/PREFIX TREE  DEFINATIONS(DUE TO DEFN TRIE  HAS SOME METHODS DIFFERENT FROM NARY TREE )
 /*
-EACH NODE HAS N CHILDREN;  
+1.EACH NODE HAS 26 CHILDREN:ROOT IS  NULL
 ALL SUM SAME AS NARYTREE (there it was ArrayList here it is array with index as [ch-'a'] )
-
-
-EACH NODE HAS 26 CHILDREN:ROOT IS  NULL
++
 isEndOfWord  mantained in Node class ; which gives us words in tries EG DFSPrePostOrderNoOfWordsI,II, DFSPrePostOrderListOfWordsI,II,
+
+
+2.TEST CASE
+--
 
 */
 
@@ -182,7 +184,7 @@ public class Trie {
         /*
             null              -->Traverse top to bottom , left to right   (DFS)
         /   |   \   \            and return path of nodes  at each level (LevelOrder)   
-        a    b    j    k            left-right;top-bottom -->[ [null] , [a,b,j,x], [j,i,a,a,l,t],[e,c,x] ]
+        a    b    j    k         left-right;top-bottom -->[ [null] , [a,b,j,x], [j,i,a,a,l,t],[e,c,x] ]
         |    /\    |    /\        REST SAME AS BT 
         j   i  a   a    l t      
             |  |   |           
@@ -504,7 +506,7 @@ public class Trie {
                 null              -->Traverse tree and and remove the word 
             /   |   \   \            1.Make isEndoOfWord false    
         a    b    j    k             2. if word's characters do not have children (ie word is not a prefix )  remove the characters    
-        |    /\    |    /\            3. if words characters are not end of any other words(ie word is not a suffix)  remove the characters    
+        |    /\    |    /\           3. if words characters are not end of any other words(ie word is not a suffix)  remove the characters    
         j   i  a   a    l t         
             |  |   |                
             e  c   x              
@@ -613,6 +615,81 @@ public class Trie {
 
 
 
+    }
+    public void DFSWordOrderWordMatchingWithKDifferenceIsPossible(Node ptr, int index, int k,String word) {
+        /*
+            null              -->Traverse tree
+            /   |   \   \        and if trie has a word matching word given in arg with k characters changed 
+        a    b    j    k         then return true false
+        |    /\    |    /\       EG word of trie = "jax"  ; word of arg = "jbb" k=2 so return true 
+        j   i  a   a    l t       
+            |  |   |           
+            e  c   x   
+        TrieMagicDict-- k = 1
+        TrieWordDict-- k = number of '.'           
+    
+        */
+
+    
+        //RECURSION IP-OP TREE + ITERATION --More like a ratta algo 0% intution based
+        /* 
+        public boolean DFSWordOrderrContainsWordKDifferent(Node ptr, int index, int k,String word) {
+            if (index == word.length()) {                                                                          BASE CASE   
+                return k == 0 && ptr.isEndOfWord;                                                               -->return k == 0 && ptr.isEndOfWord                                                        
+            }
+
+            if (k == 0) {                                                                                           K=0                                      
+                if(! containsCharI/II(ptr.children ,word.charAt(index)) ){return false;}                          -->if ptr ka  childrens does not contain word ka character return false
+                return DFSWordOrderWordMatchingWithKDifferenceIsPossible(ptr.children[word.charAt(index)-'a'],index+1,k,word);  -->move across the trie wrt word ka char;move across word by incrementing index;k remains same
+            }                                                                                                       and return its result 
+                            
+            else if (k > 0) {                                                                                       k>0
+                for (int i=0 ; i < ptr.children.length;i++){                                                      -->move across the trie  allchildren(non null)  for every character of word ; move across word by incrementing index;k depending on trie and word ka character match 
+                    if(ptr.children[i]!=null){                                                                      and if it is true return true;
+                        k =  ptr.children[i].val != word.charAt(index) ? k - 1 : k
+                        if (DFSWordOrderWordMatchingWithKDifferenceIsPossible(ptr.children[i], index + 1,k,word)) {
+                            return true;                                                                             
+                        }                                                                                             
+                }}
+            }                                      
+            return false;                                                                                      -->return false;                                                                    
+
+        }
+
+        //CONTAINSCHARI
+        private boolean containsCharI(Node[] arr , char c){   -->If word has characters 'a' - 'z' 
+            return arr[c -'a'] !=null)                           then just check the array at  index c-'a'  for non null value 
+        }                                                        O(1)
+
+        
+        //CONTAINSCHARII
+        private boolean containsCharII(Node[] arr , char c){    -->If word has characters other that 'a' - 'z' 
+            for(int i=0 ; i < arr.length;i++){                    then check the array at each index (index c-'a'  may be out of bonds hence each index)
+                if(arr[i] != null){                               if non null value check if it matches character 
+                    if(arr[i].val == c)                           TIME :O(26)
+                        return true;
+                }
+            }
+            return false;
+        }
+
+
+    
+            //OVERRIDE
+            public boolean DFSWordOrderrContainsWordKDifferent(String word,int k ){
+                DFSWordOrderrContainsWordKDifferent(root,0,k,String word)
+            }
+    
+
+        TIME: O(l*26 + l)  as for every character of word you move across all children of trie  
+        Space:O(1)         as we dont take extra sp
+
+
+        */
+
+
+
+    
     }
     public void DFSWordOrderWordPrefixIsPossible(Node root, String word ){
         /*
@@ -808,93 +885,11 @@ public class Trie {
 
         */
     }
-    public void DFSWordOrderWordMatchingWithKDifferenceIsPossible(Node ptr, int index, int k,String word) {
-        /*
-            null              -->Traverse tree
-            /   |   \   \        and if trie has a word matching word given in arg with k characters changed 
-        a    b    j    k         then return true false
-        |    /\    |    /\       EG word of trie = "jax"  ; word of arg = "jbb" k=2 so return true 
-        j   i  a   a    l t       
-            |  |   |           
-            e  c   x   
-        TrieMagicDict-- k = 1
-        TrieWordDict-- k = number of '.'           
-    
-        */
-
-    
-        //RECURSION IP-OP TREE + ITERATION --More like a ratta algo 0% intution based
-        /* 
-        public boolean DFSWordOrderrContainsWordKDifferent(Node ptr, int index, int k,String word) {
-            if (index == word.length()) {                                                                          BASE CASE   
-                return k == 0 && ptr.isEndOfWord;                                                               -->return k == 0 && ptr.isEndOfWord                                                        
-            }
-
-            if (k == 0) {                                                                                           K=0                                      
-                if(! containsCharI/II(ptr.children ,word.charAt(index)) ){return false;}                          -->if ptr ka  childrens does not contain word ka character return false
-                return DFSWordOrderWordMatchingWithKDifferenceIsPossible(ptr.children[word.charAt(index)-'a'],index+1,k,word);  -->move across the trie wrt word ka char;move across word by incrementing index;k remains same
-            }                                                                                                       and return its result 
-                            
-            else if (k > 0) {                                                                                       k>0
-                for (int i=0 ; i < ptr.children.length;i++){                                                      -->move across the trie  allchildren(non null)  for every character of word ; move across word by incrementing index;k depending on trie and word ka character match 
-                    if(ptr.children[i]!=null){                                                                      and if it is true return true;
-                        k =  ptr.children[i].val != word.charAt(index) ? k - 1 : k
-                        if (DFSWordOrderWordMatchingWithKDifferenceIsPossible(ptr.children[i], index + 1,k,word)) {
-                            return true;                                                                             
-                        }                                                                                             
-                }}
-            }                                      
-            return false;                                                                                      -->return false;                                                                    
-
-        }
-
-        //CONTAINSCHARI
-        private boolean containsCharI(Node[] arr , char c){   -->If word has characters 'a' - 'z' 
-            return arr[c -'a'] !=null)                           then just check the array at  index c-'a'  for non null value 
-        }                                                        O(1)
-
-        
-        //CONTAINSCHARII
-        private boolean containsCharII(Node[] arr , char c){    -->If word has characters other that 'a' - 'z' 
-            for(int i=0 ; i < arr.length;i++){                    then check the array at each index (index c-'a'  may be out of bonds hence each index)
-                if(arr[i] != null){                               if non null value check if it matches character 
-                    if(arr[i].val == c)                           TIME :O(26)
-                        return true;
-                }
-            }
-            return false;
-        }
-
-
-    
-            //OVERRIDE
-            public boolean DFSWordOrderrContainsWordKDifferent(String word,int k ){
-                DFSWordOrderrContainsWordKDifferent(root,0,k,String word)
-            }
-    
-
-        TIME: O(l*26 + l)  as for every character of word you move across all children of trie  
-        Space:O(1)         as we dont take extra sp
-
-
-        */
-
-
-
-    
-    }
- 
-
-    
 
     
     
 
 // #########################NOT DONE###################################################
-
-
-
-
 
     public class Nodee {
         /*

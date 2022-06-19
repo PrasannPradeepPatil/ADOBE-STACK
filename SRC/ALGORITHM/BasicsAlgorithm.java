@@ -10,20 +10,11 @@ public class BasicsAlgorithm {
 
     //RELATED QUESTIONS
     /*
-    MATHS BIT MANIPULATION
-    numberBitsSetKaCount(),numberBitsSetKaIndex(),numberBitsToFlipToConvertToOtherNumber(),
-    numberBitsSetInRangeOfANotherNumber(),numberSetBitCount1ToN(),numberIsAPowerOf2(),numberIsWhatPowerOf2()
-    arrayMissingDuplicateee0ToN(),arrayyMissingDuplicateee1ToN(),arrayNelementsPtimesOtherKtimesss()
-    stringCompare2StringsForAnagramm(),stringCompare2StringsForAnagramMissingCharacterss()
-
-
-
-
     PALLINDROME 
     intPallindrome()                                                                                --ARRAY - MULTIPOINTERS 
     stringPallindrome()                                                                             --ARRAY - MULTIPOINTERS 
     stringPallindromeAlphNumeric()                                                                  --ARRAY - MULTIPOINTERS 
-    stringPallindromeRemainAfter1deletion()                                                         --ARRAY - MULTIPOINTERS          
+    stringPallindromeWith1deletion()                                                         --ARRAY - MULTIPOINTERS          
     stringSubsequenceKaCharacterPallindromeKaLongestLength()                                        --LCS
     stringSubstringKaCharacterPallindromeKaLongestLengthAndLongestString()                          --LCS 
     stringSubstringKaCharacterAllPallindromeKaCoundAndString()                                      --LCS
@@ -87,7 +78,7 @@ public class BasicsAlgorithm {
         countAndSay(2) = say "1" = one 1 = "11"
         countAndSay(3) = say "11" = two 1's = "21"
         countAndSay(4) = say "21" = one 2 + one 1 = "12" + "11" = "1211"
-        countAndSay(5) = say "1211" = one 2 + one 2 + two 1 = "12" + "21" "21" = "122121"
+        countAndSay(5) = say "1211" = one 1 + one 2 + two 1 = "11" + "12" "21" = "111221"
         
         */
       
@@ -282,11 +273,12 @@ public class BasicsAlgorithm {
         
         
     }
-    public void    numberBitsSetInRangeOfANotherNumber(int n1,int n2,int l , int r){
+    public void    numberBitsSetInRangeSetAnotherNumber(int n1,int n2,int l , int r){
         /*
-        n1,n2                 -- for n1 for all bits set in pos present in range l to r from right
+        n1,n2                 -- for all bits set in n1 in range l,r 
         l,r  1<=l,r<=32          set equivalent pos in n2
-        Eg:n1 = 10 , n2 = 13 , l= 2 , r = 4
+        Eg:n1 = 10 , n2 = 13 , 
+           l= 2 , r = 4
            n1 = 1010 -->in pos [2,4] the set bits are at pos 2,4 
            n2 = 1101     so in n2 set pos 2,4 from right
               = 1111
@@ -406,7 +398,7 @@ public class BasicsAlgorithm {
     }
     public int[]   numberBitsSetKaEachCount0ToN(int n){
         /*
-        0 to 2 -- in a number 1 to 5  find return the count of set bits for each no
+        0 to 2 -- in a number 0 to 2  find return the count of set bits for each no
                   [0,1,1]
         */
     
@@ -1121,16 +1113,14 @@ public class BasicsAlgorithm {
     }
     public int     numberExcelConvertToInteger(String s){
         /*
-        "AB" -- given string number give its excel column  equivalent
-                Eg
-                A -> 1
-                B -> 2
-                C -> 3
-                ...
-                Z -> 26
-                AA -> 27
-                AB -> 28 
-                ...
+        "A" -> 1   --> convert excel str to integer
+        "B" -> 2
+        "C" -> 3
+        ...
+        "Z" -> 26
+        "AA" -> 27
+        "AB" -> 28 
+        ...
 
         
         */
@@ -1181,8 +1171,8 @@ public class BasicsAlgorithm {
     public int     numberRomanconvertToInteger(String romanNumber){
         /*
         //Question
-        Symbol       Value  --> Convert given romanNumber to intNumber
-        I             1        EG : "III" -- 3 ; "LVIII" -- 58 ; "MCMXCIV" -- 1994
+        Symbol       Value  --> convert roman str to integer
+        I             1         EG : "III" -- 3 ; "LVIII" -- 58 ; "MCMXCIV" -- 1994
         V             5
         X             10
         L             50
@@ -1267,7 +1257,7 @@ public class BasicsAlgorithm {
     public String  numberIntegerConvertToRoman(int intNumber){
        /*
         //Question
-        Symbol       Value  --> Convert given intNumber to romanNumber
+        Symbol       Value  -->convert int to roman str
         I             1        EG :  3--"III" ;58--"LVIII" ;1994--"MCMXCIV"
         V             5
         X             10
@@ -1337,9 +1327,7 @@ public class BasicsAlgorithm {
     public String  numberIntegerConvertToToWords(int intNumber) {
         /*
         //Question
-        Convert given integer to words
-        EG
-        123--"One Hundred Twenty Three"
+        123--"One Hundred Twenty Three"                                                       -->convert integer to  word  strin
         12345--"Twelve Thousand Three Hundred Forty Five"
         123467 --"One Million Two Hundred Thirty Four Thousand Five Hundred Sixty Seven"
         1234567891--"One Billion Two Hundred Thirty Four Million Five Hundred Sixty Seven Thousand Eight Hundred Ninety One"
@@ -1661,6 +1649,9 @@ public class BasicsAlgorithm {
     }
     public String  numberFractionConvertToRecurringDecimal(int numerator, int denominator){
         /*
+         numerator = 1, denominator = 2 --"0.5"  -->convert fraction to recurring decimal
+         */
+        /*
          StringBuilder res = new StringBuilder("");
         
         //CHECK NUM, DEN = 0
@@ -1815,6 +1806,10 @@ public class BasicsAlgorithm {
         
     }
     public int     numberSumWithoutOperator(int n1,int n2){
+        /*
+         n1 = 1; n2 = 3 -->Find the sum of 2 numbers without using + operator
+         * 
+         */
         
         //USING MATHS BIT MANIPULATION      
         /*
@@ -2378,7 +2373,7 @@ public class BasicsAlgorithm {
         
         
     }
-    public char    stringCompare2StringsForAnagramMissingCharacterss(String s1 , String s2){
+    public char    stringCompare2StringsForAnagramWithOneExtraCharacterr(String s1 , String s2){
         /*
         Question
         s1 = "abcde" -- compare s1 and s2 which are anagram with 1 extra characrer
@@ -2565,63 +2560,63 @@ public class BasicsAlgorithm {
 
         */
 
-            //USING MULTIPOINTERS (ARRAY REQUIRES MULTIPLE PTR)
-            /*
-            "A man, a plan, a canal: Panama"    --- while(ptr1 <= ptr2){                 -->move ptr1 , ptr2 till ptr1 <= ptr2
-            |                             |              if(ptr1 is not a digit or letter)  (ptr1 ptr2 reach at node where ptr1=ptr2 ; code before moving ptr encounter till ptr1 < ptr2; code after moving ptr encounter till ptr1 == ptr2)
-            ptr1                         ptr2              move ptr1 ahead
-                                                        else if(ptr2 is not a digit or letter)
-                                                            move ptr2 behind
-                                                        else
-                                                        |  if(ptr1 lowercase != ptr2 lowercase)
-                                                        |    return false
-                                                        |  move ptr1 ahead
-                                                        | move ptr2 behind
-                                                    retur|n true;
-                                                        |
-                                                else if because ptr1,ptr2 modifies inside if else
-                                                    and ptr1,ptr2  used as conditiom
+        //USING MULTIPOINTERS (ARRAY REQUIRES MULTIPLE PTR)
+        /*
+        "A man, a plan, a canal: Panama"    --- while(ptr1 <= ptr2){                 -->move ptr1 , ptr2 till ptr1 <= ptr2
+        |                             |              if(ptr1 is not a digit or letter)  (ptr1 ptr2 reach at node where ptr1=ptr2 ; code before moving ptr encounter till ptr1 < ptr2; code after moving ptr encounter till ptr1 == ptr2)
+        ptr1                         ptr2              move ptr1 ahead
+                                                    else if(ptr2 is not a digit or letter)
+                                                        move ptr2 behind
+                                                    else
+                                                    |  if(ptr1 lowercase != ptr2 lowercase)
+                                                    |    return false
+                                                    |  move ptr1 ahead
+                                                    | move ptr2 behind
+                                                retur|n true;
+                                                    |
+                                            else if because ptr1,ptr2 modifies inside if else
+                                                and ptr1,ptr2  used as conditiom
 
-                                                //EDGE CASE :str length = 0 rthen return true
+                                            //EDGE CASE :str length = 0 rthen return true
 
-                                                    
-            Time : O(n) as we reduce n(length of str ) by 1
-            Space: O(1)
-            
-            */     
-            //EDGE CASE
-            if(s.length() == 0){return true;}
+                                                
+        Time : O(n) as we reduce n(length of str ) by 1
+        Space: O(1)
+        
+        */     
+        //EDGE CASE
+        if(s.length() == 0){return true;}
 
 
-            int ptr1 = 0;
-            int ptr2 = s.length() -1;
-            while(ptr1 <= ptr2){
-                char chl = s.charAt(ptr1);
-                char chr = s.charAt(ptr2);
-                if(!Character.isLetterOrDigit(chl) )
-                    ptr1 ++;
+        int ptr1 = 0;
+        int ptr2 = s.length() -1;
+        while(ptr1 <= ptr2){
+            char chl = s.charAt(ptr1);
+            char chr = s.charAt(ptr2);
+            if(!Character.isLetterOrDigit(chl) )
+                ptr1 ++;
+                    
+            else if(! Character.isLetterOrDigit(chr))
+                ptr2--;
+            else{
+                if(Character.toLowerCase(chl) != Character.toLowerCase(chr))
+                    return false;
                         
-                else if(! Character.isLetterOrDigit(chr))
-                    ptr2--;
-                else{
-                    if(Character.toLowerCase(chl) != Character.toLowerCase(chr))
-                        return false;
-                            
-                    ptr1++;
-                    ptr2--;
+                ptr1++;
+                ptr2--;
+        
+        
             
-            
-                
-                }
-                
-                
             }
             
             
-            return true;
+        }
+        
+        
+        return true;
         
     }
-    public boolean stringPallindromeRemainAfter1deletion(String s){
+    public boolean stringPallindromeWith1deletion(String s){
         /*
         cividc  -- delete 1 element and check if string is pallindrome
                    so return true or false
@@ -2974,6 +2969,19 @@ public class BasicsAlgorithm {
         
         
         }
+    public void    intReverse(int a){
+        /*
+        -123 -->reverse the integer withouit using string
+               Eg: -123 --> -321
+              
+        
+        */
+
+        //USING MULTIPOINTERS (ARRAY REQUIRES MULTIPLE PTR)
+        /*
+         look in numberIntegerConvertToReverse()
+         */
+    }
     public String  stringReverse(String s , int startIndex, int endIndex){
             
         /*
@@ -3007,7 +3015,7 @@ public class BasicsAlgorithm {
         /*
         Question
         "leetcode"  -- reverse viwel in a string
-                    EG:"leetcode" -->"leotcede"
+                       EG:"leetcode" -->"leotcede"
                         "hello" --> "holle"
 
 
@@ -3083,10 +3091,10 @@ public class BasicsAlgorithm {
     public String  stringReverseKIntervals(String s , int k){
         /*
         Question
-        "abcdefg"  -- reverse k characters fir every 2k characters 
-                    If less than k characters are left in array  then reverse all 
-                    EG:"abcdefghij" k =2 -->"bacdfeghjik"
-                        "abcdefghijklmno" k =3 -->"cbadefjihklmon"
+        "abcdefg"  -- reverse k characters after k intervals ie reverse k characters for every 2k characters 
+                      If less than k characters are left in array  then reverse all 
+                      EG:"abcdefghij" k =2 -->"bacdfeghjik"
+                         "abcdefghijklmno" k =3 -->"cbadefjihklmon"
 
 
         */
@@ -3158,7 +3166,7 @@ public class BasicsAlgorithm {
         /*
         Question
         "Today is Monday"  -- reverse words order  in string
-                            EG:"Today is Monday" -->"Monday is Today" 
+                              EG:"Today is Monday" -->"Monday is Today" 
 
 
 
@@ -3419,7 +3427,7 @@ public class BasicsAlgorithm {
         
         /*
         Question
-        [1,1,2,2] -- rearrange array such that ni 2 dupliates are together and if not posssible return -1
+        [1,1,2,2] -- rearrange array such that no 2 dupliates are together and if not posssible return -1
                       order doesnt matter
                      EG [1,1,2,2] -- [1,2,1,2]
                         [1,1,1,2,2] -- -1
@@ -4097,10 +4105,10 @@ public class BasicsAlgorithm {
     }
     public void    stringCompareNStringsForReplacement(List<String> words,String sentence){
         /*
-        roots = ["cat","bat","rat"]                        --Given words of root 
-        sentence = "the cattle was rattled by the battery"  replace the words in sentence with shortest  root words 
-                                                            Eg:roots = ["cat","bat","rat"]  ;sentence = "the cattle was rattled by the battery" 
-                                                               op: "the cat was rat by the bat"     
+        words = ["cat","bat","rat"]                         - replace every word in sentece with root and 
+        sentence = "the cattle was rattled by the battery    if word can be replaced by more than one root,
+        Output: "the cat was rat by the bat"                 replace with shortest root.
+                                                            EG :https://leetcode.com/problems/replace-words/
         */ 
     
         //USING TRIE

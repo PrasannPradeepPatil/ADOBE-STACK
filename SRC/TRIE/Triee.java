@@ -5,9 +5,9 @@ public class Triee {
     /*
     Implement Trie class in which 
     Triee() Initializes the trie object.
-    void insert(String word)           :Inserts the string word into the trie.
-    boolean search(String word)       :Returns true if the string word is in the trie (i.e., was inserted before), and false otherwise.
-    boolean startsWith(String word) :Returns true if there is a previously inserted string word that has the prefix word, and false otherwise.
+    void add(String word)          :adds the string word into the trie.
+    boolean search(String word)       :Returns true if the string word is in the trie (i.e., was added before), and false otherwise.
+    boolean startsWith(String word)   :Returns true if there is a previously added string word that has the prefix word, and false otherwise.
     
     */
 
@@ -20,7 +20,7 @@ public class Triee {
         public Node root;
         public Trie(){root = new Node();}
         
-        public void DFSWordOrderInsertWord(Node root,String word){}
+        public void DFSWordOrderaddWord(Node root,String word){}
         public boolean DFSWordOrderWordMatchingIsPossible(Node root,String word){return true;}
         public boolean DFSWordOrderWordSuffixIsPossible(Node root,String word){return true;}
     }
@@ -37,16 +37,16 @@ public class Triee {
         root  = trie.new Node();
     }
 
-    //INSERT
-    public void insert(String word) {
+    //add
+    public void add(String word) {
         /*
-        trie.DFSWordOrderInsertWord(root,word) -- insert the word in trie
+        trie.DFSWordOrderaddWord(root,word) -- add the word in trie
         
         Time :O(l) as we traverse l nodes in tree(l=length of word)                        
-        Space:O(l) as we insert l nodes in tree(l=length of word)  )
+        Space:O(l) as we add l nodes in tree(l=length of word)  )
 
         */
-        trie.DFSWordOrderInsertWord(root,word);
+        trie.DFSWordOrderaddWord(root,word);
      }
 
      //SEARCH
@@ -55,7 +55,7 @@ public class Triee {
         return trie.DFSWordOrderWordMatchingIsPossible(root,word); -- search the word in trie
         
         Time :O(l) as we traverse l nodes in tree(l=length of word)                        
-        Space:O(l) as we insert l nodes in tree(l=length of word)  )
+        Space:O(l) as we add l nodes in tree(l=length of word)  )
 
         */
   
@@ -68,7 +68,7 @@ public class Triee {
         return trie.DFSWordOrderWordMatchingIsPossible(root,word); -- search the word in trie contains word ka suffix
         
         Time :O(l) as we traverse l nodes in tree(l=length of word)                        
-        Space:O(l) as we insert l nodes in tree(l=length of word)  )
+        Space:O(l) as we add l nodes in tree(l=length of word)  )
         */
          return trie.DFSWordOrderWordSuffixIsPossible(root,word);
      }

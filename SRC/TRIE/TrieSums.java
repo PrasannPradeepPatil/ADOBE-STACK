@@ -5,10 +5,10 @@ public class TrieSums {
 
     public void stringCompareNStringsForReplacement(List<String> words,String sentence){
         /*
-        sentence = "the cattle was rattled by the battery    - replace every word in sentece with root and 
-        words = ["cat","bat","rat"]                         if word can be replaced by more than one root,
-        Output: "the cat was rat by the bat"                    replace with shortest root.
-                                                                EG :https://leetcode.com/problems/replace-words/
+        words = ["cat","bat","rat"]                         - replace every word in sentece with root and 
+        sentence = "the cattle was rattled by the battery    if word can be replaced by more than one root,
+        Output: "the cat was rat by the bat"                 replace with shortest root.
+                                                            EG :https://leetcode.com/problems/replace-words/
 
         */
     

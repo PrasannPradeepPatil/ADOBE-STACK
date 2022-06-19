@@ -103,7 +103,7 @@ numberBitsSetKaCount --https://practice.geeksforgeeks.org/problems/set-bits0143/
 numberBitsReverse -- https://leetcode.com/problems/reverse-bits/
 numberOnlySetBitIndex -- https://practice.geeksforgeeks.org/problems/find-position-of-set-bit3706/1
 numberBitsToFlipToConvertToOtherNumber -- https://practice.geeksforgeeks.org/problems/bit-difference-1587115620/1
-numberBitsSetInRangeOfANotherNumber -- https://www.geeksforgeeks.org/copy-set-bits-in-a-range/
+numberBitsSetInRangeSetAnotherNumber -- https://www.geeksforgeeks.org/copy-set-bits-in-a-range/
 numberSetBitCount1ToN  -- https://practice.geeksforgeeks.org/problems/count-total-set-bits-1587115620/1#
 numberIsAPowerOf2 -- https://practice.geeksforgeeks.org/problems/power-of-2-1587115620/1
 numberIsAPowerOf3 --https://leetcode.com/problems/power-of-three/

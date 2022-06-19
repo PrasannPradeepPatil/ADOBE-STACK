@@ -3,10 +3,10 @@ package SRC.TRIE;
 
 public class TrieWordDict {
     /*
-    TrieWordDict()             :Initializes the object.
-    addWord(String word)     :Adds word to the data structure, it can be matched later.
-    bool search(String word)   :Returns true if there is any string in the data structure that matches word or false otherwise
-                                word may contain dots '.' where dots can be matched with any letter.
+    TrieWordDict()        :Initializes the object.
+    add(String word)      :Adds word to the data structure, it can be matched later.
+    search(String word)   :Returns true if there is any string in the data structure that matches word or false otherwise
+                           word may contain dots '.' where dots can be matched with any letter.
     */
 
     //TRIE CLASS
@@ -35,7 +35,7 @@ public class TrieWordDict {
     }
 
     //INSERT
-    public void addWord(String word) {
+    public void add(String word) {
         /*
         trie.DFSWordOrderInsertWord(root,word);  --insert word in trie
 

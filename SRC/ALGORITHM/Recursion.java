@@ -9610,7 +9610,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
       /*
         -----
         A B C | E      --given a matrix you can travel in all 4 directions
-        S F C | S        return all the words that exists im the  not
+        S F C | S        return all the words that exists im the  words
         A D E | E        Eg:In this case wordS ["ABCCED","ABFD"] exists
           ----
         words = ["ABCCED","ABFD","ALARM"]

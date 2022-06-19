@@ -4,7 +4,7 @@ package SRC.TRIE;
 public class TrieMagicDict {
     /*
     TrieMagicDict()                :Initializes the object.
-    buildDict(String[] words) :Sets the data structure with an array of distinct strings words.
+    buildDict(String[] words)      :Sets the data structure with an array of distinct strings words.
     bool search(String word)       :Returns true if you can change exactly one character in searchWord to match any string in the data structure,
                                     otherwise returns false.
     */

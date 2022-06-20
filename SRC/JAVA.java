@@ -1748,9 +1748,9 @@ acessmod nonacessmod   Class  classname/interFaceName  <Generic>    extends/ imp
                                                                  by normal overload,anonymous inner class,lambda fn(4 types of lambda fn))                 
 
 
-    EG:arraykClosestElements();arrayKTopfrequentElements();arraykClosestElementsPointToOrigin();arrayKSortedSort();arrayfrequencySort();  arraySetBitsFrequencySort(),arrayLargestNumberSort() , arrayCompareNArraysForMergingInRange()
+    EG:arraykClosestElementsToPoint();arrayKTopfrequentElements();arraykClosestElementsToOrigin();arrayKNearlySortedSort();arrayfrequencySort();  arraySetBitsFrequencySort(),arrayLargestNumberOnRearrangingSort() , arrayCompareNArraysForMergingInRange()
        arrayContinuousSumEqualsMinCost_RopesJoining()
-       arrayFractionalKnapSack()
+       arrayPermutationFractionalKnapSack()
        arrayDataStreamMedian() 
 
     Eg:All problems in heap()

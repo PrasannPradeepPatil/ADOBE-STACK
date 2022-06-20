@@ -14,7 +14,7 @@ public class BasicsAlgorithm {
     intPallindrome()                                                                                --ARRAY - MULTIPOINTERS 
     stringPallindrome()                                                                             --ARRAY - MULTIPOINTERS 
     stringPallindromeAlphNumeric()                                                                  --ARRAY - MULTIPOINTERS 
-    stringPallindromeWith1deletion()                                                         --ARRAY - MULTIPOINTERS          
+    stringPallindromeWith1deletion()                                                                --ARRAY - MULTIPOINTERS          
     stringSubsequenceKaCharacterPallindromeKaLongestLength()                                        --LCS
     stringSubstringKaCharacterPallindromeKaLongestLengthAndLongestString()                          --LCS 
     stringSubstringKaCharacterAllPallindromeKaCoundAndString()                                      --LCS
@@ -24,6 +24,8 @@ public class BasicsAlgorithm {
 
     
     COMPARE 2 ARRAYS
+    stringcompare2StringsForAddition()                                                               --ARRAY--MULTIPOINTERS   
+    arrayCompare2ArrayForPlusOneAddition()                                                           --ARRAY--MULTIPOINTERS 
     stringCompare2StringsForRotation()                                                               --ARRAY--MULTIPOINTERS             ;MATHS     
     arrayCompare2ArraysForIntersection()                                                             --ARRAY--MULTIPOINTERS SORT SEARCH;HASHMAPS
     arrayCompare2ArraysForCommon()                                                                   --ARRAY--MULTIPOINTERS SORT SEARCH;HASHMAPS 
@@ -32,14 +34,12 @@ public class BasicsAlgorithm {
     arrayCompare2ArraysForMergingII()                                                                --ARRAY--MULTIPOINTERS SORT SEARCH;HASHMAPS
     stringCompare2StringForIsomorphic()                                                              --ARRAY--MULTIPOINTERS SORT SEARCH X ;HASHMAP
     stringCompare2StringsForAnagram()                                                                --ARRAY--MULTIPOINTERS SORT SEARCH ;MATHS
-    stringCompare2StringsForAnagramMissingCharacters()                                               --ARRAY--MULTIPOINTERS SORT SEARCH ;MATHS
-    stringSubsequenceKaCommonKaLongestLength()/KaString()                                            --LCS
-    stringSubstringKaCommonKaLongestLength()                                                         --LCS
-    stringSupersequenceKaCommonKaShortestLength()/KaString()                                         --LCS
-    stringSubstringKaCharacterContainingOtherStringKaIndex()                                         --ARRAY--MULTIPOINTERS,KMP   
-    stringSubsequenceKaCharacterContainingOtherStringIsPossible()                                    --ARRAY--MULTIPOINTERS              ;LCS
-    stringSubStringKaCharacterContainingAnagramOfOtherStringKaStringAndCount()                        --ARRAY MULTIPTR SLIDING WINDOW
-    stringSubstringKaCharacterContainingCharactersOfOtherStringKaLongestShortestLengthAndStringAndCount()  --ARRAY MULTIPTR SLIDING WINDOW
+    stringCompare2StringsForAnagramWithOneExtraCharacter()                                           --ARRAY--MULTIPOINTERS SORT SEARCH ;MATHS
+    
+    stringCompareNStringsForReplacement()                                                            --ARRAY--MULTIPOINTERS 
+    stringCompareNStringForAutoComplete()                                                            --ARRAY--MULTIPOINTERS 
+    stringCompareNStringsForLongestCommonPrefix()                                                    --ARRAY--MULTIPOINTERS 
+    stringCompareNStringsForLongestCommonPrefixWithWord()                                            --ARRAY--MULTIPOINTERS 
     matrixCompareRowForIntersection                                                                  --MATRIX
     matrixCompareRowForCommon                                                                        --MATRIX
     matrixCompareRowForUnion                                                                         --MATRIX
@@ -50,6 +50,16 @@ public class BasicsAlgorithm {
     matrixCompareRowsForMergingMeetingRoomIntervalI                                                  --MATRIX
     matrixCompareRowsForMergingMeetingRoomIntervalII                                                 --MATRIX
     matrixCompareRowsForAnagramsGrouping                                                             --MATRIX
+ 
+    stringSubsequenceKaCommonKaLongestLength()/KaString()                                            --LCS
+    stringSubstringKaCommonKaLongestLength()                                                         --LCS
+    stringSupersequenceKaCommonKaShortestLength()/KaString()                                         --LCS
+    stringSubstringKaCharacterContainingOtherStringKaIndex()                                         --ARRAY--MULTIPOINTERS,KMP   
+    stringSubsequenceKaCharacterContainingOtherStringIsPossible()                                    --ARRAY--MULTIPOINTERS              ;LCS
+    stringSubStringKaCharacterContainingAnagramOfOtherStringKaStringAndCount()                        --ARRAY MULTIPTR SLIDING WINDOW
+    stringSubstringKaCharacterContainingCharactersOfOtherStringKaLongestShortestLengthAndStringAndCount()  --ARRAY MULTIPTR SLIDING WINDOW
+
+
 
     ALGORITHM
     1.DUTCHFLAG ALGORITHM                                                                           --arrayGroupIn3PartsByRange(),arrayGroupIn3PartsBy012()
@@ -4270,96 +4280,6 @@ public class BasicsAlgorithm {
         
         
     }
-    public int[]   arrayMissingRanges(int[] arr, int lower , int upper){
-        /*
-        arr [0,1,3,50,75]    -- given a sorted array give return the missing rage between lower and upper bound 
-        lower = 0;upper = 99    Eg: arr [0,1,3,50,75] lower = 0; upper = 99
-                                ["2","4->49","51->74","76->99"]
-
-        */
-
-        //USING ARRAY MULTIPTR(ARAY REQUIRES MULTIPTRE)
-        /*
-        0 [0,1,3,50,75] 99 
-                            public int[]   arrayMissingDuplicate(int[] arr, int lower , int upper){
-                                //Null CHECK FOR 0 LENGTGH
-                                if (arr.length == 0){                            --if arr has 0 length                      
-                                    result.add(formatRange(lower,upper));             means there is a missing range lower to upper 
-                                    return result;                                    return res
-                                }
-                                //CHGECK LOWER AND arr[0]
-                                if (arr[0] > lower){                                 --if arr[0] > lower
-                                    result.add(formatRange(lower,arr[0]-1));             means there is a missing range from lower to arr[0] -1 
-                                }
-
-                                //CHECK ALTERNATE ARRAY ELEMENTS
-                                int ptr1 = 0; int ptr2 = 1;                           --initialise ptr1 to 0 and ptr2 to 1                               
-                                while(ptr2 <= arr.length-1){                             move ptr2 till arr.length
-                                    if(arr[ptr2] - arr[ptr1]>= 2){                          arr[ptr2] - arr[ptr1]>= 2
-                                        result.add(formatRange(arr[ptr1]+1, arr[ptr2]-1));     means there is a missing range arr[ptr1]+1, arr[ptr2]-1
-                                    }                                                      move ptr1 ptr2 ahead
-                                    ptr1++;
-                                    ptr2++;
-                                }
-
-                                //CHECK arr[arr.length-1] and upper                
-                                if (arr[arr.length-1] < upper){                         --if arr[arr.length-1] < upper
-                                    result.add(formatRange(arr[arr.length-1]+1, upper));   means there is a missing range from arr[arr.length-1]+1 to arr[0] -1 
-                                }
-                            }
-                            private String formatRange(int missingStart, int missingEnd) {
-                                if (missingStart == missingEnd)                               --if missingStart and missingEnd are same
-                                    return String.valueOf(missingStart);                             then there is only 1 missingElement          
-                                else{                                                          else
-                                    return String.valueOf(missingStart) + "->"                        there is missing range from missingStart to missingEnd
-                                           + String.valueOf(missingEnd);
-                            
-                            }
-
-        Time:O(n)
-        Space:O(1)
-        */
-        /*
-        public int[]   arrayMissingDuplicate(int[] arr, int lower , int upper){
-            List<String> result = new ArrayList<>();
-            if (arr.length == 0){
-                result.add(formatRange(lower,upper));
-                return result;
-            }
-
-            if (arr[0] > lower){
-                result.add(formatRange(lower,arr[0]-1));
-            }
-
-            int ptr1 = 0;
-            int ptr2 = 1;
-            while(ptr2 <= arr.length-1){
-                if(arr[ptr2] - arr[ptr1]>= 2){
-                    result.add(formatRange(arr[ptr1]+1, arr[ptr2]-1));
-                }
-                ptr1++;
-                ptr2++;
-            }
-
-            if (arr[arr.length-1] < upper){
-                result.add(formatRange(arr[arr.length-1]+1, upper));
-            }
-            return result;
-        }
-        
-        private String formatRange(int missingStart, int missingEnd) {
-            if (missingStart == missingEnd) {
-                return String.valueOf(missingStart);
-            }
-            else{
-                return String.valueOf(missingStart) + "->" + String.valueOf(missingEnd);
-            }
-        
-        }
-        */
-
-        return null;
-    }
     public void    arraypair2TargetSumI(int[] arr, int target) {
         /*
         [1,2,5,3] target = 7 --> given an arr find pairs of 2 whose sum is target
@@ -5265,59 +5185,6 @@ public class BasicsAlgorithm {
 
 
     }
-    public int[]   arraykClosestElements(int[] arr ,int k , int x){
-
-        /*
-        QUESTION
-        [5,6,7,8,8,9] -- find k element closest x 
-                       closest element has smallest difference and if difference bw 2 elements 
-                       is same take the smaller element
-                       Eg: 3 elements closest to 7 are 7,8,8       
-
-
-        */
-
-        //USING MULTIPOINTERS SORT SEARCH(ARRAY REQUIRES SORTING)  --> Time : O(n logn) ;Space: O(1)
-        /*
-        1.SORT ARRAY
-        [5,6,7,8,8,9] x = 8 -->sort the array in asc order based on the diference between arr elemnt and x and if diff is same sort in asc order based on value of element
-         3 2 1 0 1 1                                                
-
-        2.SEARCH ARRAY
-        [8,8,7,9,6,5]      -->iterate over array and take 1st k elements
-
-
-        Time : O(n logn)   as we reduce n(length of arr) by half and sort upto n
-        Space: O(1) 
-        */
-
-        List<Integer> list = new ArrayList<>();
-        for(var i:arr){list.add(i);}
-        Collections.sort(list, (Integer a,Integer b) ->{
-            int diff1 = Math.abs(a-x);
-            int diff2 =  Math.abs(b-x);
-            
-            return (diff1 != diff2)? diff1- diff2 : a-b;
-            
-        });
-        
-        
-        
-        int[] result = new int[k];int index = 0;
-        for(int i=0 ; i <= k-1;i++){result[index++] = list.get(i);}
-
-        
-        return result;
-        
-
-        //USING MAXHEAP(Array requires sorting + K is given )-->Time : O(n logk);Space: O(n)
-        /*
-        Look in heaps
-        */
-   
-    
-        
-    }
     public int[]   arrayKTopfrequentElements(int[] arr, int k){
         /*
         [5,6,5,6,10,5,8,8] -- find the top k elements with max frequency
@@ -5407,7 +5274,7 @@ public class BasicsAlgorithm {
 
 
     }
-    public int[][] arraykClosestElementsPointToOrigin(int[][] arr , int k){
+    public int[][] arraykClosestElementsToOrigin(int[][] arr , int k){
         /*
         [[1,2],[3,4],[8,8]] -- find the k closest pints to origin
          k=2                   Eg top 2 closest points to origin   are [[1,2],[3,4]]  
@@ -5463,7 +5330,60 @@ public class BasicsAlgorithm {
 
 
     }
-    public int[]   arrayKSortedSort(int[] arr , int k){
+    public int[]   arraykClosestElementsToPoint(int[] arr ,int k , int x){
+
+        /*
+        QUESTION
+        [5,6,7,8,8,9] -- find k element closest x 
+                       closest element has smallest difference and if difference bw 2 elements 
+                       is same take the smaller element
+                       Eg: 3 elements closest to 7 are 7,8,8       
+
+
+        */
+
+        //USING MULTIPOINTERS SORT SEARCH(ARRAY REQUIRES SORTING)  --> Time : O(n logn) ;Space: O(1)
+        /*
+        1.SORT ARRAY
+        [5,6,7,8,8,9] x = 8 -->sort the array in asc order based on the diference between arr elemnt and x and if diff is same sort in asc order based on value of element
+         3 2 1 0 1 1                                                
+
+        2.SEARCH ARRAY
+        [8,8,7,9,6,5]      -->iterate over array and take 1st k elements
+
+
+        Time : O(n logn)   as we reduce n(length of arr) by half and sort upto n
+        Space: O(1) 
+        */
+
+        List<Integer> list = new ArrayList<>();
+        for(var i:arr){list.add(i);}
+        Collections.sort(list, (Integer a,Integer b) ->{
+            int diff1 = Math.abs(a-x);
+            int diff2 =  Math.abs(b-x);
+            
+            return (diff1 != diff2)? diff1- diff2 : a-b;
+            
+        });
+        
+        
+        
+        int[] result = new int[k];int index = 0;
+        for(int i=0 ; i <= k-1;i++){result[index++] = list.get(i);}
+
+        
+        return result;
+        
+
+        //USING MAXHEAP(Array requires sorting + K is given )-->Time : O(n logk);Space: O(n)
+        /*
+        Look in heaps
+        */
+   
+    
+        
+    }
+    public int[]   arrayKNearlySortedSort(int[] arr , int k){
         /*
         QUESTION 
         6,5,3,2,8,10,9 -- for each index the correct element can be in i - k to i-1 an i+1 to i+k inclusive 
@@ -5599,7 +5519,7 @@ public class BasicsAlgorithm {
       
         
     }
-    public String  arrayLargestNumberSort(int[] arr){
+    public String  arrayLargestNumberOnRearrangingSort(int[] arr){
         /*
         
         [3,30,34,5,9] -- an array of non negative integers
@@ -5654,13 +5574,14 @@ public class BasicsAlgorithm {
     }
     public int[]   arraySquareSort(int[] arr){
         /*
-        [2,3,-7,-3,11]  --Square elements and sort them (If We can square and sort then we will req n+logn ;If we sort search we req nlogn(not req if arr is already sorted) + n
-                          Eg:[4,9,-7,-3,11]  -- [4,9,9,49,121]
+        [2,3,-7,-3,11]  --Square of each elements and sort them 
+                          Eg:[2,3,-7,-3,11] -- [4,9,49,9,121]  -- [4,9,9,49,121]
 
 
         */
 
-        //USING MULTIPOINTERS SORT AND SEARCG (ARRAY REQUIRES SORTING) --Time:O(logn + n)  Space:O(n)
+        //USING MULTIPOINTERS SORT AND SEARCH (ARRAY REQUIRES SORTING) --Time:O(logn + n)  Space:O(n)
+        //                                                               (If We can square and sort then we will req n+nlogn ;If we sort search we req nlogn(not req if arr is already sorted) + n
         /*
         1.SORT ARRAY
         [2,3,-7,-3,11] --> [-7,-3,2,3,11]  -- sort aray
@@ -5804,14 +5725,15 @@ public class BasicsAlgorithm {
         }
     public int[]   arrayQuadraticSort(int[] arr , int a,int b,int c ){
         /*
-        [-2,4,2,-4] a = 1, b = 3, c = 5  --find quadratic of elements as ax^2 + bx + c  and sort them(If We can find quadratic and sort then we will req n+logn ;If we sort search we req nlogn(not req if arr is already sorted) + n
-                                          Eg:[-4,-2,2,4] a = 1, b = 3, c = 5  -- [3,9,15,33]
+        [-2,4,2,-4]           --find quadratic of each elements as ax^2 + bx + c  and sort them
+        a = 1, b = 3, c = 5    Eg:[-2,4,2,-4]   a = 1, b = 3, c = 5  --[3,33,15,9] -- [3,9,15,33]
 
 
         */
 
 
         //USING MULTIPOINTERS SORT AND SEARCH (ARRAY REQUIRES SORTING) --Time:O(logn + n)  Space:O(n)
+        //                                                               If We can find quadratic and sort then we will req n+logn ;If we sort search we req nlogn(not req if arr is already sorted) + n
         /*
         1.SORT ARRAY
         [-2,4,2,-4] --> [-4,-2,2,-4]  -- sort aray
@@ -6365,13 +6287,103 @@ public class BasicsAlgorithm {
         
         
         }
+    public int[]   arrayMissingRanges(int[] arr, int lower , int upper){
+            /*
+            arr [0,1,3,50,75]    -- given a sorted array give return the missing rage between lower and upper bound 
+            lower = 0;upper = 99    Eg: arr [0,1,3,50,75] lower = 0; upper = 99
+                                    ["2","4->49","51->74","76->99"]
+    
+            */
+    
+            //USING ARRAY MULTIPTR(ARAY REQUIRES MULTIPTRE)
+            /*
+            0 [0,1,3,50,75] 99 
+                                public int[]   arrayMissingDuplicate(int[] arr, int lower , int upper){
+                                    //Null CHECK FOR 0 LENGTGH
+                                    if (arr.length == 0){                            --if arr has 0 length                      
+                                        result.add(formatRange(lower,upper));             means there is a missing range lower to upper 
+                                        return result;                                    return res
+                                    }
+                                    //CHGECK LOWER AND arr[0]
+                                    if (arr[0] > lower){                                 --if arr[0] > lower
+                                        result.add(formatRange(lower,arr[0]-1));             means there is a missing range from lower to arr[0] -1 
+                                    }
+    
+                                    //CHECK ALTERNATE ARRAY ELEMENTS
+                                    int ptr1 = 0; int ptr2 = 1;                           --initialise ptr1 to 0 and ptr2 to 1                               
+                                    while(ptr2 <= arr.length-1){                             move ptr2 till arr.length
+                                        if(arr[ptr2] - arr[ptr1]>= 2){                          arr[ptr2] - arr[ptr1]>= 2
+                                            result.add(formatRange(arr[ptr1]+1, arr[ptr2]-1));     means there is a missing range arr[ptr1]+1, arr[ptr2]-1
+                                        }                                                      move ptr1 ptr2 ahead
+                                        ptr1++;
+                                        ptr2++;
+                                    }
+    
+                                    //CHECK arr[arr.length-1] and upper                
+                                    if (arr[arr.length-1] < upper){                         --if arr[arr.length-1] < upper
+                                        result.add(formatRange(arr[arr.length-1]+1, upper));   means there is a missing range from arr[arr.length-1]+1 to arr[0] -1 
+                                    }
+                                }
+                                private String formatRange(int missingStart, int missingEnd) {
+                                    if (missingStart == missingEnd)                               --if missingStart and missingEnd are same
+                                        return String.valueOf(missingStart);                             then there is only 1 missingElement          
+                                    else{                                                          else
+                                        return String.valueOf(missingStart) + "->"                        there is missing range from missingStart to missingEnd
+                                               + String.valueOf(missingEnd);
+                                
+                                }
+    
+            Time:O(n)
+            Space:O(1)
+            */
+            /*
+            public int[]   arrayMissingDuplicate(int[] arr, int lower , int upper){
+                List<String> result = new ArrayList<>();
+                if (arr.length == 0){
+                    result.add(formatRange(lower,upper));
+                    return result;
+                }
+    
+                if (arr[0] > lower){
+                    result.add(formatRange(lower,arr[0]-1));
+                }
+    
+                int ptr1 = 0;
+                int ptr2 = 1;
+                while(ptr2 <= arr.length-1){
+                    if(arr[ptr2] - arr[ptr1]>= 2){
+                        result.add(formatRange(arr[ptr1]+1, arr[ptr2]-1));
+                    }
+                    ptr1++;
+                    ptr2++;
+                }
+    
+                if (arr[arr.length-1] < upper){
+                    result.add(formatRange(arr[arr.length-1]+1, upper));
+                }
+                return result;
+            }
+            
+            private String formatRange(int missingStart, int missingEnd) {
+                if (missingStart == missingEnd) {
+                    return String.valueOf(missingStart);
+                }
+                else{
+                    return String.valueOf(missingStart) + "->" + String.valueOf(missingEnd);
+                }
+            
+            }
+            */
+    
+            return null;
+        }
     public void    arrayMissingDuplicate0ToN(int[] arr){
         /*
         QUESTION
             [0,2,2,3,4,5,6] --array has element in unsorted manner
-                            array must have elements 0 to N=arr.length
-                            return the missing and duplicate numbers
-                            Eg: [0,2,2,3,4,4,6]  
+                              array must have elements 0 to N=arr.length
+                              return the missing and duplicate numbers
+                              Eg: [0,2,2,3,4,4,6]  
                                 missing  = [1,5,7]
                                 duplicate = [2,4]
         */
@@ -7004,16 +7016,16 @@ public class BasicsAlgorithm {
         
         */
         
-            //USING ARRAY SWAPSORT AND SEARCH(ARRAY REQUIRES SORTINH) -->Time:O(n) , Space O(1)
-            //                                                           Multiple    :Array can have  multiple missing duplicates ; we can find multiple  missing,duplicates   
-            //                                                           Manipulation:Array is changed 
-            /*
-            SKIP
-            int correctIndex = arr[ptr] -1 so the ip arr elements must be between [0 ,arr.length -1 
-                                        Here the ip arr can have elements other than the range Eg [3,7,7] so for 7 correctIndex =6  is out of bounds
-            
-            */
-    
+        //USING ARRAY SWAPSORT AND SEARCH(ARRAY REQUIRES SORTINH) -->Time:O(n) , Space O(1)
+        //                                                           Multiple    :Array can have  multiple missing duplicates ; we can find multiple  missing,duplicates   
+        //                                                           Manipulation:Array is changed 
+        /*
+        SKIP
+        int correctIndex = arr[ptr] -1 so the ip arr elements must be between [0 ,arr.length -1 
+                                    Here the ip arr can have elements other than the range Eg [3,7,7] so for 7 correctIndex =6  is out of bounds
+        
+        */
+
     
         //USING  HASHMAP(ARRAY REQUIRES STORING ELEMENTS)       -->Time:O(n)  Space O(n) 
         //                                                        Multiple      :Array can have n=anything,p=anything,k=anything; we can use this only for n=anything,p=anything,k=anything
@@ -7283,7 +7295,7 @@ public class BasicsAlgorithm {
     }
     public int[]   arrayCompare2ArraysForUnion(int[] arr1,int[] arr2){
         /*
-        [3,3,1,2,4]  -->[1,2,3,4,5,6]   --find the union of array(union is combination without any duplicates) in sorted manner
+        [3,3,1,2,4]  -->[1,2,3,4,5,6]   --find the union of array(union is merging without any duplicates) in sorted manner
         [4,5,3,3,6]     
         */
 
@@ -7467,7 +7479,7 @@ public class BasicsAlgorithm {
     }
     public int[]   arrayCompare2ArrayForMergingI(int[] arr1, int[] arr2) {
         /*
-        [3,3,1,2,4]  -->[1,2,3,3,3,3,4,5,6]   --find the merge of array(merge is combination with duplicates) in sorted manner
+        [3,3,1,2,4]  -->[1,2,3,3,3,3,4,5,6]   --find the merge of array(merge is merging with duplicates) in sorted manner
         [4,5,3,3,6]                             merge the arrays in result arr
         */
 
@@ -7594,7 +7606,7 @@ public class BasicsAlgorithm {
     }
     public int[]   arrayCompare2ArrayForMergingII(int[] arr1, int[] arr2,int m ,int n) {
         /*
-        [1,2,3,0,0,0]  -->[1,2,2,3,5,6]   --find the merge of array(merge is combination with duplicates) in sorted manner
+        [1,2,3,0,0,0]  -->[1,2,2,3,5,6]   --find the merge of array(merge is merging with duplicates) in sorted manner
         [2,5,6]                              merge the result in arr1; arr1 has m elements of arr1 and n zeros to accomodate n elements of arr2
         */
 
@@ -7871,7 +7883,7 @@ public class BasicsAlgorithm {
         */
         
     }
-    public char    stringCompare2StringsForAnagramMissingCharacters(String s1 , String s2){
+    public char    stringCompare2StringsForAnagramWithOneExtraCharacter(String s1 , String s2){
         /*
         Question
         s1 = "abcde" -- compare s1 and s2 which are anagram with 1 extra characrer
@@ -8121,7 +8133,7 @@ public class BasicsAlgorithm {
         /*
         QUESTION
         [1,2,3,4,5,6,6,6,7,8] -- SORTED ARRAY : array with elements in  ascending order
-                                    FIND: Find 1st occurence of item and last occurence of item
+                                 FIND: Find 1st occurence of item and last occurence of item
         */
     
         //USING MULTIPOINTERS BINARY SEARCH(Array is sorted) -->TIME:O(logn),Space:O(1)
@@ -8247,11 +8259,11 @@ public class BasicsAlgorithm {
            
            
        }
-    public int    arraySortedOccurenceCount(int[] arr , int item){
+    public int    arraySortedFrequencyCountOfItem(int[] arr , int item){
         /*
         QUESTION
         [1,2,3,4,5,6,6,6,7,8] -- SORTED ARRAY : array with elements in  ascending order
-                                    FIND: Find no of  occurence of item
+                                 FIND: Find no of  occurence of item
         */
 
 
@@ -8291,15 +8303,13 @@ public class BasicsAlgorithm {
 
 
     }
-    public int    arraySortedFloorCeil(int[] arr , int item){
+    public int    arraySortedFloorCeilOfItem(int[] arr , int item){
 
         /*
         QUESTION
         [1,2,3,4,8,10,12,15]-- SORTED ARRAY : array with elements in  ascending order
-                                FIND: floor : greatest element "smaller than or equal to item  Eg for 13 floor  = 12
-                                      ceil  :smallest element "greater than or equal to item  Eg for 13 ceil = 15
-                                      Note  :We dont find index of item and then do index+1 and index -1 for floor ceil  because 
-                                             because item may not b present and for floor ceil we dont require the item
+                               FIND: floor : greatest element in arr smaller than or equal to item  Eg item = 13 floor  = 12
+                                     ceil  :smallest element in arr  greater than or equal to item  Eg item = 13 ceil = 15
                                 
         */
         
@@ -8347,14 +8357,13 @@ public class BasicsAlgorithm {
         //return storerForFloor;
         return storerForCeil;
         }
-    public int    arraySortedPreviousNextCharacter(char[] arr ,char item){
+    public int    arraySortedPreviousNextOfItem(char[] arr ,char item){
         /*
         QUESTION
         [a,b,c,d,f,h,j,l,o]-- SORTED ARRAY : array with elements in  ascending order
-                                FIND: previous: greatest element "strictly smaller than and not equal to" item Eg for f prev  =d
-                                        next    :smallest element "strictly greater than and not equal to" item  Eg for f next = h
-                                        Note:We dont find index of item and then do index+1 and index -1 for prev next  because 
-                                            because item may not b present and for floor ceil we dont require the item
+                              FIND: previous:greatest element "strictly smaller than and not equal to" item Eg for f prev  =d
+                                    next    :smallest element "strictly greater than and not equal to" item  Eg for f next = h
+
                                 
         */
         
@@ -8406,15 +8415,13 @@ public class BasicsAlgorithm {
         //return storerForPrevious;
         return storerForNext;
     }
-    public int    arraySortedMinimumDifference(int[] arr, int item){
-        
+    public int    arraySortedMinimumDifferenceWithItem(int[] arr, int item){ 
         /*
         QUESTION
         [1,2,3,4,5,6,9] -- SORTED ARRAY : array with elements in  ascending order
                             FIND: find the element index that give minimum absolute difference with item
                                   Eg 1-7 = 6 ; 2-7 = 5 ; 3-7 = 4 ; 4-7 = 3 ; 5-7 = 2; 6-7 = 1 7-7 = 8 8 - 7 = 1  so 7 
-                                  Note:We dont find index of item directl(item - item = 0 will be minmum always)   because 
-                                       if the item may not be present we may not be able to find  item
+        
          */  
 
         //USING MULTIPOINTERS BINARY SEARCH(Array is sorted) -->TIME:O(logn),Space:O(1)
@@ -8432,8 +8439,8 @@ public class BasicsAlgorithm {
         Space: O(1)*/
 
 
-        int floor = arraySortedFloorCeil(arr , item);
-        int ceil = arraySortedFloorCeil(arr, item);
+        int floor = arraySortedFloorCeilOfItem(arr , item);
+        int ceil = arraySortedFloorCeilOfItem(arr, item);
 
         int diff1 = Math.abs(item - arr[floor]);
         int diff2 = Math.abs(item - arr[ceil]);
@@ -8445,7 +8452,7 @@ public class BasicsAlgorithm {
         /*
         QUESTION
         [1,2,3,4,5,6,9...] -- INFINITE SORTED ARRAY : array with elements in  ascending order and infinite elements
-                            FIND:  element in array
+                              FIND:  element in array
         */  
 
         //USING MULTIPOINTERS BINARY SEARCH(Array is sorted) -->TIME:O(logn),Space:O(1)
@@ -8478,11 +8485,11 @@ public class BasicsAlgorithm {
         return arraySortedAscendingFindElement(Arrays.copyOfRange(arr, left , right+1), item);
 
     }
-    public int    arraySortedInfiniteBinaryFirstOccurenceOf1(int[] arr){
+    public int    arraySortedInfiniteBinaryFirstLastOccurenceOf1(int[] arr){
         /*
         QUESTION
         [0,0,0,0,0,0,1,1,1,1,.....] -- INFINITE SORTED BINART ARRAY : array with elements in  ascending order and infinite elements and 0 1 only
-                                    FIND:  first and last occurence of 1
+                                      FIND:  first and last occurence of 1
         */  
 
         //USING MULTIPOINTERS BINARY SEARCH(Array is sorted) -->TIME:O(logn),Space:O(1)
@@ -8516,7 +8523,7 @@ public class BasicsAlgorithm {
 
         return arraySortedFirstLastOccurence(Arrays.copyOfRange(arr,left , right +1 ), 1);
         }
-    public int    arraySortedNearlyFindElement(int[] arr , int item){
+    public int    arrayNearlySortedFindElement(int[] arr , int item){
         /*
         QUESTION
         [5,10,30,20,40] -- NEARLY SORTED ARRAY :correct element might be at index i ; i+ 1 or i-1 ie 5 must be at 0 is at 0 ;30 must be at 3 but is at 3-1 = 2
@@ -8597,9 +8604,9 @@ public class BasicsAlgorithm {
     public int    arrayMountainBitonicPeakElement(int[] arr){
         /*
         QUESTION
-        [1,3,8,12,4,2] --  MOUNTAIN BITONIC ARRAY: array that has strictly increasing elements upto max and then strictly decreasing elements after that 
-                            FIND : peak element is an element that is strictly  greater than all elemnts on its left and right                                
-                                    for index 0 to be peak arr[0] > arr[1] and arr.length-1 to be peak arr[length-1] > arr[length-2]  
+        [1,3,8,12,4,2] -- MOUNTAIN BITONIC ARRAY: array that has strictly increasing elements upto max and then strictly decreasing elements after that 
+                          FIND : peak element is an element that is strictly  greater than all elemnts on its left and right                                
+                                 for index 0 to be peak arr[0] > arr[1] and arr.length-1 to be peak arr[length-1] > arr[length-2]  
         */
 
         //USING MULTIPOINTERS BINARY SEARCH(Array is almost sorted) -->TIME:O(logn),Space:O(1)
@@ -8929,7 +8936,7 @@ public class BasicsAlgorithm {
     
         /*
         [4, 5, 6, 7, 6] -- in array each element defers from previous by at the most k
-        k=1 , item - 6     find the item in array and return its index if not found retiurn 1
+        k=1 , item - 6     find the item in array and return its index if not found retiurn -1
         
         */
         
@@ -9176,9 +9183,6 @@ public class BasicsAlgorithm {
             Space: O(1)
 
         */
-
-        
-
 
         //ARRAY SUBARRAY MINIMISE MAXIMUM SUM 
         //  |--MINIMISE MAXIMUM SUM IN ARRAY PARTITION(ARRAY PARTITION) -- https://leetcode.com/problems/split-array-largest-sum/
@@ -10009,9 +10013,10 @@ public class BasicsAlgorithm {
 
 
                                 1   2   3   4   5  Total cost = 3 + 6 + 9 = 18
-                                \    /  /    \  /  
-                                3   /         9 
-                                 \ /         /
+                                \    /  /   \  /  
+                                 \  /  /      9 
+                                   3  /        /
+                                   \ /       /
                                     6       /
                                     \      /
                                         15
@@ -10061,13 +10066,13 @@ public class BasicsAlgorithm {
     }
     public int[]  arraySubarrayKaCharacterIncreasingTripletKaPossibleAndArray(int[] arr){
         /*
-        arr = [1,2,2,3,4,2]-- find all the subsequence of  strings
-                             and find the  trictly increasing  triplet subsequence 
+        arr = [1,2,2,3,4,2]-- find all the subarrays of  array
+                             and find the  trictly increasing  triplet subarrays 
                              and return if such triplet is possible ; return  the triplet 
                             Eg [1,2,2] 
-                              (non decreasing/increasing subsequence)    
+                              (non decreasing/increasing subarrays)    
                                [1,2,3]        
-                              (strictly increasing  subsequence)  
+                              (strictly increasing  subarrays)  
 
         */
         //USING MULTIPTR GREEDY
@@ -10395,12 +10400,12 @@ public class BasicsAlgorithm {
             return startIndex;
         }
     }
-    public double arrayFractionalKnapSack(List<Double> wt , List<Double> val, double W){
+    public double arrayPermutationFractionalKnapSack(List<Double> wt , List<Double> val, double W){
         /*
-      weight[]  30.0,20.0,10.0 ---> W = 50  -- put the weights in a bag(each wt can only be taken 0 or 1 tor fraction times) with weight capacity 6  
-      value []  120.0,60.0,100.0                return the combination with max profit ka value           
-                                             Eg {10,20,20*2/3}   = 60+100+120*2/3  =240  240 is max profiit so return 240                                                                           
-                                               {10,30,20*1/2} = 60+100+100*1/2 = 210
+      weight[]  30.0,20.0,10.0 ---> W = 50  -- put the weights in a bag(each wt can only be taken 0 or 1 or fraction times) with weight capacity 6  
+      value []  120.0,60.0,100.0               return the combination with max profit ka value           
+                                               Eg{10,20,20*2/3}= 60+100+120*2/3  =240  240 is max profiit so return 240                                                                           
+                                                {10,30,20*1/2} = 60+100+100*1/2 = 210
         */
 
       //USING ARRAY --  MULTIPOINTERS GREEDY(DECISION AT EACH STEP)  
@@ -10447,7 +10452,7 @@ public class BasicsAlgorithm {
             }
         }
         
-        public double arrayFractionalKnapSack(List<Double> wt , List<Double> val, double Wt)
+        public double arrayPermutationFractionalKnapSack(List<Double> wt , List<Double> val, double Wt)
             List<Node> items = new ArrayList<>();
             for(int i=0 ; i<= wt.size()-1;i++){
                 items.add( new Node(wt.get(i),val.get(i)));
@@ -10480,8 +10485,6 @@ public class BasicsAlgorithm {
         
         
     }
-
- 
 
 
     //STACK
@@ -10639,7 +10642,7 @@ public class BasicsAlgorithm {
         /*
         QUESTION
         [1,3,2,4]
-        [-1,1,1,2] -- find the nearest greater element on left if not return -1
+        [-1,-1,3,-1] -- find the nearest greater element on left if not return -1
 
         */
 
@@ -10880,7 +10883,7 @@ public class BasicsAlgorithm {
         /*
         QUESTION
         [100,80,60,70,75,85]
-        [-1,-1,0,1,2,4] -- find the no of  consecutive greatest element on left
+        [-1,1,2,0,2,4] -- find the no of  consecutive greatest element on left
 
         */
 
@@ -11333,11 +11336,11 @@ public class BasicsAlgorithm {
         /*
         QUESTION
         [3,0,0,2,0,4]         -- find the total water that can be stored in crevices
-                       4          Eg 3 can store ht= 0 on top
-         3             __            0 can store ht=  3 on top
-         __       2   |  |           0 can store ht=  0 on top 
-        |  |     __   |  |           2 can store ht=  1 on top
-        |  |0  0|  | 0|  |           4 can store ht=  0 on top
+                       4         Eg 3 can store ht= 0 on top
+         3             __           0 can store ht=  3 on top
+         __       2   |  |          0 can store ht=  0 on top 
+        |  |     __   |  |          2 can store ht=  1 on top
+        |  |0  0|  | 0|  |          4 can store ht=  0 on top
         |  |____|  |__|  |           
         */
 
@@ -11559,13 +11562,13 @@ public class BasicsAlgorithm {
 
         /*
         Question
-        Infix expression                            :Operator bw operands and bracket and operation precedence is used
+        Infix expression                            :Operator bw operands with bracket and operation precedence is used
                                                      Eg: ((3*1) + 2)-9
 
-        Prefix Operation(Polish notation)           :Operator before operand and no bracket 
+        Prefix Operation(Polish notation)           :Operator before operand without bracket
                                                     Eg: "*+69-31" = (6+9)*(3-1) --operator jumps to right 
 
-        PostFix Operation(Rreverse Polish notation) :Operator after operand and no bracket 
+        PostFix Operation(Rreverse Polish notation) :Operator after operand without bracket
                                                      Eg: "231*+9-" = (2 + (3*1)) - 9 -- oprtatot jumps to left
    
         */
@@ -12119,97 +12122,9 @@ public class BasicsAlgorithm {
         }
         
 
-        //return arraySubArrayKaCharactersKaContinuousKaLongestLength(arr);// fn in recursion array--multiptr
+        //return arraySubArrayKaCharactersKaContinuousOneKaLongestLength(arr);// fn in recursion array--multiptr
         return 0;
  
-    }
-    public int[][] arrayCompareNArraysForMergingInRangee(int[][] arr){
-
-        /*
-        [[1,3],[2,6],[8,10],[15,18]] -- merge the overlapping intervals
-                                         Eg [[1,3],[2,6],[8,10],[15,18]] -- [[1,6],[8,10],[15,18]]
-        */
-        
-        
-        //USING MULTIPOINTERS SORT SEARCH (ARRAY REQUIRES SORTING)  + STACK(REQUIRE STACK)
-        /*
-        SORT
-        [[1,3],[2,6],[8,10],[15,18]] == sort based on 0th index  of arrays 
-        
-        SEARCH
-        [[1,3],[2,6],[8,10],[15,18]] 
-          |
-          ptr                 --initialis epr to 0
-                                push ptr to stack
-                                move ptr head
-                                while(ptr <= arr.length-1){
-                                    if(stack.peek()[1] < arr[ptr][0]){
-                                    means they do not overlap
-                                        push arr[ptr] to stack  
-                                    }
-                                    else if(stack.peek()[1] >= arr[ptr][0]){
-                                        means they overlap
-                                        pop from stack
-                                        pust to stack [min of all4, max of all 4]
-                                    }
-                                    
-                                while stack is not empty
-                                   pop from stack and add in res in reverse direction
-                                   
-                                return res
-                                    
-        Time:O(nlogn + n)
-        Space:O(n)
-                                    
-        
-        
-        */
-        
-        Arrays.sort(arr, (a,b) ->{return a[0] - b[0];});
-        
-        Stack<int[]> stack = new Stack<>();
-       
-        
-        int ptr = 0;
-        stack.push(arr[ptr]);
-        ptr++;
-        while(ptr <= arr.length-1){
-            if(stack.peek()[1] < arr[ptr][0]){
-                stack.push(arr[ptr]);
-            }
-            else if(stack.peek()[1] >= arr[ptr][0]){
-  
-                int min = Math.min(
-                          Math.min(stack.peek()[0],stack.peek()[1]),
-                          Math.min(arr[ptr][0] , arr[ptr][1])
-                           );
-               int max = Math.max(
-                          Math.max(stack.peek()[0],stack.peek()[1]),
-                          Math.max(arr[ptr][0] , arr[ptr][1])
-                           );
-                
-                stack.pop();
-                stack.push(new int[]{min,max});
-                              
-                
-                
-            }
-            
-            
-            ptr++;
-        }
-        
-        int[][] res = new int[stack.size()][2];int index = res.length-1;
-        while(!stack.isEmpty()){
-            res[index--] = stack.pop();
-        }
-        
-        return res;
-       
-        
-        
-        
-        
     }
     public void    stringReverse(String s){
         /*
@@ -12284,11 +12199,11 @@ public class BasicsAlgorithm {
     STACK IDENTIFY
     ARRAY  BRUTE FORCE O(n^2) INNER LOOP DEPENDS ON OUTER LOOP ie for(int i=0 ; i<=n;i++){for(j =0 ; j< i ; j++)}-- j depends on i        
      */    
-    public String stringFirsNonRepeatingCharacterAtEveryPosition(String s){
+    public String stringFirstUniqueCharacterReplaceAtEveryPosition(String s){
 
         /*
         Question
-        abbabcdda -- replace every charater with 1st no repeating character until then
+        abbabcdda -- replace every charater with 1st unique(non repeating) character until then
                      if not present replce by # 
                      Eg:"ababdcdda" -- "aab#ddccc"
         */
@@ -12549,54 +12464,6 @@ public class BasicsAlgorithm {
 
 
     }
-    public int[] arraykClosestElementss(int[] arr ,int k , int x){
-        /*
-        [5,6,7,8,8,9] -- find k element closest x 
-                       closest element has smallest difference and if difference bw 2 elements 
-                       is same take the smaller element
-                       Eg: 3 elements closest to 7 are 7,8,8          
-
-
-        */
-  
-        //USING MULTIPOINTERS SORT SEARCH(ARRAY REQUIRES SORTING)  -->Time:O(nlogn + n), Soace:O(1)
-        /*
-        Look in ARRAY --  MULTIPOINTERS SORT SEARCH  
-         */
-
-        //USING MAXHEAP(Array requires sorting  + K is given ) ->Time:O(nlogk ), Soace:O(n)
-        /*
-        [5,6,7,8,9] --[[2,5],[2,9],[1,8],[1,6],[0,7]]   --add arr [diff,value] to maxheap in descending order based on  diff and if diff is same des order based  value(maxdiff at top can bepopped and  if same maxdiff then maxelement at top can be popped) if size > k  pop the element  
-                        X    X                            return heap ka arr ka value which will be k closest element  
-
-    
-
-        Time : O(n logk)   as we reduce n(length of arr) by half and sort upto k
-        Space: O(k) as heap takes extra space
-        */
-        PriorityQueue<int[]> maxHeap = new PriorityQueue<>( 
-            (int[] a , int[] b) -> { return (a[0] != b[0]) ? b[0] - a[0] :b[1] - a[1];}    
-        ); 
-        for(int i=0;i<= arr.length-1 ;i++){
-            int diff = Math.abs(arr[i]-x);
-            int value = arr[i];
-            maxHeap.add(new int[]{diff,value});
-
-            if(maxHeap.size() > k){
-                    maxHeap.remove();
-            }                
-        }
-
-    
-        int[] result = new int[k]; int index = 0;
-        while(!maxHeap.isEmpty()){
-            result[index++] = maxHeap.remove()[1];            
-        }
-
-        return result;
-    
-        
-    }
     public int[] arrayKTopfrequentElementss(int[] arr, int k){ 
         
         //USING MULTIPOINTERS SORT SEARCH + HASHMAP(ARRAY REQUIRES SORTING + ARRAY REQUIRES STORING ELEMENTS))  -->Time:O(nlogn + n), Soace:O(n)
@@ -12658,7 +12525,7 @@ public class BasicsAlgorithm {
 
 
     }
-    public int[][] arraykClosestElementsPointToOriginn(int[][] arr , int k){
+    public int[][] arraykClosestElementsToOriginn(int[][] arr , int k){
 
         //USING MULTIPOINTERS SORT SEARCH + HASHMAP(ARRAY REQUIRES SORTING + ARRAY REQUIRES STORING ELEMENTS)  -->Time:O(nlogn + n), Soace:O(n)
         /*
@@ -12712,7 +12579,55 @@ public class BasicsAlgorithm {
 
 
     }
-    public int[] arrayKSortedSortt(int[] arr , int k){
+    public int[] arraykClosestElementsToPointt(int[] arr ,int k , int x){
+        /*
+        [5,6,7,8,8,9] -- find k element closest x 
+                       closest element has smallest difference and if difference bw 2 elements 
+                       is same take the smaller element
+                       Eg: 3 elements closest to 7 are 7,8,8          
+
+
+        */
+  
+        //USING MULTIPOINTERS SORT SEARCH(ARRAY REQUIRES SORTING)  -->Time:O(nlogn + n), Soace:O(1)
+        /*
+        Look in ARRAY --  MULTIPOINTERS SORT SEARCH  
+         */
+
+        //USING MAXHEAP(Array requires sorting  + K is given ) ->Time:O(nlogk ), Soace:O(n)
+        /*
+        [5,6,7,8,9] --[[2,5],[2,9],[1,8],[1,6],[0,7]]   --add arr [diff,value] to maxheap in descending order based on  diff and if diff is same des order based  value(maxdiff at top can bepopped and  if same maxdiff then maxelement at top can be popped) if size > k  pop the element  
+                        X    X                            return heap ka arr ka value which will be k closest element  
+
+    
+
+        Time : O(n logk)   as we reduce n(length of arr) by half and sort upto k
+        Space: O(k) as heap takes extra space
+        */
+        PriorityQueue<int[]> maxHeap = new PriorityQueue<>( 
+            (int[] a , int[] b) -> { return (a[0] != b[0]) ? b[0] - a[0] :b[1] - a[1];}    
+        ); 
+        for(int i=0;i<= arr.length-1 ;i++){
+            int diff = Math.abs(arr[i]-x);
+            int value = arr[i];
+            maxHeap.add(new int[]{diff,value});
+
+            if(maxHeap.size() > k){
+                    maxHeap.remove();
+            }                
+        }
+
+    
+        int[] result = new int[k]; int index = 0;
+        while(!maxHeap.isEmpty()){
+            result[index++] = maxHeap.remove()[1];            
+        }
+
+        return result;
+    
+        
+    }
+    public int[] arrayKNearlySortedSortt(int[] arr , int k){
         /*
         QUESTION 
         6,5,3,2,8,10,9 -- for each index the correct element can be in i - k to i-1 an i+1 to i+k inclusive 
@@ -13061,11 +12976,11 @@ public class BasicsAlgorithm {
         return noOfUniqueCharacters;
 
     }
-    public String stringFirsNonRepeatingCharacterAtEveryPositionn(String s){
+    public String stringFirstUniqueCharacterReplaceAtEveryPositionn(String s){
 
         /*
         Question
-        abbabcdda -- replace every charater with 1st no repeating character until then
+        abbabcdda -- replace every charater with 1st non repeating character until then
                      if not present replce by # 
                      Eg:"ababdcdda" -- "aab#ddccc"
         */
@@ -14304,7 +14219,7 @@ public class BasicsAlgorithm {
     }
     public int[] arrayCompare2ArraysForUnionn(int[] arr1,int[] arr2){
         /*
-        [3,3,1,2,4]  -->[1,2,3,4,5,6]   --find the union of array(union is combination without any duplicates) in sorted manner
+        [3,3,1,2,4]  -->[1,2,3,4,5,6]   --find the union of array(union is merging without any duplicates) in sorted manner
         [4,5,3,3,6]     
         */
 
@@ -14364,7 +14279,7 @@ public class BasicsAlgorithm {
     }
     public int[] arrayCompare2ArrayForMerginggI(int[] arr1, int[] arr2){
         /*
-        [3,3,1,2,4]  -->[1,2,3,3,3,3,4,5,6]   --find the merge of array(merge is combination with duplicates) in sorted manner
+        [3,3,1,2,4]  -->[1,2,3,3,3,3,4,5,6]   --find the merge of array(merge is merging with duplicates) in sorted manner
         [4,5,3,3,6]                             merge the arrays in result arr
         */
 
@@ -14420,7 +14335,7 @@ public class BasicsAlgorithm {
     }
     public int[] arrayCompare2ArrayForMerginggII(int[] arr1, int[] arr2){
         /*
-        [1,2,3,0,0,0]  -->[1,2,2,3,5,6]   --find the merge of array(merge is combination with duplicates) in sorted manner
+        [1,2,3,0,0,0]  -->[1,2,2,3,5,6]   --find the merge of array(merge is merging with duplicates) in sorted manner
         [2,5,6]                              merge the result in arr1; arr1 has m elements of arr1 and n zeros to accomodate n elements of arr2
         */
 
@@ -14622,7 +14537,7 @@ public class BasicsAlgorithm {
 
     
 
-
+    
 
     //MATRIX
     public int[][] matrixSortRow(int[][] arr){
@@ -15676,8 +15591,8 @@ public class BasicsAlgorithm {
         /*
         
         [[1,3],[6,9]];  [2,5] --insert the array and then merge the overlapping intervals
-                               where [1,2] and [2,1] so 2 is considered overlapping
-                            Eg [[1,3],[6,9]];  [2,5] -- [[1,5],[6,9]]
+                                where [1,2] and [2,1] so 2 is considered overlapping
+                                Eg [[1,3],[6,9]];  [2,5] -- [[1,5],[6,9]]
         */
 
         //USING ARRAY MULTIPTR (ARRAY REQUIRES MULTIPTR)

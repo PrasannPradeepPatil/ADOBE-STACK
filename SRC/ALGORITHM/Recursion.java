@@ -20,8 +20,6 @@ public class Recursion{
       public Node(int val, Node next) { this.val = val; this.next = next; }
   }
   
-   
-
     //RECURSION 
     /* #region Main */
     //1.RECURSIVE IP-OP TREE(Decsion)
@@ -170,6 +168,7 @@ IPsmall, OP1  IPsmall, OP2   Ipsmall OP1  Ipsmall , OP2
 
 
     /* #endregion */
+
 
     //RECURSION
     public void numerIsHappy(int n){
@@ -1611,7 +1610,7 @@ IPsmall, OP1  IPsmall, OP2   Ipsmall OP1  Ipsmall , OP2
 
 
     //ARRAY -- MULTIPOINTERS
-    public int     arraySubArrayKaCharactersKaContinuousKaLongestLength(int[] arr){
+    public int     arraySubArrayKaCharactersKaContinuousOneKaLongestLength(int[] arr){
         /*
         [1,0,0,1,1,0,1]   -- find all the subarray of  array
                             and find  subarray with continuous 1 and return longest,shortest length
@@ -1662,13 +1661,13 @@ IPsmall, OP1  IPsmall, OP2   Ipsmall OP1  Ipsmall , OP2
         return maxLength == Integer.MIN_VALUE?0:maxLength;
         //return minLength == Integer.MAX_VALUE?0:minLength;
     }
-    public int     arraySubArrayKaCharactersEqualOnSplitKaCount(char[] arr){
+    public int     arraySubArrayKaCharactersEqualOnesAndZerosOnSplitKaCount(char[] arr){
         /*
         [1,0,1,1,1,0,0,1,0,0]   -- arr is "split" into subarray (arr is split so the subarrau must must add upto array(a = a1 + a2 + a3 )
-                                    return no of subarrays with equal characyers of 1,0
+                                    return no of subarrays with equal characters of 1,0
                                     EG:[1,0,1,1,1,0,0,1,0,0]  -->[1,0] ,[1,1,1,0,0,1,0.0] \/ --subarrau must add upto array
-                                        "[0,1]" , [1,0,0,1] X 
-                                              so return 2
+                                      "[0,1]" , [1,0,0,1] X 
+                                       so return 2
         
         */
         
@@ -1867,7 +1866,7 @@ IPsmall, OP1  IPsmall, OP2   Ipsmall OP1  Ipsmall , OP2
 
  
     //ARRAY -- MULTIPOINTERS SORT+SEARH
-    public int     arraySubsequenceKaCharactersConsecutiveAnyOrderKaLongestLength(int[] arr){
+    public int     arraySubsequenceKaCharactersConsecutiveNumbersInAnyOrderKaLongestLength(int[] arr){
       /*
       [100,4,200,1,3,2,4] -- find all the subsequence of arr 
                             find the longest subsequence with consecutove numbers in any order
@@ -2339,10 +2338,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
             Time : O(n )   as we reduce n(length of arr) by 1 
             Space: O(1) 
         */
-
-        
-            
-        
+   
         int ptr1 = 0;
         int ptr2 = 0;
         int count =0;
@@ -3820,79 +3816,79 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
       return 0;
   }
     public int   stringSubstringKaCharactersOddNumberEverythingKaLongestShortestKaLengthAndStringAndCount(int[ ] arr,int k){
-    /*
-    Question
-    [1,1,2,1,1] - find  all substring  with k distinct; at most k distinct ;at least  k distinct; all Distinct,  
-     k = 3        return the longest/shortest subarray ka length, string and count                              
-    */
+      /*
+      Question
+      [1,1,2,1,1] - find  all substring  with odd numbers k distinct; at most k distinct ;at least  k distinct; all Distinct,  
+      k = 3        return the longest/shortest subarray ka length, string and count                              
+      */
 
-    //USING MULTIPOINTERS SLIDING WINDOW--VARIABLE SIZE(ARRAY KA SUBARRAY/SUBSTRING OF PROPERTY)
-    /*
-    K DISTINCT 
-    stringSubstringKaCharactersEqualsKDistinctKaLongesKaLengthAndString_PickFruits()
-    stringSubstringKaCharactersEqualsKDistinctKaCount()
+      //USING MULTIPOINTERS SLIDING WINDOW--VARIABLE SIZE(ARRAY KA SUBARRAY/SUBSTRING OF PROPERTY)
+      /*
+      K DISTINCT 
+      stringSubstringKaCharactersEqualsKDistinctKaLongesKaLengthAndString_PickFruits()
+      stringSubstringKaCharactersEqualsKDistinctKaCount()
 
-    AT MOST K DISTINCT 
-    stringSubstringKaCharactersAtMostKDistinctKaLongestShortestKaLengthAndStringAndCount__PickFruits()
+      AT MOST K DISTINCT 
+      stringSubstringKaCharactersAtMostKDistinctKaLongestShortestKaLengthAndStringAndCount__PickFruits()
 
-    AT LEAST K DISTINCT 
-    stringSubstringKaCharactersAtLeastKDistinctKaLongestShortestKaLengthAndStringAndCount()
+      AT LEAST K DISTINCT 
+      stringSubstringKaCharactersAtLeastKDistinctKaLongestShortestKaLengthAndStringAndCount()
 
-    ALL DISINCT
-    stringSubstringKaCharactersAllDistinctKaLongestShortestKaLengthAndStringAndCount()
-    |
-    |
-    Same as these methods   
-    But instead of map use distinctOddCount 
-    add,remove only when odd number at ptr
-    and increment decfrement only when element at ptr is odd
+      ALL DISINCT
+      stringSubstringKaCharactersAllDistinctKaLongestShortestKaLengthAndStringAndCount()
+      |
+      |
+      Same as these methods   
+      But instead of map use distinctOddCount 
+      add,remove only when odd number at ptr
+      and increment decfrement only when element at ptr is odd
 
-    EG:( https://leetcode.com/problems/count-number-of-nice-subarrays/)
-    In an array find number of subarray with k odd numbers
-    
-    public int arraySubarrayKaCharactersOddNumbersEqualsKDistinctKaLongesKaLengthAndString(int[] arr, int k) {
-      return arraySubArrayKaCharactersOddNumbersAtMostKDistinctKaLongestShortestKaLengthAndStringAndCout(arr,k) 
-      - arraySubArrayKaCharactersOddNumbersAtMostKDistinctKaLongestShortestKaLengthAndStringAndCout(arr,k-1);
-    }
-    public int arraySubArrayKaCharactersOddNumbersAtMostKDistinctKaLongestShortestKaLengthAndStringAndCout(int[] arr, int k){
-        
-      int ptr1 = 0;
-      int ptr2 = 0;
-      int noOfSubstrings = 0;
-      int maxLength = Integer.MIN_VALUE;
-      int  minLength = Integer.MAX_VALUE;
-      int distinctOddNumbers  = 0;
-      while( ptr2 <= arr.length-1 ){
-          if(arr[ptr2] %2 != 0){distinctOddNumbers++;}
-
-          if(distinctOddNumbers > k){
-              while(ptr1 <= ptr2 && distinctOddNumbers > k){ 
-                  if(arr[ptr1] %2 != 0){distinctOddNumbers--;}
-                  ptr1++;
-              }
-          }                
-          maxLength = Math.max(maxLength,ptr2-ptr1+1);
-          minLength = Math.min(minLength,ptr1-ptr1 + 1);
-          if(ptr2-ptr1+1 >= maxLength){maxLength =ptr2-ptr1+1; }
-          if(ptr1-ptr1 + 1<= minLength){minLength = ptr1-ptr1+1;}
-          noOfSubstrings+=ptr2-ptr1+1;  
-          
-          ptr2++;
-          } 
-          return noOfSubstrings; 
+      EG:( https://leetcode.com/problems/count-number-of-nice-subarrays/)
+      In an array find number of subarray with k odd numbers
+      
+      public int arraySubarrayKaCharactersOddNumbersEqualsKDistinctKaLongesKaLengthAndString(int[] arr, int k) {
+        return arraySubArrayKaCharactersOddNumbersAtMostKDistinctKaLongestShortestKaLengthAndStringAndCout(arr,k) 
+        - arraySubArrayKaCharactersOddNumbersAtMostKDistinctKaLongestShortestKaLengthAndStringAndCout(arr,k-1);
       }
+      public int arraySubArrayKaCharactersOddNumbersAtMostKDistinctKaLongestShortestKaLengthAndStringAndCout(int[] arr, int k){
+          
+        int ptr1 = 0;
+        int ptr2 = 0;
+        int noOfSubstrings = 0;
+        int maxLength = Integer.MIN_VALUE;
+        int  minLength = Integer.MAX_VALUE;
+        int distinctOddNumbers  = 0;
+        while( ptr2 <= arr.length-1 ){
+            if(arr[ptr2] %2 != 0){distinctOddNumbers++;}
+
+            if(distinctOddNumbers > k){
+                while(ptr1 <= ptr2 && distinctOddNumbers > k){ 
+                    if(arr[ptr1] %2 != 0){distinctOddNumbers--;}
+                    ptr1++;
+                }
+            }                
+            maxLength = Math.max(maxLength,ptr2-ptr1+1);
+            minLength = Math.min(minLength,ptr1-ptr1 + 1);
+            if(ptr2-ptr1+1 >= maxLength){maxLength =ptr2-ptr1+1; }
+            if(ptr1-ptr1 + 1<= minLength){minLength = ptr1-ptr1+1;}
+            noOfSubstrings+=ptr2-ptr1+1;  
+            
+            ptr2++;
+            } 
+            return noOfSubstrings; 
+        }
 
 
 
 
 
-    
-    
-    
-    */
+      
+      
+      
+      */
 
-  return 0;
-}
+    return 0;
+  }
     public int[] stringSubStringKaCharacterContainingAnagramOfOtherStringKaStringAndCount(String s1 , String s2){
       /*
           Question
@@ -4224,8 +4220,8 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
 
 
         }
-
-
+  
+        
     //ARRAY-- MULTIPOINTER(KADANES ALGORITHM)
     /*
     IDENTIFY
@@ -6018,7 +6014,6 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
   }
 
 
-
     //LCS
     public int     stringSubsequenceKaCommonKaLongestLength(String s1 , String s2 , int s1Length , int s2Length){
       /*
@@ -6752,140 +6747,140 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
     }
     public String  stringSubstringKaCharacterAllPallindromeKaCoundAndString(String s1, int s1Length){
       /*
-    "cbbd"  -- find all the substrings 
-               find the pallindromic substring ka string
-              Eg:["c","b","b","d","bb"]
-    */
+      "cbbd"  -- find all the substrings 
+                find the pallindromic substring ka string
+                Eg:["c","b","b","d","bb"]
+      */
 
 
-    //DP BOTTOM-UP TABULATION DIRECTLY(Overlapping subproblem) -->Time: O(n^2); Space:O(n^2)
-    /*
-                                                                                          
-        j  0  1  2  3  4  5                            
-      i     a  b  c  c  b  m                            
-      0  a  T  F  F  F  F  F         (i,j) string between startIndex i and endIndex j 
-      1  b     T  F  F  T  F         stores whether  that string is a pallindrome                                 
-      2  c        T  T  F  F         Eg (2,3) means "cc" is a pallindrome                                      
-      3  c           T  F  F                                            
-      4  b              T  F                                  
-      5  m                 F
+      //DP BOTTOM-UP TABULATION DIRECTLY(Overlapping subproblem) -->Time: O(n^2); Space:O(n^2)
+      /*
+                                                                                            
+          j  0  1  2  3  4  5                            
+        i     a  b  c  c  b  m                            
+        0  a  T  F  F  F  F  F         (i,j) string between startIndex i and endIndex j 
+        1  b     T  F  F  T  F         stores whether  that string is a pallindrome                                 
+        2  c        T  T  F  F         Eg (2,3) means "cc" is a pallindrome                                      
+        3  c           T  F  F                                            
+        4  b              T  F                                  
+        5  m                 F
+        
+
+
       
 
 
+      s1 = "abccbm"                                          --XXXXXXX
+      s1 = reverse(s1)                                         lcs of s1 and reverse s1 wont work 
+                                                              Eg s1 = "abacdfgdcaba" s2 = "abacdgfdcaba"  lcs is "abacd" which is not a pallindrome 
+
+
+
+      boolean[][] dp = new boolean[s1Length][s1Length];
+      for (int i = 0; i <= s1Length-1; i++) {                 --move startIndex till s1Length-1
+        for (int j = 0; j <= s1Length-1; j++) {                   move endIndex till s2Length -1
+            if(i == j){                                             if startIndex == endIndex
+                dp[i][j] = true;                                      means single character which is a  pallindrome 
+                res.add(s1.substring(i,j+1))                          add substring bw i,j inclusive t0 res
+                count++                                               increment count
+            }                                                        
     
+          }
+        }  
+      List<String> res = new ArrayList<>();
+      int count = 0;
+      for (int i = s1Length - 1; i >= 0; i--) {            --move startIndex from end of string to beinning of string
+        for (int j = i+1; j <= s1Length-1; j++) {              move endIndex from startIndex+1 to end of string
+          if(s1.charAt(i) == s1.charAt(j) && j-i == 1 ){         if startIndex == endIndex and there are only 2 characters
+                dp[i][j] = true;                                    means the string bw i,j is a pallindrome
+                res.add(s1.substring(i,j+1))                        add substring bw i,j inclusive to res
+                count++                                             increment count
 
-
-    s1 = "abccbm"                                          --XXXXXXX
-    s1 = reverse(s1)                                         lcs of s1 and reverse s1 wont work 
-                                                            Eg s1 = "abacdfgdcaba" s2 = "abacdgfdcaba"  lcs is "abacd" which is not a pallindrome 
-
-
-
-    boolean[][] dp = new boolean[s1Length][s1Length];
-    for (int i = 0; i <= s1Length-1; i++) {                 --move startIndex till s1Length-1
-      for (int j = 0; j <= s1Length-1; j++) {                   move endIndex till s2Length -1
-          if(i == j){                                             if startIndex == endIndex
-              dp[i][j] = true;                                      means single character which is a  pallindrome 
-              res.add(s1.substring(i,j+1))                          add substring bw i,j inclusive t0 res
-              count++                                               increment count
-          }                                                        
-  
-        }
-      }  
-    List<String> res = new ArrayList<>();
-    int count = 0;
-    for (int i = s1Length - 1; i >= 0; i--) {            --move startIndex from end of string to beinning of string
-      for (int j = i+1; j <= s1Length-1; j++) {              move endIndex from startIndex+1 to end of string
-        if(s1.charAt(i) == s1.charAt(j) && j-i == 1 ){         if startIndex == endIndex and there are only 2 characters
-              dp[i][j] = true;                                    means the string bw i,j is a pallindrome
-              res.add(s1.substring(i,j+1))                        add substring bw i,j inclusive to res
-              count++                                             increment count
-
-          }   
-          else if(s1.charAt(i) == s1.charAt(j) && j-i >1){     else if startIndex == endIndex and there are more than 2 characters
-              if(dp[i+1][j-1] == true){                           if string bw startIndex+i,endIndex-1 is a pallindrome  
-                      dp[i][j] = true;                               means the string bw i,j is a pallindrome 
-                      res.add(s1.substring(i,j+1))                        add substring bw i,j inclusive to res
-                      count++                                             increment count
-                  
+            }   
+            else if(s1.charAt(i) == s1.charAt(j) && j-i >1){     else if startIndex == endIndex and there are more than 2 characters
+                if(dp[i+1][j-1] == true){                           if string bw startIndex+i,endIndex-1 is a pallindrome  
+                        dp[i][j] = true;                               means the string bw i,j is a pallindrome 
+                        res.add(s1.substring(i,j+1))                        add substring bw i,j inclusive to res
+                        count++                                             increment count
+                    
+            }
           }
         }
+
+        return res;
+        return count;
+    
+
+
+
+      TIME :O(n^2)  as we elminiate recursion and use matrix of size n^2(n^2=ssizeOfS1*sizeOfS2)
+      SPACE:O(n^2)  as we matrix takes extra space n^2(ssizeOfS1*sizeOfS2)
+
+      
+      
+      */
+
+      //USING MULTIPOINTERS     -->Time: O(n^2); Space:O(1)
+      /*
+      "cbbd"
+        |
+        centre    --move centre from 0 to s.length-1
+                      res1/count1 = initialise ptr1 = centre , ptr2 = centre and find all of pallindrome around centre    Eg:civic --assume centre at 2 then ptr1 and ptr2 must be at 2 
+                      res2/count2 = initialise ptr1 = centre , ptr2 = centre +1 and find all pallindrome around centre    Eg:cbbd -- assume centre is at 1 then ptr1 must be at 1 ,ptr2 at 2
+                    
+                      res = iterate through res1 and res2 and add their elements
+                      count = count1 + count2;
+
+
+
+                  return res;
+                  return count;
+
+      Time:O(n^2)
+      Space:o(1)
+          
+
+      */
+
+      /*
+      public String stringSubstringKaCharacterAllPallindromeKaCoundAndString(String s1){
+      
+        List<String> res  = new ArrayList<>();
+        int count = 0;
+        for(int centre = 0; centre <= s1.length()-1;centre++){
+          int res1/count1 = stringPallindromeAroundCentre(s1,centre,centre);   
+          int res2/count2 = stringPallindromeAroundCentre(s1,centre,centre+1); 
+
+          for(int i=0; i <= res1.size()-1;i++){res.add(res1.get(i));}
+          for(int i=0; i <= res2.size()-1;i++){res.add(res2.get(i));}
+          count = count1+count2;
+          
+            
+                
+        }  
+        return res;
+        return count;
+        
       }
 
-      return res;
-      return count;
-  
+      public List<String> stringPallindromeAroundCentre(String s1, int ptr1,int ptr2){
+        List<String> res = new ArrayList<>(); 
+        int count =0; 
+          while(ptr1 >= 0 && ptr2 <= s1.length()-1 && s1.charAt(ptr1) == s1.charAt(ptr2)){
+              res.add(s1.substring(ptr1,ptr2+1));
+              count++; 
+              ptr1--;
+              ptr2++; 
 
-
-
-    TIME :O(n^2)  as we elminiate recursion and use matrix of size n^2(n^2=ssizeOfS1*sizeOfS2)
-    SPACE:O(n^2)  as we matrix takes extra space n^2(ssizeOfS1*sizeOfS2)
-
-    
-    
-    */
-
-    //USING MULTIPOINTERS     -->Time: O(n^2); Space:O(1)
-    /*
-    "cbbd"
-      |
-      centre    --move centre from 0 to s.length-1
-                    res1/count1 = initialise ptr1 = centre , ptr2 = centre and find all of pallindrome around centre    Eg:civic --assume centre at 2 then ptr1 and ptr2 must be at 2 
-                    res2/count2 = initialise ptr1 = centre , ptr2 = centre +1 and find all pallindrome around centre    Eg:cbbd -- assume centre is at 1 then ptr1 must be at 1 ,ptr2 at 2
-                   
-                    res = iterate through res1 and res2 and add their elements
-                    count = count1 + count2;
-
-
-
-                return res;
-                return count;
-
-    Time:O(n^2)
-    Space:o(1)
+          }
         
-
-    */
-
-    /*
-    public String stringSubstringKaCharacterAllPallindromeKaCoundAndString(String s1){
-    
-      List<String> res  = new ArrayList<>();
-      int count = 0;
-      for(int centre = 0; centre <= s1.length()-1;centre++){
-        int res1/count1 = stringPallindromeAroundCentre(s1,centre,centre);   
-        int res2/count2 = stringPallindromeAroundCentre(s1,centre,centre+1); 
-
-        for(int i=0; i <= res1.size()-1;i++){res.add(res1.get(i));}
-        for(int i=0; i <= res2.size()-1;i++){res.add(res2.get(i));}
-        count = count1+count2;
-        
+          return res; 
+          return count;
           
-               
-      }  
-      return res;
-      return count;
-      
-    }
-
-    public List<String> stringPallindromeAroundCentre(String s1, int ptr1,int ptr2){
-       List<String> res = new ArrayList<>(); 
-       int count =0; 
-        while(ptr1 >= 0 && ptr2 <= s1.length()-1 && s1.charAt(ptr1) == s1.charAt(ptr2)){
-            res.add(s1.substring(ptr1,ptr2+1));
-            count++; 
-            ptr1--;
-            ptr2++; 
-
-         }
-      
-        return res; 
-        return count;
-         
-    }
-  */
-  
-    return "";
+      }
+    */
+    
+      return "";
 
 
       
@@ -7708,7 +7703,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
 
       return 0;
     }
-    public int     numberPermutationKaIntegerToEnglishStringKaCount(String s){
+    public int     numberPermutationKaIntegerToStringKaCount(String s){
       /*
       "226" -->given a string number it can be decoded into alphabets 
                return the number of ways we can decode number
@@ -7731,7 +7726,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
     /
    ""
        
-      public int numberPermutationKaIntegerToEnglishStringKaCount(String s,int ptr ){
+      public int numberPermutationKaIntegerToStringKaCount(String s,int ptr ){
                                                                          --while going top-down
         if(ptr == s.length()){                                             if ptr reaches s.length
             return 1; }                                                    return 1 as that is 1 way to decode 
@@ -7739,18 +7734,18 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
         int left = 0;                                                      
         int right = 0;                                                  --while going top-down
         if(s.charAt(ptr) != '0'){                                        --if condition for taking 1 character satsfies
-            left = numberPermutationKaIntegerToEnglishStringKaCount(s,ptr+1);             left holds number of permutation of taking 1 character
+            left = numberPermutationKaIntegerToStringKaCount(s,ptr+1);             left holds number of permutation of taking 1 character
         }                                                                 if condition for taking 2 characters satisfy
         if(ptr+1 <=s.length()-1 && (s.charAt(ptr) == '1'|| s.charAt(ptr) == '2'  && s.charAt(ptr+1) <='6')){
-              right = numberPermutationKaIntegerToEnglishStringKaCount(s,ptr+2);           right  holds number of permutation of taking 1 character
+              right = numberPermutationKaIntegerToStringKaCount(s,ptr+2);           right  holds number of permutation of taking 1 character
         }
                                                                            --while going bottom-top
         return left + right;                                                 return left + right to node above
       } 
 
       //OVERRIDE
-      public int numberPermutationKaIntegerToEnglishStringKaCount(String s,int ptr ){
-        return numberPermutationKaIntegerToEnglishStringKaCount(s,0);
+      public int numberPermutationKaIntegerToStringKaCount(String s,int ptr ){
+        return numberPermutationKaIntegerToStringKaCount(s,0);
       }
 
       Time:O(2^n)
@@ -7789,8 +7784,8 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
       Space:O(n)
 
       //OVERRIDE
-      public int numberPermutationKaIntegerToEnglishStringKaCount(String s){
-        return numberPermutationKaIntegerToEnglishStringKaCount(s,0);
+      public int numberPermutationKaIntegerToStringKaCount(String s){
+        return numberPermutationKaIntegerToStringKaCount(s,0);
       }
       
       */
@@ -7832,8 +7827,8 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
                                                                               
                                                                                so on
       //OVERRIDE
-      public int numberPermutationKaIntegerToEnglishStringKaCount(String s){
-        return numberPermutationKaIntegerToEnglishStringKaCount(s,0);
+      public int numberPermutationKaIntegerToStringKaCount(String s){
+        return numberPermutationKaIntegerToStringKaCount(s,0);
       }                                                                  
           
         
@@ -7848,7 +7843,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
         | |
       prev1 prev2  -- insetead of dp use prev1 for dp[i-2] and prev2 for dp[i-1] and curr for dp[i]
 
-      public int numberPermutationKaIntegerToEnglishStringKaCount(String s , int ptr ){        
+      public int numberPermutationKaIntegerToStringKaCount(String s , int ptr ){        
         if(s.length() == 0){return 0;}
         if(s.length() == 1){return s.charAt(0) != '0' ?1:0;}
         int prev1 = 1;
@@ -7876,8 +7871,8 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
       }
 
       //OVERRIDE
-      public int numberPermutationKaIntegerToEnglishStringKaCount(String s){
-        return numberPermutationKaIntegerToEnglishStringKaCount(s,0);
+      public int numberPermutationKaIntegerToStringKaCount(String s){
+        return numberPermutationKaIntegerToStringKaCount(s,0);
       }
 
       Time:O(n)
@@ -8437,8 +8432,6 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
 
     }
   
-
-
 
     //COMBINTAION, PERMUTATION -- DFS, BFS
     public void    stringPermutationKaPartitionInOtherListKaPossible(String s, List<String> wordDict){
@@ -9416,7 +9409,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
     
       
   }
-    public void matrixConnectedNodeComponent_NoOfIslands(char[][] arr){
+    public void matrixConnectedComponentCount_NoOfIslands(char[][] arr){
       /*
       [
         ["1","1","1","1","0"],    - find all the connected nodes (neighbouring nodes to node at m,n with same value as originalNode="1")
@@ -9433,7 +9426,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
 
       //DFS RECURSIVE
       /*
-      public int matrixConnectedNodeComponent_NoOfIslands(char[][] arr) {
+      public int matrixConnectedComponentCount_NoOfIslands(char[][] arr) {
         int count =0;
         for(int i=0; i <= arr.length-1;i++){                               --iterate matrix
             for(int j=0 ; j <= arr[0].length-1;j++){                            if arr[i][j] == '1'
@@ -9457,7 +9450,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
     
       //DFS ITERATIVE
       /*
-      public int matrixConnectedNodeComponent_NoOfIslands(char[][] arr) {
+      public int matrixConnectedComponentCount_NoOfIslands(char[][] arr) {
         int count =0;
         for(int i=0; i <= arr.length-1;i++){                               --iterate matrix
             for(int j=0 ; j <= arr[0].length-1;j++){                            if arr[i][j] == '1'
@@ -9476,7 +9469,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
           
       //BFS  ITERATIVE
       /*
-      public int matrixConnectedNodeComponent_NoOfIslands(char[][] arr) {
+      public int matrixConnectedComponentCount_NoOfIslands(char[][] arr) {
         int count =0;
         for(int i=0; i <= arr.length-1;i++){                               --iterate matrix
             for(int j=0 ; j <= arr[0].length-1;j++){                            if arr[i][j] == '1'
@@ -9692,8 +9685,6 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
 
   
 
-
-
     //GRAPH-- DFS, BFS
     /*   
     n0----n1---Node/vertice(N/V) 
@@ -9703,37 +9694,22 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
                                   
     REPRESENTATION OF GRAPH    
     ADJACENCY MATRIX   ADJACENCY LIST      OR     ADJACENCY MAP OR   EDGES
-        0 1 2 3        [[1,2,3]                    {0:[1,2,3]          [[0,1],            
-     0 [0 1 1 0         [0,3]                       1:[0,3]             [1,2],        
-     1  0 0 0 0         [0,3]                       2:[n1]              [2,0]], 
-     2  1 0 0 1         [1,2]                       3:[n1]        
+        0 1 2 3        [[1,2,3]                    {0:[1,2,3]         [[0,1],            
+     0 [0 1 1 0         [0,3]                       1:[0,3]            [1,2],        
+     1  0 0 0 0         [0,3]                       2:[n1]             [2,0]], 
+     2  1 0 0 1         [1,2]                       3:[n1]       
      3  0 0 0 0 ]        ]                            }                      
      |                    |                             |                   |
      |                    |                             |                   |
-n0 is connected to n1,n2  n0 is connected to n1,n2,n3   same            For unidirectional/directed  graph
-n2 is connected to n0,n3  n2 is connected to n0,n3                      n0 connected to n1
-                          [2,0]],                                       n1 connected to n2
-                                                                       n2 connected to n1
+n0 is connected to n1,n2  n0 is connected to n1,n2,n3   same          For unidirectional/directed  graph
+n2 is connected to n0,n3  n1 is connected to n0,n3                    n0 connected to n1
+                                                                      n1 connected to n2
+                                                                      n2 connected to n1
 
-                                                                      For bidirectional/directed graph
+                                                                      For bidirectional/undirected graph
                                                                       n0 connected to n1 , n1 connected to n0
                                                                       n1 connected to n2,n2 connected to n1
                                                                       n2 connected to n0,n0 connected to n2
-
-                                                                      CONVERT EDGES TO ADJACENCY LIST OR ADJACENCY MAP
-                                                                      Map<Integer,List<Integer>> graphMap = new HashMap<>();
-                                                                      List<List<Integer>> graphArr = new ArrayList<>();
-                                                                      for(int i=0 ; i <= n-1;i++){               //if edges are given then no of nodes will also be given
-                                                                          graphArr.add(i,new ArrayList<>());
-                                                                          graphMap.put(i,new ArrayList<>());
-                                                                      }
-                                                                      for(int[] edge:edges){
-                                                                          graphArr.get(edge[0]).add(edge[1]);   //if it is a unidirectional graph then you need to connect only 0 to 1
-                                                                          graphArr.get(edge[1]).add(edge[0]);    If it is a bidirectional graph you need to connect 0 to 1 and 1 to 0
-                            
-                                                                          graphMap.get(edge[0]).add(edge[1]);
-                                                                          graphMap.get(edge[1]).add(edge[0]);
-                                                  }
 
 
 
@@ -9856,7 +9832,7 @@ n2 is connected to n0,n3  n2 is connected to n0,n3                      n0 conne
 
       //UNION-FIND ALGORITHM 
       /*
-      //UNION FIND BY RANK AND PATH CPOMPRESSION
+      //UNION FIND BY RANK AND PATH COMPRESSION
       Class UnionFind(){
           
         //MAKESET-->INITIALISE THE RANK AND PARENT ARRAYS
@@ -9867,8 +9843,8 @@ n2 is connected to n0,n3  n2 is connected to n0,n3                      n0 conne
           }
         }
 
-        //FINDPARENT -->FIND THE TOPMOST PARENT OF NODE AND ALSO PERFORM PATH COMPRESSION Eg: 1-->2-->3 ;find(3) will return 1 and compress gpapg to 1-->3
-        public int findParent(int node,int[] parent , int[] rank){                                                                                 |-->2
+        //FINDPARENT -->FIND THE TOPMOST PARENT OF NODE AND ALSO PERFORM PATH COMPRESSION Eg: 1-->2-->3 ;find(3) will return 1 and compress grapg to 1-->3
+        public int findParent(int node,int[] parent , int[] rank){                                                                                   |-->2
           if(node == parent[node])                                      --if node and parent of node are same 
             return node;                                                    return parent
 
@@ -11842,7 +11818,7 @@ n2 is connected to n0,n3  n2 is connected to n0,n3                      n0 conne
     }
 
 
-  
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //MCM 
     /*
     MCM IDENTIFY

@@ -174,7 +174,7 @@ arrayPairKTargetSumI(pair) --own
 arrayPairKTargetSumI(unique) -- https://leetcode.com/problems/4sum/solution/ 
 arraypair2TargetDifferenceI (pair)  --https://www.techiedelight.com/find-pairs-with-given-difference-array/
 arraypair2TargetDifferenceI (unique) -- https://leetcode.com/problems/k-diff-pairs-in-an-array/
-arraykClosestElements  -- https://leetcode.com/problems/find-k-closest-elements/submissions/
+arraykClosestElementsToPoint  -- https://leetcode.com/problems/find-k-closest-elements/submissions/
 arraySetBitsFrequencySort -- https://practice.geeksforgeeks.org/problems/sort-by-set-bit-count1153/1#
 arraySqaureSort -- https://leetcode.com/problems/squares-of-a-sorted-array/
 arrayQuadraticSort -- https://leetcode.com/problems/sort-transformed-array/
@@ -219,7 +219,7 @@ arrayPermutationKaMinJumpKaCount -- https://leetcode.com/problems/jump-game-ii/
 arrayPermutationKaMinJumpKaPossible  --https://leetcode.com/problems/jump-game/
 arrayPermutationKaMaxStockDifferenceKaDiffI -- https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
 arrayPermutationKaMaxStockDifferenceKaDiffII-- https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/
-arrayFractionalKnapSack -- https://practice.geeksforgeeks.org/problems/fractional-knapsack-1587115620/1#
+arrayPermutationFractionalKnapSack -- https://practice.geeksforgeeks.org/problems/fractional-knapsack-1587115620/1#
 
 ########################REMAINING###############################################
 LLETCODE --- 15,31,42,75,142,202,251,253,277,295,763
@@ -298,7 +298,7 @@ MergeKSortedList -- https://leetcode.com/problems/merge-k-sorted-lists/
 
 //QUEUE
 /*
-stringFirsNonRepeatingCharacterAtEveryPosition -- https://www.geeksforgeeks.org/find-first-non-repeating-character-stream-characters/
+stringFirstUniqueCharacterReplaceAtEveryPosition -- https://www.geeksforgeeks.org/find-first-non-repeating-character-stream-characters/
                                                 (Queue qives O(n^2) DLL gives O(n) but hard to implement)
 
 
@@ -354,10 +354,10 @@ arraySubArraySubsequenceSubsetCombPermOfSizeK -- https://leetcode.com/problems/c
 
 //ARRAY -- MULTIPOINTERS
 arraySubArrayKaCharactersIncreasingKaLongestLength -- https://leetcode.com/problems/longest-continuous-increasing-subsequence/
-arraySubArrayKaCharactersEqualOnSplitKaCount -- https://leetcode.com/problems/split-a-string-in-balanced-strings/
+arraySubArrayKaCharactersEqualOnesAndZerosOnSplitKaCount -- https://leetcode.com/problems/split-a-string-in-balanced-strings/
 
 //ARRAY -- MULTIPOINTERS SORT+SEARH
-arraySubsequenceKaCharactersConsecutiveAnyOrderKaLongestLength --https://leetcode.com/problems/longest-consecutive-sequence/
+arraySubsequenceKaCharactersConsecutiveNumbersInAnyOrderKaLongestLength --https://leetcode.com/problems/longest-consecutive-sequence/
 
 
 //ARRAY -- MULTIPOINTERS SLIDING WINDOW
@@ -447,7 +447,7 @@ matrixUniquePathKaCountII --https://leetcode.com/problems/unique-paths-ii/
 matrixAllPathsKaMinSum -- https://leetcode.com/problems/minimum-path-sum/
 matrixConnectedComponentFill_FloodFill --https://leetcode.com/problems/flood-fill/
 matrixConnectedComponentArea_FloodFillArea -- https://leetcode.com/problems/max-area-of-island/ me use kiya hai
-matrixConnectedNodeComponent_NoOfIslands -- https://leetcode.com/problems/number-of-islands/
+matrixConnectedComponentCount_NoOfIslands -- https://leetcode.com/problems/number-of-islands/
 matrixMaxAreaOfIsland -- https://leetcode.com/problems/max-area-of-island/
 matrixWordSearch -- ttps://leetcode.com/problems/word-search/
 matrixWordSearchII -- https://leetcode.com/problems/word-search-ii/

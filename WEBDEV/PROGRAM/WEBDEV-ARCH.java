@@ -37,11 +37,14 @@ UI/UX------------>FE-API---------------->BE-API------------>DATABSE
                               POST   --> client sends body ;server adds  object with own paramvalues amd body  
                               DELETE  --> client requests paramValues; server deletes  object with paramValues and sends back object 
             ERRORS           https://www.restapitutorial.com/httpstatuscodes.html
-                             201 --created   
-                             409 --conflict
-                             200 -- OK         
-                             404 -- Not Found 
-                             400 -- Bad Request 
+                             200 --OK           client request sent and server response received 
+                             201 --created      client request sent and server creates a resource and sends response  
+                             400 --Bad Request  client request sent and server doesnt send response due to client side error   
+                             404 --Not Found    client request sent and server doesnt send response due to webpage not found
+                             409 --conflict     client request sent and server doesnt send response due to conflict in client request
+                             500 --Int Serv Err client request sent and server doesnt send response due to generic erver error
+                             
+                             
 
 
 

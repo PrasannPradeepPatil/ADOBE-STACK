@@ -912,7 +912,7 @@ let objOfFn = new fnObj(arg)                      -->Call classObj + "new" which
 
     LET DECLARATIPN
     let varname = object--> can be declared without being initialized , value can be changed and reassigned
-                            block scoped available inside only code block) , doesn’t attach value to window object(top level obj in JS)  
+                            block scoped available inside only code block , doesn’t attach value to window object(top level obj in JS)  
     CONST DECLARATION
     const varnam = object--> cannot  be declared without being initialized , value cannot  be changed, block scoped
                             block scoped available inside only code block) , doesn’t attach value to window object(top level obj in JS)  
@@ -1684,7 +1684,7 @@ for(let i  in  arr , obj ){}  --> i =  index of array ,key(iterate over  both in
 
 
 FOR-OF
-for(let i of arr , obj.keys(obj)  ,obj.entries(obj) ){ }--> i = value of array , key of object ,[“key” , value] of object 
+for(let i of arr , Object.keys(obj)  ,Object.entries(obj) ){ }--> i = value of array , key of object ,[“key” , value] of object 
 
 
 

@@ -11,7 +11,6 @@ LOOK IN WEBDEV-ARCH.java
 */
 
 
-
 //HIGH LEVEL SYSTEM DESIGN(ARCHITECTURE)
 /*
 1. Horizontal and vertical scaling

@@ -123,8 +123,8 @@ acessmod nonacessmod   Class  classname/interFaceName  <Generic>    extends/ imp
                                                            
                                                             //2.NON ACESS MODIFIER :
                                                             /*
-                                                           Class                                     -->  abstract , final
-                                                           NestedClass,  methods, memberVariable     -->  Static, Non static, abstract,final,default,transient, synchronised,volatile 
+                                                            Class                                     -->  abstract , final
+                                                            NestedClass,  methods, memberVariable     -->  Static, Non static, abstract,final,default,transient, synchronised,volatile 
                                                                                 
                                                                                                            
                                                             Static(class members)                    -->  1.Class,Interface :Not available
@@ -158,12 +158,12 @@ acessmod nonacessmod   Class  classname/interFaceName  <Generic>    extends/ imp
 
 
                                                             Transient:                               -->   1.Class,Interface:Not available
-                                                                                                           2.Members:  skipped when serializing the object containing them
+                                                                                                           2.Members: marks a member variable not to be serialized when it is persisted to streams of bytes.]
                                                             synchronised:                            -->   1.Class,Interface:Not available
                                                                                                            2.Members: Put a lock on shared method , var and only 1 thread can acess 
                                                                                                            Sequentially(Explained Thread-> Create Thread->Race cond)
                                                             volatile:                                -->   1.Class,Interface: Not available
-                                                                                                           2.Members: instance variable’s value is not cached     thread-locally, and is 
+                                                                                                           2.Members: instance variable’s value is not cached thread-locally, and is 
                                                                                                              always read from the "main memory"concurrently """"Explained Thread-> Create Thread ->Visibility Problem)""""
                                                           */
            

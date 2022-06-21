@@ -123,7 +123,6 @@ AI = 1 -> default value = autoincrement from previous values
 */
 
 
-
 //NORMALIZATION
 /*
 Look in SQL WORKBench Docx ka 4.Creating Database and Tables -->5.Normalization
@@ -131,7 +130,7 @@ Look in SQL WORKBench Docx ka 4.Creating Database and Tables -->5.Normalization
 
 //ACID
 /*
-Look in TRANSACTIONA
+Look in TRANSACTION
 */
 
 //QUERY OPTIMIZATION

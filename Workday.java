@@ -23,9 +23,6 @@
 //DBMS
 /*
 1.Look at SQL
-
-
-
  */
 
 //DSA
@@ -45,8 +42,8 @@
 
 //OS
 /*
-1.Deadlock
-2.Threads
+1.Deadlock and deadlock resolve
+2.Threads vs process
  */
 
 //SYSTEM DESIGN

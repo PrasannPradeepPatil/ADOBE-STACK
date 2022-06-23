@@ -5,6 +5,539 @@ import java.util.*;
 
 public class BasicsAlgorithm {
 
+    //RELATION
+    /* #region Main */
+
+    //SUBARRAY/SUBSTRING,SUBSEQUENCE,SUBSET,COMBINATION,PERMUTATION 
+    /*
+    arraySubArrayKaArrays(R)
+    arraySubsequenceKaArrays(R)
+    arraySubsetKaArrays(R)
+    arrayCombinationKaArray(R)
+    arrayPermutaionKaArray(R)
+    arraySubArraySubsequenceSubsetCombinationPermOutationfSizeK(R)
+    */
+
+
+    //NUMBER
+    /*
+    numerIsHappy(R)
+    numberCountAndSay(R)
+    numberBitsSetKaCount(BA)
+    numberBitsSetKaIndex(BA)
+    numberBitsReverse(BA)
+    numberBitsToFlipToConvertToOtherNumber(BA)
+    numberBitsSetInRangeSetAnotherNumber(BA)
+    numberBitsSetKaTotalCount0ToN(BA)
+    numberBitsSetKaEachCount0ToN(BA)
+
+    numberIsAPowerOf2(BA)
+    numberIsAPowerOf3(BA)
+    numberIsWhatPowerOf2(BA)
+    numberPower(BA)
+    numberSqrt(BA)
+    numberFactorial(BA)
+    numberFibbonaci(BA)
+    numberPrime(BA)
+    numberPrime0toNCount(BA)
+    numberLCM(BA)
+    numberHCF(BA)
+    numberFibbonaci(R)
+
+    */
+    //EVALUATE EXPRESSION
+    /*
+    stringEvaluetePostFixExpression
+    stringEvaluetePreFixExpression
+    stringEvaluateArithmeticExpression
+
+    stringValidParanthesis
+    stringValidParanthesWithRedundant
+
+    stringSubstringValidParanthesisLongestShortest
+
+    stringPermutationKabalanceParanthesisKaString
+    */
+    //INCREASING
+    /*
+    arraySubArrayKaIncreasingKaLongestLength(R)
+    arraySubarrayKaIncreasingTripletKaPossibleAndArray(BA)
+
+    stringSubsequencekaIncreasingKaLongestlength(R)
+    stringSubsequenceKaIncreasingTripletKaPossibleAndString(R)
+
+    arrayConvertToIncreasingWithMinIncrementOperation(BA)
+    */
+    //ISOMORPHIC,ANAGRAM  
+    /*
+    stringCompare2StringForIsomorphic,stringCompare2StringForIsomorphicc(BA,BA)                             
+    stringCompare2StringsForAnagram,stringCompare2StringsForAnagramm,stringCompare2StringsForAnagrammm(BA,BA,BA)                                         
+    stringCompare2StringsForAnagramWithOneExtraCharacter,stringCompare2StringsForAnagramWithOneExtraCharacterr(BA,BA)  
+    stringSubStringKaContainingAnagramOfOtherStringKaStringAndCount(BA)
+
+    matrixCompareRowsForAnagramsGrouping(BA)
+    */
+    //PALLINDROME
+    /*
+    intPallindrome(BA)                                                                               
+    stringPallindrome(BA)                                                                           
+    stringPallindromeAlphNumeric(BA)                                
+    stringPallindromeWith1deletion(BA)   
+    linkedListisPallindrome(LL)
+
+    stringSubstringKaPallindromeKaLongestLengthAndLongestString(R)
+    stringSubstringKaAllPallindromeKaCoundAndString(R)
+
+    stringSubsequenceKaPallindromeKaLongestLength(R)
+
+    stringPermutationKaPartitionIsPallindromeKaPossible(R)
+    stringPermutationKaPartitionIsPallindromeKaStrings(R)
+
+    stringConvertToPallindromeWIthMinInsertionDeletion(R)
+
+
+    */
+
+
+
+    //MAX MIN KTH
+    /*
+    arraykthSmallestElement,arraykthSmallestElementt(BA,BA)
+    arraykthLargestElement,arraykthLargestElementt(BA,BA)
+    arrayKsmallestElement,arrayKsmallestElementt(BA,BA)
+    arraykLargestElement,arraykLargestElementt(BA,BA)
+    arrayK1K2smallestElementsSum,arrayK1K2smallestElementsSumm(BA,BA)
+    arrayKTopfrequentElements,arrayKTopfrequentElementss(BA,BA)
+    arraykClosestElementsToOrigin,arraykClosestElementsToOriginn(BA,BA)
+    arraykClosestElementsToPoint,arraykClosestElementsToPointt(BA,BA)
+    */
+    //MAX, MIN NEAREST
+    /*
+    arrayGreatestToLeft(BA)
+    arraySmallestToLeft(BA)
+    arrayGreatestToRight(BA)
+    arraySmallestToRight(BA)
+
+    arrayNearestGreatestToLeft(BA)
+    arrayNearestSmallestToLeft(BA)
+    arrayNearestGreaterToRight(BA)
+    arrayNearestSmallestToRight(BA)
+
+    arrayConsecutiveGreatestToLeft(BA)
+    arrayConsecutiveSmallestToLeft(BA)
+    arrayConsecutiveGreatestToRight(BA)
+    arrayConsecutivemallestToRight(BA)
+
+    arrayHistogramMaxArea(BA)
+    arrayContainerMaxArea(BA)
+    arrayContainerTotalArea(BA)
+    arrayDaysToWaitForNextGreatestTemp(BA)
+
+
+    */
+    //MAXIMISE MINIMUM
+    /*
+    arraySubarrayKaPartitionKaSumMinimiseMaximum(R, BA -- arrayUnSortedBinarySearchOnSolutionSpace)
+    arraySubarrayKaPartitionKaSumMaximiseMinimum(R,BA -- arrayUnSortedBinarySearchOnSolutionSpace)
+    arrayUnSortedBinarySearchOnSolutionSpace(BA)
+
+    */
+    //ROTATE
+    /*
+    arrayRotateRight(BA)
+    arrayRotateLeft(BA)
+    arrayRotateRightKTimes(BA)
+    arrayRotateLeftKTimes(BA)
+    matrixRotateClockWise(BA)
+    matrixRotateAntiClockWise(BA)
+
+    arrayRotatedSortedMinElement(BA)
+    arrayRotatedSortedNoOfRotations(BA)
+    arrayRotatedSortedFindElements(BA)
+
+
+    stringCompare2StringsForRotation,stringCompare2StringsForRotationn(BA,BA)  
+
+
+    */
+    //REVERSE
+    /*
+    numberBitsReverse(BA)
+    intReverse(BA)
+    stringReverse(BA)
+    arrayReverse(BA)
+    linkedListReverseRecursive(R)
+    stackReverse,stringReversee,stackReverseRecursive(BA,BA,R)
+    queueReverse,queueReverseRecursive(BA,BA)
+    queueReverse1stKElements(BA)
+    stringReverseVovels(BA)
+    stringReverseKIntervals(BA)
+    stringReverseWordsOrder(BA)
+    stringReverseWords(BA)
+
+    */
+    //REMOVE
+    /*
+    arrayRemoveDuplicate,arrayRemoveDuplicatee(BA,BA)
+    arrayRemoveDuplicateII,arrayRemoveDuplicateeII(BA,BA)
+    arrayRemoveElement(BA)
+
+    stringRemoveVowels(BA)
+    stringFirstUniqueCharacterReplaceAtEveryPosition,stringFirstUniqueCharacterReplaceAtEveryPositionn(BA,BA)
+
+    stackDeleteKthElementRecursive(R)
+    */
+    //SORT 
+    /*
+    arraySquareSort(BA)
+    arrayQuadraticSort(BA)
+    arraySetBitsFrequencySort(BA)
+
+    arrayKNearlySortedSort,arrayKNearlySortedSortt(BA,BA)
+    arrayfrequencySort,arrayfrequencySortt(BA,BA)
+
+    arrayLargestNumberOnRearrangingSort(BA)
+
+    matrixSortRow(BA)
+    matrixSortRowColumn(BA)
+    */
+    //SORTED FIND
+    /*
+    arraySortedAscendingFindElement(BA)
+    arraySortedDescendingFindElement(BA)
+    arraySortedUnknownFindElement(BA)
+    arraySortedFirstLastOccurence(BA)
+    arraySortedFindInsertionIndex(BA)
+    arraySortedFrequencyCountOfItem(BA)
+    arraySortedFloorCeilOfItem(BA)
+    arraySortedPreviousNextOfItem(BA)
+    arraySortedMinimumDifferenceWithItem(BA)
+    arraySortedInfiniteFindElement(BA)
+    arraySortedInfiniteBinaryFirstLastOccurenceOf1(BA)
+
+    arrayNearlySortedFindElement(BA)
+
+    arrayMountainBitonicPeakElement(BA)
+    arrayMountainBitonicFindElement(BA)
+
+    arrayRotatedSortedMinElement(BA)
+    arrayRotatedSortedNoOfRotations(BA)
+    arrayRotatedSortedFindElements(BA)
+
+    arrayKdiffSortedFindElement(BA)
+
+    arrayUnSortedPeakElement(BA)
+
+    matrixFindElements(BA)
+    matrixRowWithMaxOccurenceOf1(BA)
+
+    */
+    //CONVERT
+    /*
+    numberBitsToFlipToConvertToOtherNumber(BA)
+    numberExcelConvertToInteger(BA)
+    numberRomanconvertToInteger(BA)
+    numberIntegerConvertToRoman(BA)
+    numberIntegerConvertToToWords(BA)
+    numberStringConvertToMobileNumber(BA)
+    numberStringConvertToInteger(BA)
+    numberFractionConvertToRecurringDecimal(BA)
+
+    stringConvertToPallindromeWIthMinInsertionDeletion(R)
+    stringConvertToAnotherStringWithMinimumInsertionDeletion(R)
+    stringConvertToEqualStringsWithMinimumDeletion(R)
+
+    arrayConvertToIncreasingWithMinIncrementOperation(R)
+    arrayConvertToMinRangeWithIncDecOpertionsI(R)
+    arrayConvertToMinRangeWithIncDecOpertionsII(R)
+
+    numberPermutationKaIntegerToStringKaCount(R)
+    stringPermutationKaIntegerToMobileString(R)
+    matrixComareRowsForNonOverlappingIntervalByMinRemoval(BA)
+
+    */
+    //GROUP  
+    /*
+    arrayGroupByZero(BA)
+    arrayGroupByEvenOdd(BA)
+    arrayGroupByNegativePositive(BA)
+    arrayGroupByLessThanK(BA)
+
+    arrayGroupByEvenOddAlternate(BA)
+    arrayGroupByNegativePositiveAlternate(BA)
+    arrayGroupByLessThanKAlternate(BA)
+    arrayGroupByUniqueAlternate(BA)
+
+    arrayGroupIn3PartsByRange(BA)
+    arrayGroupIn3PartsBy012(BA)
+
+    arrayGroupByNegativeTogetherMinSwaps,arrayGroupByNegativeTogetherMinSwapss(BA,BA)
+    arrayGroupByLessThanKTogetherMinSwaps,arrayGroupByLessThanKTogetherMinSwapss(BA,BA)
+    arrayGroupBy01AlternateMinSwaps,arrayGroupBy01AlternateMinSwapss(BA,BA)
+    arrayGroupByEvenTogetherMinSwaps,arrayGroupByEvenTogetherMinSwapss(BA,BA)
+    */
+    //DISTINCT(UNIQUE),REPEATING(DUPLICATE)
+    /*
+    arrayContainsDuplicate,arrayContainsDuplicatee(BA,BA)
+
+    stringFirstRepeatedCharacter(BA)
+    stringFirstUniqueCharacter(BA)
+    stringMaxRepeatedCharacter(BA)
+    stringnUniqueAndRepeatedCharacterCount(BA)
+    stringFirstUniqueCharacterReplaceAtEveryPosition,stringFirstUniqueCharacterReplaceAtEveryPositionn(BA,BA)
+
+    arrayRemoveDuplicate,arrayRemoveDuplicatee(BA,BA)
+    arrayRemoveDuplicateII,arrayRemoveDuplicateeII(BA,BA)
+
+    arrayMissingRanges(BA)
+    arrayMissingDuplicate0ToN,arrayMissingDuplicatee0ToN,arrayMissingDuplicateee0ToN(BA,BA,BA)
+    arrayMissingDuplicate1ToN,arrayMissingDuplicatee1ToN,arrayMissingDuplicateee1ToN(BA,BA,BA)
+    arrayMissingPositive1ToNPlus1,arrayMissingPositivee1ToNPlus1(BA,BA)
+
+    stringSubstringKaCharacterEqualsKDistinctKaLongesKaLengthAndString_PickFruits(R)
+    stringSubstringKaCharactersEqualsKDistinctKaCount(R)
+    stringSubstringKaCharactersAtMostKDistinctKaLongestShortestKaLengthAndStringAndCount__PickFruits(R)
+    stringSubstringKaCharactersAtLeastKDistinctKaLongestShortestKaLengthAndStringAndCount(R)
+    stringSubstringKaCharactersAllDistinctKaLongestShortestKaLengthAndStringAndCount(R)
+    stringSubstringKaCharacterAllRepeatingOnKReplacementKaLongestShortestLengthAndStringAndCount(R)
+    stringSubstringKaCharacterAtleastKRepeatedKaLongestLength(R)
+    stringSubstringKaCharactersOddNumberEverythingKaLongestShortestKaLengthAndStringAndCount(R)
+    */
+    //MISSING,REPEATING(DUPLICATE)
+    /*
+    arrayMissingRanges(BA)
+    arrayMissingDuplicate0ToN,arrayMissingDuplicatee0ToN,arrayMissingDuplicateee0ToN(BA,BA,BA)
+    arrayMissingDuplicate1ToN,arrayMissingDuplicatee1ToN,arrayMissingDuplicateee1ToN(BA,BA,BA)
+    arrayMissingPositive1ToNPlus1,arrayMissingPositivee1ToNPlus1(BA,BA)
+    arrayNelementsPtimesOtherKtimes,arrayNelementsPtimesOtherKtimess,arrayNelementsPtimesOtherKtimesss(BA,BA)
+    arrayElementsAppearingMoreThanNbyKTimes,arrayElementsAppearingMoreThanNbyKTimess(BA,BA)
+   
+    */
+    //REPEATING
+    /*
+    arraySubArrayKaContinuousOneKaLongestLength(R)
+
+    stringSubsequenceKaRepeatingKaLongestLength(R)
+    arraySubsequenceKaConsecutiveNumbersInAnyOrderKaLongestLength(R)
+
+    arrayContinuousSumEqualsMinCost_RopesJoining,arrayContinuousSumEqualsMinCost_RopesJoiningg(R)
+    */
+    //SUM,PRODUCT
+    /*
+    numberSumWithoutOperator(BA)
+    arrayProductExceptSelf(BA)
+    arrayContinuousSumEqualsMinCost_RopesJoining,arrayContinuousSumEqualsMinCost_RopesJoiningg(R)
+
+    arraypair2TargetSumI,arraypair2TargetSummI(BA,BA)
+    arraypair2TargetSumII,arraypair2TargetSummII(BA,BA)
+    arraypair3TargetSumI,arraypair3TargetSummI(BA,BA)
+    arraypair3TargetSumII,arraypair3TargetSummII(BA,BA)
+    arrayPairKTargetSumI,arrayPairKTargetSummI(BA,BA)
+    arraypair2TargetDifferenceI,arraypair2TargetDifferenceeI(BA,BA)
+
+    arraySubarraykaSumKthLargestKaSum(R)
+    arraySubArrayKaSumEqualsKKaLongestShortestKaLengthAndStringAndCount(R)
+    arraySubArraySumAtMostKKaLongestShortestKaLengthAndStringAndCount(R)
+    arraySubArrayKaSumAtleastKKaLongestShortestKaLengthAndStringAndCount(R)
+    arraySubArrayKaSumMaxMinKaArray(R)
+    arraySubArrayKaProductMaxMinKaArray(R)
+    arraySubarrayKaPartitionKaSumMinimiseMaximum(R, BA -- arrayUnSortedBinarySearchOnSolutionSpace)
+    arraySubarrayKaPartitionKaSumMaximiseMinimum(R,BA -- arrayUnSortedBinarySearchOnSolutionSpace)
+
+
+    arraySubsequenceKaSumEqualsTargetKaPossible(R)
+    arraySubsequenceKaSumEqualsTargetKaCountI(R)
+    arraySubsequenceKaSumEqualsTargetKaCountII_CoinChangeCombinationCount(R)
+    arraySubSequenceKaSumEqualsTargetKaMinLengthI(R)
+    arraySubSequenceKaSumEqualsTargetKaMinLengthII_CoinChangeCombinationMinCount_PerfectSquareMinCount(R)
+    arraySubsequenceKaSumEqualsTargetKaArraysI(R)
+    arraySubsequenceKaSumEqualsTargetKaArraysII_CoinChangeCombinationArray(R)
+    arraySubsequenceKaSumOfPairsDifferenceEqualsZeroKaPossible(R)
+    arraySubsequenceKaSumOfPairsDifferenceEqualsZeroKaCount(R)
+    arraySubsequenceKaSumOfPairsDifferenceEqualsTargetKaPossible(R)
+    arraySubsequenceKaSumOfPairsDifferenceEqualsTargetKaCount(R)
+    arraySubsequenceKaSumOf2PairsDifferenceEqualsTargetKaCount___ArraySignPermutation(R)
+    arraySubsequenceKaSumOfPairsDifferenceEqualsMinKaSum(R)
+    arraySubsequenceOfSizeKKaSumEqualsTargetKaArraysI(R)
+
+
+    */ 
+    //SUM KNAPSACK
+    /*
+    arrayknapSack01(R)
+    arrayknapSackUnbound_RodCuttingMaxCost(R)
+    arrayPermutationFractionalKnapSack(BA)
+    */
+    //SIZE K 
+    /*
+    arraySubArraySubsequenceSubsetCombinationPermOutationfSizeK(R)
+
+    arraySubarrayKaSizeKKaMaxMinSum(R)
+    arraySubArrayKaSizeKKaFirstNegativeNumbers(R)
+    arraySubArrayKaSizeKKaMaxNumbers(R)
+    arraySubarrayKaSizekaOddElementKaMinCount(R)
+
+    arraySubsequenceOfSizeKKaSumEqualsTargetKaArraysI(R)
+
+    */
+    //COMPARE 
+    /*
+    //ADDITION
+    stringcompare2StringsForAddition(BA)                                                    
+    arrayCompare2ArrayForPlusOneAddition(BA)    
+
+    //INTERSECTION , COMMON , UNION , MERGING 
+    arrayCompare2ArraysForIntersection,arrayCompare2ArraysForIntersectionn(BA,BA)                                                             
+    arrayCompare2ArraysForCommon,arrayCompare2ArraysForCommonn(BA,BA)                                                                 
+    arrayCompare2ArraysForUnion,arrayCompare2ArraysForUnionn(BA,BA)                                                          
+    arrayCompare2ArrayForMergingI,arrayCompare2ArrayForMerginggI(BA,BA)
+    arrayCompare2ArrayForMergingII,arrayCompare2ArrayForMerginggII(BA,BA)      
+    arrayCompare2ArrayForMedian,arrayCompare2ArrayForMediann(BA,BA)                                  
+    
+    stringCompareNStringsForReplacement(BA)  
+    stringCompareNStringForAutoComplete(BA)                    
+    stringCompareNStringsForLongestCommonPrefix(BA) 
+    stringCompareNStringsForLongestCommonPrefixWithWord(BA)  
+
+    matrixCompareRowForIntersection(BA)
+    matrixCompareRowForCommon(BA)
+    matrixCompareRowForUnion(BA)
+    matrixCompareRowForMerging(BA)
+    matrixLLCompareRowForMerging(BA)
+    matrixCompareRowsForMergingOverlappingInterval(BA)
+    matrixCompareRowForMergingOverlappingIntervalByInsertion(BA)
+    matrixComareRowsForNonOverlappingIntervalByMinRemoval(BA)
+    matrixCompareRowsForMergingMeetingRoomIntervalI(BA)
+    matrixCompareRowsForMergingMeetingRoomIntervalII(BA)
+
+    stringSubsequenceKaCommonKaLongestLength(R)                                 
+    stringSubsequenceKaCommonKaLongestString(R)
+    stringSubstringKaCommonKaLongestLength(R)
+    stringSupersequenceKaCommonKaShortestLength(R)
+    stringSupersequenceKaCommonKaShortestString(R)
+
+    //CONTAINING
+    stringSubstringKaContainingOtherStringKaIndex(R) 
+    stringSubsequenceContainingOtherStringIsPossible(R)
+    stringSubStringKaContainingAnagramOfOtherStringKaStringAndCount(R)
+    stringSubstringKaContainingCharactersOfOtherStringKaLongestShortestLengthAndStringAndCount(R)
+    stringSubstringKaContainingCharactersOfItselfKaLongestShortestLengthAndStringAndCount(R)
+
+
+    //ROTATION,ISOMPRPHIC,ANAGRAM
+    stringCompare2StringsForRotation,stringCompare2StringsForRotationn(BA,BA)    
+    stringCompare2StringForIsomorphic,stringCompare2StringForIsomorphicc(BA,BA)                             
+    stringCompare2StringsForAnagram,stringCompare2StringsForAnagramm,stringCompare2StringsForAnagrammm(BA,BA,BA)                                         
+    stringCompare2StringsForAnagramWithOneExtraCharacter,stringCompare2StringsForAnagramWithOneExtraCharacterr(BA,BA)  
+    stringSubStringKaContainingAnagramOfOtherStringKaStringAndCount
+
+    matrixCompareRowsForAnagramsGrouping(BA)
+
+
+    */
+    //PERMUTATION, COMBINATION
+    /*
+    numberPermutationKaStepsKaCount(R)
+    numberPermutationKaIntegerToStringKaCount(R)
+    stringPermutationKaIntegerToMobileString(R)
+    arrayPermutationMaxRobberSumKaSumI(R)
+    arrayPermutationMaxRobberSumKaSumII(R)
+    stringPermutationKaSpaceKaString(R)
+    stringPermutationKaLetterCaseKaString(R)
+    stringPermutationKaNumberLetterCaseKaString(R)
+    stringPermutationKabalanceParanthesisKaString(R)
+    stringPermutationKaBinaryPrefixKaString(R)
+
+    stringPermutationKaPartitionInOtherListKaPossible(R)
+    stringPermutationKaPartitionInOtherListKaStrings(R)
+    stringPermutationKaPartitionIsPallindromeKaPossible(R)
+    stringPermutationKaPartitionIsPallindromeKaStrings(R)
+
+    arrayPermutationKaMinJumpKaCount(BA)
+    arrayPermutationKaMinJumpKaPossible(BA)
+    arrayPermutationKaMaxStockDifferenceKaDiffI(BA)
+    arrayPermutationKaMaxStockDifferenceKaDiffII(BA)
+    arrayPermutationKaGasStationKaIndex(BA)
+
+    */
+    //PARTITION
+    /*
+    arraySubArrayKaSplitKaEqualOnesAndZerosKaCount(R)
+    arraySubarrayKaPartitionKaSumMinimiseMaximum(R)
+    arraySubarrayKaPartitionKaSumMaximiseMinimum(R)
+
+
+    stringPermutationKaPartitionInOtherListKaPossible(R)
+    stringPermutationKaPartitionInOtherListKaStrings(R)
+    stringPermutationKaPartitionIsPallindromeKaPossible(R)
+    stringPermutationKaPartitionIsPallindromeKaStrings(R)
+    */
+    //MATRIX,GRAPH
+    /*
+    maxtrixTraversal(R)
+    matrixUniquePathKaCountI(R)
+    matrixUniquePathKaCountII(R)
+    matrixAllPathsKaMinSum(R)
+    matrixConnectedComponentFill_FloodFill(R)
+    matrixConnectedComponentArea_FloodFillArea(R)
+    matrixConnectedComponentCount_NoOfIslands(R)
+    matrixConnectedComponentMaxArea_MaxAreaOfIslands(R)
+    matrixWordSearch(R)
+    matrixWordSearchII(R)
+
+
+    graphConstruct(R)
+    graphUndirUnionFind(R)
+    graphTraversal(R)
+    graphDirUndirPathExists(R)
+    graphDirUndirConnectedComponentsCount(R)
+    graphDirAcyclicTopologicalSort(R)
+    graphDirCycleDetection(R)
+    graphUnDirCycleDetection(R)
+    graphCourseSchedule(R)
+    graphCourseScheduleII(R)
+    graphDirAcyclicShortestLongestPath(R)
+    graphUnDirShortestLongestPath(R)
+    graphUndirisBipirtite(R)
+    graphDirUndirMinimumSpanningTree(R)
+    graphUndirIsValidTree(R)
+
+    */
+    //MATRIX
+    /*
+    matrixPascalTriangle(BA)
+    matrixTranspose(BA)
+    matrixReflect(BA)
+    matrixRotateClockWise(BA)
+    matrixRotateAntiClockWise(BA)
+    matrixSpiralTraversal(BA)
+    matrixMaximumArea(BA)
+    matrixZeroFill(BA)
+    matrixAliveDeadSimultaneousFill(BA)
+    matrixTikTakToe(BA)
+    matrixTikTakToeDesign(BA)
+    matrixIsValidSudoku(BA)
+
+    */
+
+
+
+    //ALGORITHM
+    /*
+    1.DUTCHFLAG ALGORITHM                                                                           --arrayGroupIn3PartsByRange(),arrayGroupIn3PartsBy012()
+    2.KADANES ALGORITHM                                                                             --arraySubArrayKaSumMaxMinKaArray
+    3.KMP ALGORITHM                                                                                 --stringSubstringKaContainingOtherStringKaIndex
+    3.TOPOLOGICAL-SORT ALGORITHM                                                                    --graphDirAcyclicTopologicalSort, search in recursion methods that use this algo 
+    4.UNIO-FIND ALGORITHM                                                                           --graphUndirUnionFind(), search in recursion methods that use this algo 
+    5.KAHNS ALGORITHM                                                                               --graphDirAcyclicTopologicalSort()
+    6.DIJKSHTRAS ALGORITHM                                                                          --graphUnDirShortestLongestPath
+    7.BELLMAN FORD ALGORITHM                                                                        --graphUnDirShortestLongestPath
+    8.PRIMS ALGORITHM                                                                               --graphDirUndirMinimumSpanningTree()
+    9.KRUSJALS ALGORITHM                                                                            --graphDirUndirMinimumSpanningTree                         
+
+    */
+
+    /* #endregion */
 
 
 
@@ -12,63 +545,6 @@ public class BasicsAlgorithm {
     class Node{}
 
     //MATH     
-    public String  numberCountAndSay(int n, String s , int N){
-        /*
-        Question
-        n = 5
-        countAndSay(1) = "1"
-        countAndSay(2) = say "1" = one 1 = "11"
-        countAndSay(3) = say "11" = two 1's = "21"
-        countAndSay(4) = say "21" = one 2 + one 1 = "12" + "11" = "1211"
-        countAndSay(5) = say "1211" = one 1 + one 2 + two 1 = "11" + "12" "21" = "111221"
-        
-        */
-      
-        //USING MATHS
-        /*
-        LOOK IN RECURSION
-         */
-        return "";
-
-    }
-    public boolean numerIsHappy(int n){
-        /*
-        n = 19 -- break the digits of number and add the square of the digits
-                  do this endlessly and if a loop ends in 1 it is a happy no and if 
-                  we go in endless loop then nuhappy number
-                  Eg:
-                  19
-                  1^2 + 9^2 = 82
-                  8^2 + 2^2 = 68
-                  6^2 + 8^2 = 100
-                  1^2 + 0^2 + 0^2 = 1
-
-                  Eg:
-                  2
-                  2^2 = 4
-                  4^2 = 16
-                  1^2 + 6^2 = 37
-                  3^2 + 7^2 = 58
-                  5^2 + 8^2 = 90
-                  9^2 + 0^2 = 81
-                  8^2 + 1^2 = 65
-                  6^2 + 0^5 = 61
-                  6^2 + 0^1 = 37 0-- endless loop
-
-
-
-
-                        
-        */
-
-        //USING MATHS
-        /*
-        LOOK IN RECURSION
-         */
-        return false;
-
-        
-    }
     public int     numberBitsSetKaCount(int n){
         /*
         22 -- in a number find the number of set bits
@@ -9116,7 +9592,7 @@ public class BasicsAlgorithm {
 
         */
 
-        //ARRAY SUBARRAY MINIMISE MAXIMUM SUM 
+        //ARRAY SUBARRAY KA PARTITION KA SUM MINIMISE MAXIMUM  
         //  |--MINIMISE MAXIMUM SUM IN ARRAY PARTITION(ARRAY PARTITION) -- https://leetcode.com/problems/split-array-largest-sum/
         //  |--MINIMISE MAX SUM OF WEIGHTS IN  PARTITIONS OF DAYS(SHIP PARTITION) - https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/
         //  |--MINIMISE TIME OF MAX SUMS OF TIME IN PARTITION OF PAINTERS(PAINTER PARTITION) - https://www.geeksforgeeks.org/painters-partition-problem/
@@ -9180,7 +9656,7 @@ public class BasicsAlgorithm {
 
         */                   
 
-        //ARRAY SUBARRAY MAXIMISE MINIMUM SUM 
+        //ARRAY SUBARRAY KA PARTITION KA SUM MAXIMISE MINIMUM 
         //   |--MAXIMISE MINIMUM SUM IN CHOCOLATE PARTITION(CHOCOLATE PARTITION) -- https://leetcode.com/problems/divide-chocolate/submissions/
         /*
         arr = [10,20,30,40] ; noOfdivion= 2
@@ -12058,7 +12534,7 @@ public class BasicsAlgorithm {
         return 0;
  
     }
-    public void    stringReverse(String s){
+    public String  stringReversee(String s){
         /*
         s = "abc" -- reverse the string 
          */
@@ -12083,7 +12559,7 @@ public class BasicsAlgorithm {
             sb.append(stack.pop());
             
         }
-        //return sb.toString();
+        return sb.toString();
     }
     public void    queueReverse1stKElements(Queue<Integer> queue,int k){
         /*

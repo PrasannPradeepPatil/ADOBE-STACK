@@ -127,49 +127,282 @@ public class Sorting {
           
           
         }
+
     public void listInsertionSortRecursive(List<Integer> list) {
-          /*
-          Look in Recursion listInsertionSortRecursive()
-          */
-      
-        
+        //RECURSIVE IP-OP TREE(Decision:No decision take smaller list)
+        /*
+            |      [1,5,6,7]  
+            [7,6,5,1] 
+            |      [5,6,7]
+            [7,6,5]
+            |      [6,7]        --insert(list,temp)
+            [7,6] 
+            |      [7]           --return
+            [7]
+    
+        public void    listInsertionSortRecursive(List<Integer> list) {
+                                                                --while going top-bottom
+        if(list.size() == 1)                                    if list size == 1
+            return;                                                 return and start moving up
+        var temp = list.remove(list.size()-1);                 temp = remove last element of list
+    
+                                                                --whle going top down
+        listInsertionSortRecursive(list);                      listInsertionSortRecursive(list); 
+                                                    
+                                                                --while going bottom-top
+        insert(list, temp);                                    insert temp in list
+        }
+    
+        //INSRERT  --we can insert iteratovely but ques is asking recursively so we do insert also recursively
+        item = 3
+                |       [1,2,3,4,5]
+            [1,2,4,5]   
+            |         [1,2,3,4]
+            [1,2,4]
+            |          [1,2,3]  
+            [1,2]
+            |      
+            [1,2,3]
+            private void  insert(List<Integer> l, int item) {   
+                                                                    --while going top-bottom
+            if(l.size() == 0 || item >= l.get(l.size()-1)){           if list size == 0 || item > list ka last element  
+                l.add(item);                                            add item in list
+                return;                                                 return and start moving up
+            }
+            int temp = l.remove(l.size()-1);;                           int temp = l.remove(l.size()-1);
+    
+                                                                        --while going top-bottom
+            insert(l, item);                                            insert(l,item)
+    
+                                                                        --while going bottom-top
+            l.add(temp)                                                  insert temp in list
+            }
+    
+    
+            //OVERRIDE
+            public void listInsertionSortRecursive(List<Integer> list) {
+            return listInsertionSortRecursive(list);
+            }
+    
+        TIME :O(2^n) as each fn calls itself twice and n(size of  array) reduces by 1 
+        SPACE:O(n) as we have n(size of  array)ips       
+        */
         
         }
     public void stackInsertionSortRecursive(Stack<Integer> stack) {
+        //RECURSIVE IP-OP TREE(Decision:No decision take smaller stack)
         /*
-        Look in Recursion StackInsertionSortRecursive()
+            |      [1,5,6,7]  
+            [7,6,5,1] 
+            |      [5,6,7]
+            [7,6,5]
+            |      [6,7]        --insert(stack,temp)
+            [7,6]
+            |      [7]          --rturn
+            [7]
+    
+        public void    stackInsertionSortRecursive(Stack<Integer> stack) {
+                                                                --while going top-bottom
+            if(stack.size() == 1)                                    if stack size == 1
+            return;                                                 return and start moving up
+    
+                                                                --whle going top down  
+            var temp = stack.pop();                                 var temp = stack.pop();
+            stackInsertionSortRecursive(stack);                     stackInsertionSortRecursive(stack);
+                                                    
+                                                                --while going bottom-top
+            insert(stack, temp);                                    insert temp in stack
+        }
+    
+    
+    
+        //INSRERT  --we can insert iteratovely but ques is asking recursively so we do insert also recursively
+        item = 3
+                |       [1,2,3,4,5]
+            [1,2,4,5]   
+            |         [1,2,3,4]
+            [1,2,4]
+            |          [1,2,3]  
+            [1,2]
+            |      
+            [1,2,3] 
+    
+            private void  insert(Stack<Integer> stack , int item) {
+                                                                    --while going top-bottom
+            if(stack.size() == 0 || item >= stack.peek()){            if(stack.size() == 0 || item >= stack.peek())
+                stack.push(item);                                       push item in stack
+                return; }                                               return and start moving up
+    
+            int temp = stack.pop();                                   int temp = stack.pop(); 
+    
+                                                                        --while going top-bottom
+            insert(stack, item);                                        insert(stack,item)
+    
+                                                                        --while going bottom-top
+            stack.push(temp);                                             push temp in stack
+            }
+    
+            //OVERRIDE
+            public void  stackInsertionSortRecursive(Stack<Integer> stack) {
+            stackInsertionSortRecursive(stack);
+            }
+            
+    
+        TIME :O(2^n) as each fn calls itself twice and n(size of  array) reduces by 1 
+        SPACE:O(n) as we have n(size of  array)ips       
         */
-      
         
-      }
-          
-
+        
+    
+        
+        
+        }
+        
     //QUICKSORT
-    public void arrayQuicksortRecursive(int[] array, int start, int end) {
-      /*
-      Look in Recursion arrayQuicksortRecursive()
-      */
+    public void arrayQuicksortRecursive(int[] array, int left, int right) {
+        //RECURSIVE IP-OP TREE(Decision:No decision take smaller arr)
+         /*
+                 
+        [5, 1, 3 ,2]     
+       b l        r                
+          /         \
+         /           \
+      [1, 5, 3, 2]     [1, 5, 3, 2]
+    r l,b               b  l     r
+  
+      public void    arrayQuicksortRecursive(int[] array, int left, int right) {
+  
+                                                              --while going top-bottom
+          if (left >= right)                                    if left >= right
+              return;                                           return and start moving up
+          int boundary = left - 1;                       
+          for (var ptr = left; ptr <= right; ptr++)             move ptr from left to right   
+              if (array[ptr] <= array[right]){                    if ptr <= right
+                  boundary++;                                     move boundary ahead
+                  swap(array, ptr, boundary);                     swap ptr and boundary
+          }
+  
+                                                                  --while going top-down
+          arrayQuicksortRecursive(array, left, boundary - 1);       arrayQuicksortRecursive(array, left, boundary - 1);
+          arrayQuicksortRecursive(array, boundary + 1, right);      arrayQuicksortRecursive(array, boundary + 1, right);
+   
+        }
+  
+  
+        public static void arrayQuicksortRecursive(int[] array) {
+          arrayQuicksortRecursive(array, 0, array.length - 1); 
+        }
+                               
+        TIME : O(n^2)       - iterate till the end ; pivot ends just 1 before end so n divisions
+               O(n log2 n)  - iterate till the end;pivot ends in middle exactly so  divisions in half 
+        SPACE: O(n)        - pivot falls just 1 before end so we get arrays of same length wrt ip array
+               O(log n)    -pivot falls in middle so we get arrays of half length each timewrt ip array
+  
+         */
     }
-    
+      
     //MERGESORT
-    public void arrayMergesortRecursive(int[] array) {
-      /*
-      Look in Recursion arrayQuicksortRecursive()
-      */
-
-     
-    
-    
+    public void arrayMergesortRecursive(int[] arr) {
+        //RECURSIVE IP-OP TREE(Decision:No decision take smaller arr)
+        /*
+                                  |            [1,2,3,4,5,6,7]
+                                  |
+                             [7,6,5,1,3,2]   
+                  [5,6,7]  /                \    [1,2,3]     
+                          /                  \      
+                       [7,6,5]              [1,3,2]      
+                  [7]   / \  [5,6]      [1,3] /        \   [2,3]             -return compare2ArraysForMergingI(left,right)
+                       /   \                /           \        
+                     [7]   [6,5]            [1]           [3,2]    
+                        [6] /   \  [5]  [1]  |       [3]  / \  [2]            --return arr
+                           /     \           |           /   \ 
+                         [6]   [5]        [1]        [3]    [2] 
+                            
+        public int[]   arrayMergesortRecursive(int[] arr) {   
+                                                                                  --while   going top-bottom           
+          if (array.length == 1)                                                    if arr.length== 1
+            return arr;                                                             return arr and start moving up
+                                                                          
+                                                                                  --while going top-bottom
+          int mid = array.length/2 ;                                                left holds left sorted arr  
+          int[] left = arrayMergesortRecursive(Arrays.copyOfRange(array,0,mid));    right holds right sorted array
+          int[] right = arrayMergesortRecursive(Arrays.copyOfRange(array,0,mid));
+                                                                                    --while going bottom-top
+          return arrayCompare2ArrayForMergingI(left,right);                            merge left and right
+                                                                                      return merged sorted array to next node
+        }
+  
+        //OVERRIDE
+        public void  arrayMergesortRecursive(int[] arr){
+          int[] arr = arrayMergesortRecursive(arr);
+          return arr;
+        }
+        
+        
+        TIME : O(nlog2n)   - Divide in half;merge till end iterativelys
+               O(nlog2n)   - Divide in half;merge till end iterativelys 
+        SPACE: O(n)        -2 new arrays are formed every time and all arrays  combined take same space as ip array 
+               O(n)        -2 new arrays are formed every time and all arrays  combined take same space as ip array 
+  
+  
+        */
+  
     }
-    public Node linkedListMergeSortRecursive(Node head){
-      /*
-      Look in Recursion linkedListMergeSortRecursive()
-      */
-      return null;
-
-}
-
-
+    public void linkedListMergeSortRecursive(Node head){
+        //RECURSIVE IP-OP TREE(Decision:No decision take smaller arr)
+        /*
+                                  | [1,2,3,4,5,6,7]
+                                  |
+                             [7,6,5,1,3,2]   
+                  [5,6,7]  /                \    [1,2,3]     
+                          /                  \      
+                       [7,6,5]              [1,3,2]      
+                  [7]   / \  [5,6]      [1,3] /        \   [2,3]             -return compare2ArraysForMergingI(left,right)
+                       /   \                /           \        
+                     [7]   [6,5]            [1]           [3,2]    
+                        [6] /   \  [5]  [1]  |       [3]  / \  [2]            --return arr
+                           /     \           |           /   \ 
+                         [6]   [5]        [1]        [3]    [2]    
+                  
+                            [1,2,3,5,6,7]         
+    
+        public Node linkedListMergeSortRecursive(Node head){           
+                 
+                                                                                  --while   going top-bottom           
+          if (head == null || head.next == null))                                   if head == null || head.next == null)
+            return head;                                                            return head and start moving up
+                                                                          
+                                                                                  --while going top-bottom
+          int mid = array.length/2 ;                                                 left holds left sorted LL  
+          Nodr left = linkedListMergeSortRecursive(head);                            right holds right sorted LL
+          Node right = linkedListMergeSortRecursive(mid);
+                                                                                    --while going bottom-top
+          return compare2LLSortedForMerging(left,right);                    merge left and right
+                                                                                      return sorted LL to next node
+        }
+        
+  
+        //OVERRIDE
+        public Node linkedListMergeSortRecursive(Node head){  
+          return linkedListMergeSortRecursive(node);
+        }
+        
+        TIME : O(nlog2n)   - Divide in half;merge till end iterativelys
+               O(nlog2n)   - Divide in half;merge till end iterativelys 
+        SPACE: O(n)        -2 new arrays are formed every time and all arrays  combined take same space as ip array 
+               O(n)        -2 new arrays are formed every time and all arrays  combined take same space as ip array 
+  
+  
+         */
+  
+       
+  
+         
+  
+       
+  
+  }
+      
 
     //COUNT SORT --->Array must have +ve elements , max element in array is given(k)
     public void arrayCountSort(int[] arr,int k){

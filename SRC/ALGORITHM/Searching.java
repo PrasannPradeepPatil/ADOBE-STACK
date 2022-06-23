@@ -28,50 +28,50 @@ public class Searching {
 
     }
     public  int arraylinearSearchRecursive(int item ,int[] array , int ptr){
-        /*
-        LOOK IN RECURSION
-         */
-        return 0;
-    }
+      //RECURSIVE IP-OP TREE(Decision:No decision take smaller ptr1,ptr2) 
+      /*              
+      [1,2,3,4,5]
+     ptr1      ptr2
+         |
+      [1,2,3,4,5]
+       ptr1  ptr2
+         |
+      [1,2,3,4,5]
+       ptr2   ptr1
 
-
-    //LINRAR SEARCH
-    public  int arraytwoPointerSearchIterative(int item,int[] array){
-        /*
-        [1,2,3,4,5,6,7,8,9]
-         |                |
-         left            right   --> while  left < right
-                                         move left right simultaneouisly
-
-         TIME : O(n)  -- iterate till end
-         SPACE: O(1)  -- no extra memory required wrt to ip
-
-         */
-        int left  = 0;
-        int right = array.length-1;
-
-        while(left < right){
-            if(array[left] == item ){
-                return left;
-            }
-            if (array[right] == item){
-                return right;
-            }
-
-            left++;
-            right--;
+      public void arrayTwoPointerSearchRecursive(int[] arr , int item ,int ptr1 , int ptr2){
+    
+                                              --while going top-bottom
+        if(ptr1 > ptr2){                           if ptr1 > ptr2
+          //index = -1; //index is a global var       index = -1
+          return;                                      return and start moving up
+        }                                       
+        if(arr[ptr1] == item) {                    if arr[ptr1] == item
+            index = ptr1;                               index = ptr1
+            return;                                     return and start moving up
         }
+        if(arr[ptr2] == item) {                   if arr[ptr2] == item 
+            index = ptr2;                                index = ptr2;
+            return;                                      return and start moving up  
+        }
+                                                            --while going top-bottom
+        arrayTwoPointerSearchRecursive(arr,item,ptr1+1,ptr2-1);     arrayTwoPointerSearchRecursive(arr,item,ptr1+1,ptr2-1);
+      }
 
-        return -1;
-    }
-    public  int arraytwoPointerSearchRecursive(int item , int[] array , int left , int right){
-        /*
-        LOOK IN RECURSION
+      int index =0;
+      public  int arrayTwoPointerSearchRecursive(int[] array,int item){
+        arrayTwoPointerSearchRecursive(array , item,0 , array.length-1);
+        return index;}
+
+      TIME : O(n)  -- each fn calls itself once and n reduces by 1
+      SPACE: O(n)  -- we have n ips
+
         */
-        return 0;
+      return 0;
 
-        }
-   
+    }
+
+
 
     //BINARY SEARCH( ARRAY MUST BE SORTED) --> DIVIDE AND CONQUER
     public  int arrayBinarySearchIterative(int[] array , int item){
@@ -130,9 +130,54 @@ public class Searching {
 
     }
     public  int arrayBinarySearchRecursive(int[]array , int item, int left , int right){
-        /*
-        Look in recursion
-        */
+      //RECURSIVE IP-OP TREE(Decision:No decision take smaller arr)
+       /*
+
+      [1,2,3,4,5] 
+       l   m   r
+         |/mid < item  \ mid > item
+         /              \
+      [1,2,3,4,5]       [1,2,3,4,5]
+       l r                     l r
+       /\                   /\
+
+
+      public void    arrayBinarySearchRecursive(int[]arr , int item, int left , int right){
+
+                                                      --while going top-down
+        if(left > right){                                if left > right
+            index = -1;                                    index =-1
+            return;                                        return and start moving up
+        } 
+        int middle = left+right/2;                  
+        if(arr[middle] == item){                         if middle == item
+            index = middle;  //index is global               index = middle
+            return;                                          return and start moving up 
+        }                                               
+                                                        --while going top-borttom
+                                                          if middle < item
+        if(arr[middle] < item){                               arrayBinarySearchRecursive(arr,item,left,middle-1)
+          arrayBinarySearchRecursive(arr,item,left,middle-1);   else if middle > item
+        }                                                      arrayBinarySearchRecursive(arr,item,middle + ,rght)
+        else if(arr[middle] > item){                           |
+            arrayBinarySearchRecursive(arr, item, middle+1, right); |
+        }                                                      |
+                                                              else if because ptr change in if and used in cond as well
+      }
+
+      int index =0;
+      public  int arrayBinarySearchRecursive(int[]array , int item){
+        arrayBinarySearchRecursive(array,item,0,array.length-1);
+        return index;
+      } 
+
+      TIME : O(log2 n)  -- each fn calls itself once and n reduces by half
+      SPACE: O(n)     -- we have n ips
+
+       */
+
+
+
         return 0;
 
     }
@@ -207,9 +252,51 @@ public class Searching {
 
     }
     public int arrayTernarySearchRecursion(int[] array , int item , int left , int right){
-        /*
-        Look in recursion
-        */
+      //RECURSIVE IP-OP TREE(Decision:No decision take smaller arr)
+      /*
+            [1,2,3,4,5] item = 0         
+         |/item < mid1  \ mid1<item<mid2 \ mid2 < item
+         /               \                \
+       /\                   /\            /\
+
+      public void arrayTernarySearchRecursive(int[] array , int item , int left , int right){
+                                                            --while going top-down
+        if(left > right){                                       if left > right
+            index = -1;                                         index =-1
+            return;                                             return and start moving up
+        } 
+        if(arr[middle1] == item){                               if middle1 == item
+            index = middle;  //index is global                     index = middle1
+            return;                                                return and start moving up 
+        }                                                
+        else if(arr[middle2] == item){                           else if middle2 == item
+            index = middle;  //index is global                      index = middle2
+            return;                                                 return and start moving up 
+        }                                       
+                                                                --while going top-bottom
+        if(item < array[middle1]){                                if item < middle1       
+          arrayTernarySearchRecursive(array,item,left,middle1-1);          arrayTernarySearchRecursive(array,item,left,middle1-1);
+        }
+        else if(array[middle1] < item && item< array[middle2]){   else if   middle1  < item < middle2
+            arrayTernarySearchRecursive(array,item,middle1+1,middle2-1);      arrayTernarySearchRecursive(array,item,middle1+1,middle2-1);   
+        } 
+        else if (arr[middle2] < item){                            else if middle2 < item 
+            arrayTernarySearchRecursive(array,item,middle2+1,right);            arrayTernarySearchRecursive(array,item,middle2+1,right);
+        }                                                         |
+                                                                else if because ptr modifies inside if and is used as condition inside if
+      }
+
+        public static int arrayTernarySearchRecursive(int[] array , int item ){
+          Arrays.sort(array); 
+          return arrayTernarySearchRecursive(array,item,0,array.length-1);
+        } 
+
+
+      TIME : O(log3 n)  -- each fn calls itself once and n reduces by one-third
+      SPACE: O(n)     -- we have n ips
+      */
+
+
         return 0;
 
     }

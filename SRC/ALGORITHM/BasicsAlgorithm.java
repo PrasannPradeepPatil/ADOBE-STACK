@@ -1875,7 +1875,7 @@ public class BasicsAlgorithm {
     
  
      }
-    public void    arrayyMissingDuplicateee1ToN(int[] arr){
+    public void    arrayMissingDuplicateee1ToN(int[] arr){
 
         /*
         QUESTION

@@ -35,8 +35,8 @@ dunamis_iaasToIngestSDM() ip:configGuid,ipJson,opJSON
 
 
 MORE TEST CASES
-2 API's ke andar ke methods -- dunamis-sdk-test/eventtransformer_test.cpp 
-iaasCSV -- - dunamis-sdk-test/testconstants.cpp
+eventttransformer_test.cpp
+TransformParams{IaaCSV,IPJSON,OPJSON)
 
 
 
@@ -89,18 +89,10 @@ dunamis-internal/dunamis-service
 
   */
 
-  //STEPS
-  /*
-   1.Create a req response cycle on node
-   2.Implement IAAS Functionality
-   
-   */
+//STEPS
+/*
+  1.Create a req response cycle on node
+  2.Implement IAAS Functionality
+  
+  */
 
-   //TO DOS
-   /*
-    *optional	
-dunamis_setIaasMapping(configGUID, in csv string)
-
-global	anytime	offline	-	Attaches CSV to configGUID, returns success or error
-optional	dunamis_iaasToIngestSDM(configGUID, in JSON string, out JSON string)
-    */

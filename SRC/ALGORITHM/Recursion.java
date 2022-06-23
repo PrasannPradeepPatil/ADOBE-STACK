@@ -1610,7 +1610,7 @@ IPsmall, OP1  IPsmall, OP2   Ipsmall OP1  Ipsmall , OP2
 
 
     //ARRAY -- MULTIPOINTERS
-    public int     arraySubArrayKaCharactersKaContinuousOneKaLongestLength(int[] arr){
+    public int     arraySubArrayKaContinuousOneKaLongestLength(int[] arr){
         /*
         [1,0,0,1,1,0,1]   -- find all the subarray of  array
                             and find  subarray with continuous 1 and return longest,shortest length
@@ -1661,7 +1661,7 @@ IPsmall, OP1  IPsmall, OP2   Ipsmall OP1  Ipsmall , OP2
         return maxLength == Integer.MIN_VALUE?0:maxLength;
         //return minLength == Integer.MAX_VALUE?0:minLength;
     }
-    public int     arraySubArrayKaCharactersEqualOnesAndZerosOnSplitKaCount(char[] arr){
+    public int     arraySubArrayKaSplitKaEqualOnesAndZerosKaCount(char[] arr){
         /*
         [1,0,1,1,1,0,0,1,0,0]   -- arr is "split" into subarray (arr is split so the subarrau must must add upto array(a = a1 + a2 + a3 )
                                     return no of subarrays with equal characters of 1,0
@@ -1718,7 +1718,7 @@ IPsmall, OP1  IPsmall, OP2   Ipsmall OP1  Ipsmall , OP2
         return noOfSubStrings;
         
     }
-    public int     arraySubArrayKaCharactersIncreasingKaLongestLength(int[] arr){
+    public int     arraySubArrayKaIncreasingKaLongestLength(int[] arr){
         /*
         s = [1,2,3,4,3,3,6,7]   -- find all the subarray of  array
                                   and find  increasing OR  strictly increasing/non decreasing subarray  ka longest length
@@ -1866,7 +1866,7 @@ IPsmall, OP1  IPsmall, OP2   Ipsmall OP1  Ipsmall , OP2
 
  
     //ARRAY -- MULTIPOINTERS SORT+SEARH
-    public int     arraySubsequenceKaCharactersConsecutiveNumbersInAnyOrderKaLongestLength(int[] arr){
+    public int     arraySubsequenceKaConsecutiveNumbersInAnyOrderKaLongestLength(int[] arr){
       /*
       [100,4,200,1,3,2,4] -- find all the subsequence of arr 
                             find the longest subsequence with consecutove numbers in any order
@@ -2038,7 +2038,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
 
     
     */
-    public int   arraySubarrayKaSizeKMaxMinSumKaSum(int[] arr ,int k){
+    public int   arraySubarrayKaSizeKKaMaxMinSum(int[] arr ,int k){
       /*
       Question
       [1,2,3,4,5]  -- find  all subarrays of size k  
@@ -2100,7 +2100,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
 
       return maxSum;
   }
-    public int[] arraySubArrayKaSizeKFirstNegativeNumbersKaNumbers(int[] arr , int k){
+    public int[] arraySubArrayKaSizeKKaFirstNegativeNumbers(int[] arr , int k){
         /*
         Question
         [1,-7,6,2,3]  --find all  subarrays of size k  
@@ -2196,7 +2196,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
 
 
     }
-    public int[] arraySubArrayKaSizeKMaxNumbersKaNumbers(int[] arr, int k) {
+    public int[] arraySubArrayKaSizeKKaMaxNumbers(int[] arr, int k) {
 
         /*
         Question
@@ -2300,7 +2300,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
         //return result;
         return null;
     }
-    public int   arraySubarrayKaSizekOddElementsMinCountKaCount(int[] arr,int k){
+    public int   arraySubarrayKaSizekaOddElementKaMinCount(int[] arr,int k){
         /*
         Question
         [1,4,3,2,5] k=3 -- find  all subarrays of size k  
@@ -2362,7 +2362,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
         return minCount;
         
     }
-    public int   arraySubarrayKaSumDivisionMinimiseMaximumKaSum(int[] arr){
+    public int   arraySubarrayKaPartitionKaSumMinimiseMaximum(int[] arr){
         /*
         Question
         arr = [10,20,30,40] ; noOfdivion= n(consider 2)
@@ -2440,7 +2440,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
 
 
     }
-    public int   arraySubarrayKaSumDivisionMaximiseMinimumKaSum(int[] arr){
+    public int   arraySubarrayKaPartitionKaSumMaximiseMinimum(int[] arr){
         /*
         Question
         arr = [10,20,30,40] ; noOfdivion= 2
@@ -3068,7 +3068,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
       return 0;
     
     }
-    public int   stringSubstringKaCharactersEqualsKDistinctKaLongesKaLengthAndString_PickFruits(String s , int k){
+    public int   stringSubstringKaCharacterEqualsKDistinctKaLongesKaLengthAndString_PickFruits(String s , int k){
         /*
         Question
         "aabacbebebe" -- find  all substring  with k distinct character   
@@ -3825,7 +3825,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
       //USING MULTIPOINTERS SLIDING WINDOW--VARIABLE SIZE(ARRAY KA SUBARRAY/SUBSTRING OF PROPERTY)
       /*
       K DISTINCT 
-      stringSubstringKaCharactersEqualsKDistinctKaLongesKaLengthAndString_PickFruits()
+      stringSubstringKaCharacterEqualsKDistinctKaLongesKaLengthAndString_PickFruits()
       stringSubstringKaCharactersEqualsKDistinctKaCount()
 
       AT MOST K DISTINCT 
@@ -3889,7 +3889,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
 
     return 0;
   }
-    public int[] stringSubStringKaCharacterContainingAnagramOfOtherStringKaStringAndCount(String s1 , String s2){
+    public int[] stringSubStringKaContainingAnagramOfOtherStringKaStringAndCount(String s1 , String s2){
       /*
           Question
           s1 = "aabaabaaa"   -- find all substrings of s1 
@@ -4016,7 +4016,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
       //return noOfSubstrings;
       return null;
   }
-    public int   stringSubstringKaCharacterContainingCharactersOfOtherStringKaLongestShortestLengthAndStringAndCount(String s1 , String s2){
+    public int   stringSubstringKaContainingCharactersOfOtherStringKaLongestShortestLengthAndStringAndCount(String s1 , String s2){
       /*
       Question
       "totctcctctocc" -- find  all substring of s1 which has all the characters of s2 
@@ -4176,7 +4176,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
 
 
         }
-    public int   stringSubstringKaCharacterContainingCharactersOfItselfKaLongestShortestLengthAndStringAndCount(String s1){
+    public int   stringSubstringKaContainingCharactersOfItselfKaLongestShortestLengthAndStringAndCount(String s1){
         /*
         Question
         "AABBBCBBAC" -- find  all substring of s1 which has all the characters of s1
@@ -4191,7 +4191,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
         s1 = "AABBBCBBAC"    -- populate hashmap with characters of s1
         s2 = "ABC"              iterate hashmap and add characters of s2 to s2 so s2 will have all characters of s1
                               
-                                return stringSubstringKaCharacterContainingCharactersOfOtherStringKaLongestShortestLengthAndStringAndCount(s1,s2)
+                                return stringSubstringKaContainingCharactersOfOtherStringKaLongestShortestLengthAndStringAndCount(s1,s2)
 
         Time : O(n)
         Space: O(1) 
@@ -4208,7 +4208,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
         for(var i:map.entrySet()){
             s2 = s2 + i.getKey(); }
         
-        return  stringSubstringKaCharacterContainingCharactersOfOtherStringKaLongestShortestLengthAndStringAndCount(s1,s2);
+        return  stringSubstringKaContainingCharactersOfOtherStringKaLongestShortestLengthAndStringAndCount(s1,s2);
         
 
 
@@ -6216,7 +6216,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
     
 
     }
-    public int     stringSubsequencekaCharactersIncreasingKaLongestlength(String s1, int s1Length){
+    public int     stringSubsequencekaIncreasingKaLongestlength(String s1, int s1Length){
       
       /*
       Question
@@ -6280,7 +6280,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
 
 
     }
-    public int     stringSubsequenceKaCharacterIncreasingTripletKaPossibleAndString(String s1, int s1Length){
+    public int     stringSubsequenceKaIncreasingTripletKaPossibleAndString(String s1, int s1Length){
       /*
       s = "abbcdb"   -- find all the subsequence of  strings
                       and find the  trictly increasing  triplet subsequence 
@@ -6293,12 +6293,12 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
       */
       //USING MULTIPTR GREEDY
       /*
-      Look in array multiptr greedy(udar arr ke liye kiya hai arraySubarrayKaCharacterIncreasingTripletKaPossibleAndArray)
+      Look in array multiptr greedy(udar arr ke liye kiya hai arraySubarrayKaIncreasingTripletKaPossibleAndArray)
        */
 
       return 0;
     }
-    public int     stringSubsequenceKaCharacterPallindromeKaLongestLength(String s1 ,int s1Length){
+    public int     stringSubsequenceKaPallindromeKaLongestLength(String s1 ,int s1Length){
       
       /*
       s = "agbcba" -- find all the subsequence of  strings
@@ -6358,7 +6358,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
 
 
     }
-    public int     stringSubsequenceKaCharacterRepeatingKaLongestLength(String s1,int s1Length){
+    public int     stringSubsequenceKaRepeatingKaLongestLength(String s1,int s1Length){
       /*
       Question
       s = "aabebcdd" --find all the subsequence of  strings
@@ -6430,7 +6430,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
    
 
     }
-    public boolean stringSubsequenceKaCharacterContainingOtherStringIsPossible(String s1 , String s2 ,String s1Length , String s2Length){
+    public boolean stringSubsequenceContainingOtherStringIsPossible(String s1 , String s2 ,String s1Length , String s2Length){
       /*
       Question
       s1 = "abcde" -- find all the subsequence of  s1
@@ -6605,7 +6605,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
 
                                     
     }
-    public String  stringSubstringKaCharacterPallindromeKaLongestLengthAndLongestString(String s1, int s1Length){
+    public String  stringSubstringKaPallindromeKaLongestLengthAndLongestString(String s1, int s1Length){
       /*
       "cbbd"  -- find all the substrings 
                  find the longest pallindromic substring ka length and string 
@@ -6745,7 +6745,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
 
         
     }
-    public String  stringSubstringKaCharacterAllPallindromeKaCoundAndString(String s1, int s1Length){
+    public String  stringSubstringKaAllPallindromeKaCoundAndString(String s1, int s1Length){
       /*
       "cbbd"  -- find all the substrings 
                 find the pallindromic substring ka string
@@ -6843,7 +6843,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
       */
 
       /*
-      public String stringSubstringKaCharacterAllPallindromeKaCoundAndString(String s1){
+      public String stringSubstringKaAllPallindromeKaCoundAndString(String s1){
       
         List<String> res  = new ArrayList<>();
         int count = 0;
@@ -6885,7 +6885,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
 
       
   }
-    public int[]   stringSubstringKaCharacterContainingOtherStringKaIndex(String s1 , String s2){
+    public int[]   stringSubstringKaContainingOtherStringKaIndex(String s1 , String s2){
       /*
           Question
           "onionionspl"--> find all substrings of s1
@@ -7058,7 +7058,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
       Space:O(1)
       */
       /*
-      public int[]    stringSubstringKaCharacterContainingOtherStringKaIndex(String s1 , String s2)
+      public int[]    stringSubstringKaContainingOtherStringKaIndex(String s1 , String s2)
           int[] occurenceList = new int[500];int index =0;
 
           int ptr1 = 0;

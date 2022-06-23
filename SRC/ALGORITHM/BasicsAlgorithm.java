@@ -8,75 +8,7 @@ public class BasicsAlgorithm {
 
 
 
-    //RELATED QUESTIONS
-    /*
-    PALLINDROME 
-    intPallindrome()                                                                                --ARRAY - MULTIPOINTERS 
-    stringPallindrome()                                                                             --ARRAY - MULTIPOINTERS 
-    stringPallindromeAlphNumeric()                                                                  --ARRAY - MULTIPOINTERS 
-    stringPallindromeWith1deletion()                                                                --ARRAY - MULTIPOINTERS          
-    stringSubsequenceKaCharacterPallindromeKaLongestLength()                                        --LCS
-    stringSubstringKaCharacterPallindromeKaLongestLengthAndLongestString()                          --LCS 
-    stringSubstringKaCharacterAllPallindromeKaCoundAndString()                                      --LCS
-    stringConvertToPallindromeWIthMinInsertionDeletion()                                            --LCS 
-    stringPermutationKaPartitionIsPallindromeKaPossible()                                           --COMBINTAION, PERMUTATION -- DFS, BFS
-    linkedListisPallindrome()                                                                       --LINKEDLIST
 
-    
-    COMPARE 2 ARRAYS
-    stringcompare2StringsForAddition()                                                               --ARRAY--MULTIPOINTERS   
-    arrayCompare2ArrayForPlusOneAddition()                                                           --ARRAY--MULTIPOINTERS 
-    stringCompare2StringsForRotation()                                                               --ARRAY--MULTIPOINTERS             ;MATHS     
-    arrayCompare2ArraysForIntersection()                                                             --ARRAY--MULTIPOINTERS SORT SEARCH;HASHMAPS
-    arrayCompare2ArraysForCommon()                                                                   --ARRAY--MULTIPOINTERS SORT SEARCH;HASHMAPS 
-    arrayCompare2ArraysForUnion()                                                                    --ARRAY--MULTIPOINTERS SORT SEARCH;HASHMAPS
-    arrayCompare2ArraysForMergingI()                                                                 --ARRAY--MULTIPOINTERS SORT SEARCH;HASHMAPS 
-    arrayCompare2ArraysForMergingII()                                                                --ARRAY--MULTIPOINTERS SORT SEARCH;HASHMAPS
-    stringCompare2StringForIsomorphic()                                                              --ARRAY--MULTIPOINTERS SORT SEARCH X ;HASHMAP
-    stringCompare2StringsForAnagram()                                                                --ARRAY--MULTIPOINTERS SORT SEARCH ;MATHS
-    stringCompare2StringsForAnagramWithOneExtraCharacter()                                           --ARRAY--MULTIPOINTERS SORT SEARCH ;MATHS
-    
-    stringCompareNStringsForReplacement()                                                            --ARRAY--MULTIPOINTERS 
-    stringCompareNStringForAutoComplete()                                                            --ARRAY--MULTIPOINTERS 
-    stringCompareNStringsForLongestCommonPrefix()                                                    --ARRAY--MULTIPOINTERS 
-    stringCompareNStringsForLongestCommonPrefixWithWord()                                            --ARRAY--MULTIPOINTERS 
-    matrixCompareRowForIntersection                                                                  --MATRIX
-    matrixCompareRowForCommon                                                                        --MATRIX
-    matrixCompareRowForUnion                                                                         --MATRIX
-    matrixCompareRowForMerging                                                                       --MATRIX
-    matrixLLCompareRowForMerging                                                                     --MATRIX
-    matrixCompareRowsForMergingOverlappingInterval                                                   --MATRIX
-    matrixCompareRowForMergingOverlappingIntervalByInsertion                                         --MATRIX
-    matrixCompareRowsForMergingMeetingRoomIntervalI                                                  --MATRIX
-    matrixCompareRowsForMergingMeetingRoomIntervalII                                                 --MATRIX
-    matrixCompareRowsForAnagramsGrouping                                                             --MATRIX
- 
-    stringSubsequenceKaCommonKaLongestLength()/KaString()                                            --LCS
-    stringSubstringKaCommonKaLongestLength()                                                         --LCS
-    stringSupersequenceKaCommonKaShortestLength()/KaString()                                         --LCS
-    stringSubstringKaCharacterContainingOtherStringKaIndex()                                         --ARRAY--MULTIPOINTERS,KMP   
-    stringSubsequenceKaCharacterContainingOtherStringIsPossible()                                    --ARRAY--MULTIPOINTERS              ;LCS
-    stringSubStringKaCharacterContainingAnagramOfOtherStringKaStringAndCount()                        --ARRAY MULTIPTR SLIDING WINDOW
-    stringSubstringKaCharacterContainingCharactersOfOtherStringKaLongestShortestLengthAndStringAndCount()  --ARRAY MULTIPTR SLIDING WINDOW
-
-
-
-    ALGORITHM
-    1.DUTCHFLAG ALGORITHM                                                                           --arrayGroupIn3PartsByRange(),arrayGroupIn3PartsBy012()
-    2.KADANES ALGORITHM                                                                             --arraySubArrayKaSumMaxMinKaArray
-    3.TOPOLOGICAL-SORT ALGORITHM                                                                    --graphDirAcyclicTopologicalSort, search in recursion methods that use this algo 
-    4.UNIO-FIND ALGORITHM                                                                           --graphUndirUnionFind(), search in recursion methods that use this algo 
-    5.KAHNS ALGORITHM                                                                               --graphDirAcyclicTopologicalSort()
-    6.DIJKSHTRAS ALGORITHM                                                                          --graphUnDirShortestLongestPath
-    7.BELLMAN FORD ALGORITHM                                                                        --graphUnDirShortestLongestPath
-    8.PRIMS ALGORITHM                                                                               --graphDirUndirMinimumSpanningTree()
-    9.KRUSJALS ALGORITHM                                                                            --graphDirUndirMinimumSpanningTree                         
-
-    
-    */
-
-
-  
     class Node{}
 
     //MATH     
@@ -9875,7 +9807,7 @@ public class BasicsAlgorithm {
         }
                 
         if(evenCount == 0){return 0;}
-        //return arraySubarrayKaSizekOddElementsMinCountKaCount(arr,evenCount); //fn in recursion sliding window
+        //return arraySubarrayKaSizekaOddElementKaMinCount(arr,evenCount); //fn in recursion sliding window
         return 0;
         
     }
@@ -9893,7 +9825,7 @@ public class BasicsAlgorithm {
         /*
         Same as arrayGroupByEvenTogetherMinSwaps() replace 
         arr[i] %2== 0                               by arr[i] <0
-        arraySubarrayKaSizekOddElementsMinCountKaCount()   by arraySubarrayOfSizePositiveElementsMinCount 
+        arraySubarrayKaSizekaOddElementKaMinCount()   by arraySubarrayOfSizePositiveElementsMinCount 
                                    
         Time:O(n)
         Space:O(1)
@@ -9914,7 +9846,7 @@ public class BasicsAlgorithm {
         /*
         Same as arrayGroupByEvenTogetherMinSwaps() replace 
         arr[i] %2== 0                               by arr[i] <= k
-        arraySubarrayKaSizekOddElementsMinCountKaCount()   by arraySubarrayOfSizeKLessThanNMInCount(arr,k,n)
+        arraySubarrayKaSizekaOddElementKaMinCount()   by arraySubarrayOfSizeKLessThanNMInCount(arr,k,n)
                                    
         Time:O(n)
         Space:O(1)
@@ -10064,7 +9996,7 @@ public class BasicsAlgorithm {
 
 
     }
-    public int[]  arraySubarrayKaCharacterIncreasingTripletKaPossibleAndArray(int[] arr){
+    public int[]  arraySubarrayKaIncreasingTripletKaPossibleAndArray(int[] arr){
         /*
         arr = [1,2,2,3,4,2]-- find all the subarrays of  array
                              and find the  trictly increasing  triplet subarrays 
@@ -12122,7 +12054,7 @@ public class BasicsAlgorithm {
         }
         
 
-        //return arraySubArrayKaCharactersKaContinuousOneKaLongestLength(arr);// fn in recursion array--multiptr
+        //return arraySubArrayKaContinuousOneKaLongestLength(arr);// fn in recursion array--multiptr
         return 0;
  
     }

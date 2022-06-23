@@ -3,6 +3,8 @@
 Load balancing and consistent hashing
 */
 
+//https://github.com/Jeevan-kumar-Raj/Grokking-System-Design
+
 
 //CLIENT SERVER ARCHITECTURE
 /*                                                   
@@ -10,16 +12,6 @@ LOOK IN WEBDEV-ARCH.java
                              
 */
 
-
-//HIGH LEVEL SYSTEM DESIGN(ARCHITECTURE)
-/*
-1. Horizontal and vertical scaling
-2. Microservices architecture
-3. Load balancer
-4. Backup server 
-5. Preprocessing data
-6. Decoupling(Seperating concerns for each service ie service1 will only do task a service 2 will only do task 2)
-*/
 
 //HORIZONTAL AND VERTICAL SCALING
 /*
@@ -103,7 +95,7 @@ client     server
        \ _     _                            
               |_|                                           
 client     server  
-Load balancer assigns  task T1 to server S1 and task T2 to server2
+Load balancer assigns  task T1 to server S1 and task T2 to server2(synchronous)
 */
 
 //MESSAGE QUEUING(Asynchronous distribution)
@@ -118,7 +110,5 @@ client     server
 
 
 If we assign task T1 to server S1 and task T2 to server2; but if S1 goes down then we have lost the data
-Message queue holds tasks in a queue assigns tasks to servrs and once it gets response from server it removes the task
-
-
+Message queue holds tasks in a queue assigns tasks to servrs and once it gets response from server it removes the task(asynchronous)
 */

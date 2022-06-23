@@ -50,20 +50,21 @@
 /*
 1.LOOK AT SYSTEM DESIGN
 2.How is performance monitoring done
-1.System Design
-  Netflix clone -- https://medium.com/interviewnoodle/netflix-system-architecture-bedfc1d4bce5
-  Elevator algo
+1.System Design --https://github.com/Jeevan-kumar-Raj/Grokking-System-Design
+  Netflix clone -- https://www.geeksforgeeks.org/system-design-netflix-a-complete-architecture/#:~:text=Netflix%20works%20on%20two%20clouds,browse%20and%20play%20Netflix%20videos.
+  Elevator algo --https://www.geeksforgeeks.org/smart-elevator-pro-geek-cup/
 2.Database:
-  Recording workouts
-   car dealerships. What would this look like and what are some things you might want to include?
+  Recording workouts -https://softwareengineering.stackexchange.com/questions/226189/designing-a-fitness-weight-lifiting-routine-database
+  car dealerships. -- https://i0.wp.com/photos1.blogger.com/blogger/8036/1637/1600/carSaleServ.0.gif?resize=650,400
+                    http://themelower.com/
 3.UML
-  UML Zoo diagram
-  UML diagram of a filesystem
+  UML Zoo diagram  --https://github.com/ayesha1/ZooSystem
+  UML diagram of a filesystem --https://www.owlnet.rice.edu/~comp210/02fall/Lectures/Lecture17/
  */
 
 //PROJECTS
 /*
-1.LOOK AT PROJECTS IN RESUME, AGILE APPROACH
+1.LOOK AT PROJECTS IN RESUME
 2.JD
 About the Team
 Workday's Analytics organization is responsible for Workday Prism Analytics, core analytics and big data services. 

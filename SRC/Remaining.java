@@ -153,7 +153,7 @@ arrayGroupByLessThanKTogetherMinSwaps -- https://practice.geeksforgeeks.org/prob
 arrayProductExceptSelf -- https://leetcode.com/problems/product-of-array-except-self/submissions/
 stringcompare2StringsForAddition -- https://leetcode.com/problems/add-strings/
 stringCompare2StringsForRotation -- https://leetcode.com/problems/rotate-string/
-stringSubstringKaCharacterContainingOtherStringKaIndex -- https://leetcode.com/problems/implement-strstr/
+stringSubstringKaContainingOtherStringKaIndex -- https://leetcode.com/problems/implement-strstr/
 stringCompareNStringsForReplacement -- https://leetcode.com/problems/replace-words/
 StringCompareNStringForAutoComplete     --https://www.geeksforgeeks.org/auto-complete-feature-using-trie/
 stringCompareNStringsForLongestCommonPrefix-- https://leetcode.com/problems/longest-common-prefix
@@ -214,7 +214,7 @@ arraySortedFindInsertionIndex() -- https://leetcode.com/problems/search-insert-p
 arrayConvertToMinRangeWithIncDecOpertions(diff can be -ve) -- https://practice.geeksforgeeks.org/problems/minimize-the-heights-i/1/#
 arrayConvertToMinRangeWithIncDecOpertions(diff cant be -ve) -- https://practice.geeksforgeeks.org/problems/minimize-the-heights3351/1#
 arrayConvertToMinRangeWithIncDecOpertionsII -- https://leetcode.com/problems/smallest-range-i/submissions/
-arraySubarrayKaCharacterIncreasingTripletKaPossibleAndArray -- https://leetcode.com/problems/increasing-triplet-subsequence/
+arraySubarrayKaIncreasingTripletKaPossibleAndArray -- https://leetcode.com/problems/increasing-triplet-subsequence/
 arrayPermutationKaMinJumpKaCount -- https://leetcode.com/problems/jump-game-ii/
 arrayPermutationKaMinJumpKaPossible  --https://leetcode.com/problems/jump-game/
 arrayPermutationKaMaxStockDifferenceKaDiffI -- https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
@@ -353,25 +353,25 @@ arraySubArraySubsequenceSubsetCombPermOfSizeK -- https://leetcode.com/problems/c
 
 
 //ARRAY -- MULTIPOINTERS
-arraySubArrayKaCharactersIncreasingKaLongestLength -- https://leetcode.com/problems/longest-continuous-increasing-subsequence/
-arraySubArrayKaCharactersEqualOnesAndZerosOnSplitKaCount -- https://leetcode.com/problems/split-a-string-in-balanced-strings/
+arraySubArrayKaIncreasingKaLongestLength -- https://leetcode.com/problems/longest-continuous-increasing-subsequence/
+arraySubArrayKaSplitKaEqualOnesAndZerosKaCount -- https://leetcode.com/problems/split-a-string-in-balanced-strings/
 
 //ARRAY -- MULTIPOINTERS SORT+SEARH
-arraySubsequenceKaCharactersConsecutiveNumbersInAnyOrderKaLongestLength --https://leetcode.com/problems/longest-consecutive-sequence/
+arraySubsequenceKaConsecutiveNumbersInAnyOrderKaLongestLength --https://leetcode.com/problems/longest-consecutive-sequence/
 
 
 //ARRAY -- MULTIPOINTERS SLIDING WINDOW
-arraySubarrayKaSizeKMaxMinSumKaSum -- https://practice.geeksforgeeks.org/problems/max-sum-subarray-of-size-k5313/1
-arraySubArrayKaSizeKFirstNegativeNumbersKaNumbers -- https://practice.geeksforgeeks.org/problems/first-negative-integer-in-every-window-of-size-k3345/1
+arraySubarrayKaSizeKKaMaxMinSum -- https://practice.geeksforgeeks.org/problems/max-sum-subarray-of-size-k5313/1
+arraySubArrayKaSizeKKaFirstNegativeNumbers -- https://practice.geeksforgeeks.org/problems/first-negative-integer-in-every-window-of-size-k3345/1
 arraySubArrayOfSizeKMaximumNumbers -- https://practice.geeksforgeeks.org/problems/max-sum-subarray-of-size-k5313/1
-stringSubStringKaCharacterContainingAnagramOfOtherStringKaStringAndCount -- https://practice.geeksforgeeks.org/problems/count-occurences-of-anagrams5839/1
+stringSubStringKaContainingAnagramOfOtherStringKaStringAndCount -- https://practice.geeksforgeeks.org/problems/count-occurences-of-anagrams5839/1
 arraySubArrayKaSumEqualsKKaLongestShortestKaLengthAndStringAndCount       --https://leetcode.com/problems/subarray-sum-equals-k/
                                                                                https://leetcode.com/problems/maximum-size-subarray-sum-equals-k/
                                                                                https://leetcode.com/problems/binary-subarrays-with-sum/
 arraySubArraySumAtMostKKaLongestShortestKaLengthAndStringAndCount        --own 
 arraySubArrayKaSumAtleastKKaLongestShortestKaLengthAndStringAndCount          --https://leetcode.com/problems/minimum-size-subarray-sum/
                                                                                 https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/
-stringSubstringKaCharactersEqualsKDistinctKaLongesKaLengthAndString_PickFruits  --https://practice.geeksforgeeks.org/problems/longest-k-unique-characters-substring0853/1                                                  
+stringSubstringKaCharacterEqualsKDistinctKaLongesKaLengthAndString_PickFruits  --https://practice.geeksforgeeks.org/problems/longest-k-unique-characters-substring0853/1                                                  
 stringSubstringKaCharactersEqualsKDistinctKaCount                            --  https://leetcode.com/problems/subarrays-with-k-different-integers/
 stringSubstringKaCharactersAtMostKDistinctKaLongestShortestKaLengthAndStringAndCount__PickFruits -- https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/ 
                                                                                                 --https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-characters/ 
@@ -381,8 +381,8 @@ stringSubstringKaCharactersAllDistinctKaLongestShortestKaLengthAndStringAndCount
 stringSubstringKaCharacterAllRepeatingOnKReplacementKaLongestShortestLengthAndStringAndCount --  https://leetcode.com/problems/longest-repeating-character-replacement/
 stringSubstringKaCharacterAtleastKRepeatedKaLongestLength-- https://leetcode.com/problems/longest-substring-with-at-least-k-repeating-characters/
 stringSubstringKaCharactersOddNumberEverythingKaLongestShortestKaLengthAndStringAndCount --https://leetcode.com/problems/count-number-of-nice-subarrays/
-stringSubstringKaCharacterContainingCharactersOfOtherStringKaLongestShortestLengthAndStringAndCount -- https://leetcode.com/problems/minimum-window-substring/submissions/
-stringSubstringKaCharacterContainingCharactersOfItselfKaLongestShortestLengthAndStringAndCount -- https://practice.geeksforgeeks.org/problems/smallest-distant-window3132/1#
+stringSubstringKaContainingCharactersOfOtherStringKaLongestShortestLengthAndStringAndCount -- https://leetcode.com/problems/minimum-window-substring/submissions/
+stringSubstringKaContainingCharactersOfItselfKaLongestShortestLengthAndStringAndCount -- https://practice.geeksforgeeks.org/problems/smallest-distant-window3132/1#
 
 //ARRAY--MULTIPTR KADANES ALGO
 arraySubArrayKaSumMaxMinKaArray --
@@ -413,17 +413,17 @@ arraySubsequenceKaSumOf2PairsDifferenceEqualsTargetKaCount___ArraySignPermutatio
 stringSubsequenceKaCommonKaLongestLength --https://leetcode.com/problems/longest-common-subsequence/
 stringSubstringKaCommonKaLongestLength  --https://practice.geeksforgeeks.org/problems/longest-common-substring1452/1
 stringSupersequenceKaCommonKaShortestLength --https://practice.geeksforgeeks.org/problems/shortest-common-supersequence0322/1
-stringSubsequencekaCharactersIncreasingKaLongestlength --https://leetcode.com/problems/longest-increasing-subsequence/
-stringSubsequenceKaCharacterIncreasingTripletKaPossibleAndString --https://leetcode.com/problems/increasing-triplet-subsequence/
-stringSubsequenceKaCharacterPallindromeKaLongestLength -- https://leetcode.com/problems/longest-palindromic-subsequence/
-stringSubsequenceKaCharacterRepeatingKaLongestLength -- https://www.geeksforgeeks.org/longest-repeating-subsequence/
+stringSubsequencekaIncreasingKaLongestlength --https://leetcode.com/problems/longest-increasing-subsequence/
+stringSubsequenceKaIncreasingTripletKaPossibleAndString --https://leetcode.com/problems/increasing-triplet-subsequence/
+stringSubsequenceKaPallindromeKaLongestLength -- https://leetcode.com/problems/longest-palindromic-subsequence/
+stringSubsequenceKaRepeatingKaLongestLength -- https://www.geeksforgeeks.org/longest-repeating-subsequence/
 stringSubsequenceKaCommonKaLongestString --https://www.geeksforgeeks.org/printing-longest-common-subsequence/
 stringSubstringLongestCommonKaString -- not solvable anyways to dhunda nahi
 stringConvertToPallindromeWIthMinInsertionDeletion - https://www.geeksforgeeks.org/minimum-number-deletions-make-string-palindrome/
 stringConvertToAnotherStringWithMinimumInsertionDeletion -- https://practice.geeksforgeeks.org/problems/minimum-number-of-deletions-and-insertions0209/1
 stringConvertToEqualStringsWithMinimumDeletion-- https://leetcode.com/problems/delete-operation-for-two-strings/submissions/
-stringSubstringKaCharacterPallindromeKaLongestLengthAndLongestString -- https://leetcode.com/problems/longest-palindromic-substring/submissions/
-stringSubstringKaCharacterAllPallindromeKaCoundAndString -- https://leetcode.com/problems/palindromic-substrings/
+stringSubstringKaPallindromeKaLongestLengthAndLongestString -- https://leetcode.com/problems/longest-palindromic-substring/submissions/
+stringSubstringKaAllPallindromeKaCoundAndString -- https://leetcode.com/problems/palindromic-substrings/
 
 
 

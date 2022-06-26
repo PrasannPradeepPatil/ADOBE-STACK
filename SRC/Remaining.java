@@ -96,7 +96,7 @@ arrayDataStreamMedian -- https://leetcode.com/problems/find-median-from-data-str
 //MATHS
 /*
 ###############################DONE############################
-numberExcelConvertToInteger-- https://leetcode.com/problems/excel-sheet-column-number/
+numberExcelStringConvertToInteger-- https://leetcode.com/problems/excel-sheet-column-number/
 numberCountAndSay-- https://leetcode.com/problems/count-and-say/ 
 numberConvertStringToMobileNumber --https://practice.geeksforgeeks.org/problems/convert-a-sentence-into-its-equivalent-mobile-numeric-keypad-sequence0547/1#
 numberBitsSetKaCount --https://practice.geeksforgeeks.org/problems/set-bits0143/1
@@ -112,7 +112,7 @@ numberPower -- https://leetcode.com/problems/powx-n/
 numberSqrt-- https://leetcode.com/problems/sqrtx/
 numberSumWithoutOperator-- https://leetcode.com/problems/sum-of-two-integers/
 numberFactorial-- https://practice.geeksforgeeks.org/problems/factorials-of-large-numbers2508/1#
-numberStringConvertToInteger --https://leetcode.com/problems/string-to-integer-atoi/
+numberIntegerStringConvertToIntegerWithRules --https://leetcode.com/problems/string-to-integer-atoi/
 numberIntegerConvertToReverse -- https://leetcode.com/problems/reverse-integer/
 numberFractionConvertToRecurringDecimal -- https://leetcode.com/problems/fraction-to-recurring-decimal/
 
@@ -439,7 +439,7 @@ stringPermutationKaPartitionInOtherListKaPossible -- https://leetcode.com/proble
 stringPermutationKaPartitionInOtherListKaStrings -- https://leetcode.com/problems/word-break-ii/
 stringPermutationKaPartitionIsPallindromeKaPossible -- own
 stringPermutationKaPartitionIsPallindromeKaStrings-- https://leetcode.com/problems/palindrome-partitioning/
-stringPermutationKaIntegerToMobileString -- https://leetcode.com/problems/letter-combinations-of-a-phone-number/
+stringPermutationKaPartitionKaIntegerStringConvertToMobileString -- https://leetcode.com/problems/letter-combinations-of-a-phone-number/
 
 //MATRIX
 matrixUniquePathKaCountI -- https://leetcode.com/problems/unique-paths/

@@ -15,7 +15,7 @@ public class BasicsAlgorithm {
     arraySubsetKaArrays(R)
     arrayCombinationKaArray(R)
     arrayPermutaionKaArray(R)
-    arraySubArraySubsequenceSubsetCombinationPermOutationfSizeK(R)
+    arraySubArraySubsequenceSubsetCombinationPermutationfSizeK(R)
     */
 
 
@@ -37,26 +37,24 @@ public class BasicsAlgorithm {
     numberPower(BA)
     numberSqrt(BA)
     numberFactorial(BA)
-    numberFibbonaci(BA)
     numberPrime(BA)
     numberPrime0toNCount(BA)
     numberLCM(BA)
     numberHCF(BA)
-    numberFibbonaci(R)
+    numberFibbonaci(BA,R)
 
     */
     //EVALUATE EXPRESSION
     /*
-    stringEvaluetePostFixExpression
-    stringEvaluetePreFixExpression
-    stringEvaluateArithmeticExpression
+    stringEvaluetePreFixExpression(BA)
+    stringEvaluetePostFixExpression(BA)
+    stringEvaluateArithmeticExpression(BA)
+    stringValidParanthesis(BA)
+    stringValidParanthesWithRedundant(BA)
 
-    stringValidParanthesis
-    stringValidParanthesWithRedundant
+    stringSubstringValidParanthesisLongestShortest(BA)
 
-    stringSubstringValidParanthesisLongestShortest
-
-    stringPermutationKabalanceParanthesisKaString
+    stringPermutationKabalanceParanthesisKaString(R)
     */
     //INCREASING
     /*
@@ -73,9 +71,12 @@ public class BasicsAlgorithm {
     stringCompare2StringForIsomorphic,stringCompare2StringForIsomorphicc(BA,BA)                             
     stringCompare2StringsForAnagram,stringCompare2StringsForAnagramm,stringCompare2StringsForAnagrammm(BA,BA,BA)                                         
     stringCompare2StringsForAnagramWithOneExtraCharacter,stringCompare2StringsForAnagramWithOneExtraCharacterr(BA,BA)  
-    stringSubStringKaContainingAnagramOfOtherStringKaStringAndCount(BA)
 
     matrixCompareRowsForAnagramsGrouping(BA)
+
+    stringSubStringKaContainingAnagramOfOtherStringKaStringAndCount(BA)
+
+    
     */
     //PALLINDROME
     /*
@@ -107,7 +108,7 @@ public class BasicsAlgorithm {
     arrayKsmallestElement,arrayKsmallestElementt(BA,BA)
     arraykLargestElement,arraykLargestElementt(BA,BA)
     arrayK1K2smallestElementsSum,arrayK1K2smallestElementsSumm(BA,BA)
-    arrayKTopfrequentElements,arrayKTopfrequentElementss(BA,BA)
+    arrayKTopRepeatedElements,arrayKTopRepeatedElementss(BA,BA)
     arraykClosestElementsToOrigin,arraykClosestElementsToOriginn(BA,BA)
     arraykClosestElementsToPoint,arraykClosestElementsToPointt(BA,BA)
     */
@@ -148,6 +149,7 @@ public class BasicsAlgorithm {
     arrayRotateLeft(BA)
     arrayRotateRightKTimes(BA)
     arrayRotateLeftKTimes(BA)
+
     matrixRotateClockWise(BA)
     matrixRotateAntiClockWise(BA)
 
@@ -178,24 +180,20 @@ public class BasicsAlgorithm {
     */
     //REMOVE
     /*
+    stringRemoveVowels(BA)
+    arrayRemoveElement(BA)
     arrayRemoveDuplicate,arrayRemoveDuplicatee(BA,BA)
     arrayRemoveDuplicateII,arrayRemoveDuplicateeII(BA,BA)
-    arrayRemoveElement(BA)
-
-    stringRemoveVowels(BA)
-    stringFirstUniqueCharacterReplaceAtEveryPosition,stringFirstUniqueCharacterReplaceAtEveryPositionn(BA,BA)
-
-    stackDeleteKthElementRecursive(R)
+    stackRemoveKthElementRecursive(R)
+    matrixComareRowsForNonOverlappingIntervalByMinRemoval(BA)
     */
     //SORT 
     /*
     arraySquareSort(BA)
     arrayQuadraticSort(BA)
     arraySetBitsFrequencySort(BA)
-
-    arrayKNearlySortedSort,arrayKNearlySortedSortt(BA,BA)
     arrayfrequencySort,arrayfrequencySortt(BA,BA)
-
+    arrayKNearlySortedSort,arrayKNearlySortedSortt(BA,BA)
     arrayLargestNumberOnRearrangingSort(BA)
 
     matrixSortRow(BA)
@@ -212,6 +210,7 @@ public class BasicsAlgorithm {
     arraySortedFloorCeilOfItem(BA)
     arraySortedPreviousNextOfItem(BA)
     arraySortedMinimumDifferenceWithItem(BA)
+
     arraySortedInfiniteFindElement(BA)
     arraySortedInfiniteBinaryFirstLastOccurenceOf1(BA)
 
@@ -235,25 +234,26 @@ public class BasicsAlgorithm {
     //CONVERT
     /*
     numberBitsToFlipToConvertToOtherNumber(BA)
-    numberExcelConvertToInteger(BA)
-    numberRomanconvertToInteger(BA)
-    numberIntegerConvertToRoman(BA)
-    numberIntegerConvertToToWords(BA)
-    numberStringConvertToMobileNumber(BA)
-    numberStringConvertToInteger(BA)
     numberFractionConvertToRecurringDecimal(BA)
-
+    numberExcelStringConvertToInteger(BA)
+    numberRomanStringconvertToInteger(BA)
+    numberIntegerConvertToRomanString(BA)
+    numberIntegerConvertToToWordsString(BA)
+    numberStringConvertToMobileNumber(BA)
+    numberIntegerStringConvertToIntegerWithRules(BA)
+    numberPermutationKaPartitionKaIntegerStringConvertToStringKaCount(R)
+    stringPermutationKaPartitionKaIntegerStringConvertToMobileString(R)
+    
+    
     stringConvertToPallindromeWIthMinInsertionDeletion(R)
     stringConvertToAnotherStringWithMinimumInsertionDeletion(R)
     stringConvertToEqualStringsWithMinimumDeletion(R)
-
     arrayConvertToIncreasingWithMinIncrementOperation(R)
-    arrayConvertToMinRangeWithIncDecOpertionsI(R)
-    arrayConvertToMinRangeWithIncDecOpertionsII(R)
+    arrayConvertToMinRangeWithIncDecOpertionsI(BA)
+    arrayConvertToMinRangeWithIncDecOpertionsII(BA)
 
-    numberPermutationKaIntegerToStringKaCount(R)
-    stringPermutationKaIntegerToMobileString(R)
     matrixComareRowsForNonOverlappingIntervalByMinRemoval(BA)
+
 
     */
     //GROUP  
@@ -271,20 +271,20 @@ public class BasicsAlgorithm {
     arrayGroupIn3PartsByRange(BA)
     arrayGroupIn3PartsBy012(BA)
 
+    arrayGroupBy01AlternateMinSwaps,arrayGroupBy01AlternateMinSwapss(BA,BA)
     arrayGroupByNegativeTogetherMinSwaps,arrayGroupByNegativeTogetherMinSwapss(BA,BA)
     arrayGroupByLessThanKTogetherMinSwaps,arrayGroupByLessThanKTogetherMinSwapss(BA,BA)
-    arrayGroupBy01AlternateMinSwaps,arrayGroupBy01AlternateMinSwapss(BA,BA)
     arrayGroupByEvenTogetherMinSwaps,arrayGroupByEvenTogetherMinSwapss(BA,BA)
     */
     //DISTINCT(UNIQUE),REPEATING(DUPLICATE)
     /*
     arrayContainsDuplicate,arrayContainsDuplicatee(BA,BA)
-
     stringFirstRepeatedCharacter(BA)
     stringFirstUniqueCharacter(BA)
     stringMaxRepeatedCharacter(BA)
     stringnUniqueAndRepeatedCharacterCount(BA)
     stringFirstUniqueCharacterReplaceAtEveryPosition,stringFirstUniqueCharacterReplaceAtEveryPositionn(BA,BA)
+    arrayKTopRepeatedElements,arrayKTopRepeatedElementss(BA,BA)
 
     arrayRemoveDuplicate,arrayRemoveDuplicatee(BA,BA)
     arrayRemoveDuplicateII,arrayRemoveDuplicateeII(BA,BA)
@@ -370,7 +370,7 @@ public class BasicsAlgorithm {
     */
     //SIZE K 
     /*
-    arraySubArraySubsequenceSubsetCombinationPermOutationfSizeK(R)
+    arraySubArraySubsequenceSubsetCombinationPermutationfSizeK(R)
 
     arraySubarrayKaSizeKKaMaxMinSum(R)
     arraySubArrayKaSizeKKaFirstNegativeNumbers(R)
@@ -438,8 +438,8 @@ public class BasicsAlgorithm {
     //PERMUTATION, COMBINATION
     /*
     numberPermutationKaStepsKaCount(R)
-    numberPermutationKaIntegerToStringKaCount(R)
-    stringPermutationKaIntegerToMobileString(R)
+    numberPermutationKaPartitionKaIntegerStringConvertToStringKaCount(R)
+    stringPermutationKaPartitionKaIntegerStringConvertToMobileString(R)
     arrayPermutationMaxRobberSumKaSumI(R)
     arrayPermutationMaxRobberSumKaSumII(R)
     stringPermutationKaSpaceKaString(R)
@@ -466,11 +466,13 @@ public class BasicsAlgorithm {
     arraySubarrayKaPartitionKaSumMinimiseMaximum(R)
     arraySubarrayKaPartitionKaSumMaximiseMinimum(R)
 
-
     stringPermutationKaPartitionInOtherListKaPossible(R)
     stringPermutationKaPartitionInOtherListKaStrings(R)
     stringPermutationKaPartitionIsPallindromeKaPossible(R)
     stringPermutationKaPartitionIsPallindromeKaStrings(R)
+    numberPermutationKaPartitionKaIntegerStringConvertToStringKaCount(R)
+    stringPermutationKaPartitionKaIntegerStringConvertToMobileString(R)
+
     */
     //MATRIX,GRAPH
     /*
@@ -694,7 +696,7 @@ public class BasicsAlgorithm {
     public void    numberBitsSetInRangeSetAnotherNumber(int n1,int n2,int l , int r){
         /*
         n1,n2                 -- for all bits set in n1 in range l,r 
-        l,r  1<=l,r<=32          set equivalent pos in n2
+        1<=l,r<=32              set equivalent pos in n2
         Eg:n1 = 10 , n2 = 13 , 
            l= 2 , r = 4
            n1 = 1010 -->in pos [2,4] the set bits are at pos 2,4 
@@ -1529,7 +1531,7 @@ public class BasicsAlgorithm {
         }
         return 1;
     }
-    public int     numberExcelConvertToInteger(String s){
+    public int     numberExcelStringConvertToInteger(String s){
         /*
         "A" -> 1   --> convert excel str to integer
         "B" -> 2
@@ -1586,7 +1588,7 @@ public class BasicsAlgorithm {
         
         
     }
-    public int     numberRomanconvertToInteger(String romanNumber){
+    public int     numberRomanStringconvertToInteger(String romanNumber){
         /*
         //Question
         Symbol       Value  --> convert roman str to integer
@@ -1672,7 +1674,7 @@ public class BasicsAlgorithm {
         
         return intNumber;
     }
-    public String  numberIntegerConvertToRoman(int intNumber){
+    public String  numberIntegerConvertToRomanString(int intNumber){
        /*
         //Question
         Symbol       Value  -->convert int to roman str
@@ -1742,7 +1744,7 @@ public class BasicsAlgorithm {
         
             
     }
-    public String  numberIntegerConvertToToWords(int intNumber) {
+    public String  numberIntegerConvertToToWordsString(int intNumber) {
         /*
         //Question
         123--"One Hundred Twenty Three"                                                       -->convert integer to  word  strin
@@ -1835,82 +1837,7 @@ public class BasicsAlgorithm {
         */
 
     }
-    public String  numberStringConvertToMobileNumber(String s){
-        /*
-        Question
-       "HEY U" -- convert the string to its uquivalent mobile number
-                  Look diagram at https://practice.geeksforgeeks.org/problems/convert-a-sentence-into-its-equivalent-mobile-numeric-keypad-sequence0547/1#
-                  Eg:"HEY U" -- "4433999088"
-        */
-        
-        //USING MATHS
-        /*
-        "HEY U"  --populate hashmap with character and its  equivalent number and  number of times the number must be pressed
-                   iterate string and get the  character ka equivalent number and  number of times the number must be pressed
-                   append number that many times to result string
-        Time:O(n)
-        Space:O(n)
-        
-        */
-        String res = "";
-        for(int i=0 ; i <= s.length()-1;i++){
-            //int[] arr = getEquivalentNumber(s.charAt(i));
-            int[] arr  = new int[0];
-            for(int j=1 ; j <= arr[1];j++){
-                res = res+ String.valueOf(arr[0]);
-            }
-            
-        }
-    
-       return res;
-
-       //getEquivalentNumber()
-       /*
-       public int[] getEquivalentNumber(char ch){
-        Map<Character, int[]> map = new HashMap<>();
-        map.put('A',new int[]{2,1});
-        map.put('B',new int[]{2,2});
-        map.put('C',new int[]{2,3});
-        map.put('D',new int[]{3,1});
-        map.put('E',new int[]{3,2});
-        map.put('F',new int[]{3,3});
-        map.put('G',new int[]{4,1});
-        map.put('H',new int[]{4,2});
-        map.put('I',new int[]{4,3});
-        map.put('J',new int[]{5,1});
-        map.put('K',new int[]{5,2});
-        map.put('L',new int[]{5,3});
-        map.put('M',new int[]{6,1});
-        map.put('N',new int[]{6,2});
-        map.put('O',new int[]{6,3});
-        map.put('P',new int[]{7,1});
-        map.put('Q',new int[]{7,2});
-        map.put('R',new int[]{7,3});
-        map.put('S',new int[]{7,4});
-        map.put('T',new int[]{8,1});
-        map.put('U',new int[]{8,2});
-        map.put('V',new int[]{8,3});
-        map.put('W',new int[]{9,1});
-        map.put('X',new int[]{9,2});
-        map.put('Y',new int[]{9,3});
-        map.put('Z',new int[]{9,4});
-        map.put(' ',new int[]{0,1});
-        
-        return map.get(ch);    
-        
-       
-        
-  
-    }
-    
-    
-       
-       */
-        
-        
-        
-    }
-    public int     numberStringConvertToInteger(String s) {
+    public int     numberIntegerStringConvertToIntegerWithRules(String s) {
         /*
         "42" -- given string convert it to integer with the following rules
                  1.Read in and ignore any leading whitespace.
@@ -2000,6 +1927,81 @@ public class BasicsAlgorithm {
  
          return sign * result;
      }
+    public String  numberStringConvertToMobileNumber(String s){
+        /*
+        Question
+       "HEY U" -- convert the string to its uquivalent mobile number
+                  Look diagram at https://practice.geeksforgeeks.org/problems/convert-a-sentence-into-its-equivalent-mobile-numeric-keypad-sequence0547/1#
+                  Eg:"HEY U" -- "4433999088"
+        */
+        
+        //USING MATHS
+        /*
+        "HEY U"  --populate hashmap with character and its  equivalent number and  number of times the number must be pressed
+                   iterate string and get the  character ka equivalent number and  number of times the number must be pressed
+                   append number that many times to result string
+        Time:O(n)
+        Space:O(n)
+        
+        */
+        String res = "";
+        for(int i=0 ; i <= s.length()-1;i++){
+            //int[] arr = getEquivalentNumber(s.charAt(i));
+            int[] arr  = new int[0];
+            for(int j=1 ; j <= arr[1];j++){
+                res = res+ String.valueOf(arr[0]);
+            }
+            
+        }
+    
+       return res;
+
+       //getEquivalentNumber()
+       /*
+       public int[] getEquivalentNumber(char ch){
+        Map<Character, int[]> map = new HashMap<>();
+        map.put('A',new int[]{2,1});
+        map.put('B',new int[]{2,2});
+        map.put('C',new int[]{2,3});
+        map.put('D',new int[]{3,1});
+        map.put('E',new int[]{3,2});
+        map.put('F',new int[]{3,3});
+        map.put('G',new int[]{4,1});
+        map.put('H',new int[]{4,2});
+        map.put('I',new int[]{4,3});
+        map.put('J',new int[]{5,1});
+        map.put('K',new int[]{5,2});
+        map.put('L',new int[]{5,3});
+        map.put('M',new int[]{6,1});
+        map.put('N',new int[]{6,2});
+        map.put('O',new int[]{6,3});
+        map.put('P',new int[]{7,1});
+        map.put('Q',new int[]{7,2});
+        map.put('R',new int[]{7,3});
+        map.put('S',new int[]{7,4});
+        map.put('T',new int[]{8,1});
+        map.put('U',new int[]{8,2});
+        map.put('V',new int[]{8,3});
+        map.put('W',new int[]{9,1});
+        map.put('X',new int[]{9,2});
+        map.put('Y',new int[]{9,3});
+        map.put('Z',new int[]{9,4});
+        map.put(' ',new int[]{0,1});
+        
+        return map.get(ch);    
+        
+       
+        
+  
+    }
+    
+    
+       
+       */
+        
+        
+        
+    }
     public int     numberIntegerConvertToReverse(int n){
         /*
         -123 -->reverse the integer withouit using string
@@ -5593,7 +5595,7 @@ public class BasicsAlgorithm {
 
 
     }
-    public int[]   arrayKTopfrequentElements(int[] arr, int k){
+    public int[]   arrayKTopRepeatedElements(int[] arr, int k){
         /*
         [5,6,5,6,10,5,8,8] -- find the top k elements with max frequency
          k=2                if 2 elements have same freq take smaller element 
@@ -5931,9 +5933,9 @@ public class BasicsAlgorithm {
         /*
         
         [3,30,34,5,9] -- an array of non negative integers
-                  sort them such that on conctenating them we get largets number
-                  Eg:[3,30,34,5,9] -->"9534330"
-                      [10,2] --> [210]
+                        sort them such that on conctenating them we get largets number
+                        Eg:[3,30,34,5,9] -->"9534330"
+                            [10,2] --> [210]
         */
    
        //USING MULTIPOINTERS SORT AND SEARCH (ARRAY REQUIRES SORTING) 
@@ -12409,7 +12411,7 @@ public class BasicsAlgorithm {
     public void    stringValidParanthesWithRedundant(String s) {
 
         /*
-        ((a+b)) -- string has  paranthesis along with redundant brackets(only '(' )
+        ((a+b)) -- string has  paranthesis along with redundant brackets(only '(' brackets are present)
                    check if valid expression(no redundant) or not 
         */
 
@@ -12490,7 +12492,7 @@ public class BasicsAlgorithm {
     public int     stringSubstringValidParanthesisLongestShortest(String s) {
         /*
         ")()()()" -- find all substring of string 
-                     with valid paranthesis(only '(' ) and return the count , longest and shortest
+                     with valid paranthesis(only '(' brackets are present) and return the count , longest and shortest
             
         */
         
@@ -12872,7 +12874,7 @@ public class BasicsAlgorithm {
 
 
     }
-    public int[] arrayKTopfrequentElementss(int[] arr, int k){ 
+    public int[] arrayKTopRepeatedElementss(int[] arr, int k){ 
         
         //USING MULTIPOINTERS SORT SEARCH + HASHMAP(ARRAY REQUIRES SORTING + ARRAY REQUIRES STORING ELEMENTS))  -->Time:O(nlogn + n), Soace:O(n)
         /*

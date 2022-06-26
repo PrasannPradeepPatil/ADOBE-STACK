@@ -1121,7 +1121,7 @@ IPsmall, OP1  IPsmall, OP2   Ipsmall OP1  Ipsmall , OP2
 
 
     }
-    public void    arraySubArraySubsequenceSubsetCombinationPermOutationfSizeK(List<Integer>ip ,List<Integer> op , List<List<Integer>> resultList){
+    public void    arraySubArraySubsequenceSubsetCombinationPermutationfSizeK(List<Integer>ip ,List<Integer> op , List<List<Integer>> resultList){
       /*
       [1,2,3,4] --find all subarray , subsequence , subset , combination permutation of size k
                   Eg: combination of size 3 with unique pairs 
@@ -7246,7 +7246,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
 
       return 0;
     }
-    public int     numberPermutationKaIntegerToStringKaCount(String s){
+    public int     numberPermutationKaPartitionKaIntegerStringConvertToStringKaCount(String s){
       /*
       "226" -->given a string number it can be decoded into alphabets 
                return the number of ways we can decode number
@@ -7269,7 +7269,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
     /
    ""
        
-      public int numberPermutationKaIntegerToStringKaCount(String s,int ptr ){
+      public int numberPermutationKaPartitionKaIntegerStringConvertToStringKaCount(String s,int ptr ){
                                                                          --while going top-down
         if(ptr == s.length()){                                             if ptr reaches s.length
             return 1; }                                                    return 1 as that is 1 way to decode 
@@ -7277,18 +7277,18 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
         int left = 0;                                                      
         int right = 0;                                                  --while going top-down
         if(s.charAt(ptr) != '0'){                                        --if condition for taking 1 character satsfies
-            left = numberPermutationKaIntegerToStringKaCount(s,ptr+1);             left holds number of permutation of taking 1 character
+            left = numberPermutationKaPartitionKaIntegerStringConvertToStringKaCount(s,ptr+1);             left holds number of permutation of taking 1 character
         }                                                                 if condition for taking 2 characters satisfy
         if(ptr+1 <=s.length()-1 && (s.charAt(ptr) == '1'|| s.charAt(ptr) == '2'  && s.charAt(ptr+1) <='6')){
-              right = numberPermutationKaIntegerToStringKaCount(s,ptr+2);           right  holds number of permutation of taking 1 character
+              right = numberPermutationKaPartitionKaIntegerStringConvertToStringKaCount(s,ptr+2);           right  holds number of permutation of taking 1 character
         }
                                                                            --while going bottom-top
         return left + right;                                                 return left + right to node above
       } 
 
       //OVERRIDE
-      public int numberPermutationKaIntegerToStringKaCount(String s,int ptr ){
-        return numberPermutationKaIntegerToStringKaCount(s,0);
+      public int numberPermutationKaPartitionKaIntegerStringConvertToStringKaCount(String s,int ptr ){
+        return numberPermutationKaPartitionKaIntegerStringConvertToStringKaCount(s,0);
       }
 
       Time:O(2^n)
@@ -7327,8 +7327,8 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
       Space:O(n)
 
       //OVERRIDE
-      public int numberPermutationKaIntegerToStringKaCount(String s){
-        return numberPermutationKaIntegerToStringKaCount(s,0);
+      public int numberPermutationKaPartitionKaIntegerStringConvertToStringKaCount(String s){
+        return numberPermutationKaPartitionKaIntegerStringConvertToStringKaCount(s,0);
       }
       
       */
@@ -7370,8 +7370,8 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
                                                                               
                                                                                so on
       //OVERRIDE
-      public int numberPermutationKaIntegerToStringKaCount(String s){
-        return numberPermutationKaIntegerToStringKaCount(s,0);
+      public int numberPermutationKaPartitionKaIntegerStringConvertToStringKaCount(String s){
+        return numberPermutationKaPartitionKaIntegerStringConvertToStringKaCount(s,0);
       }                                                                  
           
         
@@ -7386,7 +7386,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
         | |
       prev1 prev2  -- insetead of dp use prev1 for dp[i-2] and prev2 for dp[i-1] and curr for dp[i]
 
-      public int numberPermutationKaIntegerToStringKaCount(String s , int ptr ){        
+      public int numberPermutationKaPartitionKaIntegerStringConvertToStringKaCount(String s , int ptr ){        
         if(s.length() == 0){return 0;}
         if(s.length() == 1){return s.charAt(0) != '0' ?1:0;}
         int prev1 = 1;
@@ -7414,8 +7414,8 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
       }
 
       //OVERRIDE
-      public int numberPermutationKaIntegerToStringKaCount(String s){
-        return numberPermutationKaIntegerToStringKaCount(s,0);
+      public int numberPermutationKaPartitionKaIntegerStringConvertToStringKaCount(String s){
+        return numberPermutationKaPartitionKaIntegerStringConvertToStringKaCount(s,0);
       }
 
       Time:O(n)
@@ -8275,7 +8275,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
 
       
     }
-    public void    stringPermutationKaIntegerToMobileString(String s){
+    public void    stringPermutationKaPartitionKaIntegerStringConvertToMobileString(String s){
       /* 
       "226" -->given a string convert it to mobile equivalent string(Image:https://leetcode.com/problems/letter-combinations-of-a-phone-number/)
                 return the mobile equivalent string
@@ -8296,7 +8296,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
           /   |   \      /   |   \      /    |    \
       "dg"  "dh"   "di" "eg" "eh" "ei"  "fg" "fh"  "fi"
 
-      public void stringPermutationKaIntegerToMobileString(String s, int index, StringBuilder path,List<String> res,Map<Character, String> map ) {
+      public void stringPermutationKaPartitionKaIntegerStringConvertToMobileString(String s, int index, StringBuilder path,List<String> res,Map<Character, String> map ) {
                                                                --while moving through string
         if (path.length() == s.length()) {                      if path.length = s.length
             res.add(path.toString());                               add path to result
@@ -8313,7 +8313,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
       }
 
       //OVERRIDE
-      public List<String> stringPermutationKaIntegerToMobileString(String s) {
+      public List<String> stringPermutationKaPartitionKaIntegerStringConvertToMobileString(String s) {
             
         if (s.length() == 0) {                             //null check for 0 length
             return new ArrayList<>();

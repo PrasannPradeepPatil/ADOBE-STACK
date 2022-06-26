@@ -1748,7 +1748,7 @@ acessmod nonacessmod   Class  classname/interFaceName  <Generic>    extends/ imp
                                                                  by normal overload,anonymous inner class,lambda fn(4 types of lambda fn))                 
 
 
-    EG:arraykClosestElementsToPoint();arrayKTopfrequentElements();arraykClosestElementsToOrigin();arrayKNearlySortedSort();arrayfrequencySort();  arraySetBitsFrequencySort(),arrayLargestNumberOnRearrangingSort() , arrayCompareNArraysForMergingInRange()
+    EG:arraykClosestElementsToPoint();arrayKTopRepeatedElements();arraykClosestElementsToOrigin();arrayKNearlySortedSort();arrayfrequencySort();  arraySetBitsFrequencySort(),arrayLargestNumberOnRearrangingSort() , arrayCompareNArraysForMergingInRange()
        arrayContinuousSumEqualsMinCost_RopesJoining()
        arrayPermutationFractionalKnapSack()
        arrayDataStreamMedian() 
@@ -1812,7 +1812,7 @@ acessmod nonacessmod   Class  classname/interFaceName  <Generic>    extends/ imp
     
     https://leetcode.com/problems/combinations/
     array ka unique combination of size k ka arrays= array ka unique subsequence of size k ka arrays
-    arraySubArraySubsequenceSubsetCombinationPermOutationfSizeK
+    arraySubArraySubsequenceSubsetCombinationPermutationfSizeK
 
 
 

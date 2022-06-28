@@ -8,6 +8,14 @@ public class BasicsAlgorithm {
     //RELATION
     /* #region Main */
 
+    //REMAINING
+    /*
+     DISTINCT , UNIQUE -- MORE BETTER
+     SUM OF PAIRS = PARTITION ??
+     PERMUTATION, COMBINATION AND PARTITION
+
+     */
+
     //SUBARRAY/SUBSTRING,SUBSEQUENCE,SUBSET,COMBINATION,PERMUTATION 
     /*
     arraySubArrayKaArrays(R)
@@ -231,7 +239,7 @@ public class BasicsAlgorithm {
     matrixRowWithMaxOccurenceOf1(BA)
 
     */
-    //CONVERT
+    //CONVERT 
     /*
     numberBitsToFlipToConvertToOtherNumber(BA)
     numberFractionConvertToRecurringDecimal(BA)
@@ -276,7 +284,7 @@ public class BasicsAlgorithm {
     arrayGroupByLessThanKTogetherMinSwaps,arrayGroupByLessThanKTogetherMinSwapss(BA,BA)
     arrayGroupByEvenTogetherMinSwaps,arrayGroupByEvenTogetherMinSwapss(BA,BA)
     */
-    //DISTINCT(UNIQUE),REPEATING(DUPLICATE)
+    //DISTINCT(UNIQUE),REPEATING(DUPLICATE)  
     /*
     arrayContainsDuplicate,arrayContainsDuplicatee(BA,BA)
     stringFirstRepeatedCharacter(BA)
@@ -302,6 +310,8 @@ public class BasicsAlgorithm {
     stringSubstringKaCharacterAllRepeatingOnKReplacementKaLongestShortestLengthAndStringAndCount(R)
     stringSubstringKaCharacterAtleastKRepeatedKaLongestLength(R)
     stringSubstringKaCharactersOddNumberEverythingKaLongestShortestKaLengthAndStringAndCount(R)
+
+    stringSubsequenceKaRepeatingKaLongestLength(R)
     */
     //MISSING,REPEATING(DUPLICATE)
     /*
@@ -313,16 +323,15 @@ public class BasicsAlgorithm {
     arrayElementsAppearingMoreThanNbyKTimes,arrayElementsAppearingMoreThanNbyKTimess(BA,BA)
    
     */
-    //REPEATING
+    //CONSECUTIVE
     /*
     arraySubArrayKaContinuousOneKaLongestLength(R)
 
-    stringSubsequenceKaRepeatingKaLongestLength(R)
     arraySubsequenceKaConsecutiveNumbersInAnyOrderKaLongestLength(R)
 
     arrayContinuousSumEqualsMinCost_RopesJoining,arrayContinuousSumEqualsMinCost_RopesJoiningg(R)
     */
-    //SUM,PRODUCT
+    //SUM,PRODUCT 
     /*
     numberSumWithoutOperator(BA)
     arrayProductExceptSelf(BA)
@@ -438,26 +447,30 @@ public class BasicsAlgorithm {
     //PERMUTATION, COMBINATION
     /*
     numberPermutationKaStepsKaCount(R)
-    numberPermutationKaPartitionKaIntegerStringConvertToStringKaCount(R)
-    stringPermutationKaPartitionKaIntegerStringConvertToMobileString(R)
-    arrayPermutationMaxRobberSumKaSumI(R)
-    arrayPermutationMaxRobberSumKaSumII(R)
+    stringPermutationKaBinaryPrefixKaString(R)
+    stringPermutationKabalanceParanthesisKaString(R)
     stringPermutationKaSpaceKaString(R)
     stringPermutationKaLetterCaseKaString(R)
     stringPermutationKaNumberLetterCaseKaString(R)
-    stringPermutationKabalanceParanthesisKaString(R)
-    stringPermutationKaBinaryPrefixKaString(R)
 
+    
+    numberPermutationKaPartitionKaIntegerStringConvertToStringKaCount(R)
+    stringPermutationKaPartitionKaIntegerStringConvertToMobileString(R)
     stringPermutationKaPartitionInOtherListKaPossible(R)
     stringPermutationKaPartitionInOtherListKaStrings(R)
     stringPermutationKaPartitionIsPallindromeKaPossible(R)
     stringPermutationKaPartitionIsPallindromeKaStrings(R)
 
+    arrayPermutationMaxRobberSumKaSumI(R)
+    arrayPermutationMaxRobberSumKaSumII(R)
     arrayPermutationKaMinJumpKaCount(BA)
     arrayPermutationKaMinJumpKaPossible(BA)
     arrayPermutationKaMaxStockDifferenceKaDiffI(BA)
     arrayPermutationKaMaxStockDifferenceKaDiffII(BA)
     arrayPermutationKaGasStationKaIndex(BA)
+
+
+
 
     */
     //PARTITION

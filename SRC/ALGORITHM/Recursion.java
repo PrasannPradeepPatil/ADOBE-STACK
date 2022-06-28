@@ -10501,7 +10501,7 @@ n2 is connected to n0,n3  n1 is connected to n0,n3                    n0 connect
       
       */
     }
-    public void graphDirAcyclicShortestLongestPath(int[][] edges ,int startNode,int n){
+    public void graphDirAcyclicWeightedShortestLongestPath(int[][] edges ,int startNode,int n){
       /*
        2    3  6
       0-->1-->2-->3    --Given a directed acyclic graph with weight( weight is cost to reach that node from previous Node)and a startNode 
@@ -10571,12 +10571,12 @@ n2 is connected to n0,n3  n1 is connected to n0,n3                    n0 connect
         public int getWeight(){return this.weight;}
       }
 
-     public void graphDirAcyclicShortestLongestPath(int[][] edge ,int startNode,int n){
+     public void graphDirAcyclicWeightedShortestLongestPath(int[][] edge ,int startNode,int n){
           Map<Node,List<Node>> graphMap = graphMap;      --initialise graphArr,graphMap, visited
           List<List<Node>> graphArr = graphMap             (look in graphConstructII() )
           boolean[] visited = new boolean[n];
           int[] dist = new dist[n];  
-          graphDirAcyclicShortestLongestPath(graphArr,visited,diststartNode,n);   
+          graphDirAcyclicWeightedShortestLongestPath(graphArr,visited,diststartNode,n);   
           return dist;
       }
 
@@ -10594,7 +10594,7 @@ n2 is connected to n0,n3  n1 is connected to n0,n3                    n0 connect
 
 
     }
-    public void graphUnDirShortestLongestPath(int[][] edges , int n){
+    public void graphUnDirWeightedShortestLongestPath(int[][] edges , int n){
       /*
        2    3  6
       0--1---2---3    --Given a undirected  graph with weight( weight is cost to reach that node from previous Node)and a startNode 
@@ -10609,7 +10609,7 @@ n2 is connected to n0,n3  n1 is connected to n0,n3                    n0 connect
 
       //BFS ITRRATIVE             -->For unweighted graph ie weights = 1
       /*
-      public void graphUnDirShortestLongestPath(List<List<Integer>> graphArr,boolean[] visited, int[] dist,int startNode,int n){
+      public void graphUnDirWeightedShortestLongestPath(List<List<Integer>> graphArr,boolean[] visited, int[] dist,int startNode,int n){
           BFSIterative(graphArr,visited,dist,startNode,n); -- perform BFS on every node if not visitesd(Graph may be multiple components and DFS traverses only one component ;hence we perform DFS on every node)
                                                                but we must start from given startNode and hence cant perform BFS on every node
       }
@@ -10657,12 +10657,12 @@ n2 is connected to n0,n3  n1 is connected to n0,n3                    n0 connect
         public int getVal(){return this.val;}
         public int getWeight(){return this.weight;}
       }
-      public void graphUnDirShortestLongestPath(int[][] edge,int startNode,int n){
+      public void graphUnDirWeightedShortestLongestPath(int[][] edge,int startNode,int n){
           Map<Node,List<Node>> graphMap = graphMap;      --initialise graphArr,graphMap, visited
           List<List<Node>> graphArr = graphMap             (look in graphConstructII()  for edges with weigtht)
           boolean[] visited = new boolean[n];
           int[] dist = new dist[n];  
-          graphUnDirShortestLongestPath(graphArr,visited,dist,startNode,n);   
+          graphUnDirWeightedShortestLongestPath(graphArr,visited,dist,startNode,n);   
           return dist;
       }
 
@@ -10677,7 +10677,7 @@ n2 is connected to n0,n3  n1 is connected to n0,n3                    n0 connect
     
       //BFS ITERATIVE(DIJKSHTRAS ALGORITHM)  -->For +ve weighted graph ie weights >=0 
       /*
-      public void graphUnDirShortestLongestPath(List<List<Node>> graphArr,boolean[] visited, int[] dist,int startNode,int n){
+      public void graphUnDirWeightedShortestLongestPath(List<List<Node>> graphArr,boolean[] visited, int[] dist,int startNode,int n){
           BFSIterative(graphArr,visited,dist,startNode,n); -- perform BFS on every node if not visitesd(Graph may be multiple components and DFS traverses only one component ;hence we perform DFS on every node)
                                                                but we must start from given startNode and hence cant perform BFS on every node
       }
@@ -10730,12 +10730,12 @@ n2 is connected to n0,n3  n1 is connected to n0,n3                    n0 connect
         public int getWeight(){return this.weight;}
       }
 
-     public void graphUnDirShortestLongestPath(int[][] edge,int startNode,int n){
+     public void graphUnDirWeightedShortestLongestPath(int[][] edge,int startNode,int n){
           Map<Node,List<Node>> graphMap = graphMap;      --initialise graphArr,graphMap, visited
           List<List<Node>> graphArr = graphMap             (look in graphConstructII()  for edges with weigt))
           boolean[] visited = new boolean[n];
           int[] dist = new dist[n];  
-          graphUnDirShortestLongestPath(graphArr,visited,diststartNode,n);   
+          graphUnDirWeightedShortestLongestPath(graphArr,visited,diststartNode,n);   
           return dist;
       }
 
@@ -10753,7 +10753,7 @@ n2 is connected to n0,n3  n1 is connected to n0,n3                    n0 connect
       //                            -->For positive weight cycle graph ie the sum of a cycle in graph must be positive
       /*
       
-      public boolean graphUnDirShortestLongestPath(int[][] edges,int[] visited, int[] dist, int startNode, int n){
+      public boolean graphUnDirWeightedShortestLongestPath(int[][] edges,int[] visited, int[] dist, int startNode, int n){
         BFSIterative(edges,visited,dist,startNode,n); -- perform BFS on every node if not visitesd(Graph may be multiple components and DFS traverses only one component ;hence we perform DFS on every node)
                                                          but we must start from given startNode and hence cant perform BFS on every node
       }
@@ -10832,11 +10832,11 @@ n2 is connected to n0,n3  n1 is connected to n0,n3                    n0 connect
         public int getWeight(){return this.weight;}
       }
 
-     public int[] graphUnDirShortestLongestPath(int[][] edge,int startNode,int n){
+     public int[] graphUnDirWeightedShortestLongestPath(int[][] edge,int startNode,int n){
         int[][] edges = graphDeconstructI(graphArr,n)       --initialise edges; our fn requires edges but we may be given graphArr so deconstruuct graphArr to edges
         boolean[] visited = new boolean[n];                   (look in graphDeconstructII())
         int[] dist = new dist[n];  
-        graphUnDirShortestLongestPath(edge,visited,dists,tartNode,n);  --if startNode not given take it as 0   
+        graphUnDirWeightedShortestLongestPath(edge,visited,dists,tartNode,n);  --if startNode not given take it as 0   
         return dist;
       }
 
@@ -11054,7 +11054,7 @@ n2 is connected to n0,n3  n1 is connected to n0,n3                    n0 connect
       */
 
     }
-    public void graphDirUndirMinimumSpanningTree(int[][] edges, int n){
+    public void graphDirUndirWeightedMinimumSpanningTree(int[][] edges, int n){
       /*
           2   3 
         0----1---2      --Given a directed/undirected graph with weights(weight is cost to reach that node from previous Node)
@@ -11084,7 +11084,7 @@ n2 is connected to n0,n3  n1 is connected to n0,n3                    n0 connect
       //BFS ITERATIVE(PRIMS  ALGORITHM)
       /*
 
-      public int[] graphDirUndirMinimumSpanningTree(ArrayList<ArrayList<Node>> graphArr,boolean[] mst, int[] weight,int[] parent,int n){
+      public int[] graphDirUndirWeightedMinimumSpanningTree(ArrayList<ArrayList<Node>> graphArr,boolean[] mst, int[] weight,int[] parent,int n){
           BFSItrative(graphArr,visitedMST,weight,mst,n); -- perform BFS on every node if not visitesd(Graph may be multiple components and BFS traverses only one component ;hence we perform BFS on every node)
           return mst                                         but we iterate through all nodes in BFSiterative()
 
@@ -11152,13 +11152,13 @@ n2 is connected to n0,n3  n1 is connected to n0,n3                    n0 connect
         public int getWeight(){return this.weight;}
       }
 
-      public int[] graphDirUndirMinimumSpanningTree(int[][] edges,  int n){
+      public int[] graphDirUndirWeightedMinimumSpanningTree(int[][] edges,  int n){
         Map<Node,List<Node>> graphMap = graphMap;      --initialise graphArr,graphMap, visitedMST,weight,parent
         List<List<Node>> graphArr = graphMap             (look in graphConstructII()  for edges with weigt))
         boolean[] visitedMST = new boolean[n];
         int[] weight = new weight[n];  
         int[] parent = new weight[n];  
-        graphDirUndirMinimumSpanningTree(graphArr,visitedMST,weight,parent,n);   
+        graphDirUndirWeightedMinimumSpanningTree(graphArr,visitedMST,weight,parent,n);   
         return mst;
       }
 
@@ -11170,7 +11170,7 @@ n2 is connected to n0,n3  n1 is connected to n0,n3                    n0 connect
 
       //BFS ITERATIVE(PRIM'S ALGORITHM optimised)
       /*
-      public int[] graphDirUndirMinimumSpanningTree(ArrayList<ArrayList<Node>> graphArr,boolean[] mst, int[] weight,int[] parent,int n){
+      public int[] graphDirUndirWeightedMinimumSpanningTree(ArrayList<ArrayList<Node>> graphArr,boolean[] mst, int[] weight,int[] parent,int n){
         return BFSItrative(graphArr,visitedMST,weight,mst,n); -- perform BFS on every node if not visitesd(Graph may be multiple components and BFS traverses only one component ;hence we perform BFS on every node)
                                                                 but we iterate through all nodes in BFSiterative()
 
@@ -11219,13 +11219,13 @@ n2 is connected to n0,n3  n1 is connected to n0,n3                    n0 connect
         public int getWeight(){return this.weight;}
       }
 
-      public int[] graphDirUndirMinimumSpanningTree(int[][] edges,  int n){
+      public int[] graphDirUndirWeightedMinimumSpanningTree(int[][] edges,  int n){
         Map<Node,List<Node>> graphMap = graphMap;      --initialise graphArr,graphMap, visitedMST,weight,parent
         List<List<Node>> graphArr = graphMap             (look in graphConstructII())
         boolean[] visitedMST = new boolean[n];
         int[] weight = new weight[n];  
         int[] parent = new weight[n];  
-        graphDirUndirMinimumSpanningTree(graphArr,visitedMST,weight,parent,n);   
+        graphDirUndirWeightedMinimumSpanningTree(graphArr,visitedMST,weight,parent,n);   
         return mst;
       }
 
@@ -11238,7 +11238,7 @@ n2 is connected to n0,n3  n1 is connected to n0,n3                    n0 connect
       //UNION-FIND(KRUSJALS ALGORITHM) -->Only for Undirected graph as union find works for undirected graph only
       /*
 
-      public int[] graphDirUndirMinimumSpanningTree(int[][] edges, int n){
+      public int[] graphDirUndirWeightedMinimumSpanningTree(int[][] edges, int n){
                                                                       1.SORT EDGES ARR  BASED ON WEIGHT
                                                                       ( so that you can pick the edges greedily and union them later)              
         List<List<Integer> edgesArr = new ArrayList<>();              -->convert edge arr to edge list 
@@ -11322,9 +11322,9 @@ n2 is connected to n0,n3  n1 is connected to n0,n3                    n0 connect
                                                                       similarly we continue and build our MST
 
       //OVERRIDE
-      public int[] graphDirUndirMinimumSpanningTree(int[][] edges, int n){       
+      public int[] graphDirUndirWeightedMinimumSpanningTree(int[][] edges, int n){       
         int[][] edges = graphDeconstructI(graphArr,n)       --initialise edges; our fn requires edges but we may be given graphArr so deconstruuct graphArr to edges
-        return graphDirUndirMinimumSpanningTree(edges,n)      (look in graphDeconstructI())
+        return graphDirUndirWeightedMinimumSpanningTree(edges,n)      (look in graphDeconstructI())
       } 
 
 
@@ -11340,7 +11340,7 @@ n2 is connected to n0,n3  n1 is connected to n0,n3                    n0 connect
       /*
       1---2  --given an undirected graph 
       |---3    check if it is a valid tree 
-               1.It is completely connected and has only 1 componenyt
+               1.It is completely connected and has only 1 component
                2.It Has no cycles
       */      
       

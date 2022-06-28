@@ -37,7 +37,7 @@
 7.Longest substr without numbers and atleast 1 capital character EG "aqW9ertyz" ka "aqW"-- https://stackoverflow.com/questions/43535171/find-longest-sub-string-without-any-number-and-at-least-one-upper-case-character
 8.find repeating digits between a range of integers-- https://stackoverflow.com/questions/44380384/how-i-find-numbers-with-repeating-digits-within-a-range
                                                         https://www.geeksforgeeks.org/count-of-repeating-digits-in-a-given-number/
-9.BFS traverse of a 2D matrix with memoization to find the shortest weighted path. -- maxtrixTraversal() KA BFS , graphUnDirShortestLongestPath(),https://www.geeksforgeeks.org/shortest-distance-two-cells-matrix-grid/
+9.BFS traverse of a 2D matrix with memoization to find the shortest weighted path. -- maxtrixTraversal() KA BFS , graphUnDirWeightedShortestLongestPath(),https://www.geeksforgeeks.org/shortest-distance-two-cells-matrix-grid/
 */
 
 //OS

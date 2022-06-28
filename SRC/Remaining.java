@@ -463,11 +463,11 @@ graphDirCycleDetection-- https://leetcode.com/problems/course-schedule/
 graphUnDirCycleDetection -- https://practice.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/1/
 graphCourseSchedule-- https://leetcode.com/problems/course-schedule/
 graphCourseScheduleII - https://leetcode.com/problems/course-schedule-ii/
-graphDirAcyclicShortestLongestPath (BFS Iteratove)https://github.com/striver79/StriversGraphSeries/blob/main/cycleCheckUGBfsJava
+graphDirAcyclicWeightedShortestLongestPath (BFS Iteratove)https://github.com/striver79/StriversGraphSeries/blob/main/cycleCheckUGBfsJava
                                     Dijkshtra -- https://github.com/striver79/StriversGraphSeries/blob/main/djisktraJava
                                     Bellman Foird -- https://github.com/striver79/StriversGraphSeries/blob/main/BellmanFordJava
 graphUndirisBipirtite -- https://leetcode.com/problems/is-graph-bipartite/
-graphDirUndirMinimumSpanningTree --(Prims) https://github.com/striver79/StriversGraphSeries/blob/main/primsAlgoJava
+graphDirUndirWeightedMinimumSpanningTree --(Prims) https://github.com/striver79/StriversGraphSeries/blob/main/primsAlgoJava
                                   --(prims optimised) https://github.com/striver79/StriversGraphSeries/blob/main/primsAlgoJavaEfficient
 graphUndirIsValidTree -- https://leetcode.com/problems/graph-valid-tree/
 ##############################REMAINING I ############################################//#endregionDYNAMIC PROGRAMMING

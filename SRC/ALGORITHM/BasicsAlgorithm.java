@@ -74,15 +74,16 @@ public class BasicsAlgorithm {
 
     arrayConvertToIncreasingWithMinIncrementOperation(BA)
     */
-    //ISOMORPHIC,ANAGRAM  
+    //ISOMORPHIC,ANAGRAM ,MEDIAN
     /*
     stringCompare2StringForIsomorphic,stringCompare2StringForIsomorphicc(BA,BA)                             
     stringCompare2StringsForAnagram,stringCompare2StringsForAnagramm,stringCompare2StringsForAnagrammm(BA,BA,BA)                                         
     stringCompare2StringsForAnagramWithOneExtraCharacter,stringCompare2StringsForAnagramWithOneExtraCharacterr(BA,BA)  
-
+    stringSubStringKaContainingAnagramOfOtherStringKaStringAndCount
     matrixCompareRowsForAnagramsGrouping(BA)
+    arrayCompare2ArrayForMedian,arrayCompare2ArrayForMediann(BA,BA) 
+    arrayDataStreamMedian(MISC)      
 
-    stringSubStringKaContainingAnagramOfOtherStringKaStringAndCount(BA)
 
     
     */
@@ -141,6 +142,7 @@ public class BasicsAlgorithm {
     arrayContainerMaxArea(BA)
     arrayContainerTotalArea(BA)
     arrayDaysToWaitForNextGreatestTemp(BA)
+    matrixMaximumArea(BA)
 
 
     */
@@ -401,12 +403,12 @@ public class BasicsAlgorithm {
     arrayCompare2ArraysForUnion,arrayCompare2ArraysForUnionn(BA,BA)                                                          
     arrayCompare2ArrayForMergingI,arrayCompare2ArrayForMerginggI(BA,BA)
     arrayCompare2ArrayForMergingII,arrayCompare2ArrayForMerginggII(BA,BA)      
-    arrayCompare2ArrayForMedian,arrayCompare2ArrayForMediann(BA,BA)                                  
-    
-    stringCompareNStringsForReplacement(BA)  
-    stringCompareNStringForAutoComplete(BA)                    
+                              
+                 
     stringCompareNStringsForLongestCommonPrefix(BA) 
     stringCompareNStringsForLongestCommonPrefixWithWord(BA)  
+    stringCompareNStringsForReplacement(BA)  
+    stringCompareNStringForAutoComplete(BA)   
 
     matrixCompareRowForIntersection(BA)
     matrixCompareRowForCommon(BA)
@@ -419,9 +421,9 @@ public class BasicsAlgorithm {
     matrixCompareRowsForMergingMeetingRoomIntervalI(BA)
     matrixCompareRowsForMergingMeetingRoomIntervalII(BA)
 
+    stringSubstringKaCommonKaLongestLength(R)
     stringSubsequenceKaCommonKaLongestLength(R)                                 
     stringSubsequenceKaCommonKaLongestString(R)
-    stringSubstringKaCommonKaLongestLength(R)
     stringSupersequenceKaCommonKaShortestLength(R)
     stringSupersequenceKaCommonKaShortestString(R)
 
@@ -433,14 +435,15 @@ public class BasicsAlgorithm {
     stringSubstringKaContainingCharactersOfItselfKaLongestShortestLengthAndStringAndCount(R)
 
 
-    //ROTATION,ISOMPRPHIC,ANAGRAM
+    //ROTATION,ISOMPRPHIC,ANAGRAM,MEDIAN
     stringCompare2StringsForRotation,stringCompare2StringsForRotationn(BA,BA)    
     stringCompare2StringForIsomorphic,stringCompare2StringForIsomorphicc(BA,BA)                             
     stringCompare2StringsForAnagram,stringCompare2StringsForAnagramm,stringCompare2StringsForAnagrammm(BA,BA,BA)                                         
     stringCompare2StringsForAnagramWithOneExtraCharacter,stringCompare2StringsForAnagramWithOneExtraCharacterr(BA,BA)  
     stringSubStringKaContainingAnagramOfOtherStringKaStringAndCount
-
     matrixCompareRowsForAnagramsGrouping(BA)
+    arrayCompare2ArrayForMedian,arrayCompare2ArrayForMediann(BA,BA) 
+    arrayDataStreamMedian(MISC)      
 
 
     */
@@ -511,10 +514,10 @@ public class BasicsAlgorithm {
     graphUnDirCycleDetection(R)
     graphCourseSchedule(R)
     graphCourseScheduleII(R)
-    graphDirAcyclicShortestLongestPath(R)
-    graphUnDirShortestLongestPath(R)
+    graphDirAcyclicWeightedShortestLongestPath(R)
+    graphUnDirWeightedShortestLongestPath(R)
     graphUndirisBipirtite(R)
-    graphDirUndirMinimumSpanningTree(R)
+    graphDirUndirWeightedMinimumSpanningTree(R)
     graphUndirIsValidTree(R)
 
     */
@@ -545,10 +548,10 @@ public class BasicsAlgorithm {
     3.TOPOLOGICAL-SORT ALGORITHM                                                                    --graphDirAcyclicTopologicalSort, search in recursion methods that use this algo 
     4.UNIO-FIND ALGORITHM                                                                           --graphUndirUnionFind(), search in recursion methods that use this algo 
     5.KAHNS ALGORITHM                                                                               --graphDirAcyclicTopologicalSort()
-    6.DIJKSHTRAS ALGORITHM                                                                          --graphUnDirShortestLongestPath
-    7.BELLMAN FORD ALGORITHM                                                                        --graphUnDirShortestLongestPath
-    8.PRIMS ALGORITHM                                                                               --graphDirUndirMinimumSpanningTree()
-    9.KRUSJALS ALGORITHM                                                                            --graphDirUndirMinimumSpanningTree                         
+    6.DIJKSHTRAS ALGORITHM                                                                          --graphUnDirWeightedShortestLongestPath
+    7.BELLMAN FORD ALGORITHM                                                                        --graphUnDirWeightedShortestLongestPath
+    8.PRIMS ALGORITHM                                                                               --graphDirUndirWeightedMinimumSpanningTree()
+    9.KRUSJALS ALGORITHM                                                                            --graphDirUndirWeightedMinimumSpanningTree                         
 
     */
 

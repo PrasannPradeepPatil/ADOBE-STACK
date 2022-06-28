@@ -49,50 +49,151 @@ TransformParams{IaaCSV,IPJSON,OPJSON)
  */
 
 
-//META , DIST FOLDER
+//MAPPINGS
+//csvData1
 /*
-META,dist-->dependency package manager on which we run command(metabuild prepare -p macos etc) and it throws a dist folder with all dependencies
-dist -->store all dependencies
+{
+  "originalFile": [],
+  "header": ['CONFIG','IN_doc',...],
+  "content":[
+    {
+        "header": ['CONFIG','IN_doc',...],
+        "values":['  missing-key-value=unknown','(?<doc>.*)',..]
+    }
+    {
+        "header": ['CONFIG','IN_doc',...],
+        "values":['  non-standard-keys=exclude','','',...]
+    }
+  ]
 
-dist/git/adobe/meta-archives --> all dependencies are stored in this folder
-META/dunamis-common.meta.py --.main meta files
-META/dunamis-core.meta.py
-META/dunamis-ingest.meta.py
-META/dunamis-service.meta
+
+
+*/
+//mapping1
+/*
+1.config
+{
+  rules: [
+        { 
+        "config":   {
+                       'missing-key-value': 'unknown' 
+                   },
+        "find":    [
+                        [ 'doc', '(?<doc>.*)' ],
+                        [ 'seq', '(.*)' ],
+                        [ 'Category', '(.*)' ],
+                        [ 'SubCategory', '(.*)' ],
+                    ]
+        "replace"  :[
+                        [ 'event.workflow', '$3-$+{doc}' ],
+                        [ 'event.subcategory', '$4' ],
+                    ]
+        "findcount":=4
+        },
+
+        { 
+        "config":   {
+                        'non-standard-keys': 'include'
+                    },
+        "find":     [
+                    ]
+        "replace"  :[
+                        [ 'hb.params', '$0' ]
+                    ]  
+        "findcount":0
+        },
+        
+        { 
+        "config":   {
+                        'non-standard-keys': 'exclude'
+                    },
+        "find":    [
+                    ]
+        "replace"  :[
+                    ]  
+        "findcount":0
+        },
+
+
+
+
+
+    ]
+  sourceKeys: [
+    'doc',
+    'seq',
+    'Category',
+    'SubCategory',
+    'FeatureName',
+    'FeatureTime'
+  ],
+  targetKeys: [
+    'event.workflow',
+    'event.subcategory',
+    'event.subtype',
+    'event.dts',
+    'hb.params'
+  ]
+}
+
+
+ */
+//ipJson1
+/*
+
+{
+'doc': '9fceb2b1502d741bdb6f2f20ea26373b595a964b1d85147e8b7268a4ac99a160',
+'SubCategory': 'AdobePIPtestappsub-234_12',
+'FeatureName': 'toolwriteeventdata_12-34',
+'FeatureTime': '2022-01-11T12:13:20Z'
+}
 
 
 */
 
-
-//DUNAMIS INGEST -->MAIN FOLDER
+//mapping2
 /*
-dunamis-ingest/source --> includes all cpp internal header files
-dunmis-ingest/include --> includes all cpp public header files
-dunamis-ingest/include/dunamis.h --> API calls from client(each client will have an ingest instance)
-                                     https://wiki.corp.adobe.com/display/dunamis/Dunamis+SDK#84604fac-c79c-458f-a3f5-91f0d52295db-2264152385
-
-dunamis-ingest/include/dunamis.h -- ingest specific API
- */
-
-//DUNAMIS INTERNAL
-/*
-dunamis-internal/dunamis-common
-dunamis-internal/dunamis-core   -utils for common
-dunamis-internal/dunamis-service
- */
-
- //WORKFLOW
- /*
- client -- dunamis.h
-           (IAAS method
-           are of importance) 
-
-  */
-
-//STEPS
-/*
-  1.Create a req response cycle on node
-  2.Implement IAAS Functionality
-  
-  */
-
+{
+  rules: [
+        {
+            config: { 'search-replace-substrings': 'true' },
+            find: [
+                    [ 'Category', '/[\\\\[\\\\]\\\\(\\\\)]/* /g' ],
+                    [ 'FeatureTime', '/\\\\s*(\\\\S(.*\\\\S)?)\\\\s* /$1/' ]
+                ],
+            replace: [],
+            findCount: 2
+        }
+        { "
+            config: {}, 
+            find: [], 
+            replace: [
+                [ 'event.workflow', '"$+{Category}"' ],
+                [ 'event.subcategory', '\\L$+{SubCategory}-\\U$+{FeatureName}' ],
+                [ 'event.subtype', '$+{FeatureName}' ]
+            ], 
+            findCount: 0 
+        },
+        { 
+            config: { 'non-standard-keys': 'exclude' },
+            find: [], 
+            replace: [ 
+                [ 'event.dts', '$+{FeatureTime}' ] ],
+            findCount: 0 
+        },
+        { 
+            config: {'non-standard-keys': 'exclude'}, 
+            find: [], 
+            replace: [], 
+            findCount: 0 
+        }
+  ],
+  sourceKeys: [ 'Category', 'SubCategory', 'FeatureTime' ],
+  targetKeys: [
+    'event.workflow',
+    'event.subcategory',
+    'event.subtype',
+    'event.dts'
+  ]
+}
+*/

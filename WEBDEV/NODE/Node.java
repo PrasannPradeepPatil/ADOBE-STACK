@@ -66,6 +66,7 @@ SET ENV VAR -->No Need
 >sudo npm install                    -->install package.json dependencies which include "express","cookie-parser","morgan","debug","http-errors","jade"
 >sudo npm install express --save     -->install express locally(already installed in npm install)
 >sudo npm install mongoose --save    -->install mongoose locally
+>sudo npm install cors               --<install cors 
 >sudo npm install dotenv              -->install env var dependency locally 
 
 //RUN SERVER  

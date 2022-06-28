@@ -52,7 +52,7 @@ app.use(express.urlencoded({limit:"30mb",extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));  
 app.use(cookieParser());                                
 app.use(logger('dev'));
-app.use(cors());
+app.use(cors());            //ADD THIS
 
 
 //ROUTES MIDDLEWARE FNS(APPLIED ON GIVEN END POINTS)

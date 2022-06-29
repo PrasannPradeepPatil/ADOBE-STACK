@@ -162,18 +162,18 @@ stringCompareNStringsForLongestCommonPrefixWithWord -- https://leetcode.com/prob
 //ARRAY - MULTIPOINTERS SORT SEARCH
 arrayElementsAppearingMoreThanNbyKTimes - https://leetcode.com/problems/majority-element-ii/
 arrayMissingRanges -- https://leetcode.com/problems/missing-ranges/
-arraypair2TargetSumI(pairs) --https://www.geeksforgeeks.org/count-pairs-with-given-sum/
-arraypair2TargetSumI(unique) -- https://leetcode.com/discuss/interview-question/372434(comment by shine123glow)
-arraypair2TargetSumII(pairs) -- https://www.geeksforgeeks.org/count-pairs-array-whose-sum-less-x/
-arraypair2TargetSumII(unique) -- own (this fn worked insiode 3 sum unique so assume to be correct)
-arraypair3TargetSumI(pair)     -own
-arraypair3TargetSumI(unique)-- https://leetcode.com/problems/3sum/
-arraypair3TargetSumII(pair) -- https://practice.geeksforgeeks.org/problems/count-triplets-with-sum-smaller-than-x5549/1
-arraypair3TargetSumII(unique) -- own
-arrayPairKTargetSumI(pair) --own
-arrayPairKTargetSumI(unique) -- https://leetcode.com/problems/4sum/solution/ 
-arraypair2TargetDifferenceI (pair)  --https://www.techiedelight.com/find-pairs-with-given-difference-array/
-arraypair2TargetDifferenceI (unique) -- https://leetcode.com/problems/k-diff-pairs-in-an-array/
+arrayKa2PairsKaSumEqualsTargetI(pairs) --https://www.geeksforgeeks.org/count-pairs-with-given-sum/
+arrayKa2PairsKaSumEqualsTargetI(unique) -- https://leetcode.com/discuss/interview-question/372434(comment by shine123glow)
+arrayKa2PairsKaSumEqualsTargetII(pairs) -- https://www.geeksforgeeks.org/count-pairs-array-whose-sum-less-x/
+arrayKa2PairsKaSumEqualsTargetII(unique) -- own (this fn worked insiode 3 sum unique so assume to be correct)
+arrayKa3PairsKaSumEqualsTargetI(pair)     -own
+arrayKa3PairsKaSumEqualsTargetI(unique)-- https://leetcode.com/problems/3sum/
+arrayKa3PairsKaSumEqualsTargetII(pair) -- https://practice.geeksforgeeks.org/problems/count-triplets-with-sum-smaller-than-x5549/1
+arrayKa3PairsKaSumEqualsTargetII(unique) -- own
+arrayKakPairsKaSumEqualsTargetI(pair) --own
+arrayKakPairsKaSumEqualsTargetI(unique) -- https://leetcode.com/problems/4sum/solution/ 
+arrayKa2PairsKaDifferenceEqualsTargettI (pair)  --https://www.techiedelight.com/find-pairs-with-given-difference-array/
+arrayKa2PairsKaDifferenceEqualsTargettI (unique) -- https://leetcode.com/problems/k-diff-pairs-in-an-array/
 arraykClosestElementsToPoint  -- https://leetcode.com/problems/find-k-closest-elements/submissions/
 arraySetBitsFrequencySort -- https://practice.geeksforgeeks.org/problems/sort-by-set-bit-count1153/1#
 arraySqaureSort -- https://leetcode.com/problems/squares-of-a-sorted-array/
@@ -354,7 +354,7 @@ arraySubArraySubsequenceSubsetCombPermOfSizeK -- https://leetcode.com/problems/c
 
 //ARRAY -- MULTIPOINTERS
 arraySubArrayKaIncreasingKaLongestLength -- https://leetcode.com/problems/longest-continuous-increasing-subsequence/
-arraySubArrayKaSplitKaEqualOnesAndZerosKaCount -- https://leetcode.com/problems/split-a-string-in-balanced-strings/
+arraySubArrayKaPartitionPairKaEqualOnesAndZerosKaCount -- https://leetcode.com/problems/split-a-string-in-balanced-strings/
 
 //ARRAY -- MULTIPOINTERS SORT+SEARH
 arraySubsequenceKaConsecutiveNumbersInAnyOrderKaLongestLength --https://leetcode.com/problems/longest-consecutive-sequence/
@@ -365,11 +365,11 @@ arraySubarrayKaSizeKKaMaxMinSum -- https://practice.geeksforgeeks.org/problems/m
 arraySubArrayKaSizeKKaFirstNegativeNumbers -- https://practice.geeksforgeeks.org/problems/first-negative-integer-in-every-window-of-size-k3345/1
 arraySubArrayOfSizeKMaximumNumbers -- https://practice.geeksforgeeks.org/problems/max-sum-subarray-of-size-k5313/1
 stringSubStringKaContainingAnagramOfOtherStringKaStringAndCount -- https://practice.geeksforgeeks.org/problems/count-occurences-of-anagrams5839/1
-arraySubArrayKaSumEqualsKKaLongestShortestKaLengthAndStringAndCount       --https://leetcode.com/problems/subarray-sum-equals-k/
+arraySubArrayKaSumEqualsTargetKaLongestShortestKaLengthAndStringAndCount       --https://leetcode.com/problems/subarray-sum-equals-k/
                                                                                https://leetcode.com/problems/maximum-size-subarray-sum-equals-k/
                                                                                https://leetcode.com/problems/binary-subarrays-with-sum/
-arraySubArraySumAtMostKKaLongestShortestKaLengthAndStringAndCount        --own 
-arraySubArrayKaSumAtleastKKaLongestShortestKaLengthAndStringAndCount          --https://leetcode.com/problems/minimum-size-subarray-sum/
+arraySubArraySumAtMostTargetKaLongestShortestKaLengthAndStringAndCount        --own 
+arraySubArrayKaSumAtleastTargetKaLongestShortestKaLengthAndStringAndCount          --https://leetcode.com/problems/minimum-size-subarray-sum/
                                                                                 https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/
 stringSubstringKaCharacterEqualsKDistinctKaLongesKaLengthAndString_PickFruits  --https://practice.geeksforgeeks.org/problems/longest-k-unique-characters-substring0853/1                                                  
 stringSubstringKaCharactersEqualsKDistinctKaCount                            --  https://leetcode.com/problems/subarrays-with-k-different-integers/
@@ -402,11 +402,11 @@ arraySubsequenceSumEqualsTargetI --https://leetcode.com/problems/combination-sum
 arraySubsequenceKaSumEqualsTargetKaArraysII   --https://leetcode.com/problems/combination-sum/
 arraySubsequenceOfSizeKKaSumEqualsTargetKaArraysI -- https://leetcode.com/problems/combination-sum-iii/
 
-arraySubsequenceKaSumOfPairsDifferenceEqualsZeroKaPossible --https://leetcode.com/problems/partition-equal-subset-sum/
-arraySubsequenceKaSumOfPairsDifferenceEqualsZeroKaCount -- own
-arraySubsequenceKaSumOfPairsDifferenceEqualsTargetKaPossible -- own
-arraySubsequenceKaSumOfPairsDifferenceEqualsTargetKaCount-- https://leetcode.com/problems/target-sum/submissions/
-arraySubsequenceKaSumOf2PairsDifferenceEqualsTargetKaCount___ArraySignPermutation -- https://leetcode.com/problems/target-sum/submissions/
+arraySubsequenceKaPairsKaSumDifferenceEqualsZeroKaPossible --https://leetcode.com/problems/partition-equal-subset-sum/
+arraySubsequenceKaPairsKaSumDifferenceEqualsZeroKaCount -- own
+arraySubsequenceKaPairsKaSumDifferenceEqualTargetKaPossible -- own
+arraySubsequenceKaPairsKaSumDifferenceEqualTargetKaCount-- https://leetcode.com/problems/target-sum/submissions/
+arraySubsequenceKaPartitionPairsKaSumDifferenceEqualsTargetKaCount___ArraySignPermutation -- https://leetcode.com/problems/target-sum/submissions/
 
 
 //LCS 
@@ -435,11 +435,11 @@ arrayRobberPermutationI	  -- https://youtu.be/73r3KWiEvyk	https://leetcode.com/p
 arrayPermutationMaxRobberSumKaSumII -- https://leetcode.com/problems/house-robber-ii/
 
 //COMBINTAION, PERMUTATION -- DFS, BFS
-stringPermutationKaPartitionInOtherListKaPossible -- https://leetcode.com/problems/word-break/
-stringPermutationKaPartitionInOtherListKaStrings -- https://leetcode.com/problems/word-break-ii/
-stringPermutationKaPartitionIsPallindromeKaPossible -- own
-stringPermutationKaPartitionIsPallindromeKaStrings-- https://leetcode.com/problems/palindrome-partitioning/
-stringPermutationKaPartitionKaIntegerStringConvertToMobileString -- https://leetcode.com/problems/letter-combinations-of-a-phone-number/
+stringSubstringKaPartitionPairPermutationInOtherListKaPossible -- https://leetcode.com/problems/word-break/
+stringSubstringKaPartitionPairPermutationInOtherListKaString -- https://leetcode.com/problems/word-break-ii/
+stringSubstringKaPartitionPairPermutationIsPallindromeKaPossible -- own
+stringSubstringKaPartitionPairPermutationIsPallindromeKaString-- https://leetcode.com/problems/palindrome-partitioning/
+numberPermutationKaIntegerStringConvertToMobileString -- https://leetcode.com/problems/letter-combinations-of-a-phone-number/
 
 //MATRIX
 matrixUniquePathKaCountI -- https://leetcode.com/problems/unique-paths/

@@ -8,13 +8,6 @@ public class BasicsAlgorithm {
     //RELATION
     /* #region Main */
 
-    //REMAINING
-    /*
-     DISTINCT , UNIQUE -- MORE BETTER
-     SUM OF PAIRS = PARTITION ??
-     PERMUTATION, COMBINATION AND PARTITION
-
-     */
 
     //SUBARRAY/SUBSTRING,SUBSEQUENCE,SUBSET,COMBINATION,PERMUTATION 
     /*
@@ -62,17 +55,7 @@ public class BasicsAlgorithm {
 
     stringSubstringValidParanthesisLongestShortest(BA)
 
-    stringPermutationKabalanceParanthesisKaString(R)
-    */
-    //INCREASING
-    /*
-    arraySubArrayKaIncreasingKaLongestLength(R)
-    arraySubarrayKaIncreasingTripletKaPossibleAndArray(BA)
-
-    stringSubsequencekaIncreasingKaLongestlength(R)
-    stringSubsequenceKaIncreasingTripletKaPossibleAndString(R)
-
-    arrayConvertToIncreasingWithMinIncrementOperation(BA)
+    numberPermutationKabalanceParanthesisKaString(R)
     */
     //ISOMORPHIC,ANAGRAM ,MEDIAN
     /*
@@ -100,8 +83,8 @@ public class BasicsAlgorithm {
 
     stringSubsequenceKaPallindromeKaLongestLength(R)
 
-    stringPermutationKaPartitionIsPallindromeKaPossible(R)
-    stringPermutationKaPartitionIsPallindromeKaStrings(R)
+    stringSubstringKaPartitionPairPermutationIsPallindromeKaPossible(R)
+    stringSubstringKaPartitionPairPermutationIsPallindromeKaString(R)
 
     stringConvertToPallindromeWIthMinInsertionDeletion(R)
 
@@ -109,7 +92,24 @@ public class BasicsAlgorithm {
     */
 
 
+    //INCREASING
+    /*
+    arraySubArrayKaIncreasingKaLongestLength(R)
+    arraySubarrayKaIncreasingTripletKaPossibleAndArray(BA)
 
+    stringSubsequencekaIncreasingKaLongestlength(R)
+    stringSubsequenceKaIncreasingTripletKaPossibleAndString(R)
+
+    arrayConvertToIncreasingWithMinIncrementOperation(BA)
+    */
+    //CONSECUTIVE
+    /*
+    arraySubArrayKaContinuousOneKaLongestLength(R)
+
+    arraySubsequenceKaConsecutiveNumbersInAnyOrderKaLongestLength(R)
+
+    arrayContinuousSumEqualsMinCost_RopesJoining,arrayContinuousSumEqualsMinCost_RopesJoiningg(R)
+    */
     //MAX MIN KTH
     /*
     arraykthSmallestElement,arraykthSmallestElementt(BA,BA)
@@ -148,8 +148,8 @@ public class BasicsAlgorithm {
     */
     //MAXIMISE MINIMUM
     /*
-    arraySubarrayKaPartitionKaSumMinimiseMaximum(R, BA -- arrayUnSortedBinarySearchOnSolutionSpace)
-    arraySubarrayKaPartitionKaSumMaximiseMinimum(R,BA -- arrayUnSortedBinarySearchOnSolutionSpace)
+    arraySubarrayKaPartitionPairKaSumMinimiseMaximum(R, BA -- arrayUnSortedBinarySearchOnSolutionSpace)
+    arraySubarrayKaPartitionPairKaSumMaximiseMinimum(R,BA -- arrayUnSortedBinarySearchOnSolutionSpace)
     arrayUnSortedBinarySearchOnSolutionSpace(BA)
 
     */
@@ -249,10 +249,11 @@ public class BasicsAlgorithm {
     numberRomanStringconvertToInteger(BA)
     numberIntegerConvertToRomanString(BA)
     numberIntegerConvertToToWordsString(BA)
-    numberStringConvertToMobileNumber(BA)
     numberIntegerStringConvertToIntegerWithRules(BA)
-    numberPermutationKaPartitionKaIntegerStringConvertToStringKaCount(R)
-    stringPermutationKaPartitionKaIntegerStringConvertToMobileString(R)
+    numberCharacterStringConvertToMobileNumber(BA)
+    numberPermutationKaIntegerStringConvertToMobileString(R)
+    numberPermutationKaIrIntegerStringConvertToCharacterString(R)
+    
     
     
     stringConvertToPallindromeWIthMinInsertionDeletion(R)
@@ -325,35 +326,54 @@ public class BasicsAlgorithm {
     arrayElementsAppearingMoreThanNbyKTimes,arrayElementsAppearingMoreThanNbyKTimess(BA,BA)
    
     */
-    //CONSECUTIVE
+    //PAIR
     /*
-    arraySubArrayKaContinuousOneKaLongestLength(R)
+    arrayKa2PairsKaSumEqualsTargetI,arrayKa2PairsKaSumEqualsTargettI(BA,BA)
+    arrayKa2PairsKaSumEqualsTargetII,arrayKa2PairsKaSumEqualsTargettII(BA,BA)
+    arrayKa3PairsKaSumEqualsTargetI,arrayKa3PairsKaSumEqualsTargettI(BA,BA)
+    arrayKa3PairsKaSumEqualsTargetII,arrayKa3PairsKaSumEqualsTargettII(BA,BA)
+    arrayKakPairsKaSumEqualsTargetI,arrayKakPairsKaSumEqualsTargettI(BA,BA)
+    arrayKa2PairsKaDifferenceEqualsTargettI,arraypair2TargetDifferenceeI(BA,BA)
 
-    arraySubsequenceKaConsecutiveNumbersInAnyOrderKaLongestLength(R)
 
-    arrayContinuousSumEqualsMinCost_RopesJoining,arrayContinuousSumEqualsMinCost_RopesJoiningg(R)
+    arraySubArrayKaPartitionPairKaEqualOnesAndZerosKaCount(R)
+    arraySubarrayKaPartitionPairKaSumMinimiseMaximum(R,BA -- arrayUnSortedBinarySearchOnSolutionSpace)
+    arraySubarrayKaPartitionPairKaSumMaximiseMinimum(R,BA -- arrayUnSortedBinarySearchOnSolutionSpace)
+    stringSubstringKaPartitionPairPermutationInOtherListKaPossible(R)
+    stringSubstringKaPartitionPairPermutationInOtherListKaString(R)
+    stringSubstringKaPartitionPairPermutationIsPallindromeKaPossible(R)
+    stringSubstringKaPartitionPairPermutationIsPallindromeKaString(R)
+
+    arraySubsequenceKaPairsKaSumDifferenceEqualsZeroKaPossible(R)
+    arraySubsequenceKaPairsKaSumDifferenceEqualsZeroKaCount(R)
+    arraySubsequenceKaPairsKaSumDifferenceEqualTargetKaPossible(R)
+    arraySubsequenceKaPairsKaSumDifferenceEqualTargetKaCount(R)
+    arraySubsequenceKaPairsKaSumDifferenceEqualsMinKaSum(R)
+    arraySubsequenceKaPartitionPairsKaSumDifferenceEqualsTargetKaCount___ArraySignPermutation(R)
+
+
     */
     //SUM,PRODUCT 
     /*
     numberSumWithoutOperator(BA)
     arrayProductExceptSelf(BA)
+    arraySubArrayKaProductMaxMinKaArray(R)
     arrayContinuousSumEqualsMinCost_RopesJoining,arrayContinuousSumEqualsMinCost_RopesJoiningg(R)
 
-    arraypair2TargetSumI,arraypair2TargetSummI(BA,BA)
-    arraypair2TargetSumII,arraypair2TargetSummII(BA,BA)
-    arraypair3TargetSumI,arraypair3TargetSummI(BA,BA)
-    arraypair3TargetSumII,arraypair3TargetSummII(BA,BA)
-    arrayPairKTargetSumI,arrayPairKTargetSummI(BA,BA)
-    arraypair2TargetDifferenceI,arraypair2TargetDifferenceeI(BA,BA)
+    arrayKa2PairsKaSumEqualsTargetI,arrayKa2PairsKaSumEqualsTargettI(BA,BA)
+    arrayKa2PairsKaSumEqualsTargetII,arrayKa2PairsKaSumEqualsTargettII(BA,BA)
+    arrayKa3PairsKaSumEqualsTargetI,arrayKa3PairsKaSumEqualsTargettI(BA,BA)
+    arrayKa3PairsKaSumEqualsTargetII,arrayKa3PairsKaSumEqualsTargettII(BA,BA)
+    arrayKakPairsKaSumEqualsTargetI,arrayKakPairsKaSumEqualsTargettI(BA,BA)
+    arrayKa2PairsKaDifferenceEqualsTargettI,arraypair2TargetDifferenceeI(BA,BA)
 
     arraySubarraykaSumKthLargestKaSum(R)
-    arraySubArrayKaSumEqualsKKaLongestShortestKaLengthAndStringAndCount(R)
-    arraySubArraySumAtMostKKaLongestShortestKaLengthAndStringAndCount(R)
-    arraySubArrayKaSumAtleastKKaLongestShortestKaLengthAndStringAndCount(R)
     arraySubArrayKaSumMaxMinKaArray(R)
-    arraySubArrayKaProductMaxMinKaArray(R)
-    arraySubarrayKaPartitionKaSumMinimiseMaximum(R, BA -- arrayUnSortedBinarySearchOnSolutionSpace)
-    arraySubarrayKaPartitionKaSumMaximiseMinimum(R,BA -- arrayUnSortedBinarySearchOnSolutionSpace)
+    arraySubArrayKaSumEqualsTargetKaLongestShortestKaLengthAndStringAndCount(R)
+    arraySubArraySumAtMostTargetKaLongestShortestKaLengthAndStringAndCount(R)
+    arraySubArrayKaSumAtleastTargetKaLongestShortestKaLengthAndStringAndCount(R)
+    arraySubarrayKaPartitionPairKaSumMinimiseMaximum(R, BA -- arrayUnSortedBinarySearchOnSolutionSpace)
+    arraySubarrayKaPartitionPairKaSumMaximiseMinimum(R,BA -- arrayUnSortedBinarySearchOnSolutionSpace)
 
 
     arraySubsequenceKaSumEqualsTargetKaPossible(R)
@@ -363,12 +383,12 @@ public class BasicsAlgorithm {
     arraySubSequenceKaSumEqualsTargetKaMinLengthII_CoinChangeCombinationMinCount_PerfectSquareMinCount(R)
     arraySubsequenceKaSumEqualsTargetKaArraysI(R)
     arraySubsequenceKaSumEqualsTargetKaArraysII_CoinChangeCombinationArray(R)
-    arraySubsequenceKaSumOfPairsDifferenceEqualsZeroKaPossible(R)
-    arraySubsequenceKaSumOfPairsDifferenceEqualsZeroKaCount(R)
-    arraySubsequenceKaSumOfPairsDifferenceEqualsTargetKaPossible(R)
-    arraySubsequenceKaSumOfPairsDifferenceEqualsTargetKaCount(R)
-    arraySubsequenceKaSumOf2PairsDifferenceEqualsTargetKaCount___ArraySignPermutation(R)
-    arraySubsequenceKaSumOfPairsDifferenceEqualsMinKaSum(R)
+    arraySubsequenceKaPairsKaSumDifferenceEqualsZeroKaPossible(R)
+    arraySubsequenceKaPairsKaSumDifferenceEqualsZeroKaCount(R)
+    arraySubsequenceKaPairsKaSumDifferenceEqualTargetKaPossible(R)
+    arraySubsequenceKaPairsKaSumDifferenceEqualTargetKaCount(R)
+    arraySubsequenceKaPairsKaSumDifferenceEqualsMinKaSum(R)
+    arraySubsequenceKaPartitionPairsKaSumDifferenceEqualsTargetKaCount___ArraySignPermutation(R)
     arraySubsequenceOfSizeKKaSumEqualsTargetKaArraysI(R)
 
 
@@ -390,6 +410,31 @@ public class BasicsAlgorithm {
 
     arraySubsequenceOfSizeKKaSumEqualsTargetKaArraysI(R)
 
+    */
+    //PERMUTATION, COMBINATION
+    /*
+    numberPermutationKaIntegerStringConvertToMobileString(R)
+    numberPermutationKaIrIntegerStringConvertToCharacterString(R)
+    numberPermutationKaStepsKaCount(R)
+    numberPermutationKabalanceParanthesisKaString(R)
+    numberPermutationKaBinaryPrefixKaString(R)
+    stringPermutationKaSpaceKaString(R)
+    stringPermutationKaLetterCaseKaString(R)
+    stringPermutationKaNumberLetterCaseKaString(R)
+
+
+    arrayPermutationMaxRobberSumKaSumI(R)
+    arrayPermutationMaxRobberSumKaSumII(R)
+    arrayPermutationKaMinJumpKaCount(BA)
+    arrayPermutationKaMinJumpKaPossible(BA)
+    arrayPermutationKaMaxStockDifferenceKaDiffI(BA)
+    arrayPermutationKaMaxStockDifferenceKaDiffII(BA)
+    arrayPermutationKaGasStationKaIndex(BA)
+
+    stringSubstringKaPartitionPairPermutationInOtherListKaPossible(R)
+    stringSubstringKaPartitionPairPermutationInOtherListKaString(R)
+    stringSubstringKaPartitionPairPermutationIsPallindromeKaPossible(R)
+    stringSubstringKaPartitionPairPermutationIsPallindromeKaString(R)
     */
     //COMPARE 
     /*
@@ -445,49 +490,6 @@ public class BasicsAlgorithm {
     arrayCompare2ArrayForMedian,arrayCompare2ArrayForMediann(BA,BA) 
     arrayDataStreamMedian(MISC)      
 
-
-    */
-    //PERMUTATION, COMBINATION
-    /*
-    numberPermutationKaStepsKaCount(R)
-    stringPermutationKaBinaryPrefixKaString(R)
-    stringPermutationKabalanceParanthesisKaString(R)
-    stringPermutationKaSpaceKaString(R)
-    stringPermutationKaLetterCaseKaString(R)
-    stringPermutationKaNumberLetterCaseKaString(R)
-
-    
-    numberPermutationKaPartitionKaIntegerStringConvertToStringKaCount(R)
-    stringPermutationKaPartitionKaIntegerStringConvertToMobileString(R)
-    stringPermutationKaPartitionInOtherListKaPossible(R)
-    stringPermutationKaPartitionInOtherListKaStrings(R)
-    stringPermutationKaPartitionIsPallindromeKaPossible(R)
-    stringPermutationKaPartitionIsPallindromeKaStrings(R)
-
-    arrayPermutationMaxRobberSumKaSumI(R)
-    arrayPermutationMaxRobberSumKaSumII(R)
-    arrayPermutationKaMinJumpKaCount(BA)
-    arrayPermutationKaMinJumpKaPossible(BA)
-    arrayPermutationKaMaxStockDifferenceKaDiffI(BA)
-    arrayPermutationKaMaxStockDifferenceKaDiffII(BA)
-    arrayPermutationKaGasStationKaIndex(BA)
-
-
-
-
-    */
-    //PARTITION
-    /*
-    arraySubArrayKaSplitKaEqualOnesAndZerosKaCount(R)
-    arraySubarrayKaPartitionKaSumMinimiseMaximum(R)
-    arraySubarrayKaPartitionKaSumMaximiseMinimum(R)
-
-    stringPermutationKaPartitionInOtherListKaPossible(R)
-    stringPermutationKaPartitionInOtherListKaStrings(R)
-    stringPermutationKaPartitionIsPallindromeKaPossible(R)
-    stringPermutationKaPartitionIsPallindromeKaStrings(R)
-    numberPermutationKaPartitionKaIntegerStringConvertToStringKaCount(R)
-    stringPermutationKaPartitionKaIntegerStringConvertToMobileString(R)
 
     */
     //MATRIX,GRAPH
@@ -1855,7 +1857,8 @@ public class BasicsAlgorithm {
     }
     public int     numberIntegerStringConvertToIntegerWithRules(String s) {
         /*
-        "42" -- given string convert it to integer with the following rules
+        "42" -- 42
+                 given string convert it to integer with the following rules
                  1.Read in and ignore any leading whitespace.
                  2.Check if the next character (if not already at the end of the string) is '-' or '+'. Read this character in if it is either. This determines if the final result is negative or positive respectively. Assume the result is positive if neither is present.
                  3.Read in next the characters until the next non-digit character or the end of the input is reached. The rest of the string is ignored.
@@ -1943,12 +1946,12 @@ public class BasicsAlgorithm {
  
          return sign * result;
      }
-    public String  numberStringConvertToMobileNumber(String s){
+    public String  numberCharacterStringConvertToMobileNumber(String s){
         /*
-        Question
-       "HEY U" -- convert the string to its uquivalent mobile number
-                  Look diagram at https://practice.geeksforgeeks.org/problems/convert-a-sentence-into-its-equivalent-mobile-numeric-keypad-sequence0547/1#
-                  Eg:"HEY U" -- "4433999088"
+        Question(DIAGRAM :  https://practice.geeksforgeeks.org/problems/convert-a-sentence-into-its-equivalent-mobile-numeric-keypad-sequence0547/1#)
+       
+        "HEY U" --4433999088--> convert the string to its uquivalent mobile number
+
         */
         
         //USING MATHS
@@ -4706,7 +4709,7 @@ public class BasicsAlgorithm {
         
         
     }
-    public void    arraypair2TargetSumI(int[] arr, int target) {
+    public void    arrayKa2PairsKaSumEqualsTargetI(int[] arr, int target) {
         /*
         [1,2,5,3] target = 7 --> given an arr find pairs of 2 whose sum is target
                                   return pairs,pairs ke index , pairs ke count
@@ -4832,7 +4835,7 @@ public class BasicsAlgorithm {
 
 
     }
-    public void    arraypair2TargetSumII(int[] arr, int target) {
+    public void    arrayKa2PairsKaSumEqualsTargetII(int[] arr, int target) {
         /*
         [1,2,5,3] target = 7 --> given an arr find pairs of 2 whose sum is less than target
                                   return pairs,pairs ke index , pairs ke count
@@ -4962,7 +4965,7 @@ public class BasicsAlgorithm {
 
 
     }
-    public void    arraypair3TargetSumI(int[] arr, int target) {
+    public void    arrayKa3PairsKaSumEqualsTargetI(int[] arr, int target) {
         /*
         [1,2,5,3] target = 6 --> given an arr find pairs of 3 whose sum is target
                                   return pairs,pairs ke index , pairs ke count
@@ -4981,7 +4984,7 @@ public class BasicsAlgorithm {
         [1,2,3,5]
          |  |   |
       ptr1  ptr2 ptr3 -- while ptr1 <= arr.length-3
-                           arraypair2TargetSumI for ptr1+1 to arr.length-1
+                           arrayKa2PairsKaSumEqualsTargetI for ptr1+1 to arr.length-1
          
          
         //UNIQUE PAIRS
@@ -4989,7 +4992,7 @@ public class BasicsAlgorithm {
          |  |   |
       ptr1  ptr2 ptr3 -- while ptr1 <= arr.length-3
                             if (ptr1 == 0 || arr[ptr1] != arr[ptr1 - 1] ) {
-                                arraypair2TargetSumI unique for ptr1+1 to arr.length-1
+                                arrayKa2PairsKaSumEqualsTargetI unique for ptr1+1 to arr.length-1
 
 
 
@@ -5082,7 +5085,7 @@ public class BasicsAlgorithm {
 
 
     }
-    public void    arraypair3TargetSumII(int[] arr, int target) {
+    public void    arrayKa3PairsKaSumEqualsTargetII(int[] arr, int target) {
         /*
         [1,2,5,3] target = 6 --> given an arr find pairs of 3 whose sum is less than  target
                                   return pairs,pairs ke index , pairs ke count
@@ -5103,7 +5106,7 @@ public class BasicsAlgorithm {
         [1,2,3,5]
          |  |   |
       ptr1  ptr2 ptr3 -- while ptr1 <= arr.length-3
-                           arraypair2TargetSumII for ptr1+1 to arr.length-1
+                           arrayKa2PairsKaSumEqualsTargetII for ptr1+1 to arr.length-1
          
          
         //UNIQUE PAIRS
@@ -5111,7 +5114,7 @@ public class BasicsAlgorithm {
          |  |   |
       ptr1  ptr2 ptr3 -- while ptr1 <= arr.length-3
                             if (ptr1 == 0 || arr[ptr1] != arr[ptr1 - 1] ) {
-                                arraypair2TargetSumII unique for ptr1+1 to arr.length-1
+                                arrayKa2PairsKaSumEqualsTargetII unique for ptr1+1 to arr.length-1
 
 
 
@@ -5204,7 +5207,7 @@ public class BasicsAlgorithm {
 
 
     }
-    public void    arrayPairKTargetSumI(int[] arr, int target, int start, int k) {
+    public void    arrayKakPairsKaSumEqualsTargetI(int[] arr, int target, int start, int k) {
         /*
         [1,2,5,3] target = 7 --> given an arr find pairs of k integeres whose sum is target
                                   return pairs,pairs ke index , pairs ke count
@@ -5224,7 +5227,7 @@ public class BasicsAlgorithm {
         int average_value = target / k;                                                                
         if (start == arr.length) {return pairOfValue;}                                                 --start == arr.length means recursion must terminate  by retuening pair of values
         if  (arr[start] > average_value || average_value > arr[arr.length - 1]) {return pairOfValue;}  --start > avg_val or avg_val> arr.length-1 means recursion must terminate  by retuening pair of values
-        if (k == 2) {return arrayPair2TargetSumI(arr, target, start);}                                  --k==2  means recursion must terminate  by returning List<List<Integer>> for two sum
+        if (k == 2) {return arrayKa2PairsKaSumEqualsTargetI(arr, target, start);}                                  --k==2  means recursion must terminate  by returning List<List<Integer>> for two sum
                                                                                                                arrayPair2TargetSum(arr, target, start){
                                                                                                                    //Arrays.sort(arr)  --do not sort arr as you sort arr in overriding fn
                                                                                                                    ptr = start       --initiaiise ptr to start
@@ -5251,7 +5254,7 @@ public class BasicsAlgorithm {
         
         */
         /*
-        public List<List<Integer>>    arrayPairKTargetSumI(int[] arr, int target, int start, int k)
+        public List<List<Integer>>    arrayKakPairsKaSumEqualsTargetI(int[] arr, int target, int start, int k)
             //PAIRS
             List<List<Integer>> pairOfValue = new ArrayList<>();
 
@@ -5292,8 +5295,8 @@ public class BasicsAlgorithm {
             return pairOfValue;
         }
 
-        public List<List<Integer>>    arrayPairKTargetSumI(int[] arr, int target,int k){
-            return arrayPairKTargetSumI(arr,target,0,k);
+        public List<List<Integer>>    arrayKakPairsKaSumEqualsTargetI(int[] arr, int target,int k){
+            return arrayKakPairsKaSumEqualsTargetI(arr,target,0,k);
         }
 
 
@@ -5309,7 +5312,7 @@ public class BasicsAlgorithm {
         */
    
     }
-    public void    arraypair2TargetDifferenceI(int[] arr, int target) {
+    public void    arrayKa2PairsKaDifferenceEqualsTargettI(int[] arr, int target) {
         /*
         [1,2,5,3] target = 7 --> given an arr find pairs of 2 whose  abs diff is target(abs diff beause pair can be taken in both dirs ie if pair is (a,b) then if a-b == target or b-a is target )
                                  return pairs,pairs ke index , pairs ke count
@@ -9610,7 +9613,7 @@ public class BasicsAlgorithm {
 
         */
 
-        //ARRAY SUBARRAY KA PARTITION KA SUM MINIMISE MAXIMUM  
+        //ARRAY SUBARRAY KA PARTITION PAIR KA SUM MINIMISE MAXIMUM (No of partition = any)
         //  |--MINIMISE MAXIMUM SUM IN ARRAY PARTITION(ARRAY PARTITION) -- https://leetcode.com/problems/split-array-largest-sum/
         //  |--MINIMISE MAX SUM OF WEIGHTS IN  PARTITIONS OF DAYS(SHIP PARTITION) - https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/
         //  |--MINIMISE TIME OF MAX SUMS OF TIME IN PARTITION OF PAINTERS(PAINTER PARTITION) - https://www.geeksforgeeks.org/painters-partition-problem/
@@ -9674,7 +9677,7 @@ public class BasicsAlgorithm {
 
         */                   
 
-        //ARRAY SUBARRAY KA PARTITION KA SUM MAXIMISE MINIMUM 
+        //ARRAY SUBARRAY KA PARTITION PAIR KA SUM MAXIMISE MINIMUM (No of partition = any)
         //   |--MAXIMISE MINIMUM SUM IN CHOCOLATE PARTITION(CHOCOLATE PARTITION) -- https://leetcode.com/problems/divide-chocolate/submissions/
         /*
         arr = [10,20,30,40] ; noOfdivion= 2
@@ -13452,7 +13455,7 @@ public class BasicsAlgorithm {
         
         return res;
     }
-    public void  arraypair2TargetSummI(int[] arr, int target) {
+    public void  arrayKa2PairsKaSumEqualsTargettI(int[] arr, int target) {
         /*
         [1,2,5,3] target = 7 --> given an arr find pairs of 2 whose sum is target
                                  return pairs,pairs ke index , pairs ke count
@@ -13594,7 +13597,7 @@ public class BasicsAlgorithm {
 
 
     }
-    public void  arraypair2TargetSummII(int[] arr, int target) {
+    public void  arrayKa2PairsKaSumEqualsTargettII(int[] arr, int target) {
         /*
         [1,2,5,3] target = 7 --> given an arr find pairs of 2 whose sum is less than target
                                   return pairs,pairs ke index , pairs ke count
@@ -13624,7 +13627,7 @@ public class BasicsAlgorithm {
 
 
     }
-    public void  arraypair3TargetSummI(int[] arr, int target) {
+    public void  arrayKa3PairsKaSumEqualsTargettI(int[] arr, int target) {
         /*
         [1,2,5,3] target = 7 --> given an arr find pairs of 3 whose sum is target
                                   return pairs,pairs ke index , pairs ke count
@@ -13645,7 +13648,7 @@ public class BasicsAlgorithm {
         /*
         //PAIR
         [1,1,5,5]  ---->while(ptr1 <= arr.length-3)
-        |  |                arraypair2TargetSummI() for ptr1+1 to arr.length-1
+        |  |                arrayKa2PairsKaSumEqualsTargettI() for ptr1+1 to arr.length-1
       ptr1 ptr2
         Time : O(n)                             
         Space:O(n)
@@ -13653,7 +13656,7 @@ public class BasicsAlgorithm {
         //UNIQUE PAIR
         [1,1,5,5]  ---->while(ptr1 <= arr.length-3)
         |  |               if (ptr1 == 0 || arr[ptr1] != arr[ptr1 - 1] ) {  
-      ptr1 ptr2                  arraypair2TargetSummI() unique  for ptr1+1 to arr.length-1 }
+      ptr1 ptr2                  arrayKa2PairsKaSumEqualsTargettI() unique  for ptr1+1 to arr.length-1 }
                                  
         Time : O(n)                             
         Space:O(n)
@@ -13763,7 +13766,7 @@ public class BasicsAlgorithm {
 
 
     }
-    public void  arraypair3TargetSummII(int[] arr, int target) {
+    public void  arrayKa3PairsKaSumEqualsTargettII(int[] arr, int target) {
         /*
         [1,2,5,3] target = 7 --> given an arr find pairs of 3 whose sum is less than target
                                   return pairs,pairs ke index , pairs ke count
@@ -13795,7 +13798,7 @@ public class BasicsAlgorithm {
 
 
     }
-    public void  arrayPairKTargetSummI(int[] arr, int target, int start, int k) {
+    public void  arrayKakPairsKaSumEqualsTargettI(int[] arr, int target, int start, int k) {
         /*
         [1,2,5,3] target = 7 --> given an arr find pairs of k integeres whose sum is target
                                   return pairs,pairs ke index , pairs ke count

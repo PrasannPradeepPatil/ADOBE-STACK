@@ -1820,15 +1820,13 @@ acessmod nonacessmod   Class  classname/interFaceName  <Generic>    extends/ imp
     */
     //UNIQUE PAIR,ARRAY
     /*
-
-    UNIQUE PAIR :Pair are Eements are non continuous, ordered 
+    PAIR        :Eements are non continuous, ordered 
                  EG  ab , ac , bc , ac  abc 
                  Pair of values are unique if they have  different even though formed from different elements or different combination
                  Eg:[4,4,1,4]
                  (4(0th index), 1) , (4(1st index), 1) --same pair as they must have same values even though formed from different 4
                  (4(0th index), 1) , (1,4(3rd index)) -- same pair as they have same values in different combination
-
-                1.SORTING ARRAY AND SKIPPING DUPLICATES
+    UNIQUE PAIR:1.SORTING ARRAY AND SKIPPING DUPLICATES
                 Sort arr and skip the duplicates
 
                 2.ADDING UNIQUE KEY TO SET
@@ -1847,10 +1845,10 @@ acessmod nonacessmod   Class  classname/interFaceName  <Generic>    extends/ imp
                                                 They generate same key 
                                                 (ARR CAN BE USED IF ELEMENTS ARE CHARACTERSLIKE 'a'-'z' OR 'A'-'Z' etc so that you know array size)                                    
                 Eg:
-                arraypair2TargetSumI(), arraypair2TargetSumII(),-->1.SORT ARR AND SKIP DUPLICATES :Array multiptr approaches  
-                arraypair3TargetSumI(),arraypair3TargetSumII(),    2.ADDING UNIQUE KEY TO SET     :Hashmap approaches 
-                arrayPairKTargetSumI()
-                arraypair2TargetDifferenceI()
+                arrayKa2PairsKaSumEqualsTargetI(), arrayKa2PairsKaSumEqualsTargetII(),-->1.SORT ARR AND SKIP DUPLICATES :Array multiptr approaches  
+                arrayKa3PairsKaSumEqualsTargetI(),arrayKa3PairsKaSumEqualsTargetII(),    2.ADDING UNIQUE KEY TO SET     :Hashmap approaches 
+                arrayKakPairsKaSumEqualsTargetI()
+                arrayKa2PairsKaDifferenceEqualsTargettI()
                 
                 arraySubsequenceKaArrays()                      -->1.SORT ARR AND SKIP DUPLICATES :RECURSIVE IP-OP TREE + FOR
                 arraySubsetKaArrays()                              2.ADDING UNIQUE KEY TO SET     :RECURSIVE IP-OP TREE

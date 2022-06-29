@@ -77,7 +77,7 @@ IPsmall, OP1  IPsmall, OP2   Ipsmall OP1  Ipsmall , OP2
     map.put(String.valueOf(ca1) + " " +String.valueOf(ca2) , value)                 --> STORE RETURN VALUE IN MAP
     return map.get(key);
 
-    Eg: arraySubsequenceKaSumOf2PairsDifferenceEqualsTargetKaCount___ArraySignPermutation()
+    Eg: arraySubsequenceKaPartitionPairsKaSumDifferenceEqualsTargetKaCount___ArraySignPermutation()
         stringscrambledPossible()
 
     //OPTIMIZE STORING RETURN VALUE IN MATRIX  
@@ -141,7 +141,7 @@ IPsmall, OP1  IPsmall, OP2   Ipsmall OP1  Ipsmall , OP2
 
                                                          
     if(charg1 == 0 || charg2 == 0){     for(i = 0 ; i <=charg1 ; i++){                                             -->STORE RETURN VALUE IN MAP  BY CONVERTING CHARG1 TO i CHARG2 j
-      return 0;}                             for(j =min_limit; j < =max_limit  ; j++){}                               (if Charg2 is -ve :j = -minLimit to maxLimit in base cond aand rec cond well  Eg:arraySubsequenceKaSumOf2PairsDifferenceEqualsTargetKaCount___ArraySignPermutation()) 
+      return 0;}                             for(j =min_limit; j < =max_limit  ; j++){}                               (if Charg2 is -ve :j = -minLimit to maxLimit in base cond aand rec cond well  Eg:arraySubsequenceKaPartitionPairsKaSumDifferenceEqualsTargetKaCount___ArraySignPermutation()) 
                                                 if(i==0 || j==0){                                                      
                                                   map.put(String.valueOf(i) + " " + String.valueOf(j) , 0)                                                
 
@@ -157,7 +157,7 @@ IPsmall, OP1  IPsmall, OP2   Ipsmall OP1  Ipsmall , OP2
 
 
     Eg:numberStairCasePermutation() 
-      arraySubsequenceKaSumOf2PairsDifferenceEqualsTargetKaCount___ArraySignPermutation(),
+      arraySubsequenceKaPartitionPairsKaSumDifferenceEqualsTargetKaCount___ArraySignPermutation(),
 
 
 
@@ -1204,10 +1204,11 @@ IPsmall, OP1  IPsmall, OP2   Ipsmall OP1  Ipsmall , OP2
         return maxLength == Integer.MIN_VALUE?0:maxLength;
         //return minLength == Integer.MAX_VALUE?0:minLength;
     }
-    public int     arraySubArrayKaSplitKaEqualOnesAndZerosKaCount(char[] arr){
+    public int     arraySubArrayKaPartitionPairKaEqualOnesAndZerosKaCount(char[] arr){
         /*
-        [1,0,1,1,1,0,0,1,0,0]   -- arr is "split" into subarray (arr is split so the subarrau must must add upto array(a = a1 + a2 + a3 )
-                                    return no of subarrays with equal characters of 1,0
+        [1,0,1,1,1,0,0,1,0,0]   -- find all subarray of array 
+                                   and find partition pair( partitions pairs are pairs thar must add upto array) with equal 0 and 1
+                                    return no of subarrays with equal characters of 0,1
                                     EG:[1,0,1,1,1,0,0,1,0,0]  -->[1,0] ,[1,1,1,0,0,1,0.0] \/ --subarrau must add upto array
                                       "[0,1]" , [1,0,0,1] X 
                                        so return 2
@@ -1905,21 +1906,22 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
         return minCount;
         
     }
-    public int   arraySubarrayKaPartitionKaSumMinimiseMaximum(int[] arr){
+    public int   arraySubarrayKaPartitionPairKaSumMinimiseMaximum(int[] arr){
         /*
         Question
-        arr = [10,20,30,40] ; noOfdivion= n(consider 2)
-        Divide arr into given 2 subarrays 
-        and "mimimize" the "maximum sum" among subarrays 
-        Eg: scheme1 : [10]      ;[20,30,40] - max(10,90) = 90
-            scheme2 : [10,20]   ;[30,40]    - max(50,70) = 70  ---- min = 60 
-            scheme3 : [10,20,30];[40]       - max(60,40) = 60                         
+        arr = [10,20,30,40] -- find all subarray of array  
+                               find partition pairs( partitions pairs are pairs thar must add upto array) 
+                               and minimise their maximum sum
+                               Eg: 
+                                [10]      ;[20,30,40] - max(10,90) = 90
+                                [10,20]   ;[30,40]    - max(50,70) = 70  ---- min = 60 
+                                [10,20,30];[40]       - max(60,40) = 60                         
             
         
         */
 
         //USING MULTIPOINTERS SLIDING WINDOW -- FIXED SIZE(Array ka Subarray of size k)
-        //                                      Array division:No of divisions = 2
+        //                                      Array division:No of partitions = 2
         //                                      
         /*
         [10,20,30,40]    
@@ -1974,8 +1976,8 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
         
         return result;
 
-        //USING MULTIPOINTERS BINARY SEARCH  -
-        //                                      Array division:No of divisions = any
+        //USING MULTIPOINTERS BINARY SEARCH  - ARRAY IS UNSORTED
+        //                                     Array division:No of partitions = any
         /*
         Look in MULTIPOINTERS BINARY SEARCH
         */
@@ -1983,15 +1985,16 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
 
 
     }
-    public int   arraySubarrayKaPartitionKaSumMaximiseMinimum(int[] arr){
+    public int   arraySubarrayKaPartitionPairKaSumMaximiseMinimum(int[] arr){
         /*
         Question
-        arr = [10,20,30,40] ; noOfdivion= 2
-        Divide arr into given 2 continuous subarrays 
-        and "maximise" the "minimum sum" among subarrays 
-        Eg: scheme1 : [10]      ;[20,30,40] - min(10,90) = 10
-            scheme2 : [10,20]   ;[30,40]    - min(30,70) = 30  ---- max = 40 
-            scheme3 : [10,20,30];[40]       - min(60,40) = 40      
+        arr = [10,20,30,40] -- find all subarray of array  
+                        find partition pairs( partitions pairs are pairs thar must add upto array) 
+                        and minimise their maximum sum
+                        Eg: 
+                        [10]      ;[20,30,40] - min(10,90) = 10
+                        [10,20]   ;[30,40]    - min(30,70) = 30  ---- min = 40 
+                        [10,20,30];[40]       - min(60,40) = 40       
         */
 
         //USING MULTIPOINTERS SLIDING WINDOW -- FIXED SIZE(Array ka Subarray of size k)
@@ -2059,7 +2062,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
         
 
     }
-    public int   arraySubArrayKaSumEqualsKKaLongestShortestKaLengthAndStringAndCount(int[] arr , int k){
+    public int   arraySubArrayKaSumEqualsTargetKaLongestShortestKaLengthAndStringAndCount(int[] arr , int k){
 
         /*
             Question
@@ -2264,7 +2267,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
         return 0;
     
     }
-    public int   arraySubArraySumAtMostKKaLongestShortestKaLengthAndStringAndCount(int[] arr, int k){
+    public int   arraySubArraySumAtMostTargetKaLongestShortestKaLengthAndStringAndCount(int[] arr, int k){
        /*
         Question
         [2,3,1,2,4,3]  -- find  all subarrays of sum at most  k 
@@ -2365,7 +2368,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
         return 0;
 
     }
-    public int   arraySubArrayKaSumAtleastKKaLongestShortestKaLengthAndStringAndCount(int[] arr , int k){
+    public int   arraySubArrayKaSumAtleastTargetKaLongestShortestKaLengthAndStringAndCount(int[] arr , int k){
       /*
         Question
         [2,3,1,2,4,3]  -- find  all subarrays of sum atleast k 
@@ -5019,7 +5022,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
 
 
   }
-    public boolean arraySubsequenceKaSumOfPairsDifferenceEqualsZeroKaPossible(int[] arr, int sizeOfarr){
+    public boolean arraySubsequenceKaPairsKaSumDifferenceEqualsZeroKaPossible(int[] arr, int sizeOfarr){
       /*
         Question
         [1,5,11,5]    --find all the subsets of array
@@ -5097,7 +5100,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
       return false;
 
     }
-    public int     arraySubsequenceKaSumOfPairsDifferenceEqualsZeroKaCount(int[] arr , int sizeOfarr){
+    public int     arraySubsequenceKaPairsKaSumDifferenceEqualsZeroKaCount(int[] arr , int sizeOfarr){
       /*
       Question
       [1,5,11,5]    --find all the subsets of array
@@ -5172,11 +5175,11 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
       return 0;
 
     }
-    public boolean arraySubsequenceKaSumOfPairsDifferenceEqualsTargetKaPossible(int[] arr, int sizeOfarr , int difference){
+    public boolean arraySubsequenceKaPairsKaSumDifferenceEqualTargetKaPossible(int[] arr, int sizeOfarr , int difference){
        /*
       Question
-      [1,1,2,3]     --find all the subsets of array
-      diff = 1        and find pair of subset  whose sum ka difference is given diff and return if they exist  or not
+      [1,1,2,3]     --find all the subsequence of array
+      diff = 1        and find pair of subsequence  whose sum ka difference is given diff and return if they exist  or not
                       Eg [1,3] - [1,2] = 1;[1(another1),3] - [1(another1),3] = 1--> pair of subset  whose sum ka diff is given diff exists ; so return true  
 
       */
@@ -5237,7 +5240,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
 
 
     }
-    public int     arraySubsequenceKaSumOfPairsDifferenceEqualsTargetKaCount(int[] arr, int sizeOfarr , int difference){
+    public int     arraySubsequenceKaPairsKaSumDifferenceEqualTargetKaCount(int[] arr, int sizeOfarr , int difference){
       /*
       Question
       [1,1,2,3]     --find all the subsequence of array
@@ -5305,12 +5308,15 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
       return 0;
 
    }
-    public int     arraySubsequenceKaSumOf2PairsDifferenceEqualsTargetKaCount___ArraySignPermutation(int[] arr, int sizeOfarr , int difference){
+    public int     arraySubsequenceKaPartitionPairsKaSumDifferenceEqualsTargetKaCount___ArraySignPermutation(int[] arr, int sizeOfarr , int difference){
       /*
       Question
-      [1,1,1,1,1]     --divide arr into 2 subsequence pair whose sum ka difference is given diff and return pair count 
-      diff = 1         Eg [1,1,1,1] - [1] = 1;[ 1(another 1),1,1,1] - [1(another1)] = 1 
-                      
+      
+      [1,1,1,1,1]     --find all the subsequence
+      diff = 1          and find partition pair(partition pairs are pair which add to array)
+                        whose sum ka difference is given diff and return pair count 
+                        Eg [1,1,1,1] - [1] = 1;[ 1(another 1),1,1,1] - [1(another1)] = 1 
+
       OR
       [1,1,1,1,1,1]   -- find the number of ways we can assign + - sign to elements such that
       sum = 3            we can attain the target sum, 
@@ -5347,7 +5353,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
 
 
 
-    public int arraySubsequenceKaSumOf2PairsDifferenceEqualsTargetKaCount___ArraySignPermutation(int[] arr, int sizeOfArr,int sum){ 
+    public int arraySubsequenceKaPartitionPairsKaSumDifferenceEqualsTargetKaCount___ArraySignPermutation(int[] arr, int sizeOfArr,int sum){ 
 
                                                                                      --while going top-bottom
         if(sum == 0 && sizeOfArr == 0  ){                                             if(sum == 0 && sizeOfArr == 0  )
@@ -5377,7 +5383,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
 
       //DP TOP-DOWN MEMOIZATION( Overlapping subproblem )
       /*
-      public int arraySubsequenceKaSumOf2PairsDifferenceEqualsTargetKaCount___ArraySignPermutation(int[] arr, int sizeOfArr,int sum ,Map<String,Integer> dp){ 
+      public int arraySubsequenceKaPartitionPairsKaSumDifferenceEqualsTargetKaCount___ArraySignPermutation(int[] arr, int sizeOfArr,int sum ,Map<String,Integer> dp){ 
        if(sum == 0 && sizeOfArr == 0  ){return 1;}                                                             -->INITIALISE HASHMAP IN MAIN FN(Map<String,Integer> map = new HashMap<>())
        if(sum != 0 && sizeOfArr == 0 ){return 0;}                                                                (KEY: Use " " GET: use getOrDefault(key,00))
                                                                     
@@ -5451,7 +5457,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
       return 0;
 
   }
-    public int     arraySubsequenceKaSumOfPairsDifferenceEqualsMinKaSum(int[] arr , int sizeOfarr ){
+    public int     arraySubsequenceKaPairsKaSumDifferenceEqualsMinKaSum(int[] arr , int sizeOfarr ){
       /*
 
       Question
@@ -5480,7 +5486,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
                                                                                      listOfpossibledifference    = sum(arr) - 2*listOfpossibledifference[i]        = [23,21,13,11,9,1]                 -- because  sum(sub2) - sum(sub1) = min  ; sum(arr) - sum(sub1) - sum(sub2) = min; sum(arr) - 2sum(sub1) = min
                                                                                      min  = min(listOfpossibledifference)
 
-      public int     arraySubsequenceKaSumOfPairsDifferenceEqualsMinKaSum(int[] arr , int sizeOfarr ) {
+      public int     arraySubsequenceKaPairsKaSumDifferenceEqualsMinKaSum(int[] arr , int sizeOfarr ) {
         int sum = sum(arr);
         boolean[][] dp = new boolean[sizeOfarr+1][sum+1];       
 
@@ -7246,12 +7252,13 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
 
       return 0;
     }
-    public int     numberPermutationKaPartitionKaIntegerStringConvertToStringKaCount(String s){
+    public int     numberPermutationKaIrIntegerStringConvertToCharacterString(String s){
       /*
-      "226" -->given a string number it can be decoded into alphabets 
-               return the number of ways we can decode number
-              Eg: "226" could be decoded as "BZ" (2 26), "VF" (22 6), or "BBF" (2 2 6).
-              Eg: "06" cannot be mapped to "F" because of the leading zero ("6" is different from "06").
+      "226" -->["BZ" ,"VF", "BBF"] -->convert integer string to character string by different permutations
+                                     Eg: "226" could be decoded as "BZ" (2 26), "VF" (22 6), or "BBF" (2 2 6).
+                                     Eg: "06" cannot be mapped to "F" because of the leading zero ("6" is different from "06").
+      
+
                
       */
 
@@ -7269,7 +7276,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
     /
    ""
        
-      public int numberPermutationKaPartitionKaIntegerStringConvertToStringKaCount(String s,int ptr ){
+      public int numberPermutationKaIrIntegerStringConvertToCharacterString(String s,int ptr ){
                                                                          --while going top-down
         if(ptr == s.length()){                                             if ptr reaches s.length
             return 1; }                                                    return 1 as that is 1 way to decode 
@@ -7277,18 +7284,18 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
         int left = 0;                                                      
         int right = 0;                                                  --while going top-down
         if(s.charAt(ptr) != '0'){                                        --if condition for taking 1 character satsfies
-            left = numberPermutationKaPartitionKaIntegerStringConvertToStringKaCount(s,ptr+1);             left holds number of permutation of taking 1 character
+            left = numberPermutationKaIrIntegerStringConvertToCharacterString(s,ptr+1);             left holds number of permutation of taking 1 character
         }                                                                 if condition for taking 2 characters satisfy
         if(ptr+1 <=s.length()-1 && (s.charAt(ptr) == '1'|| s.charAt(ptr) == '2'  && s.charAt(ptr+1) <='6')){
-              right = numberPermutationKaPartitionKaIntegerStringConvertToStringKaCount(s,ptr+2);           right  holds number of permutation of taking 1 character
+              right = numberPermutationKaIrIntegerStringConvertToCharacterString(s,ptr+2);           right  holds number of permutation of taking 1 character
         }
                                                                            --while going bottom-top
         return left + right;                                                 return left + right to node above
       } 
 
       //OVERRIDE
-      public int numberPermutationKaPartitionKaIntegerStringConvertToStringKaCount(String s,int ptr ){
-        return numberPermutationKaPartitionKaIntegerStringConvertToStringKaCount(s,0);
+      public int numberPermutationKaIrIntegerStringConvertToCharacterString(String s,int ptr ){
+        return numberPermutationKaIrIntegerStringConvertToCharacterString(s,0);
       }
 
       Time:O(2^n)
@@ -7327,8 +7334,8 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
       Space:O(n)
 
       //OVERRIDE
-      public int numberPermutationKaPartitionKaIntegerStringConvertToStringKaCount(String s){
-        return numberPermutationKaPartitionKaIntegerStringConvertToStringKaCount(s,0);
+      public int numberPermutationKaIrIntegerStringConvertToCharacterString(String s){
+        return numberPermutationKaIrIntegerStringConvertToCharacterString(s,0);
       }
       
       */
@@ -7370,8 +7377,8 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
                                                                               
                                                                                so on
       //OVERRIDE
-      public int numberPermutationKaPartitionKaIntegerStringConvertToStringKaCount(String s){
-        return numberPermutationKaPartitionKaIntegerStringConvertToStringKaCount(s,0);
+      public int numberPermutationKaIrIntegerStringConvertToCharacterString(String s){
+        return numberPermutationKaIrIntegerStringConvertToCharacterString(s,0);
       }                                                                  
           
         
@@ -7386,7 +7393,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
         | |
       prev1 prev2  -- insetead of dp use prev1 for dp[i-2] and prev2 for dp[i-1] and curr for dp[i]
 
-      public int numberPermutationKaPartitionKaIntegerStringConvertToStringKaCount(String s , int ptr ){        
+      public int numberPermutationKaIrIntegerStringConvertToCharacterString(String s , int ptr ){        
         if(s.length() == 0){return 0;}
         if(s.length() == 1){return s.charAt(0) != '0' ?1:0;}
         int prev1 = 1;
@@ -7414,8 +7421,8 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
       }
 
       //OVERRIDE
-      public int numberPermutationKaPartitionKaIntegerStringConvertToStringKaCount(String s){
-        return numberPermutationKaPartitionKaIntegerStringConvertToStringKaCount(s,0);
+      public int numberPermutationKaIrIntegerStringConvertToCharacterString(String s){
+        return numberPermutationKaIrIntegerStringConvertToCharacterString(s,0);
       }
 
       Time:O(n)
@@ -7824,7 +7831,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
 
 
     }
-    public void    stringPermutationKabalanceParanthesisKaString(int ipOpening , int ipClosing, String op , List<String> resultList){
+    public void    numberPermutationKabalanceParanthesisKaString(int ipOpening , int ipClosing, String op , List<String> resultList){
       /*
       QUESTION
       n = 3 - for given n generate valid parenthesis
@@ -7855,7 +7862,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
            |             |              |         |          |
           00 "((()))"    00  "(()())"  00 (())()" 00 "()(())" 00 "()()()"
 
-      public void    stringPermutationKabalanceParanthesisKaString(int ipOpening , int ipClosing, String op , List<String> resultList){
+      public void    numberPermutationKabalanceParanthesisKaString(int ipOpening , int ipClosing, String op , List<String> resultList){
                                                                                      --while coming top-bottom
         if(ipOpening == 0 && ipClosing == 0){                                          if ipOpening==0 a&& ipclosing ==0
           resultList.add(op);                                                          add op to resultList
@@ -7866,13 +7873,13 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
           int ipOpeningSmaller = ipOpening -1;                                              int ipOpeningSmaller = ipOpening -1;        
           int ipClosingSmaller = ipClosing;                                                 int ipClosingSmaller = ipClosing;   
           String op1 = op + "(";                                                            String op1 = op + "(";  
-          stringPermutationKabalanceParanthesisKaString(ipOpeningSmaller,ipClosingSmaller,op1,resultList);   
+          numberPermutationKabalanceParanthesisKaString(ipOpeningSmaller,ipClosingSmaller,op1,resultList);   
         }
         if(ipClosing != 0 && ipOpening == 0 ){                                          if(ipClosing != 0 && ipOpening == 0 ){
             int ipOpeningSmaller = ipOpening;                                                int ipOpeningSmaller = ipOpening;
             int ipClosingSmaller = ipClosing-1;                                              int ipClosingSmaller = ipClosing-1;   
             String op1 = op + ")";                                                           String op1 = op + ")";    
-            stringPermutationKabalanceParanthesisKaString(ipOpeningSmaller,ipClosingSmaller,op1,resultList)
+            numberPermutationKabalanceParanthesisKaString(ipOpeningSmaller,ipClosingSmaller,op1,resultList)
         }
         if(ipOpening != 0 && ipClosing != 0 && ipOpening < ipClosing ){                if(ipOpening != 0 && ipClosing != 0 && ipOpening < ipClosing ){           
             int ipOpeningSmaller1 = ipOpening-1;                                              int ipOpeningSmaller1 = ipOpening-1;
@@ -7881,14 +7888,14 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
             int ipClosingSmallerr2= ipClosing-1;                                              int ipClosingSmallerr2 = ipClosing-1;    
             String op1 = op + "(";                                                            String op1 = op + "(";   
             String op2 = op + ")";                                                            String op2 = op + ")";
-          stringPermutationKabalanceParanthesisKaString(ipOpeningSmaller,ipClosingSmaller,op1,resultList);  
-          stringPermutationKabalanceParanthesisKaString(ipOpeningSmallerr,ipClosingSmallerr,op2,resultList);
+          numberPermutationKabalanceParanthesisKaString(ipOpeningSmaller,ipClosingSmaller,op1,resultList);  
+          numberPermutationKabalanceParanthesisKaString(ipOpeningSmallerr,ipClosingSmallerr,op2,resultList);
       }
 
       //OVERRIDE
-      public void stringPermutationKabalanceParanthesisKaString(int ip){
+      public void numberPermutationKabalanceParanthesisKaString(int ip){
         List<String> resultList = new ArrayList<>();
-        stringPermutationKabalanceParanthesisKaString(ip,ip, "" ,resultList);
+        numberPermutationKabalanceParanthesisKaString(ip,ip, "" ,resultList);
       }
 
       TIME :O(2^n) as each fn calls itself twice(both if conditions can pass) and n(size of brackets) reduces by 1 
@@ -7906,7 +7913,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
 
 
     }
-    public void    stringPermutationKaBinaryPrefixKaString(int ip , int ipOnes , int ipZeros , String op , List<String> resultList){
+    public void    numberPermutationKaBinaryPrefixKaString(int ip , int ipOnes , int ipZeros , String op , List<String> resultList){
 
       /*
       QUESTION
@@ -7929,7 +7936,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
             |          /         \
         2 2 0 "101"  2 1 0 "110"    2 0 0 "111"
 
-      public void    stringPermutationKaBinaryPrefixKaString(int ip , int ipOnes , int ipZeros , String op , List<String> resultList)
+      public void    numberPermutationKaBinaryPrefixKaString(int ip , int ipOnes , int ipZeros , String op , List<String> resultList)
                                                       --while ging top-down
         if(ip == 0 ){                                    if ip == 0
           resultList.add(op);                            add op to result list
@@ -7941,7 +7948,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
           int ipZerosSmaller = ipZeros;
           int ipSmaller = ip -1;
           String op1 = op + "1";
-          stringPermutationKaBinaryPrefixKaString(ipSmaller, ipOnesSmaller, ipZerosSmaller , op1 , resultList );
+          numberPermutationKaBinaryPrefixKaString(ipSmaller, ipOnesSmaller, ipZerosSmaller , op1 , resultList );
         }
         if(ipOnes > ipZeros){                        if(ipOnes > ipZeros)  
           int ipSmaller = ip-1;                         add1   
@@ -7951,15 +7958,15 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
           int ipZerosSmaller2 = ip+1;
           String op1 = op + "1";
           String op2 = op + "0";
-          stringPermutationKaBinaryPrefixKaString(ipSmaller, ipOnesSmaller1, ipZerosSmaller1 , op1 , resultList );
-          stringPermutationKaBinaryPrefixKaString(ipSmaller, ipOnesSmaller2, ipZerosSmaller2 , op2 , resultList );
+          numberPermutationKaBinaryPrefixKaString(ipSmaller, ipOnesSmaller1, ipZerosSmaller1 , op1 , resultList );
+          numberPermutationKaBinaryPrefixKaString(ipSmaller, ipOnesSmaller2, ipZerosSmaller2 , op2 , resultList );
         }
       }
 
       //OVERRIDE
-      public void stringPermutationKaBinaryPrefixKaString(int ip){
+      public void numberPermutationKaBinaryPrefixKaString(int ip){
         List<String> resultList = new ArrayList<>();
-        stringPermutationKaBinaryPrefixKaString(ip ,0 ,0 ,"",resultList);
+        numberPermutationKaBinaryPrefixKaString(ip ,0 ,0 ,"",resultList);
       }
 
       TIME :O(2^n) as each fn calls itself twice(both if conditions can pass) and n(size of ipzeros and ipones) reduces by 1 
@@ -7977,13 +7984,14 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
   
 
     //COMBINTAION, PERMUTATION -- DFS, BFS
-    public void    stringPermutationKaPartitionInOtherListKaPossible(String s, List<String> wordDict){
+    public void    stringSubstringKaPartitionPairPermutationInOtherListKaPossible(String s, List<String> wordDict){
       /*
-      s = "leet"                              --given string partition it into space seperated sequence
-      wordDict = ["l","e","ee","le","lee","t"]  such that those sequence are present in word dict 
-                                                return true if string can be partitiones
+      s = "leet"                              --find all substring of s 
+      wordDict = ["l","e","ee","le","lee","t"]  and find partitiom pairs ka permutation(partitions pairs are pairs thar must add upto str) 
+                                                such that those sequence are present in word dict  and return T or F 
                                                Eg: word can be broken as [["l","e","e","t"] ;["le","e","t"]; ["lee","t"]]
                                                    so return true
+
       */
 
 
@@ -8003,7 +8011,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
             /      \    |           |
            t      ""    ""          ""                           
 
-      public boolean stringPermutationKaPartitionInOtherListKaPossible(String s,Set<String> set){
+      public boolean stringSubstringKaPartitionPairPermutationInOtherListKaPossible(String s,Set<String> set){
                                                           --while moving through string
           if(s.length() == 0) {                            if string length == 0
               return true;                                    return true and start moving up
@@ -8022,9 +8030,9 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
       }
 
       //OVERRIDE
-      public boolean stringPermutationKaPartitionInOtherListKaPossible(String s,List<String> wordDict){
+      public boolean stringSubstringKaPartitionPairPermutationInOtherListKaPossible(String s,List<String> wordDict){
         Set<String> set = new HashSet<>(wordDict)                    -- populate set with wordDict
-        return stringPermutationKaPartitionInOtherListKaPossible(s,set);
+        return stringSubstringKaPartitionPairPermutationInOtherListKaPossible(s,set);
       }
    
       Time  :O(n*2^n) -->O(2^n)
@@ -8039,7 +8047,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
 
       //DFS RECURSIVE KA TOP-DOWN MEMOIZATION(Overlapping subproblem)
       /*
-      public boolean stringPermutationKaPartitionInOtherListKaPossible(String s,Set<String> set, Map<String,Boolean> map)){
+      public boolean stringSubstringKaPartitionPairPermutationInOtherListKaPossible(String s,Set<String> set, Map<String,Boolean> map)){
                                                        --INITIALISE MAP IN MAIN FN
           if(s.length() == 0) {                            
               return true;                      
@@ -8063,10 +8071,10 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
       }
 
       //OVERRIDE
-      public boolean stringPermutationKaPartitionInOtherListKaPossible(String s,List<String> wordDict){
+      public boolean stringSubstringKaPartitionPairPermutationInOtherListKaPossible(String s,List<String> wordDict){
         Set<String> set = new HashSet<>(wordDict)                    -- populate set with wordDict
         Map<String,Boolean> map = new HashMap<>();
-        return stringPermutationKaPartitionInOtherListKaPossible(s,set,map);
+        return stringSubstringKaPartitionPairPermutationInOtherListKaPossible(s,set,map);
       }
 
       Time:O(n^3) --o(n^2)
@@ -8082,7 +8090,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
       //DFS RECURSIV KA BOTTOM-UP TABULATION(Overlapping subproblem)
       /* 
       
-      public boolean stringPermutationKaPartitionInOtherListKaPossible(String s,int ptr, Set<String> set){
+      public boolean stringSubstringKaPartitionPairPermutationInOtherListKaPossible(String s,int ptr, Set<String> set){
         [t,t,f,f,f] -- dp[i] stores whether string from 0 to i exclusive is present in set
         
 
@@ -8123,9 +8131,9 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
       }
 
       //OVERRIDE
-      public boolean stringPermutationKaPartitionInOtherListKaPossible(String s,List<String> wordDict){
+      public boolean stringSubstringKaPartitionPairPermutationInOtherListKaPossible(String s,List<String> wordDict){
         Set<String> set = new HashSet<>(wordDict)                    -- populate set with wordDict
-        return stringPermutationKaPartitionInOtherListKaPossible(s,set);
+        return stringSubstringKaPartitionPairPermutationInOtherListKaPossible(s,set);
       }
 
       Time:O(n^3) --o(n^2)
@@ -8139,11 +8147,11 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
 
      
     }
-    public void    stringPermutationKaPartitionInOtherListKaStrings(String s, List<String> wordDict){
+    public void    stringSubstringKaPartitionPairPermutationInOtherListKaString(String s, List<String> wordDict){
      /*
-      s = "catsanddog"                             --given string partition it into space seperated sequence
-      wordDict = ["cat","cats","and","sand","dog"]  such that those sequence are present in word dict 
-                                                    return all such possible partitions AND join them by space
+      s = "catsanddog"                              --find all substring of s 
+      wordDict = ["cat","cats","and","sand","dog"]  and find partition pairs ka permutation(partitions pairs are pairs thar must add upto str) 
+                                                    such that those pair are present in word dict  and return pair
                                                     Eg: word can be broken [["cats","and","dog"],["cat","sand","dog"]
                                                        so return ["cats and dog","cat sand dog"]
       */
@@ -8165,7 +8173,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
            t      ""    ""          ""                           
 
 
-      private void stringPermutationKaPartitionInOtherListKaStrings(String s,Set<String> set, List<String> currentList,List<List<String>> res){
+      private void stringSubstringKaPartitionPairPermutationInOtherListKaString(String s,Set<String> set, List<String> currentList,List<List<String>> res){
           
           if(s.length() == 0) {                                        --while moving through string
               res.add(new ArrayList<String>(currentList));               add current list to res and start moving up 
@@ -8182,10 +8190,10 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
       }
     
       //OVERRIDE
-      public List<String> stringPermutationKaPartitionInOtherListKaStrings(String s, List<String> wordDict) {
+      public List<String> stringSubstringKaPartitionPairPermutationInOtherListKaString(String s, List<String> wordDict) {
         List<List<String >> res = new ArrayList<>();       
         List<String> currentList = new ArrayList<>();
-        stringPermutationKaPartitionInOtherListKaStrings(s,new HashSet(wordDict),currentList,res);
+        stringSubstringKaPartitionPairPermutationInOtherListKaString(s,new HashSet(wordDict),currentList,res);
        
 
         List<String> result = new ArrayList<>();           --convert res(List<List<Str>>) to desired result(List<Str>) 
@@ -8213,18 +8221,18 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
 
 
     }
-    public void    stringPermutationKaPartitionIsPallindromeKaPossible(String s){
+    public void    stringSubstringKaPartitionPairPermutationIsPallindromeKaPossible(String s){
       /*
-      s = "aab"                              --given string partition it into space seperated sequence
-                                                such that those sequence are pallindrome 
-                                                return true if string can be partitioned
-                                               Eg: s can be broken as [["a","a","b"],["aa","b"]]
-                                                   so return true
+     s = "aab" --find all substring of s 
+                 and find partition pairs ka permutation(partitions pairs are pairs thar must add upto str) 
+                 such that those pair are pallindrome and return True if such pairs can be formed
+                  Eg: s can be broken as [["a","a","b"],["aa","b"]]
+                      so return true
       */
 
       //DFS RECURSIVE
       /*
-      Same as stringPermutationKaPartitionInOtherListKaPossible()
+      Same as stringSubstringKaPartitionPairPermutationInOtherListKaPossible()
       if(set.contains(s.substring(0,i+1))) KE BADLE if(isPallindrome(s.substring(0,i+1)))
 
       AND
@@ -8235,7 +8243,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
       
       //DFS RECURSIVE KA TOP-DOWN MEMOIZATION(Overlapping subproblem)
       /*
-      Same as stringPermutationKaPartitionInOtherListKaPossible()
+      Same as stringSubstringKaPartitionPairPermutationInOtherListKaPossible()
       if(set.contains(s.substring(0,i+1)))  KE BADLE if(isPallindrome(s.substring(0,i+1)))
 
       AND
@@ -8244,25 +8252,25 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
 
       //DFS RECURSIV KA BOTTOM-UP TABULATION(Overlapping subproblem)
       /*
-      Same as stringPermutationKaPartitionInOtherListKaPossible()
+      Same as stringSubstringKaPartitionPairPermutationInOtherListKaPossible()
       if(set.contains(s.substring(0,i+1))) KE BADLE if(isPallindrome(s.substring(0,i+1)))
 
       AND
       set , wordDict not req
        */
     }
-    public void    stringPermutationKaPartitionIsPallindromeKaStrings(String s){
+    public void    stringSubstringKaPartitionPairPermutationIsPallindromeKaString(String s){
       /*
-      s = "aab"                              --given string partition it into space seperated sequence
-                                                such that those sequence are pallindrome 
-                                                return true if string can be partitioned
-                                               Eg: s can be broken as [["a","a","b"],["aa","b"]]
-                                                   so return [["a","a","b"],["aa","b"]]
+      s = "aab" --find all substring of s 
+            and find partition pairs ka permutation(partitions pairs are pairs thar must add upto str) 
+            such that those pair are pallindrome and return True if such pairs can be formed
+            Eg: s can be broken as [["a","a","b"],["aa","b"]]
+                so return  [["a","a","b"],["aa","b"]]
       */
 
       //DFS RECURSIVE
       /*
-      Same as stringPermutationKaPartitionInOtherListKaPossible()
+      Same as stringSubstringKaPartitionPairPermutationInOtherListKaPossible()
       if(set.contains(s.substring(0,i+1))) KE BADLE if(isPallindrome(s.substring(0,i+1)))
 
       AND
@@ -8275,11 +8283,12 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
 
       
     }
-    public void    stringPermutationKaPartitionKaIntegerStringConvertToMobileString(String s){
+    public void    numberPermutationKaIntegerStringConvertToMobileString(String s){
       /* 
-      "226" -->given a string convert it to mobile equivalent string(Image:https://leetcode.com/problems/letter-combinations-of-a-phone-number/)
-                return the mobile equivalent string
-              Eg: "23" could be decoded as ["ad","ae","af","bd","be","bf","cd","ce","cf"]
+      Questioin(Image:https://leetcode.com/problems/letter-combinations-of-a-phone-number/)
+
+      "23" --> ["ad","ae","af","bd","be","bf","cd","ce","cf"]  -->convert integer string to mobile string ka permutation
+
       */
 
 
@@ -8296,7 +8305,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
           /   |   \      /   |   \      /    |    \
       "dg"  "dh"   "di" "eg" "eh" "ei"  "fg" "fh"  "fi"
 
-      public void stringPermutationKaPartitionKaIntegerStringConvertToMobileString(String s, int index, StringBuilder path,List<String> res,Map<Character, String> map ) {
+      public void numberPermutationKaIntegerStringConvertToMobileString(String s, int index, StringBuilder path,List<String> res,Map<Character, String> map ) {
                                                                --while moving through string
         if (path.length() == s.length()) {                      if path.length = s.length
             res.add(path.toString());                               add path to result
@@ -8313,7 +8322,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
       }
 
       //OVERRIDE
-      public List<String> stringPermutationKaPartitionKaIntegerStringConvertToMobileString(String s) {
+      public List<String> numberPermutationKaIntegerStringConvertToMobileString(String s) {
             
         if (s.length() == 0) {                             //null check for 0 length
             return new ArrayList<>();

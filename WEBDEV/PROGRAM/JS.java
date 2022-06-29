@@ -54,14 +54,13 @@ const readXlsxFile = require('read-excel-file/node');
 
 //IMPORT , EXPORT (ES5 - NODE)
 /*
-//MULTIPLE FNS AND CLASSES
-module1.js                                       
-async function fnName1(){}                        
+module1.js    
+let varname1 = "";                                  OR  module.exports.varname1 = "abc";        //only for variable and arrow fn                    
+async function fnName1(){}                              module.exports.fnName1 = async() =>{}    
 let fnName2 = async function fnNameOpt() =>{}    
-let fnName3 = async() =>{}   
-exports.fnName4 = async() =>{} //only for arrow fn                   
+let fnName3 = async() =>{}                 
 class className1{} 
-class className2{}                               
+class className2{}  
 
 module.exports = {
     fnName1,
@@ -73,11 +72,11 @@ module.exports = {
 
 
 module2.js
-var module1 = require('externalmodulename' OR './modulename1' OR '../modulename1') 
+var module1 = require('externalmodulename' OR './modulename1' ) 
 var val = module1.fnName1(args)            
 var obj = new module1.className1()     
 OR
-var {fnName1,className1} = require('externalmodulename' OR './modulename1' OR '../modulename1') 
+var {fnName1,className1} = require('externalmodulename' OR './modulename1') 
 var val = fnName1()
 var obj = new className1()   
 
@@ -85,29 +84,39 @@ var obj = new className1()
 
 //IMPORT , EXPORT (ES6 - REACT ie BROWSER)
 /*
+module1.js     
+let varname1 = "abc";                              OR     export let varname1 = "abc";                         
+async function fnName1(){}                                export async function fnName1(){}       
+let fnName2 = async function fnNameOpt() =>{}             export let fnName2 = async function fnNameOpt() =>{}      
+let fnName3 = async() =>{}                                export let fnName3 = async() =>{}                
+class className1{}                                        export class className1{} 
+class className2{}                                        export class className2{}                                   
 
-//SINLE(ANY  FN)                           
-module1.js                                   module2.js
-async function fnName(){}                   import fnName from 'externalmodulename' OR './modulename1' OR '../modulename1'   
-let fnName = async function() =>{}          fnName(args)           
-let fnName = async() =>{}
-export default fnName              
+export {
+    fnName1,
+    fnName2,
+    fnName3,
+    className1,
+    className2
+}
+
+module2.js
+import * as module1 from 'externalmodulename' OR './modulename1.js'
+var val = module1.fnName1(args)            
+var obj = new module1.className1()     
+OR
+var {fnName1,className1} from 'externalmodulename' OR './modulename1.js'
+var val = fnName1()
+var obj = new className1()  
 
 
 
-
-
-//MULTIPLE(EXPRESSION FN OR ARROW FN)
-module1.js                                  module2.js                     
-export const fnName1  = async() =>{}        import {fnName1,fnName2} from 'externalmodulename' OR './modulename1' OR '../modulename1 
-export const fnName1  = async() =>{}        fnName1(arg)
-
-                                             AS,*
-                                             as -- replace word
-                                             * -- everything
-                                             Eg
-                                             import * as React from 'React'
-                                             React.app()
+**default keyword
+module1.js
+export default function fnName(){}            --default can be exported and imported without {}
+export function fnName2(){}
+module2.js
+import fnName1,{fnName2} from 'module1.js' 
                                              
                                              
                                         

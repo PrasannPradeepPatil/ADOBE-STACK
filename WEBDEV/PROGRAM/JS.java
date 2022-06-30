@@ -341,13 +341,16 @@ async function fnName(){
         console.log(param2);                 
     }
 }
-fnName();
+let val = await fnName()                         -->4.fnName is itself async so if you just call fnName you will get Promise<Pending>
+        .then((result) =>[return result]);            so await fn and resolve with then and return retValue inside then 
+
 Console.log(“code after ”)                      SO
                                                 start executing code of asyncFnName and "wait"
                                                 after executing code of asyncFnName  it returns a promise  
                                                 if promise sucessful execute then with param1 = arg1 of resolve
-                                                if promise  failded execute catch with param1 = arg2 of rjecr
-                                                Start executing code after asyncFnName
+                                                if promise  failded execute catch with param1 = arg2 of eject
+                                                await the sync fn inside which we call await
+                                                Start executing code after 
                                                 NOTE: await keyword can be used only if it is wrapped inside async fn 
 
 

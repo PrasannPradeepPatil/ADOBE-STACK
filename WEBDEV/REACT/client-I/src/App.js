@@ -156,19 +156,31 @@ import memories from './images/memories.png';
 /* #region Main */
 //fnName = ({dataFromParentComponent}) =>{   
     //COMPONENT HOOKS
-    /*  
 
-    useEffect(() => {code}}, [varName1/fnName1, varName2/fnName2]); -->use useEffect() for performing lifecycle hooks
-                                                                     useEffect(fn)                        =fn called on when component mounts and unmounts 
-                                                                     useEffect(fn,[statevar1,statevar2])  =fn called on mounts and unmounts and when componnet updates due to updation of any 1 state in dependency array
-                                                                      
-     */
 
     //COMPONENT DATA 
     /*
     const [count, setCount] = useState(0);        -->create state  where key is count value with defaultvalue 0 and setcount() is a fn to update count (import from 'react')
-    count ,{count}                                -->use state                 
-    setCount(count+1)                             -->update state
+    count ,{count}                                -->use state asynchronously                 
+    setCount(count+1)                             -->update state asynchronously
+
+    useEffect(() => {code}, [count1, count2]); -->use useEffect() for performing lifecycle hooks
+                                                  useEffect(fn)                        =fn called on when component mounts and unmounts 
+                                                  useEffect(fn,[statevar1,statevar2])  =fn called on mounts and unmounts and when componnet updates due to change in stateVar1 Or stateVar2
+
+                                                  EG:
+                                                  const [map,setMap] = useState({});
+                                                  fnName(){
+                                                    setMap(newMap);
+                                                    console.log(map)-->doesnt work as setMap is asynchronous
+                                                  }
+
+                                                  Instead do
+                                                  const [map,setMap] = useState({});
+                                                  useEffect(()=>{console.log(map)},[map]) -->fn called when map updates
+                                                
+                                                  setState(newMap)
+                                                                      
     */
 
     //COMPONENT DATA SENDING RECEIVING TO BACKEND
@@ -248,9 +260,6 @@ import memories from './images/memories.png';
     const fnNmme = async (params) => {}            -->create arrow fn
     fnName(arg)/fnName;                             -->use aarrow fn                   
     */
-
-
-
     
     //RETURN JSX: Converts JSX into REACT ELEMENT(VIRTUAL DOM)
     /*
@@ -269,9 +278,12 @@ import memories from './images/memories.png';
                                                       (NOTE:key="uniqueProperty" is not considered a value and not passed from parent as it is used to uniquely identify values in dynamic for  
                                                       Eg:<div>{count.map((name)=>{<Component1 key=name.id ,value={this.state.count}})  
 
-    VARIABLES IN JSX
-    {varName/fnName(arg)/fnName}                              -->using varname, fnName dynamically in JSX
+    VARIABLES 
+    {varName/fnName(arg)/fnName}                              -->using varname dynamically in JSX
 
+    FNS
+    onClick={fnName}                                          -->using fnName dynamically without and with params in JSX     
+    onClick={() => fnName(arg)}
   
     IF IN JSX
     {name.length == 0 ?                                    -->if name ka length is 0 then button with colour black

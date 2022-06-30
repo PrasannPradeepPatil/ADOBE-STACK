@@ -6,13 +6,13 @@ import java.util.Stack;
 //BINARY TREE DEFINATIONS
 /*
 1.
-HeightOfBinTree   =longest path(max nodes/edges)from rootToLeaf              =DFSPrePostInOrderMaxNoOfNode(),DFSRootToLeafPathsKaMaxNoOfNodes()
-MaxDepthOfBinTree =longest path(max nodes/edges)from leafToRoot =rootToLeaf  =DFSPrePostInOrderMaxNoOfNode(),DFSRootToLeafPathsKaMaxNoOfNodes()
-MinDepthOfTree    =shortes path(max nodes/edges)from leafToRoot =rootToLeaf  =DFSPrePostInOrderMinNoOfNode(),DFSRootToLeafPathsKaMinNoOfNodes()
-DiameterOfBinTree =longest path(max nodes/edges)from leafToLeaf              =DFSAnyToAnyPathsKaMaxNoOfNodes()
-SizeOfBinTree     =no of nodes/edges in a tree                               =DFSPrePostInOrderNoOfNodes()
+HeightOfBinTree   =longest path(max nodes/edges)from rootToLeaf              
+MaxDepthOfBinTree =longest path(max nodes/edges)from leafToRoot =rootToLeaf 
+MinDepthOfTree    =shortes path(max nodes/edges)from leafToRoot =rootToLeaf 
+DiameterOfBinTree =longest path(max nodes/edges)from leafToLeaf             
+SizeOfBinTree     =no of nodes/edges in a tree                              
      |                             \
-     |                              \ ________________________________________|                                           
+     |                              \ ________________________________________                                          
      |                                                                        |
  height/maxdepth/mindepth balanced BT           = O(log n)   nodes or edges depends on defn of Path whether it is noOfnodes or noOfegdes  
  height/maxdepth/mindepth unbalance l/r skew BT = O(n)       noOfEdges = noOfNodes-1  
@@ -24,18 +24,18 @@ SizeOfBinTree     =no of nodes/edges in a tree                               =DF
 
                                  
 2.
-Balanced Binary Tree      =All nodes have height difference less than or equal to 1(|heightOfLeftSubtree-heightOfRightSUbtree|<=1 )                                    =DFSPrePostInOrderIsBalanced()
- |- Full Binary Tree      =All nodes have 0 OR 2  nodes(root.left == null && root.right == null) || (root.left!=null && root.right != null)                            =DFSPrePostInOrderisFull()
- |- Complete Binary Trees =All levels are completely filled except last which has all nodes as left as possible (index <= noOfnodes index is index of node level wise) =DFSPrePostInOrderisComplete()   
- |- Perfect Binary Tree   =All nodes have 2 child and all leaves are at same level(sizeof tree == 2^(height  of tree +1) – 1 )                                         =DFSPrePostInOrderisPerfect()
+Balanced Binary Tree      =All nodes have height difference less than or equal to 1(|heightOfLeftSubtree-heightOfRightSUbtree|<=1 )                                   
+ |- Full Binary Tree      =All nodes have 0 OR 2  nodes(root.left == null && root.right == null) || (root.left!=null && root.right != null)                     
+ |- Complete Binary Trees =All levels are completely filled except last which has all nodes as left as possible (index <= noOfnodes index is index of node level wise) 
+ |- Perfect Binary Tree   =All nodes have 2 child and all leaves are at same level(sizeof tree == 2^(height  of tree +1) – 1 )                                        
 
 Unbalanced Binary Tree    =All nodes have height difference greater than 1 (|heightOfLeftSubtree-heightOfRightSUbtree| > 1 ) 
     |- Left skewed        =Most of nodes have left child  ie it is fully on left side(--)
     |- Right  skewed      =Most nodes have right child  ie it is fully on right  side(--)
 
 Binary Tree               =Each node has max 2 children             
-Binary Search Tree        =Each node has max 2 children;lefnode <(! <=)rootnode <(! <=) rightnode                                                                       =DFSPrePostInOrderIsBSTI,DFSPrePostInOrderIsBST            
-Binary AVL Tree           =Each node has max 2 children;lefnode <(! <=)rootnode <(! <=) rightnode;balanced                                                             =DFSPrePostInOrderIsBATI,DFSPrePostInOrderIsBAT                      
+Binary Search Tree        =Each node has max 2 children;lefnode <(! <=)rootnode <(! <=) rightnode                                                                       
+Binary AVL Tree           =Each node has max 2 children;lefnode <(! <=)rootnode <(! <=) rightnode;balanced                                                                               
 
 
 3.TEST CASES
@@ -225,7 +225,7 @@ int right = sumOfNodes(root.right);
                                                                                                         EG: 
                                                                                                         DFSPrPosteOrderOrderAreSiblingsI,DFSPrPosteOrderOrderAreSiblingsII -- using root.left , root.right dont use previous node for parenr
                                                                                                         DFSLevelOrderAreCousins
-                                                                                                        DFSAnyToAnyPathsUnivalKaMaxNoOfNodes
+                                                                                                        DFSAnyToAnyPathsUnivalUnivalNoOfNodesMax
                                                         PREVIOUS NODE FOR POSTORDER                                              
                                                         private Node/int previousNode;
                                                         public void methodName(Node root){
@@ -315,7 +315,109 @@ int right = sumOfNodes(root.right);
 
  /* #endregion */
 
+//BINARY TREE RELATION
+/*
+//TRAVERAL
+DFSPreOrder
+DFSPostOrder
+DFSInOrder
+DFSLevelOrder  -->LEFT-RIGHT,RIGHT-LEFT,LEFT-RIGHT ALTERNATE,RIGHT-LEFT ALTERNATRE ; 
+DFSRootToLeaf     LEFT VIEW,RIGHT-VIEW,LEFT-BOUNDARY,RIGHT-BOUNDARY,LEAF NODE
+DFSLeafToLeaf     ANTICLOCKWISE,CLOCKWISE
+DFSAnyToAny
+DFSTopToBottom
 
+
+//PRE POST INORDER
+DFSPrePostInOrderMaxNode
+DFSPrePostInOrderMinNode
+DFSPrePostInOrderNoOfNodes
+DFSPrePostInOrderSumOfNodes
+DFSPrePostInOrderSumOfNodesInRange
+DFSPrePostInOrderContains
+
+
+//LEVEL
+DFSLevelOrderPathsKaMaxMinNodesList
+DFSLevelOrderPathsKaNoOfNodesList
+DFSLevelOrderPathsNoOfNodesMax
+DFSLevelOrderPathsNoOfNodesMin
+DFSLevelOrderPathsKaSumOfNodesList
+DFSLevelOrderPathsKaSumOfNodesMax
+DFSLevelOrderPathsKaSumOfNodesMin
+DFSLevelOrderPathsKaAvgOfNodes
+
+
+//ROOT TO LEAF
+DFSRootToLeafPathsKaNoOfNodesList
+DFSRootToLeafPathsKaNoOfNodesMax
+DFSRootToLeafPathsKaNoOfNodesMin
+DFSRootToLeafPathsKaSumOfNodesList
+DFSRootToLeafPathsKaSumOfNodesMax
+DFSRootToLeafPathsKaSumOfNodesMin
+DFSRootToLeafPathsKaSumOfNodesEqualsTargetList
+DFSRootToLeafPathsKaSumOfNodesEqualsTargetExists
+DFSRootToLeafPathsAsCharacterStringMin
+DFSRootToLeafPathsAsIntegerString
+DFSRootToLeafPathsAsIntegerStringSum
+
+//ROOT TO ANY
+--
+
+//LEAF TO LEAF
+DFSLeafToLeafPathsSumOfNodesMax
+DFSLeafToLeafPathsSumOfNodesMin
+
+//ANY TO ANY
+DFSAnyToAnyPathsNoOfNodesMax
+DFSAnyToAnyPathsKaNoOfNodesMin
+DFSAnyToAnyPathsUnivalUnivalNoOfNodesMax
+DFSAnyToAnyPathsKaSumOfNodesMax
+DFSAnyToAnyPathsKaSumOfNodesMin
+
+//TOP TO BOTTOM
+DFSTopToBottomSumOfNodesEqualsTargetList
+
+//TREE PROPERTIES
+DFSPrePostInOrderMaxNoOfNode,DFSRootToLeafPathsKaNoOfNodesMax --HeightOfBinTree
+DFSPrePostInOrderMaxNoOfNode,DFSRootToLeafPathsKaNoOfNodesMax --MaxDepthOfBinTree
+DFSPrePostInOrderMinNoOfNode,DFSRootToLeafPathsKaNoOfNodesMin --MinDepthOfTree
+DFSAnyToAnyPathsNoOfNodesMax --DiameterOfBinTree
+DFSPrePostInOrderNoOfNodes  --SizeOfBinTree
+
+DFSPrePostInOrderIsBalanced
+DFSPrePostInOrderisFull
+DFSPrePostInOrderIsComplete
+DFSPrePostInOrderisPerfect
+DFSPrePostInOrderIsBST
+DFSPrePostInOrderIsBAT
+
+DFSPrePostInOrderIsSymmetric
+DFSPrePostInOrderAreSiblings
+DFSLevelOrderAreCousins
+DFSPrePostInOrderLCA
+DFSRootToAnyPathsKaAncestors
+DFSPrePostInOrderIOSucessor
+
+
+//COMPARE 2 TREES
+DFSPrePostInOrderCompare2TreeForEqual
+DFSPrePostInOrderCompare2TreesForMergingByAddition
+DFSPrePostInOrderCompare2TreeForSubtree
+DFSPrePostInOrderCompare2TreesForConnect
+
+//TREE MANIPULATIOPN
+DFSPrePostInOrderInvert
+DFSPrePostInOrderDouble
+DFSPrePostInOrderCompare2TreesForConnect
+binaryTreeFlattenToLL
+binaryTreeSerializeDeserialize
+binaryTreeConstructionFromPreInOrder
+binaryTreeConstructionFromPostInOrder
+binaryTreeConstructionFromPreOrderWithNull
+   
+
+*/
 
 public class BinaryTree {
 
@@ -3540,7 +3642,7 @@ rs=1              rs=0     rs=1
   
 
     }
-    public void DFSLevelOrderPathsKaMaxNoOfNodes  (Node root,int level,List<Integer> pathCountList){
+    public void DFSLevelOrderPathsNoOfNodesMax  (Node root,int level,List<Integer> pathCountList){
         /*
           root-- 7        -->travel left-right ,top-bottom      (DFS)
                 /  \         and return max no of Nodes of all level   (level order)
@@ -3553,7 +3655,7 @@ rs=1              rs=0     rs=1
 
         //RECURSION IP -OP TREE
         /* 
-        public void DFSLevelOrderPathsKaMaxNoOfNodes  (Node root,int level,List<Integer> pathCountList)
+        public void DFSLevelOrderPathsNoOfNodesMax  (Node root,int level,List<Integer> pathCountList)
                                                                     --while going top-bottom 
             if(root==null) {return;}                                    return at null and start moving up    
             if(pathCountList.size()==level)                             [0  0 ]; --when we reach a level  add 0 to count at lastindex
@@ -3561,14 +3663,14 @@ rs=1              rs=0     rs=1
             pathCountList.set(level,pathCountList.get(level)+1);                   (cannot calculate max/min here because we are going DFS and not BFS level by level )
                                                                                     so we do not  have no of nodes till we reach extreme right side of tree)
 
-            DFSLevelOrderPathsKaMaxNoOfNodes(root.left,level+1,pathCountList);  -- while going left , right
-            DFSLevelOrderPathsKaMaxNoOfNodes(root.right ,level+1,pathCountList);   ''' same as level order
+            DFSLevelOrderPathsNoOfNodesMax(root.left,level+1,pathCountList);  -- while going left , right
+            DFSLevelOrderPathsNoOfNodesMax(root.right ,level+1,pathCountList);   ''' same as level order
         }
 
         //OVERRIDE
-        public List<Double>  DFSLevelOrderPathsKaMaxNoOfNodes(Node root){
+        public List<Double>  DFSLevelOrderPathsNoOfNodesMax(Node root){
             List<Integer> pathCountList = new ArrayList<>();
-            DFSLevelOrderPathsKaMaxNoOfNodes(root,0,pathCountList)
+            DFSLevelOrderPathsNoOfNodesMax(root,0,pathCountList)
 
             int max = Integer.MIN_val;
             int maxLevel = Integer.MIN_val;
@@ -3596,7 +3698,7 @@ rs=1              rs=0     rs=1
   
 
     }
-    public void DFSLevelOrderPathsKaMinNoOfNodes  (Node root,int level,List<Integer> pathCountList){
+    public void DFSLevelOrderPathsNoOfNodesMin  (Node root,int level,List<Integer> pathCountList){
         /*
           root-- 7        -->travel left-right ,top-bottom             (DFS)
                 /  \        and return max no of Nodes of all level] (level order)
@@ -3611,7 +3713,7 @@ rs=1              rs=0     rs=1
 
         //RECURSION IP -OP TREE
         /* 
-        public void DFSLevelOrderPathsKaMinNoOfNodes  (Node root,int level,List<Integer> pathCountList)
+        public void DFSLevelOrderPathsNoOfNodesMin  (Node root,int level,List<Integer> pathCountList)
                                                                     --while going top-bottom  
             if(root==null) {return;}                                    return at null and start moving up      
             if(pathCountList.size()==level)                             [0  0 ]; --when we reach a level  add 0 to count at lastindex
@@ -3619,15 +3721,15 @@ rs=1              rs=0     rs=1
             pathCountList.set(level,pathCountList.get(level)+1);                    (cannot calculate max/min here because we are going DFS and not BFS level by level )
                                                                                     so we do not  have no of nodes till we reach extreme right side of tree)
 
-            DFSLevelOrderPathsKaMinNoOfNodes(root.left,level+1,pathCountList); --while going left-right
-            DFSLevelOrderPathsKaMinNoOfNodes(root.right ,level+1,pathCountList); ''' same as level order
+            DFSLevelOrderPathsNoOfNodesMin(root.left,level+1,pathCountList); --while going left-right
+            DFSLevelOrderPathsNoOfNodesMin(root.right ,level+1,pathCountList); ''' same as level order
         }
 
 
         //OVERLOAD
-        public List<Double>  DFSLevelOrderPathsKaMinNoOfNodes(Node root){
+        public List<Double>  DFSLevelOrderPathsNoOfNodesMin(Node root){
         List<Integer> pathCountList = new ArrayList<>();
-        DFSLevelOrderPathsKaMinNoOfNodes(root,0,pathCountList)
+        DFSLevelOrderPathsNoOfNodesMin(root,0,pathCountList)
 
         int min = Integer.MAX_val;
         int minLevel = Integer.MAX_val;
@@ -3703,7 +3805,7 @@ rs=1              rs=0     rs=1
   
 
     }
-    public void DFSLevelOrderPathsKaMaxSumOfNodes (Node root,int level,List<Integer> pathSumList){
+    public void DFSLevelOrderPathsKaSumOfNodesMax (Node root,int level,List<Integer> pathSumList){
         /*
           root-- 7        -->travel left-right ,top-bottom 
                 /  \         and return max od sum of Nodes of  level
@@ -3717,21 +3819,21 @@ rs=1              rs=0     rs=1
 
         //RECURSION IP -OP TREE
         /* 
-        public void DFSLevelOrderPathsKaMaxSumOfNodes (Node root,int level,List<Integer> pathSumList)                                                        --while going top-bottom  
+        public void DFSLevelOrderPathsKaSumOfNodesMax (Node root,int level,List<Integer> pathSumList)                                                        --while going top-bottom  
             if(root==null) {return;}                                   return at null and start moving up   
             if(pathSumList.size()==level)                              [0  0] --when we reach a level  add 0 to sum at lastindex
             pathSumList.add(0);                                      l0  l1   get the sum at that level and add root.val  and set sum at that level
             pathSumList.set(level,pathSumList.get(level)+(double)root.val);   (cannot calculate max/min here because we are going DFS and not BFS level by level )
                                                                                 so we do not  have sum of nodes till we reach extreme right side of tree)
 
-            DFSLevelOrderPathsKaMaxSumOfNodes(root.left,level+1,pathSumList);   -- while going left-right
-            DFSLevelOrderPathsKaMaxSumOfNodes(root.right ,level+1,pathSumList);    ''' same as level order
+            DFSLevelOrderPathsKaSumOfNodesMax(root.left,level+1,pathSumList);   -- while going left-right
+            DFSLevelOrderPathsKaSumOfNodesMax(root.right ,level+1,pathSumList);    ''' same as level order
         }
 
         //OVERLOAD
-        public List<Double>  DFSLevelOrderPathsKaMaxSumOfNodes(Node root){
+        public List<Double>  DFSLevelOrderPathsKaSumOfNodesMax(Node root){
             List<Integer> pathSumList = new ArrayList<>();
-            DFSLevelOrderPathsKaMaxSumOfNodes(root,0,pathSumList);
+            DFSLevelOrderPathsKaSumOfNodesMax(root,0,pathSumList);
             
             int max = Integer.MIN_val;
             int maxLevel = Integer.MIN_val;
@@ -3757,7 +3859,7 @@ rs=1              rs=0     rs=1
         */
 
     }
-    public void DFSLevelOrderPathsKaMinSumOfNodes (Node root,int level,List<Integer> pathSumList){
+    public void DFSLevelOrderPathsKaSumOfNodesMin (Node root,int level,List<Integer> pathSumList){
         /*
           root-- 7        -->travel left-right ,top-bottom 
                 /  \         and return max od sum of Nodes of  level
@@ -3771,7 +3873,7 @@ rs=1              rs=0     rs=1
 
         //RECURSION IP -OP TREE
         /* 
-        public void DFSLevelOrderPathsKaMinSumOfNodes (Node root,int level,List<Integer> pathSumList)
+        public void DFSLevelOrderPathsKaSumOfNodesMin (Node root,int level,List<Integer> pathSumList)
                                                                     --while going top-bottom  
             if(root==null) {return;}                                     return at null and start moving up   
             if(pathSumList.size()==level)                                [0  0] --when we reach a level  add 0 to sum at lastindex
@@ -3779,14 +3881,14 @@ rs=1              rs=0     rs=1
             pathSumList.set(level,pathSumList.get(level)+(double)root.val);    (cannot calculate max/min here because we are going DFS and not BFS level by level 
                                                                                 so we do not  have sum of nodes till we reach extreme right side of tree)
 
-            DFSLevelOrderPathsKaMinSumOfNodes(root.left,level+1,pathSumList);  -- while going left-right
-            DFSLevelOrderPathsKaMinSumOfNodes(root.right ,level+1,pathSumList);   ''' same as level order
+            DFSLevelOrderPathsKaSumOfNodesMin(root.left,level+1,pathSumList);  -- while going left-right
+            DFSLevelOrderPathsKaSumOfNodesMin(root.right ,level+1,pathSumList);   ''' same as level order
         }
 
         //OVERLOAD
-        public List<Double>  DFSLevelOrderPathsKaMinSumOfNodes(Node root){
+        public List<Double>  DFSLevelOrderPathsKaSumOfNodesMin(Node root){
             List<Integer> pathSumList = new ArrayList<>();
-            DFSLevelOrderPathsKaMinSumOfNodes(root,0,pathSumList);
+            DFSLevelOrderPathsKaSumOfNodesMin(root,0,pathSumList);
             
             int min = Integer.MAX_val;
             int minLevel = Integer.MAX_val;
@@ -3816,14 +3918,14 @@ rs=1              rs=0     rs=1
         }
         pathSumList.set(level,pathSumList.get(level)+root.val);
         
-        DFSLevelOrderPathsKaMinSumOfNodes(root.left,level+1,pathSumList);
-        DFSLevelOrderPathsKaMinSumOfNodes(root.right,level+1,pathSumList);
+        DFSLevelOrderPathsKaSumOfNodesMin(root.left,level+1,pathSumList);
+        DFSLevelOrderPathsKaSumOfNodesMin(root.right,level+1,pathSumList);
 
           //OVERLOAD
           /*
-          public List<Double>  DFSLevelOrderPathsKaMinSumOfNodes(Node root){
+          public List<Double>  DFSLevelOrderPathsKaSumOfNodesMin(Node root){
                 List<Integer> pathSumList = new ArrayList<>();
-                DFSLevelOrderPathsKaMinSumOfNodes(root,0,pathSumList);
+                DFSLevelOrderPathsKaSumOfNodesMin(root,0,pathSumList);
                 
                 int min = Integer.MAX_val;
                 int minLevel = Integer.MAX_val;
@@ -3905,7 +4007,7 @@ rs=1              rs=0     rs=1
   
 
     }
-    public void DFSLevelOrderPathsKaMaxMinOfNodes (Node root,int level,List<Integer> pathMaxList ,List<Integer> pathMinList){
+    public void DFSLevelOrderPathsKaMaxMinNodesList (Node root,int level,List<Integer> pathMaxList ,List<Integer> pathMinList){
         /*
         DFS LEVEL ORDER
        root-- 7        -->travel left-right ,top-bottom     (DFS ) 
@@ -3921,7 +4023,7 @@ rs=1              rs=0     rs=1
         //RECURSION IP -OP TREE
         /*
 
-        public void DFSLevelOrderPathsKaMaxMinOfNodes (Node root,int level,List<Integer> pathMaxList ,List<Integer> pathMinList)
+        public void DFSLevelOrderPathsKaMaxMinNodesList (Node root,int level,List<Integer> pathMaxList ,List<Integer> pathMinList)
                                                             --while going top-bottom  
             if(root==null) {return;}                           return at null and start moving up 
             if(pathMaxList.size()==level)                      [7 ,4 ];[7,4] --when we reach a level  add root.val/root.val to max/min at lastindex (top-bottom)
@@ -3934,15 +4036,15 @@ rs=1              rs=0     rs=1
         
 
 
-            DFSLevelOrderPathsKaMaxMinOfNodes(root.left,level+1,pathMaxList,pathMinList);        -- while going left-right
-            DFSLevelOrderPathsKaMaxMinOfNodes(root.right ,level+1,pathMaxList,pathMinList);         ''' same as level order
+            DFSLevelOrderPathsKaMaxMinNodesList(root.left,level+1,pathMaxList,pathMinList);        -- while going left-right
+            DFSLevelOrderPathsKaMaxMinNodesList(root.right ,level+1,pathMaxList,pathMinList);         ''' same as level order
         }
 
         //OVERLOAD
-        public List<Double>  DFSLevelOrderPathsKaMaxMinOfNodes(Node root){
+        public List<Double>  DFSLevelOrderPathsKaMaxMinNodesList(Node root){
             List<Integer> max = new ArrayList<>();
             List<Integer> min = new ArrayList<>();
-            DFSLevelOrderPathsKaMaxMinOfNodes(root,0,pathMaxList,pathMinList);
+            DFSLevelOrderPathsKaMaxMinNodesList(root,0,pathMaxList,pathMinList);
 
             return max;
         }
@@ -4014,7 +4116,6 @@ rs=1              rs=0     rs=1
 }
 
 
-
     //DFSROOTOLEAF
     public void DFSRootToLeafPathsKaNoOfNodesList (Node root ,List<Integer> pathCountList , int pathCount){
           /*
@@ -4050,7 +4151,7 @@ rs=1              rs=0     rs=1
         public List<Integer>  DFSRootToLeafPathsKaNoOfNodesList(Node root){
             List<Integer> pathCountList = new ArrayList<>();
             int pathCount = 0;
-            DFSLevelOrderPathsKaMaxMinOfNodes(root,pathCountList,pathCount);
+            DFSLevelOrderPathsKaMaxMinNodesList(root,pathCountList,pathCount);
             return pathCountList;
         }
 
@@ -4065,7 +4166,7 @@ rs=1              rs=0     rs=1
 
 
    }
-    public void DFSRootToLeafPathsKaMaxNoOfNodes  (Node root ,int pathCount){
+    public void DFSRootToLeafPathsKaNoOfNodesMax  (Node root ,int pathCount){
           /*
           root-- 7        -->travel left-right ,top-bottom             (DFS)
                 /  \         and return max no of nodes on path from root to leaf(root to leaf)
@@ -4078,7 +4179,7 @@ rs=1              rs=0     rs=1
       
         //RECURSION IP-OP TREE
         /*
-        public void DFSRootToLeafPathsKaMaxNoOfNodes  (Node root ,int pathCount)
+        public void DFSRootToLeafPathsKaNoOfNodesMax  (Node root ,int pathCount)
                                                                     --while going top-bottom  
             if(root==null) {return;}                                     return at null and start moving up 
             pathCount = pathCount + 1;                                   1+1+1 --add 1 to pathCount        
@@ -4087,8 +4188,8 @@ rs=1              rs=0     rs=1
             } 
             
     
-            DFSRootToLeafPathsKaMaxNoOfNodes(root.left ,pathCount);      -- while going left,right
-            DFSRootToLeafPathsKaMaxNoOfNodes(root.right ,pathCount);
+            DFSRootToLeafPathsKaNoOfNodesMax(root.left ,pathCount);      -- while going left,right
+            DFSRootToLeafPathsKaNoOfNodesMax(root.right ,pathCount);
         
             pathCount = pathCount - 1;                                     --while going bottom-top
                                                                             1+1+1-1 --remove 1 from pathCount   
@@ -4098,9 +4199,9 @@ rs=1              rs=0     rs=1
 
         //OVERLOAD
         int max = Integer.MIN_val;
-        public int DFSRootToLeafPathsKaMaxNoOfNodes(Node root){
+        public int DFSRootToLeafPathsKaNoOfNodesMax(Node root){
             int pathCount = 0;
-            DFSRootToLeafPathsKaMaxNoOfNodes(root,pathCount);
+            DFSRootToLeafPathsKaNoOfNodesMax(root,pathCount);
             return max;
         }
         
@@ -4116,7 +4217,7 @@ rs=1              rs=0     rs=1
 
 
    }
-    public void DFSRootToLeafPathsKaMinNoOfNodes  (Node root ,int pathCount){
+    public void DFSRootToLeafPathsKaNoOfNodesMin  (Node root ,int pathCount){
           /*
           root-- 7        -->travel left-right ,top-bottom             (DFS)
                 /  \         and return min no of nodes on path from root to leaf(root to leaf)
@@ -4132,7 +4233,7 @@ rs=1              rs=0     rs=1
         //RECURSION IP-OP TREE
         /*
 
-        public void DFSRootToLeafPathsKaMinNoOfNodes  (Node root ,int pathCount
+        public void DFSRootToLeafPathsKaNoOfNodesMin  (Node root ,int pathCount
                                                                    --while going top-bottom  
             if(root==null) {return;}                                     return at null and start moving up 
             pathCount = pathCount + 1;                                   1+1+1 --add 1 to pathCount        
@@ -4141,8 +4242,8 @@ rs=1              rs=0     rs=1
             } 
             
     
-            DFSRootToLeafPathsKaMinNoOfNodes(root.left ,pathCount);    --while going left,right
-            DFSRootToLeafPathsKaMinNoOfNodes(root.right ,pathCount);
+            DFSRootToLeafPathsKaNoOfNodesMin(root.left ,pathCount);    --while going left,right
+            DFSRootToLeafPathsKaNoOfNodesMin(root.right ,pathCount);
         
             pathCount = pathCount - 1;                                  --while going bottom-up
                                                                         1+1+1-1--remove 1 from pathCount   
@@ -4151,9 +4252,9 @@ rs=1              rs=0     rs=1
         }
 
         int min = Integer.MAX_val;
-       public int DFSRootToLeafPathsKaMinNoOfNodes(Node root){
+       public int DFSRootToLeafPathsKaNoOfNodesMin(Node root){
              int pathCount = 0;
-             DFSRootToLeafPathsKaMinNoOfNodes(root,pathCount);
+             DFSRootToLeafPathsKaNoOfNodesMin(root,pathCount);
              return min;}
 
         Time :O(n) if it is balanced tree  as we traverse all nodes in tree
@@ -4218,7 +4319,7 @@ rs=1              rs=0     rs=1
 
     
    }
-    public void DFSRootToLeafPathsKaMaxSumOfNodes (Node root ,int pathSum){
+    public void DFSRootToLeafPathsKaSumOfNodesMax (Node root ,int pathSum){
           /*
           root-- 7        -->travel left-right ,top-bottom            (DFS)
                 /  \         and return max sum of nodes on path from root to leaf(root to leaf)
@@ -4233,7 +4334,7 @@ rs=1              rs=0     rs=1
          
         //RECURSION IP-OP TREE
         /*
-        public void DFSRootToLeafPathsKaMaxSumOfNodes (Node root ,int pathSum)
+        public void DFSRootToLeafPathsKaSumOfNodesMax (Node root ,int pathSum)
                                                                     --while going top-bottom  
             if(root==null) {return;}                                     return at null and start moving up 
             pathSum = pathSum + root.val;                               7+4+1 --add root val to pathSum        
@@ -4254,10 +4355,10 @@ rs=1              rs=0     rs=1
 
         //OVERLOAD
         int max = Integer.MIN_val;
-        public List<Integer>  DFSRootToLeafPathsKaMaxSumOfNodes(Node root){ 
+        public List<Integer>  DFSRootToLeafPathsKaSumOfNodesMax(Node root){ 
              List<Integer> pathSumList = new ArrayList<>();
              int pathSum = 0;
-             DFSRootToLeafPathsKaMaxSumOfNodes(root , pathSum);
+             DFSRootToLeafPathsKaSumOfNodesMax(root , pathSum);
              return max;
         }
 
@@ -4272,7 +4373,7 @@ rs=1              rs=0     rs=1
 
 
    }
-    public void DFSRootToLeafPathsKaMinSumOfNodes (Node root ,int pathSum){
+    public void DFSRootToLeafPathsKaSumOfNodesMin (Node root ,int pathSum){
           /*
           root-- 7        -->travel left-right ,top-bottom     (DFS)
                 /  \         and return min sum of nodes on path from root to leaf(root to leaf)
@@ -4286,7 +4387,7 @@ rs=1              rs=0     rs=1
          
         //RECURSION IP-OP TREE
         /*
-        public void DFSRootToLeafPathsKaMinSumOfNodes (Node root ,int pathSum){                                                       --while going top-bottom  
+        public void DFSRootToLeafPathsKaSumOfNodesMin (Node root ,int pathSum){                                                       --while going top-bottom  
             
                                                                     --while going top-bottom  
             if(root==null) {return;}                                    return at null and start moving up 
@@ -4296,8 +4397,8 @@ rs=1              rs=0     rs=1
             }  
             
         
-            DFSRootToLeafPathsKaMinSumOfNodes(root.left ,pathSum);      --while going left-right
-            DFSRootToLeafPathsKaMinSumOfNodes(root.right ,pathSum);
+            DFSRootToLeafPathsKaSumOfNodesMin(root.left ,pathSum);      --while going left-right
+            DFSRootToLeafPathsKaSumOfNodesMin(root.right ,pathSum);
         
             pathSum = pathSum - root.val;                                --while going bottom-up
                                                                         7+4+1 -1  remove root val  from pathSum   
@@ -4308,10 +4409,10 @@ rs=1              rs=0     rs=1
 
         //OVERLOAD
         int min = Integer.MAX_val;
-       public List<Integer>  DFSRootToLeafPathsKaMinSumOfNodes(Node root){ 
+       public List<Integer>  DFSRootToLeafPathsKaSumOfNodesMin(Node root){ 
              List<Integer> pathSumList = new ArrayList<>();
              int pathSum = 0;
-             DFSRootToLeafPathsKaMinSumOfNodes(root , pathSum);
+             DFSRootToLeafPathsKaSumOfNodesMin(root , pathSum);
              return min;
         }
 
@@ -4325,12 +4426,121 @@ rs=1              rs=0     rs=1
                              
 
    }
-    public void DFSRootToLeafPathsKaMaxString    (Node root, String pathSum){  
+    public void DFSRootToLeafPathsKaSumOfNodesEqualsTargetList ( Node root, List<List<Integer>> nodes ,List<Integer> pathSumList, int pathSum,int targetSum){
+    /*
+      root-- 7        -->travel left-right ,top-bottom           (DFS)
+            /  \         and return path from root to leaf which add to target sum(root to leaf)
+           4    9        ie [[7,4,6],[7,9,1]] for targetSum = 17
+          / \    / \     
+         1  6   1  10    
+         /  \ /\  /\  / \
+        n  n  n n n n  n n
+       */
+
+
+    //RECURSION IP-OP TREE
+    /*
+    public void DFSRootToLeafPathsKaSumOfNodesEqualsTargetList ( Node root, List<List<Integer>> nodes ,List<Integer> pathSumList, int pathSum,int targetSum){
+        
+                                                                    --while going top-bottom  
+        if(root==null) {return;}                                       return at null and start moving up 
+        pathSum = pathSum + root.val;                                  7+4+1,[7,4,1]     -- add root val to pathSum and   pathSumList      
+        pathSumList.add(root.val);                                     12==12,[[7,4,1]]   -- if we reach leaf then  if pathsum = targetsum add pathSumList to nodes
+        if(root.left == null && root.right == null){                   RETURN AND START MOVING UP AGAIN (AVOID UPDATING OBJECT WHILE COMING BOTTOM-UP)
+            if(pathSum == targetSum){nodes.add(pathSumList);};
+            return;} 
+    
+        DFSRootToLeafPathsKaSumOfNodesEqualsTargetList(root.left , nodes,new ArrayList<Integer>(pathSumList),pathSum,targetSum);   -- while going left-right
+        DFSRootToLeafPathsKaSumOfNodesEqualsTargetList(root.right , nodes,new ArrayList<Integer>(pathSumList),pathSum,targetSum);    CREATE NEW OBJECT (AVOID SAME OBJECT WHILE COMING BOTTOM-UP)
+    
+        pathSum = pathSum - root.val;                           -- while going up
+        pathSumList.remove(pathSumList.size()-1);                    7+4+1-1,[7,4,1] - [1]  --remove 1 from pathSum and pathSumList
+                                                                                                so that while coming down you add 6
+                                                                                                and it becomes 7+4+6;[7,4,6]  which is another root to leaf path
+    }
+
+    //OVERRIDE
+    public List<List<Integer>> DFSRootToLeafPathsKaSumOfNodesEqualsTargetList(Node root, int targetSum) {
+        List<List<Integer>>nodes = new ArrayList<>();
+        List<Integer> pathSumList = new ArrayList<>();
+        int pathSum =0;
+        DFSRootToLeafPathsKaSumOfNodesEqualsTargetList(root,nodes,pathSumList,pathSum,targetSum)
+        return nodes;
+    }
+
+    Time :O(n) if it is balanced tree  as we traverse all nodes in tree
+        :O(n)  if it is unbalanced completely left/right skewed tree  as we traverse all nodes in tree
+    Space:O(h) = O(log n) if it is balanced tree  as we traverse entire height 
+         :O(h) = O(n) if it is unbalanced completely left/right skewed tree   as we traverse entire height 
+          +
+          O(n) we are  using list that takes extra space      
+   
+     */
+    
+
+    }
+    public void DFSRootToLeafPathsKaSumOfNodesEqualsTargetExists(Node root, int pathSum,  int targetSum){
+   /*
+      root-- 7        -->travel left-right ,top-bottom                                      (DFS)
+            /  \         and return if path exists path from root to leaf which add to target sum(root to leaf)
+           4    9        ie 7,4,6] for targetSum = 17 so return true
+          / \    / \     
+         1  6   1  10    
+         /  \ /\  /\  / \
+        n  n  n n n n  n n
+       */
+
+
+    //RECURSION IP-OP TREE
+    /* 
+    public void DFSRootToLeafPathsKaSumOfNodesEqualsTargetExists(Node root, int pathSum,  int targetSum){           
+                                                                --while going top-bottom  
+        if(root==null) {return;}                                    return at null and start moving up 
+        pathSum = pathSum + root.val;                         
+        if(root.left == null && root.right == null){                 7+4+1   -- add root val to pathSu
+            if(pathSum == targetSum)                                 12==12   --if we reach leaf then  if pathsum = targetsum return true else false
+                pathBoolean = true;  //pathBoolean is global var                
+        
+    
+    
+        DFSRootToLeafPathsKaSumOfNodesEqualsTargetExists(root.left,pathSum,targetSum) ; -- while going left-right
+        DFSRootToLeafPathsKaSumOfNodesEqualsTargetExists(root.right,pathSum,targetSum)
+
+    
+        pathSum = pathSum - root.val;                                 -- while going bottom-top 
+                                                                        7+4+1-1 --remove 1 from pathSum 
+                                                                        so that while coming down you add 6
+                                                                        and it becomes 7+4+6 which is another root to leaf path
+    }
+
+    //OVERRIDE
+    public pathBoolean = false;
+    public boolean DFSRootToLeafPathsKaSumOfNodesEqualsTargetExists(Node root, int targetSum) {
+        int pathSum = 0;
+        DFSRootToLeafPathsKaSumOfNodesEqualsTargetExists(root,pathSum,targetSum);
+        return pathBoolean;
+    }
+
+    Time :O(n) if it is balanced tree  as we traverse all nodes in tree
+        :O(n)  if it is unbalanced completely left/right skewed tree  as we traverse all nodes in tree
+    Space:O(h) = O(log n) if it is balanced tree  as we traverse entire height 
+         :O(h) = O(n) if it is unbalanced completely left/right skewed tree   as we traverse entire height 
+          +
+          O(n) we are  using list that takes extra space
+   */
+    
+     
+
+
+
+
+    }
+    public void DFSRootToLeafPathsAsCharacterStringMax(Node root, String pathSum){  
 
         /*
-          root-- 7        -->travel left-right ,top-bottom                             (DFS)
-                /  \         and return  "lexicographically max string"  from "leaf to root" (root to leaf)
-               4    9        ie 1-4-7 = "beh" ;   6-4-7 = "geh"  .. ;10-9-8 = "kji" 
+          root-- 7          -->travel left-right ,top-bottom                             (DFS)
+                /  \          and return  "lexicographically max string"  from "leaf to root" (root to leaf)
+               4    9         ie 1-4-7 = "beh" ;   6-4-7 = "geh"  .. ;10-9-8 = "kji" 
               / \    / \         "kji" is lexicographically max string
              1  6   8  10    
              /  \ /\  /\  / \
@@ -4339,7 +4549,7 @@ rs=1              rs=0     rs=1
          
         //RECURSION IP-OP TREE
         /*
-        public void DFSRootToLeafPathsKaMaxString    (Node root, String pathSum)
+        public void DFSRootToLeafPathsAsCharacterStringMax    (Node root, String pathSum)
                                                                     --while going top-bottom  
             if(root==null) {return;}                                     return at null and start moving up 
             pathSum = pathSum + (char)(root.val + 97);                  'h'+'e'+'b' --add root's equivalent character  val to pathSum  
@@ -4352,8 +4562,8 @@ rs=1              rs=0     rs=1
             }
             
             
-            DFSRootToLeafPathsKaMaxString(root.left ,pathSum);         --while going left,right
-            DFSRootToLeafPathsKaMaxString(root.right ,pathSum);
+            DFSRootToLeafPathsAsCharacterStringMax(root.left ,pathSum);         --while going left,right
+            DFSRootToLeafPathsAsCharacterStringMax(root.right ,pathSum);
             
                                                             
             pathSum = pathSum.substring(0,pathSum.length()-1);          --while going bottom-up
@@ -4364,9 +4574,9 @@ rs=1              rs=0     rs=1
 
         //OVERLOAD
         String max = "";//StringBuffer path = new StringBuffer("");  -- String max = "" ; String min = "~" explained in conversion 
-        public String DFSRootToLeafPathsKaMaxString(Node root) {      
+        public String DFSRootToLeafPathsAsCharacterStringMax(Node root) {      
             int pathSum = "";
-            DFSRootToLeafPathsKaMaxString(root,pathSum);
+            DFSRootToLeafPathsAsCharacterStringMax(root,pathSum);
             return max;  //return max.toString(); 
         }
 
@@ -4396,7 +4606,7 @@ rs=1              rs=0     rs=1
 
 
     }
-    public void DFSRootToLeafPathsKaMinString    (Node root, String pathSum){  
+    public void DFSRootToLeafPathsAsCharacterStringMin (Node root, String pathSum){  
 
         /*
           root-- 7        -->travel left-right ,top-bottom                           (DFS)
@@ -4412,7 +4622,7 @@ rs=1              rs=0     rs=1
          
          //RECURSION IP-OP TREES)
         /*
-        public void DFSRootToLeafPathsKaMinString    (Node root, String pathSum){
+        public void DFSRootToLeafPathsAsCharacterStringMin    (Node root, String pathSum){
                                                                     --while going top-bottom  
             if(root==null) {return;}                                     return at null and start moving up 
             pathSum = pathSum + (char)(root.val + 97);                   'h'+'e'+'b' --add root's equivalent character  val to pathSum  
@@ -4425,8 +4635,8 @@ rs=1              rs=0     rs=1
             }
             
             
-            DFSRootToLeafPathsKaMaxString(root.left ,pathSum);         --while going left-right
-            DFSRootToLeafPathsKaMaxString(root.right ,pathSum);
+            DFSRootToLeafPathsAsCharacterStringMax(root.left ,pathSum);         --while going left-right
+            DFSRootToLeafPathsAsCharacterStringMax(root.right ,pathSum);
             
                                                             
             pathSum = pathSum.substring(0,pathSum.length()-1);          --while going up
@@ -4437,9 +4647,9 @@ rs=1              rs=0     rs=1
 
         //OVERLOAD
         String min = "~";//StringBuffer path = new StringBuffer("");  -- String max = "" ; String min = "~" explained in conversion 
-        public String DFSRootToLeafPathsKaMinString(Node root) {      
+        public String DFSRootToLeafPathsAsCharacterStringMin(Node root) {      
             int pathSum = "";
-            DFSRootToLeafPathsKaMaxString(root,pathSum);
+            DFSRootToLeafPathsAsCharacterStringMax(root,pathSum);
             return min;  //return min.toString(); 
         }
 
@@ -4469,7 +4679,7 @@ rs=1              rs=0     rs=1
 
 
     }
-    public void DFSRootToLeafPathsAsString       (Node root,List<String> pathStringList , String  pathString){ 
+    public void DFSRootToLeafPathsAsIntegerString    (Node root,List<String> pathStringList , String  pathString){ 
          /*
           root-- 7        -->travel left-right ,top-bottom           (DFS)
                 /  \         and return path from root to leaf as string(root to leaf)
@@ -4484,7 +4694,7 @@ rs=1              rs=0     rs=1
 
         //RECURSION IP -OP TREE 
         /*
-        public void DFSRootToLeafPathsAsString       (Node root,List<String> pathStringList , String  pathString)
+        public void DFSRootToLeafPathsAsIntegerString       (Node root,List<String> pathStringList , String  pathString)
                                                                                                                     --while going top-bottom  
             if(root==null) {return;}                                                                                    return at null and start moving up 
             if(root.left == null && root.right == null){                                                               "7->4->1" -- if we are at leaf node add root val + ->  to pathString else add root val to pathString
@@ -4505,10 +4715,10 @@ rs=1              rs=0     rs=1
         }
         
         //OVERRIDE
-        public List<String> DFSRootToLeafPathsAsString(Node root) {  
+        public List<String> DFSRootToLeafPathsAsIntegerString(Node root) {  
             List<String> pathStringList = new ArrayList<>();
             String pathString = "";                                           //String pathSb = new STringBuffer("");
-            DFSRootToLeafPathsAsString(root,pathStringList , pathString);     //DFSRootToLeafPathsAsString(root,pathStringList , pathsb);
+            DFSRootToLeafPathsAsIntegerString(root,pathStringList , pathString);     //DFSRootToLeafPathsAsIntegerString(root,pathStringList , pathsb);
             return pathStringList;
         }
               
@@ -4527,7 +4737,7 @@ rs=1              rs=0     rs=1
 
 
     }                                                                                                             
-    public void DFSRootToLeafPathsAsStringKaSum  (Node root,String  pathString ){
+    public void DFSRootToLeafPathsAsIntegerStringSum  (Node root,String  pathString ){
         /*
           root-- 7        -->travel left-right ,top-bottom            (DFS)
                 /  \         and return path from root to leaf as string and add them(root to leaf)
@@ -4542,7 +4752,7 @@ rs=1              rs=0     rs=1
     
         //RECURSION IP-OP TREE  
         /*  
-        public void DFSRootToLeafPathsAsStringKaSum  (Node root,String  pathString ){
+        public void DFSRootToLeafPathsAsIntegerStringSum  (Node root,String  pathString ){
                                                                                                                  
                                                                                                                    --while going top-bottom  
         if(root==null) {return;}                                                                                     return at null and start moving up 
@@ -4564,7 +4774,7 @@ rs=1              rs=0     rs=1
         
         //OVERRIDE
         int sum =0;
-        public List<String> DFSRootToLeafPathsAsStringKaSum(Node root) {
+        public List<String> DFSRootToLeafPathsAsIntegerStringSum(Node root) {
             String pathString = "";                                  //String pathSb = new STringBuffer("");
             DFSpathRootToLeafAllPaths(root,pathString);             //DFSpathRootToLeafAllPaths(root,pathsb);
             return sum;
@@ -4580,118 +4790,6 @@ rs=1              rs=0     rs=1
         */
 
     }
-    public void DFSRootToLeafPathsWithTargetSum ( Node root, List<List<Integer>> nodes ,List<Integer> pathSumList, int pathSum,int targetSum){
-        /*
-          root-- 7        -->travel left-right ,top-bottom           (DFS)
-                /  \         and return path from root to leaf which add to target sum(root to leaf)
-               4    9        ie [[7,4,6],[7,9,1]] for targetSum = 17
-              / \    / \     
-             1  6   1  10    
-             /  \ /\  /\  / \
-            n  n  n n n n  n n
-           */
-
-
-        //RECURSION IP-OP TREE
-        /*
-        public void DFSRootToLeafPathsWithTargetSum ( Node root, List<List<Integer>> nodes ,List<Integer> pathSumList, int pathSum,int targetSum){
-            
-                                                                        --while going top-bottom  
-            if(root==null) {return;}                                       return at null and start moving up 
-            pathSum = pathSum + root.val;                                  7+4+1,[7,4,1]     -- add root val to pathSum and   pathSumList      
-            pathSumList.add(root.val);                                     12==12,[[7,4,1]]   -- if we reach leaf then  if pathsum = targetsum add pathSumList to nodes
-            if(root.left == null && root.right == null){                   RETURN AND START MOVING UP AGAIN (AVOID UPDATING OBJECT WHILE COMING BOTTOM-UP)
-                if(pathSum == targetSum){nodes.add(pathSumList);};
-                return;} 
-        
-            DFSRootToLeafPathsWithTargetSum(root.left , nodes,new ArrayList<Integer>(pathSumList),pathSum,targetSum);   -- while going left-right
-            DFSRootToLeafPathsWithTargetSum(root.right , nodes,new ArrayList<Integer>(pathSumList),pathSum,targetSum);    CREATE NEW OBJECT (AVOID SAME OBJECT WHILE COMING BOTTOM-UP)
-        
-            pathSum = pathSum - root.val;                           -- while going up
-            pathSumList.remove(pathSumList.size()-1);                    7+4+1-1,[7,4,1] - [1]  --remove 1 from pathSum and pathSumList
-                                                                                                    so that while coming down you add 6
-                                                                                                    and it becomes 7+4+6;[7,4,6]  which is another root to leaf path
-        }
-
-        //OVERRIDE
-        public List<List<Integer>> DFSRootToLeafPathsWithTargetSum(Node root, int targetSum) {
-            List<List<Integer>>nodes = new ArrayList<>();
-            List<Integer> pathSumList = new ArrayList<>();
-            int pathSum =0;
-            DFSRootToLeafPathsWithTargetSum(root,nodes,pathSumList,pathSum,targetSum)
-            return nodes;
-        }
-
-        Time :O(n) if it is balanced tree  as we traverse all nodes in tree
-            :O(n)  if it is unbalanced completely left/right skewed tree  as we traverse all nodes in tree
-        Space:O(h) = O(log n) if it is balanced tree  as we traverse entire height 
-             :O(h) = O(n) if it is unbalanced completely left/right skewed tree   as we traverse entire height 
-              +
-              O(n) we are  using list that takes extra space      
-       
-         */
-        
- 
-        }
-    public void DFSRootToLeafPathsWithTargetSumExists(Node root, int pathSum,  int targetSum){
-       /*
-          root-- 7        -->travel left-right ,top-bottom                                      (DFS)
-                /  \         and return if path exists path from root to leaf which add to target sum(root to leaf)
-               4    9        ie 7,4,6] for targetSum = 17 so return true
-              / \    / \     
-             1  6   1  10    
-             /  \ /\  /\  / \
-            n  n  n n n n  n n
-           */
-
- 
-        //RECURSION IP-OP TREE
-        /* 
-        public void DFSRootToLeafPathsWithTargetSumExists(Node root, int pathSum,  int targetSum){           
-                                                                    --while going top-bottom  
-            if(root==null) {return;}                                    return at null and start moving up 
-            pathSum = pathSum + root.val;                         
-            if(root.left == null && root.right == null){                 7+4+1   -- add root val to pathSu
-                if(pathSum == targetSum)                                 12==12   --if we reach leaf then  if pathsum = targetsum return true else false
-                    pathBoolean = true;  //pathBoolean is global var                
-            
-        
-        
-            DFSRootToLeafPathsWithTargetSumExists(root.left,pathSum,targetSum) ; -- while going left-right
-            DFSRootToLeafPathsWithTargetSumExists(root.right,pathSum,targetSum)
-
-        
-            pathSum = pathSum - root.val;                                 -- while going bottom-top 
-                                                                            7+4+1-1 --remove 1 from pathSum 
-                                                                            so that while coming down you add 6
-                                                                            and it becomes 7+4+6 which is another root to leaf path
-        }
-
-        //OVERRIDE
-        public pathBoolean = false;
-        public boolean DFSRootToLeafPathsWithTargetSumExists(Node root, int targetSum) {
-            int pathSum = 0;
-            DFSRootToLeafPathsWithTargetSumExists(root,pathSum,targetSum);
-            return pathBoolean;
-        }
-
-        Time :O(n) if it is balanced tree  as we traverse all nodes in tree
-            :O(n)  if it is unbalanced completely left/right skewed tree  as we traverse all nodes in tree
-        Space:O(h) = O(log n) if it is balanced tree  as we traverse entire height 
-             :O(h) = O(n) if it is unbalanced completely left/right skewed tree   as we traverse entire height 
-              +
-              O(n) we are  using list that takes extra space
-       */
-        
-         
-
-
-
-
-        }
-
-
-
 
 
     //DFSROOTTOANY
@@ -4750,7 +4848,7 @@ rs=1              rs=0     rs=1
     
                   
     //DFSLEAFTOLEAF
-    public void  DFSLeafToLeafPathsKaMaxSumOfNodes(Node root){
+    public void  DFSLeafToLeafPathsSumOfNodesMax(Node root){
         /*
          root-- 7      -->Traverse left-right ,top-bottom  (DFS)
                /  \       return leaf to leaf  path max no of nodes  (LeafToLeaf)    
@@ -4779,7 +4877,7 @@ rs=1              rs=0     rs=1
                                   0  /\ 0
                                     /  \
                                     n   n             -- return 0
-    public int  DFSLeafToLeafPathsKaMaxSumOfNodes(Node root)
+    public int  DFSLeafToLeafPathsSumOfNodesMax(Node root)
 
 
                                         --while going top-bottom  
@@ -4787,8 +4885,8 @@ rs=1              rs=0     rs=1
 
     
 
-        int left = DFSLeafToLeafPathsKaMaxSumOfNodes(root.left);   --while going left-right  
-        int right = DFSLeafToLeafPathsKaMaxSumOfNodes(root.right);   left-right  holds sum of nodes from left and right 
+        int left = DFSLeafToLeafPathsSumOfNodesMax(root.left);   --while going left-right  
+        int right = DFSLeafToLeafPathsSumOfNodesMax(root.right);   left-right  holds sum of nodes from left and right 
 
                                                 --while coming up 
                                                   NEED FOR NULL CHECK:root.left , root.right  being   null yeild different results 
@@ -4818,8 +4916,8 @@ rs=1              rs=0     rs=1
        }
 
        //OVERRIDE
-        public int  DFSLeafToLeafPathsKaMaxSumOfNodes(Node root){
-            return DFSLeafToLeafPathsKaMaxSumOfNodes(root);
+        public int  DFSLeafToLeafPathsSumOfNodesMax(Node root){
+            return DFSLeafToLeafPathsSumOfNodesMax(root);
         }
 
 
@@ -4837,7 +4935,7 @@ rs=1              rs=0     rs=1
 
 
     }
-    public void  DFSLeafToLeafPathsKaMinSumOfNodes(Node root){
+    public void  DFSLeafToLeafPathsSumOfNodesMin(Node root){
         /*
          root-- 7      -->Traverse left-right ,top-bottom  (DFS)
                /  \       return leaf to leaf  path min no of nodes  (LeafToLeaf)    
@@ -4866,14 +4964,14 @@ rs=1              rs=0     rs=1
                                   0  /\ 0
                                     /  \
                                     n   n             -- return 0
-    public int  DFSLeafToLeafPathsKaMinSumOfNodes(Node root)
+    public int  DFSLeafToLeafPathsSumOfNodesMin(Node root)
                                     
                                         --while going top-bottom  
         if(root==null) {return 0 ;}       return 0  at null and start moving up 
 
 
-        int left = DFSLeafToLeafPathsKaMaxSumOfNodes(root.left);  -- while going left-right
-        int right = DFSLeafToLeafPathsKaMaxSumOfNodes(root.right);   left-right holds sum from left and right subtree
+        int left = DFSLeafToLeafPathsSumOfNodesMax(root.left);  -- while going left-right
+        int right = DFSLeafToLeafPathsSumOfNodesMax(root.right);   left-right holds sum from left and right subtree
 
 
                                          --while going bottom-top
@@ -4905,8 +5003,8 @@ rs=1              rs=0     rs=1
         return temp1 ;                       we dont return res but temp which is the val we need to pass ahead
        }
 
-        public int  DFSLeafToLeafPathsKaMinSumOfNodes(Node root){
-            return DFSLeafToLeafPathsKaMinSumOfNodes(root);
+        public int  DFSLeafToLeafPathsSumOfNodesMin(Node root){
+            return DFSLeafToLeafPathsSumOfNodesMin(root);
         }
 
         Time :O(n) if it is balanced tree  as we traverse all nodes in tree
@@ -4926,7 +5024,7 @@ rs=1              rs=0     rs=1
 
 
     //DFSANYTOANY
-    public void DFSAnyToAnyPathsKaMaxNoOfNodes(Node root){
+    public void DFSAnyToAnyPathsNoOfNodesMax(Node root){
         /*
          root-- 7      -->Traverse left-right ,top-bottom  (DFS)
                /  \        return any to any path max no of nodes  (AnyToAny)    
@@ -4954,12 +5052,12 @@ rs=1              rs=0     rs=1
                                   0  /\ 0
                                     /  \
                                     n   n             -- return 0
-        public int DFSAnyToAnyPathsKaMaxNoOfNodes(Node root){
+        public int DFSAnyToAnyPathsNoOfNodesMax(Node root){
                                         --while going top-bottom  
             if(root==null) {return 0 ;}   return 0  at null and start moving up 
 
-            int left = DFSAnyToAnyPathsKaMaxNoOfNodes(root.left);   --while going left  , right 
-            int right = DFSAnyToAnyPathsKaMaxNoOfNodes(root.right);   left  , right holds the no of nodes of left and right subtre
+            int left = DFSAnyToAnyPathsNoOfNodesMax(root.left);   --while going left  , right 
+            int right = DFSAnyToAnyPathsNoOfNodesMax(root.right);   left  , right holds the no of nodes of left and right subtre
 
                                 --while coming bottom-up
             temp1 = max(l,r) + 1     required path does not pass through our node4(find the calculation for path till node4 which we will pass ahead)
@@ -4973,8 +5071,8 @@ rs=1              rs=0     rs=1
             return temp1 ;           we dont return res but temp1 which is the val we need to pass ahead when node4 is not answer
         }
 
-        public int  DFSAnyToAnyPathsKaMaxNoOfNodes(Node root){
-            return DFSAnyToAnyPathsKaMaxNoOfNodes(root);
+        public int  DFSAnyToAnyPathsNoOfNodesMax(Node root){
+            return DFSAnyToAnyPathsNoOfNodesMax(root);
         }
 
         Time :O(n) if it is balanced tree  as we traverse all nodes in tree
@@ -4995,7 +5093,7 @@ rs=1              rs=0     rs=1
 
 
     }
-    public void DFSAnyToAnyPathsKaMinNoOfNodes(Node root){
+    public void DFSAnyToAnyPathsKaNoOfNodesMin(Node root){
         /*
          root-- 7      -->Traverse left-right ,top-bottom  (DFS)
                /  \       return any to any path min no of nodes  (AnyToAny)   
@@ -5025,13 +5123,13 @@ rs=1              rs=0     rs=1
                                     /  \
                                     n   n             -- return 0
 
-        public int DFSAnyToAnyPathsKaMinNoOfNodes(Node root)
+        public int DFSAnyToAnyPathsKaNoOfNodesMin(Node root)
 
                                         --while going top-bottom  
             if(root==null) {return 0 ;}   return 0  at null and start moving up 
 
-            int left = DFSAnyToAnyPathsKaMinNoOfNodes(root.left);  --while going left , right  
-            int right = DFSAnyToAnyPathsKaMinNoOfNodes(root.right);   left , right  holds no of nodes from left and right subtree
+            int left = DFSAnyToAnyPathsKaNoOfNodesMin(root.left);  --while going left , right  
+            int right = DFSAnyToAnyPathsKaNoOfNodesMin(root.right);   left , right  holds no of nodes from left and right subtree
 
                                 --while going bottom-top 
             temp1 = min(l,r) + 1    required path does not pass through our node4(find the calculation for path till node4 which we will pass ahead)
@@ -5046,8 +5144,8 @@ rs=1              rs=0     rs=1
         }
 
         //OVERLOAD
-        public int  DFSAnyToAnyPathsKaMinNoOfNodes(Node root){
-            return DFSAnyToAnyPathsKaMinNoOfNodes(root);
+        public int  DFSAnyToAnyPathsKaNoOfNodesMin(Node root){
+            return DFSAnyToAnyPathsKaNoOfNodesMin(root);
         }
 
 
@@ -5065,7 +5163,7 @@ rs=1              rs=0     rs=1
 
 
     }
-    public void DFSAnyToAnyPathsKaMaxSumOfNodes(Node root){
+    public void DFSAnyToAnyPathsKaSumOfNodesMax(Node root){
 
         /*
          root-- 7      -->Traverse left-right ,top-bottom t (DFS)
@@ -5097,13 +5195,13 @@ rs=1              rs=0     rs=1
                                   0  /\ 0
                                     /  \
                                     n   n             -- return 0
-        public int DFSAnyToAnyPathsKaMaxSumOfNodes(Node root)
+        public int DFSAnyToAnyPathsKaSumOfNodesMax(Node root)
                                         
                                         --while going top-bottom  
             if(root==null) {return 0 ;}   return 0  at null and start moving up 
 
-            int left = DFSAnyToAnyPathsKaMaxSumOfNodes(root.left);    --while going left right  
-            int right = DFSAnyToAnyPathsKaMaxSumOfNodes(root.right);    left right  holds sum of node from left and right 
+            int left = DFSAnyToAnyPathsKaSumOfNodesMax(root.left);    --while going left right  
+            int right = DFSAnyToAnyPathsKaSumOfNodesMax(root.right);    left right  holds sum of node from left and right 
 
                                                     --while goig bottom-top
             temp1 = max(max(l,r) + root.val ,root.val)  required path does not pass through our node4(find the calculation for path till node4 which we will pass ahead)
@@ -5120,8 +5218,8 @@ rs=1              rs=0     rs=1
         }
 
         //OVERLOAD
-        public int  DFSAnyToAnyPathsKaMaxSumOfNodes(Node root){
-            return DFSAnyToAnyPathsKaMaxSumOfNodes(root);
+        public int  DFSAnyToAnyPathsKaSumOfNodesMax(Node root){
+            return DFSAnyToAnyPathsKaSumOfNodesMax(root);
         }
 
 
@@ -5138,7 +5236,7 @@ rs=1              rs=0     rs=1
 
 
     }
-    public void DFSAnyToAnyPathsKaMinSumOfNodes(Node root){
+    public void DFSAnyToAnyPathsKaSumOfNodesMin(Node root){
         /*
          root-- 7      -->Traverse left-right ,top-bottom  (DFS)
                /  \      return any to any path min sum of nodes
@@ -5171,12 +5269,12 @@ rs=1              rs=0     rs=1
 
                                     
 
-        public int DFSAnyToAnyPathsKaMinSumOfNodes(Node root)
+        public int DFSAnyToAnyPathsKaSumOfNodesMin(Node root)
                                     --while going top-bottom  
             if(root==null) {return 0 ;}   return 0  at null and start moving up 
 
-            int left = DFSAnyToAnyPathsKaMinSumOfNodes(root.left);  --while going left right  
-            int right = DFSAnyToAnyPathsKaMinSumOfNodes(root.right);   left right  holds sum of nodes from left , right 
+            int left = DFSAnyToAnyPathsKaSumOfNodesMin(root.left);  --while going left right  
+            int right = DFSAnyToAnyPathsKaSumOfNodesMin(root.right);   left right  holds sum of nodes from left , right 
 
                                                     --while going top-bottom
             temp1 = min(min(l,r) + root.val ,root.val) required path does not pass through our node4(find the calculation for path till node4 which we will pass ahead)
@@ -5192,8 +5290,8 @@ rs=1              rs=0     rs=1
             return temp1 ;                              we dont return res but temp1 which is the val we need to pass ahead when node4 is not answer
         }
 
-        public int  DFSAnyToAnyPathsKaMinSumOfNodes(Node root){
-            return DFSAnyToAnyPathsKaMinSumOfNodes(root);
+        public int  DFSAnyToAnyPathsKaSumOfNodesMin(Node root){
+            return DFSAnyToAnyPathsKaSumOfNodesMin(root);
         }
 
         Time :O(n) if it is balanced tree  as we traverse all nodes in tree
@@ -5207,7 +5305,7 @@ rs=1              rs=0     rs=1
 
 
     }
-    public void DFSAnyToAnyPathsUnivalKaMaxNoOfNodes(Node root , Node previousNode){
+    public void DFSAnyToAnyPathsUnivalUnivalNoOfNodesMax(Node root , Node previousNode){
        
         /*
          root-- 5      -->Traverse left-right ,top-bottom                                        (DFS)
@@ -5237,13 +5335,13 @@ rs=1              rs=0     rs=1
 
     
 
-        public int DFSAnyToAnyPathsUnivalKaMaxNoOfNodes(Node root , Node previousNode){  
+        public int DFSAnyToAnyPathsUnivalUnivalNoOfNodesMax(Node root , Node previousNode){  
             
                                             --while going top-bottom  
             if(root==null) {return 0 ;}     return 0  at null and start moving up 
 
-            int left = DFSAnyToAnyPathsUnivalKaMaxNoOfNodes(root.left, root);  --while going left right 
-            int right = DFSAnyToAnyPathsUnivalKaMaxNoOfNodes(root.right,root);   store previousNode(allows duplicate node in BT)/previosNode value(allows only unique BT values) then previousNode will be available with us               
+            int left = DFSAnyToAnyPathsUnivalUnivalNoOfNodesMax(root.left, root);  --while going left right 
+            int right = DFSAnyToAnyPathsUnivalUnivalNoOfNodesMax(root.right,root);   store previousNode(allows duplicate node in BT)/previosNode value(allows only unique BT values) then previousNode will be available with us               
                                                                                 left right holds no of nodes from left,right
                                         --while going bottom-top
             int temp1 = 0;
@@ -5262,8 +5360,8 @@ rs=1              rs=0     rs=1
 
         //OVERRIDE
         int res = Integer.MIN_val;
-        public int DFSAnyToAnyPathsUnivalKaMaxNoOfNodes(Node root) {
-            DFSAnyToAnyPathsUnivalKaMaxNoOfNodes(root,root);
+        public int DFSAnyToAnyPathsUnivalUnivalNoOfNodesMax(Node root) {
+            DFSAnyToAnyPathsUnivalUnivalNoOfNodesMax(root,root);
             return res;
         }
 
@@ -5275,10 +5373,10 @@ rs=1              rs=0     rs=1
     }
     
 
-
+   
 
     //DFSTOPTOBOTTOM
-    public int  DFSTopToBottomPathsWithTargetSum(Node root, int currentsum, int targetSum, Map<Integer, Integer> map) {
+    public int  DFSTopToBottomSumOfNodesEqualsTargetList(Node root, int currentsum, int targetSum, Map<Integer, Integer> map) {
         /*
          root-- 10      -->Traverse  left-right,top-bottom (DFS) 
                /  \       return path of  top to bottom node(top to bottom means any to any just your traversal  must be top to bottom) paths that have targetSum  

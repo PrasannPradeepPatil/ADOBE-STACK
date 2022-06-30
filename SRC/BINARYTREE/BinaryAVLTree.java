@@ -2,7 +2,7 @@ package SRC.BINARYTREE;
 
 
 
-//BAT DEFN(DUE TO DEFN BAT HAS SOME METHODS DIFFERENT FROM BST )
+//BAT DEFN
 /*
 
 SAME AS BT
@@ -15,7 +15,7 @@ SAME AS BT
 SAME AS BT
 +
 LEFTNODE <(! <=)ROOTNODE <(! <=) RIGHTNODE
-ALL SUM SAME AS BST 
+SAME AS BST 
 
 COMPLETE TREE
 MaxNoOfNode  = MaxNoOfNodesOnLeftMostTree                                           EG DFSPrePostInOrderMaxNoOfNodeI,DFSPrePostInOrderMaxNoOfNodeII

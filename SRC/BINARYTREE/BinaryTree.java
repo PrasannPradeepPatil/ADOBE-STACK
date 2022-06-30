@@ -312,12 +312,15 @@ int right = sumOfNodes(root.right);
 
 
 
-
  /* #endregion */
 
 //BINARY TREE RELATION
-/*
+/* #region Main */
+
+
 //TRAVERAL
+/*
+//BT
 DFSPreOrder
 DFSPostOrder
 DFSInOrder
@@ -327,8 +330,22 @@ DFSLeafToLeaf     ANTICLOCKWISE,CLOCKWISE
 DFSAnyToAny
 DFSTopToBottom
 
+//BST
+Same as BT
+
+//BAT
+Same as BT
+
+//NARY TREE
+DFSPreOrder
+DFSPostOrder
+DFSLevelOrder
+BFSLevelOrder
+*/
 
 //PRE POST INORDER
+/* 
+//BT
 DFSPrePostInOrderMaxNode
 DFSPrePostInOrderMinNode
 DFSPrePostInOrderNoOfNodes
@@ -337,7 +354,24 @@ DFSPrePostInOrderSumOfNodesInRange
 DFSPrePostInOrderContains
 
 
+//BST
+Same as BT +
+DFSPrePostInOrderMaxNode   
+DFSPrePostInOrderMinNode
+DFSPrePostInOrderKthMaxNode
+DFSPrePostInOrderKthMinNode
+DFSPrePostInOrderSumOfNodesInRange
+DFSPrePostInOrderContains
+DFSPrePostInOrderModes
+
+//BAT
+Same as BT +
+DFSPrePostInOrderNoOfNode
+*/
+
 //LEVEL
+/* 
+//BT
 DFSLevelOrderPathsKaMaxMinNodesList
 DFSLevelOrderPathsKaNoOfNodesList
 DFSLevelOrderPathsNoOfNodesMax
@@ -347,8 +381,17 @@ DFSLevelOrderPathsKaSumOfNodesMax
 DFSLevelOrderPathsKaSumOfNodesMin
 DFSLevelOrderPathsKaAvgOfNodes
 
+//BST
+Same as BT
+
+//BAT
+Same as BT
+
+*/
 
 //ROOT TO LEAF
+/*
+//BT
 DFSRootToLeafPathsKaNoOfNodesList
 DFSRootToLeafPathsKaNoOfNodesMax
 DFSRootToLeafPathsKaNoOfNodesMin
@@ -361,24 +404,64 @@ DFSRootToLeafPathsAsCharacterStringMin
 DFSRootToLeafPathsAsIntegerString
 DFSRootToLeafPathsAsIntegerStringSum
 
+//BST
+Same as BT
+
+//BAT
+Same as BT + 
+DFSRootToLeafMaxNoOfNodes
+*/
+
 //ROOT TO ANY
+/* 
 --
+*/
 
 //LEAF TO LEAF
+/*
+//BT
 DFSLeafToLeafPathsSumOfNodesMax
 DFSLeafToLeafPathsSumOfNodesMin
 
+//BST
+Same as BT
+
+//BAT
+Same as BT 
+*/
+
 //ANY TO ANY
+/* 
+//BT
 DFSAnyToAnyPathsNoOfNodesMax
 DFSAnyToAnyPathsKaNoOfNodesMin
 DFSAnyToAnyPathsUnivalUnivalNoOfNodesMax
 DFSAnyToAnyPathsKaSumOfNodesMax
 DFSAnyToAnyPathsKaSumOfNodesMin
 
+//BST
+Same as BT+
+DFSAnyToAnyPathDifferenceOfNodesMin
+
+//BAT
+Same as BT 
+*/
+
 //TOP TO BOTTOM
+/*
+//BT
 DFSTopToBottomSumOfNodesEqualsTargetList
 
+//BST
+Same as BT
+
+//BAT
+Same as BT 
+*/
+
 //TREE PROPERTIES
+/*
+//BT
 DFSPrePostInOrderMaxNoOfNode,DFSRootToLeafPathsKaNoOfNodesMax --HeightOfBinTree
 DFSPrePostInOrderMaxNoOfNode,DFSRootToLeafPathsKaNoOfNodesMax --MaxDepthOfBinTree
 DFSPrePostInOrderMinNoOfNode,DFSRootToLeafPathsKaNoOfNodesMin --MinDepthOfTree
@@ -399,27 +482,68 @@ DFSPrePostInOrderLCA
 DFSRootToAnyPathsKaAncestors
 DFSPrePostInOrderIOSucessor
 
+//BST
+Same as BT + 
+DFSPrePostInOrderLCA
+DFSPrePostInOrderIOSucesor
+
+//BAT
+Same as BT
+*/
 
 //COMPARE 2 TREES
+/*
+//BT
 DFSPrePostInOrderCompare2TreeForEqual
 DFSPrePostInOrderCompare2TreesForMergingByAddition
 DFSPrePostInOrderCompare2TreeForSubtree
 DFSPrePostInOrderCompare2TreesForConnect
 
+//BST
+Same as BT 
+
+//BAT
+Same as BT
+*/
+
 //TREE MANIPULATIOPN
+/* 
+//BT
 DFSPrePostInOrderInvert
 DFSPrePostInOrderDouble
 DFSPrePostInOrderCompare2TreesForConnect
 binaryTreeFlattenToLL
 binaryTreeSerializeDeserialize
+   
+//BST
+Same as BT + 
+DFSPrePostInOrderInsert  
+binarySearchTreeSerializeDeserialize
+
+//BAT
+Same as BT + 
+DFSPrePostInOrderInsert
+*/
+
+//TREE CONSTRUCT
+/* 
+//BT
 binaryTreeConstructionFromPreInOrder
 binaryTreeConstructionFromPostInOrder
 binaryTreeConstructionFromPreOrderWithNull
-   
+
+//BST
+binarySearchTreeConstructionFromPreOrder
+binarySearchTreeConstructionFromPostOrder
+binarySearchTreeConstructionFromInorder_SortedArrToBST
+
 
 */
+ /* #endregion */
 
-public class BinaryTree {
+
+
+ public class BinaryTree {
 
     /*
 

@@ -1,7 +1,7 @@
 package SRC.BINARYTREE;
 import java.util.*;
 
-//BST DEFN(DUE TO DEFN BST HAS SOME METHODS DIFFERENT FROM BT )
+//BST DEFN
 /*
 SAME AS BT
 
@@ -22,7 +22,7 @@ left-right;bottom-top(top middle me ie inorder) will give nodes in purely ascend
 right-left;bottom-top(top middle me ie inorder) will give nodes in purely descending order       
 leftmost Node is purely min                                                                   EG: DFSPrePosttInOrderMinNodeI,II(BST); DFSPrePosttInOrderMaxNodeI,II(BT) 
 rightmost node is purely max                                                                     
-min difference nodes will be together                                                         EG:DFSAnyToAnyPathKaMinDifference
+min difference nodes will be together                                                         EG:DFSAnyToAnyPathDifferenceOfNodesMin
 max difference nodes will be extreme left and extreme right
 
 LEFTNODE  <=ROOTNODE <= RIGHTNODE -->SPECIFIED IN QUES    
@@ -39,6 +39,7 @@ Duplicate Nodes will be together                                                
         
 NOTE:DIFFERENCES IN TIME,SPACE COMPLEXITRIES CAUSED BY THESE PROPERTIES EXPLAINED IN RECURSION OF EACH METHOD 
 */
+
 
 
 public class BinarySearchTrees {
@@ -576,95 +577,6 @@ l=0,r=0  1 l,r=0 3     6 l,r=0  7  l=0,r=0
 
          
      }
-    public void DFSPrePostInOrderModes     (Node root,List<Integer> pathList){
-         /*
-           root-- 4        -->travel left-right;top-bottom       (DFS)  
-                 /  \         For a special BST where left <=root <= right  
-                2     6       return list of modes in any order ie nodes with max frequency
-               / \    / \     ie [1,5]     
-              1  1   5   5    
-              /  \ /\  /\  / \
-             n  n  n n n n  n n
-         */
- 
-
-
-        //RECURSION IP -OP TREE
-        /* 
-        public void DFSPrePostInOrderModesI(Node root,List<Integer> pathList
-                                                                            -- while going top-bottom   
-            if (root == null){return;}                                          return at null and  start moving up 
-
-            
-            DFSPrePostInOrderModes(root.left);                              --while going left-right  
- 
-                                                
-                                                                                
-                                                                            --while going bottom-top(top middle wala) ( lefnode <(! <=)rootnode <(! <=) rightnode  so duplicate nodes will be together)
-                                                                                //COUNT NO OF NODES                
-            if(previousNode != null){                                           if prev != null  
-                if(root.val == previousNode.val){                                 if root val = prev val add pathCount 
-                    pathCount++;                                                  if(root.val != prevval make pathcount to 1
-                }                                                               if prev = null                        
-                if(root.val != previousNode.val){                                    make path count 1                   
-                    pathCount=1;                                                                                     
-                }
-            }   
-            if(previousNode == null){                                           if(prev == null)                      -->You miss doing pathcount = 1 for  node whose prev is null  add max node to list
-                pathCount =1;                                                      make pathcount 1                      Eg IP:[1,n,2] ; for node pathCount=1 must me made even if prev =n
-            }                                                    
-
-
-
-                                                                            //ADD MAX NO OF NODES TO LST     
-            if(pathCount > pathMaxCount){                                      if we find better count                           
-                pathMaxCount = pathCount;                                       reset pathMaxcount
-                pathList.clear();                                                clear prev added val  and add this value
-                pathList.add(root.val);                                       else if we find same count                    -->pathMaxCount is updated in above if and used as condition in this if ; hence we must use "else if"                                                               
-            }                                                                   then also add value to list as there might   
-            else if(pathCount == pathMaxCount){                                 be multiple nodes with                       
-                list.add(root.val)                                                                                           
-            }  
-                
-        
-            
-            previousNode = root;
-
-            DFSPrePostInOrderModesI(root.right);
-            
-        }
-
-        //OVERRIDE
-        public void DFSPrePostInOrderModes(Node root){
-            List<Integer> pathList = new ArrayList<>(); 
-            DFSPrePostInOrderModes(Node root,List<Integer> pathList);
-            return pathList;
-        }
-        
-
-        Time :O(n) if it is balanced tree  as we traverse all nodes 
-            :O(n)  if it is unbalanced completely left/right skewed tree  as we traverse all nodes in tree
-        Space:O(h) = O(log n) if it is balanced tree  as we traverse entire height 
-                :O(h) = O(n) if it is unbalanced completely left/right skewed tree   as we traverse entire height 
-                +
-                O(n) we are  using list that takes extra space
-    
-
-        //BT:You have to travel top-bottom left-right(all nodes) and store nodes and their freq in  hashMapthen populate list with key of max value
-        //BST:You have to travel  top-bottom left-right (all nodes) and find frequency from previous nodes as duplicate nodes will be together 
-
- 
-
-         */  
-
-        //RECURSION IP -OP TREE
-        /*
-        WHILE COMING BOTTOM-UP YOU CANT RETURN VALUE(VOID TYPE) -->IF L,R WILL CARY LIST<INTEGER> ;SO WHILE COMING BOTTOM-TOP WHAT TO RETURN ? L?R? L+R?   
-        */
-
- 
-        
-    }    
     public void DFSPrePostInOrderSumOfNodesInRange(Node root, int low , int high){
         /*
            root-- 4        --travel left-right;top-bottom      (DFS)
@@ -919,6 +831,95 @@ l=0,r=0  1 l,r=0 3     6 l,r=0  7  l=0,r=0
 
 
      }
+    public void DFSPrePostInOrderModes     (Node root,List<Integer> pathList){
+        /*
+          root-- 4        -->travel left-right;top-bottom       (DFS)  
+                /  \         For a special BST where left <=root <= right  
+               2     6       return list of modes in any order ie nodes with max frequency
+              / \    / \     ie [1,5]     
+             1  1   5   5    
+             /  \ /\  /\  / \
+            n  n  n n n n  n n
+        */
+
+
+
+       //RECURSION IP -OP TREE
+       /* 
+       public void DFSPrePostInOrderModesI(Node root,List<Integer> pathList
+                                                                           -- while going top-bottom   
+           if (root == null){return;}                                          return at null and  start moving up 
+
+           
+           DFSPrePostInOrderModes(root.left);                              --while going left-right  
+
+                                               
+                                                                               
+                                                                           --while going bottom-top(top middle wala) ( lefnode <(! <=)rootnode <(! <=) rightnode  so duplicate nodes will be together)
+                                                                               //COUNT NO OF NODES                
+           if(previousNode != null){                                           if prev != null  
+               if(root.val == previousNode.val){                                 if root val = prev val add pathCount 
+                   pathCount++;                                                  if(root.val != prevval make pathcount to 1
+               }                                                               if prev = null                        
+               if(root.val != previousNode.val){                                    make path count 1                   
+                   pathCount=1;                                                                                     
+               }
+           }   
+           if(previousNode == null){                                           if(prev == null)                      -->You miss doing pathcount = 1 for  node whose prev is null  add max node to list
+               pathCount =1;                                                      make pathcount 1                      Eg IP:[1,n,2] ; for node pathCount=1 must me made even if prev =n
+           }                                                    
+
+
+
+                                                                           //ADD MAX NO OF NODES TO LST     
+           if(pathCount > pathMaxCount){                                      if we find better count                           
+               pathMaxCount = pathCount;                                       reset pathMaxcount
+               pathList.clear();                                                clear prev added val  and add this value
+               pathList.add(root.val);                                       else if we find same count                    -->pathMaxCount is updated in above if and used as condition in this if ; hence we must use "else if"                                                               
+           }                                                                   then also add value to list as there might   
+           else if(pathCount == pathMaxCount){                                 be multiple nodes with                       
+               list.add(root.val)                                                                                           
+           }  
+               
+       
+           
+           previousNode = root;
+
+           DFSPrePostInOrderModesI(root.right);
+           
+       }
+
+       //OVERRIDE
+       public void DFSPrePostInOrderModes(Node root){
+           List<Integer> pathList = new ArrayList<>(); 
+           DFSPrePostInOrderModes(Node root,List<Integer> pathList);
+           return pathList;
+       }
+       
+
+       Time :O(n) if it is balanced tree  as we traverse all nodes 
+           :O(n)  if it is unbalanced completely left/right skewed tree  as we traverse all nodes in tree
+       Space:O(h) = O(log n) if it is balanced tree  as we traverse entire height 
+               :O(h) = O(n) if it is unbalanced completely left/right skewed tree   as we traverse entire height 
+               +
+               O(n) we are  using list that takes extra space
+   
+
+       //BT:You have to travel top-bottom left-right(all nodes) and store nodes and their freq in  hashMapthen populate list with key of max value
+       //BST:You have to travel  top-bottom left-right (all nodes) and find frequency from previous nodes as duplicate nodes will be together 
+
+
+
+        */  
+
+       //RECURSION IP -OP TREE
+       /*
+       WHILE COMING BOTTOM-UP YOU CANT RETURN VALUE(VOID TYPE) -->IF L,R WILL CARY LIST<INTEGER> ;SO WHILE COMING BOTTOM-TOP WHAT TO RETURN ? L?R? L+R?   
+       */
+
+
+       
+   }    
     public void DFSPrePostInOrderLCA       (Node root,Node n1, Node n2){
         /*
            root-- 7        -->travel left-right;top-bottom         (DFS)
@@ -1247,7 +1248,7 @@ l=0,r=0  1 l,r=0 3     6 l,r=0  7  l=0,r=0
 
 
     //DFSANYTOANY
-    public void DFSAnyToAnyPathKaMinDifference(Node root){
+    public void DFSAnyToAnyPathDifferenceOfNodesMin(Node root){
         /*
          root-- 7      -->Traverse left-right ,top-bottom  (DFS)
                /  \        return any to any path ka min difference between any 2 nodes  (AnyToAny)    
@@ -1262,7 +1263,7 @@ l=0,r=0  1 l,r=0 3     6 l,r=0  7  l=0,r=0
 
         //RECURSION IP -OP TREE
         /*  
-        public void DFSAnyToAnyPathKaMinDifference(Node root){
+        public void DFSAnyToAnyPathDifferenceOfNodesMin(Node root){
                                                                         --while going top-bottom  
             if (root == null){return;}                                        return at null and  start moving up   
             pathMax = max(pathMax,root.val)//pathMax is global var            replace pathMax by max node val
@@ -1278,13 +1279,13 @@ l=0,r=0  1 l,r=0 3     6 l,r=0  7  l=0,r=0
             previousNode = root;                                             
             
             
-            DFSAnyToAnyPathKaMinDifference(root.right);
+            DFSAnyToAnyPathDifferenceOfNodesMin(root.right);
         }
 
         //OVERRIDE
         int pathMax = 0;
-        public int DFSAnyToAnyPathKaMinDifference(Node root){
-            DFSAnyToAnyPathKaMinDifference(root);
+        public int DFSAnyToAnyPathDifferenceOfNodesMin(Node root){
+            DFSAnyToAnyPathDifferenceOfNodesMin(root);
             return pathMax
         }
         

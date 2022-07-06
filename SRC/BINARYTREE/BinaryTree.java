@@ -24,14 +24,14 @@ SizeOfBinTree     =no of nodes/edges in a tree
 
                                  
 2.
-Balanced Binary Tree      =All nodes have height difference less than or equal to 1(|heightOfLeftSubtree-heightOfRightSUbtree|<=1 )                                   
- |- Full Binary Tree      =All nodes have 0 OR 2  nodes(root.left == null && root.right == null) || (root.left!=null && root.right != null)                     
- |- Complete Binary Trees =All levels are completely filled except last which has all nodes as left as possible (index <= noOfnodes index is index of node level wise) 
- |- Perfect Binary Tree   =All nodes have 2 child and all leaves are at same level(sizeof tree == 2^(height  of tree +1) – 1 )                                        
+Balanced Binary Tree      =All nodes have height difference less than or equal to 1
+ |- Full Binary Tree      =All nodes have 0 OR 2  nodes
+ |- Complete Binary Trees =All levels are completely filled except last which has all nodes as left as possible 
+ |- Perfect Binary Tree   =All nodes have 2 child and all leaves are at same level                         
 
-Unbalanced Binary Tree    =All nodes have height difference greater than 1 (|heightOfLeftSubtree-heightOfRightSUbtree| > 1 ) 
-    |- Left skewed        =Most of nodes have left child  ie it is fully on left side(--)
-    |- Right  skewed      =Most nodes have right child  ie it is fully on right  side(--)
+Unbalanced Binary Tree    =All nodes have height difference greater than 1 
+    |- Left skewed        =Most of nodes have left child  ie it is fully on left side
+    |- Right  skewed      =Most nodes have right child  ie it is fully on right  side
 
 Binary Tree               =Each node has max 2 children             
 Binary Search Tree        =Each node has max 2 children;lefnode <(! <=)rootnode <(! <=) rightnode                                                                       
@@ -183,9 +183,7 @@ int right = sumOfNodes(root.right);    rightSubtree  based on what we return whi
                                         PREVIOUS NODE FOR PREORDER                 
                                         public void methodName(Node root , Node/int previousNode){
                                             
-                                            if(previousNode!=null){//use prevNode here}
-                                            if(previous=null){//check if this case is req as previous case might omt certain cases }  
-                                            
+                                            if(previousNode!=null){//use prevNode here}            
                                             methodName(root.left , root/root.val);        -- While going left - right(ie going top-down)
                                             methodName(root.rigt, root/root.val)            store previousNode(we store Node itself so BT can have duplicates)/previosNode value(we store Node value itself so BT must have unique values)              
                                         }                                                   EG
@@ -198,57 +196,55 @@ int right = sumOfNodes(root.right);    rightSubtree  based on what we return whi
                                                                                         10   11  12   13
                                                                                         8     8   9    9
                                                                                         EG: 
-                                                                                        DFSPrPosteOrderOrderAreSiblingsI,DFSPrPosteOrderOrderAreSiblingsII -- using root.left , root.right dont use previous node for parenr
+                                                                                        DFSPrePostInOrderAreSiblings-- using root.left , root.right dont use previous node for parenr
                                                                                         DFSLevelOrderAreCousins
                                                                                         DFSAnyToAnyPathsUnivalUnivalNoOfNodesMax
                                         PREVIOUS NODE FOR POSTORDER                                              
                                         private Node/int previousNode;
                                         public void methodName(Node root){
 
-                                            methodName(root.left , root/root.val);      
-                                            methodName(root.rigt, root/root.val)               
+                                            methodName(root.left);      
+                                            methodName(root.rigt)               
 
-                                            if(previousNode!=null){//use prevNode here}
-                                            if(previous=null){//check if this case is req as previous case might omt certain cases }      --While going  bottom-top
-                                            previousNode =root/root.val                                                                   store previousNode(we store Node itself so BT can have duplicates)/previosNode value(we store Node value itself so BT must have unique values)
-                                        }                                                                           EG
-                                                                                                                    7  9
-                                                                                                                    /  \
-                                                                                                                    /    \  
-                                                                                                                11 8      9  13
-                                                                                                                / \    / \
-                                                                                                                /   \  /   \
-                                                                                                            10     11  12   13
-                                                                                                            null    10   8   12
-                                                                                                            EG: 
-                                                                                                            DFSPrePostInOrderFalattenToLLI(prev node not held); DFSPrePostInOrderFalattenToLLIM
+                                            if(previousNode!=null){//use prevNode here}       --While going  bottom-top
+                                            previousNode =root/root.val                        store previousNode(we store Node itself so BT can have duplicates)/previosNode value(we store Node value itself so BT must have unique values)
+                    }                                                                           EG
+                                                                                                7  9
+                                                                                                /  \
+                                                                                                /    \  
+                                                                                            11 8      9  13
+                                                                                            / \    / \
+                                                                                            /   \  /   \
+                                                                                        10     11  12   13
+                                                                                        null    10   8   12
+                                                                                        EG: 
+                                                                                        binaryTreeFlattenToLL(prev node not held); 
 
                                                             
                                         PREVIOUS NODE FOR INORDER
                                         private Node/int previousNode
                                         public void methodName(Node root){
-                                            methodName(root.left , root/root.val);     
+                                            methodName(root.left);     
                                             
-                                            if(previousNode!=null){//use prevNode here}
-                                            if(previous=null){//check if this case is req as previous case might omt certain cases }                                       
-                                            previousNode =root/root.val                                      --While going  bottom-top(top middle wala ie inorder)
-                                        }                                                                       store previousNode(we store Node itself so BT can have duplicates)/previosNode value(we store Node value itself so BT must have unique values)
-                                                                                                                    EG
-                                                                                                                    8  9
-                                                                                                                    / \
-                                                                                                                    /   \  
-                                                                                                                10 8      9  12
-                                                                                                                / \    / \
-                                                                                                                /   \  /   \
-                                                                                                            10     11  12   13
-                                                                                                            null    8 null  9
-                                                                                                            EG: 
-                                                                                                            DFSPrePosttInOrderISBSTI,DFSPrePosttInOrderISBSTI
-                                                                                                            DFSPrePosttInOrderModesI(BST),DFSPrePosttInOrderModesII(BST)
+                                            if(previousNode!=null){//use prevNode here}                           
+                                            previousNode =root/root.val              --While going  bottom-top(top middle wala ie inorder)
+                                                                                       store previousNode(we store Node itself so BT can have duplicates)/previosNode value(we store Node value itself so BT must have unique values)
+                                            methodName(root.rigt,)                      EG
+                                                                                        8  9
+                                                                                        / \
+                                                                                        /   \  
+                                                                                    10 8      9  12
+                                                                                    / \    / \
+                                                                                    /   \  /   \
+                                                                                10     11  12   13
+                                                                                null    8 null  9
+                                                                                EG: 
+                                                                                DFSPrePosttInOrderISBSTI,DFSPrePosttInOrderISBSTI
+                                                                                DFSPrePosttInOrderModesI(BST),DFSPrePosttInOrderModesII(BST)
 
                                             
 
-                                        methodName(root.rigt, root/root.val)           
+                                               
                                             
 
                                                             
@@ -256,26 +252,25 @@ int right = sumOfNodes(root.right);    rightSubtree  based on what we return whi
 
                                         //NULL CHECK
                                         /* 
-                                        root ==null                                         --root.left , root.right cant eb null inside recursive call ;root, root.val cant be null anywhere in fn 
+                                        if(root == null){}                                  --root.left , root.right cant eb null inside recursive call ;root, root.val cant be null anywhere in fn 
 
-                                        if(root.left != null && root.right != null){}       --root.left , root.right  cant be null inside fn 
-                                                                                            EG 
-                                                                                            DFSPrePostInOrderAreSiblingsI,DFSPrePostInOrderAreSiblingsII
-                                                                                            DFSPrePostInOrderInvertI,DFSPrePostInOrderInvertII              (DONT DO NULL CHECK BECAUSE YOU NEED ROOT.LEFT AND ROOT.RIGHT  NULL VALUES FOR SWAPPING  EG:CONSIDER [1,2,null])
-                                                                                            DFSPrePostInOrderDoubleI,DFSPrePostInOrderDobleII               (DONT DO NULL CHECK BECAUSE YOU NEED ROOT.LEFT AND ROOT.RIGHT  NULL VALUES FOR ASSIGNING EG:CONSIDER [1,2,null])
-                                                                                            DFSPrePostInOrderFalattenToLLI,DFSPrePostInOrderFalattenToLLII  (DONT DO NULL CHECK BECAUSE ROOT.LEFT AND ROOT.RIGHT ARE REQUIRED AS WE  ASSIGNING THEM VAUES EVEN IF THEY ARE NULL EG: CONSIDER[1,2,null,5,6] )
-                                                                                            DFSPrePostInOrderConectI,DFSPrePostInOrderConectII              (HANDLE EACH CASE SEPERATELY  DUE TO CONSTRAINTS OF QUESTION )
-
-                                        if(root.left == null || root.right == null){}      --root.left , root.right  being   null yeild different results 
-                                        OR                                                     EG DFSLeafToLeaf,DFSLeafToLeafkaSabSums
-                                        if(root.left == null){}
-                                        if(root.righ == null)                                                       
-
-                                        if(n1 == null && n2 == null){}                     -- When you are checking 2 node simultaneously(NULL WHILE COMING DOWN ONLY NOT WHILE GOING UP AS YOU USE N1,N2 IN RECURSIVE CALL)
-                                        if(n1 == null || n2 == null){}                        n1,n2 both being null yeild a different result ; either being null yeild a different result 
-                                        OR                                                     EG :DFSPrePostInOrderSymmetricI,DFSPrePostInOrderSymmetricII 
-                                        if(root.left == null){}                                    DFSPrePostInOrderAreEqualTreesI,DFSTPrePostOrderAreEqualTreesII
-                                        if(root.right == null)                                     DFSPrePostInOrderMergeTreesI,DFSPrePostInOrderMergeTreesII
+                                        if(root.left != null && root.right != null){}       --root.left , root.right  neither can be null 
+                                        if(root.left == null || root.right == null){}       --root.left , root.right being null yeild different results 
+                                        OR                                                    EG(&&)
+                                        if(root.left == null){} if(root.righ == null) {}      DFSPrePostInOrderAreSiblingsI,DFSPrePostInOrderAreSiblingsII
+                                                                                              DFSPrePostInOrderInvertI,DFSPrePostInOrderInvertII              (DONT DO NULL CHECK BECAUSE YOU NEED ROOT.LEFT AND ROOT.RIGHT  NULL VALUES FOR SWAPPING  EG:CONSIDER [1,2,null])
+                                                                                              DFSPrePostInOrderDoubleI,DFSPrePostInOrderDobleII               (DONT DO NULL CHECK BECAUSE YOU NEED ROOT.LEFT AND ROOT.RIGHT  NULL VALUES FOR ASSIGNING EG:CONSIDER [1,2,null])
+                                                                                              binaryTreeFlattenToLLI,binaryTreeFlattenToLLII  (DONT DO NULL CHECK BECAUSE ROOT.LEFT AND ROOT.RIGHT ARE REQUIRED AS WE  ASSIGNING THEM VAUES EVEN IF THEY ARE NULL EG: CONSIDER[1,2,null,5,6] )
+                                                                                              DFSPrePostInOrderConectI,DFSPrePostInOrderConectII              (HANDLE EACH CASE SEPERATELY  DUE TO CONSTRAINTS OF QUESTION )
+                                                                                              EG(||) 
+                                                                                              DFSLeafToLeaf,DFSLeafToLeafkaSabSums
+                                                                                           
+                                        if(n1 == null && n2 == null){}                     -- n1 n2 neither of them can be null(NULL WHILE COMING DOWN ONLY NOT WHILE GOING UP AS YOU USE N1,N2 IN RECURSIVE CALL)
+                                        if(n1 == null || n2 == null){}                        n1,n2  being null yeild a different result ; either being null yeild a different result 
+                                        OR                                                    EG : 
+                                        if(n1 == null){}                                      DFSPrePostInOrderSymmetricI,DFSPrePostInOrderSymmetricII     
+                                        if(n2 == null){}                                      DFSPrePostInOrderAreEqualTreesI,DFSTPrePostOrderAreEqualTreesII      
+                                                                                              DFSPrePostInOrderMergeTreesI,DFSPrePostInOrderMergeTreesII
 
                                         */
 
@@ -4172,7 +4167,7 @@ rs=1              rs=0     rs=1
 
     //RECURSION IP -OP TREE
     /*
-    public void DFSLevelOrderAreCousins           (Node root,Node previousNode,int level, int n1 ,int n2 )
+    public void DFSLevelOrderAreCousins(Node root,Node previousNode,int level, int n1 ,int n2 )
 
                                                                             --while going top-bottom  
         if(root==null) {return;}                                               return at null and start moving up 
@@ -4186,25 +4181,28 @@ rs=1              rs=0     rs=1
             levelOfNode2 = level;        //levelOfNode2 is global variable
             if(previousNode!=null) parentOfNode2 = previousNode;  //parentOfNode2 is global variable
         }
-
-        //OVERLOAD
-        public boolean DFSLevelOrderAreCousins(TreeNode root, int n1 int n2) {
-            int levelOfNode1 = 0;
-            int levelOfNode2 = 0;
-            Node parentOfNode1 = 0;
-            Node parentOfNode2 = 0;
-            DFSLevelOrderAreCousins(root,root,0,n1,n2);
-            return depthOfNode1 == depthOfNode2 && parentOfNode1 != parentOfNode2;
-            
-        }
-
+        
         DFSLevelOrderAreCousins(root.left,root,level+1,n1,n2);       -- while going left-right(ie goint top-bottom) 
         DFSLevelOrderAreCousins(root.right,root,level+1,n1,n2);         ''' same as level order
-                                                                    store previousNode(allows duplicate node in BT)/previosNode value(allows only unique BT values) then previousNode will be available with us               
-        Time :O(n) if it is balanced tree  as we traverse all nodes in tree
-                :O(n)  if it is unbalanced completely left/right skewed tree  as we traverse all nodes in tree
-        Space:O(h) = O(log n) if it is balanced tree  as we traverse entire height 
-                :O(h) = O(n) if it is unbalanced completely left/right skewed tree   as we traverse entire height
+                                                                        store previousNode(allows duplicate node in BT)/previosNode value(allows only unique BT values) then previousNode will be available with us               
+
+    }
+
+    //OVERLOAD
+    int levelOfNode1 = 0;
+    int levelOfNode2 = 0;
+    Node parentOfNode1 = 0;
+    Node parentOfNode2 = 0;
+    public boolean DFSLevelOrderAreCousins(TreeNode root, int n1 int n2) {
+        DFSLevelOrderAreCousins(root,root,0,n1,n2);
+        return depthOfNode1 == depthOfNode2 && parentOfNode1 != parentOfNode2;
+        
+    }
+
+    Time :O(n) if it is balanced tree  as we traverse all nodes in tree
+            :O(n)  if it is unbalanced completely left/right skewed tree  as we traverse all nodes in tree
+    Space:O(h) = O(log n) if it is balanced tree  as we traverse entire height 
+            :O(h) = O(n) if it is unbalanced completely left/right skewed tree   as we traverse entire height
     */
 
 

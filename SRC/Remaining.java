@@ -580,7 +580,7 @@ rotateRightByKNodes -- https://leetcode.com/problems/rotate-list/
 
 //REORDER
 reorderEvenOddNodes   -- https://leetcode.com/problems/odd-even-linked-list/
-reorderFirstLastISecondSecondLastNodes -- https://leetcode.com/problems/reorder-list/
+reorderFirstLastSecondSecondLastNodes -- https://leetcode.com/problems/reorder-list/
 //COPY
 copyRandomPtrLL  -- https://leetcode.com/problems/copy-list-with-random-pointer/
 

@@ -1696,7 +1696,7 @@ public class Linkedlist_UsingNode {
             
             
     }
-    public Node     reorderFirstLastISecondSecondLastNodes(Node head){
+    public Node     reorderFirstLastSecondSecondLastNodes(Node head){
         /*
         1--2--3--4--5  --reorder the LL such that L1 connects to Ln L2 connects to Ln-1 and so on 
 

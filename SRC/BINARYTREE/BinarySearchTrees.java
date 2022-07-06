@@ -10,16 +10,15 @@ SAME AS BT
 */
 
 
-//BST CODING
+//BST CODING(In examples fnNameI and fnNameII means in the fn you will see 2 methods I is with no ret type and II is with ret type)
 /*
-//NOTE: In examples fnNameI and fnNameII means in the fn you will see 2 methods I is with no ret type and II is with ret type
 SAME AS BT 
 +
 LEFTNODE <(! <=)ROOTNODE <(! <=) RIGHTNODE
-left subtree < right subtree                                                                 EG:DFSPrePosttInOrderContains,II(BST);DFSPrePosttInOrderInsertI,II(BT)); 
-left subtree < right subtree  so ancestor will be at splitting point                             DFSPrePostInOrderLowestComonAncestorI,II(BST) 
-left-right;bottom-top(top middle me ie inorder) will give nodes in purely ascending order     EG:DFSPrePosttInOrderkthMinNodeI,II(BST); DFSPrePosttInOrderkthMaxNodeI,II(BST); DFSPrePosttInOrderIsBSTI,II(BT)); 
-right-left;bottom-top(top middle me ie inorder) will give nodes in purely descending order       
+left subtree < right subtree                                                                  EG:DFSPrePosttInOrderContains,II(BST);DFSPrePosttInOrderInsertI,II(BT)); 
+left subtree < right subtree  so ancestor will be at splitting point                          EG:DFSPrePostInOrderLowestComonAncestorI,II(BST) 
+bottom-top,left-right(inorder) will give nodes in strictly ascending order                    EG:DFSPrePosttInOrderkthMinNodeI,II(BST); DFSPrePosttInOrderkthMaxNodeI,II(BST); DFSPrePosttInOrderIsBSTI,II(BT)); 
+bottom-top;right-left(inorder) will give nodes in strictly descending order       
 leftmost Node is purely min                                                                   EG: DFSPrePosttInOrderMinNodeI,II(BST); DFSPrePosttInOrderMaxNodeI,II(BT) 
 rightmost node is purely max                                                                     
 min difference nodes will be together                                                         EG:DFSAnyToAnyPathDifferenceOfNodesMin
@@ -33,11 +32,10 @@ leftmost Node is  min
 rightmost node is  max
 min difference nodes will be together 
 max difference nodes will be extreme left and extreme right
-
 +
-Duplicate Nodes will be together                                                             EG:DFSPrePosttInOrderModesI,II(BST);                                                                 
+Duplicate Nodes will be together                                                              EG:DFSPrePosttInOrderModesI,II(BST);                                                                 
         
-NOTE:DIFFERENCES IN TIME,SPACE COMPLEXITRIES CAUSED BY THESE PROPERTIES EXPLAINED IN RECURSION OF EACH METHOD 
+
 */
 
 

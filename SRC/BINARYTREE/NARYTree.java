@@ -25,9 +25,9 @@ EACH NODE HAS N CHILDREN;
 /*
 SAME AS BT 
 +
-for(var Node : root.children){  OR for(int i=0 ; i < root.children.size();i++){ -->--while going left-right
-    fn(Node)                           fn(root.children.get(i));                     while going left-right  through children
-}                                                                                    [For every iteration entire recursive tree is called]
+for(var Node : root.children){  OR for(int i=0 ; i < root.children.size();i++){ -->while going left-right
+    fn(Node)                           fn(root.children.get(i));                   while going left-right  through children
+}                                                                                  [For every iteration entire recursive tree is called]
 return max(c1,c2,c3...cn) +1   -->max(l,r) + 1 ke badle  
                                  int max = 0                 -->INITIALISE MAX , MIN TO 0 NOT Integer.MAX_VALUE/Integer.MIN_VALUE bBECAUSE IN END YOU ARE USINFG THIS MAX VALUE FOR MAX + 1
                                  for(){max(c1,c2...cn)}         EG:DFSPrePostOrderMaxNoOfNodeII

@@ -16,13 +16,13 @@ SAME AS BT
 +
 LEFTNODE <(! <=)ROOTNODE <(! <=) RIGHTNODE
 SAME AS BST 
-
++
 COMPLETE TREE
 MaxNoOfNode  = MaxNoOfNodesOnLeftMostTree                                           EG DFSPrePostInOrderMaxNoOfNodeI,DFSPrePostInOrderMaxNoOfNodeII
 NoOfNodes    =  2 ^leftHeight+1(for a node below which we have perfect bin tree)    EG DFSPrePostInOrderNoOfNodeI,DFSPrePostInOrderNoOfNodeII
               = left + right +1 for a node below which we have complete tree) 
 
-NOTE:DIFFERENCES IN TIME,SPACE COMPLEXITRIES CAUSED BY THESE PROPERTIES EXPLAINED IN RECURSION OF EACH METHOD 
+
 
 */
 

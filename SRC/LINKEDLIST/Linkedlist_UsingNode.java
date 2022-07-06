@@ -87,10 +87,6 @@ compare2LLForIntersectingNode()[ ptr1!=ptr2 ]; linkedListisPallindrome()
 
 
 
-
-
-
-
 public class Linkedlist_UsingNode {
 
 
@@ -2813,10 +2809,79 @@ public class Linkedlist_UsingNode {
         
         //USING OR(MODIFICATION OF AND)
         /*
+        1x^3--3x^2---2x^1--1x^0      
+        3x^2--2x^1   
+        dN              -initialise ptr1 , ptr2 to head1,head2 , ptr3 to dummyNode
+                         ptr1Pow   = (ptr1 != null)? ptr1.pow:0;
+                         ptr1Coeff = (ptr1 != null)? ptr1.coeff:0;
+                         ptr2Pow   = (ptr2 != null)? ptr2.pow:0;
+                         ptr2Coeff = (ptr2 != null)? ptr2.coeff:0;
+                         move ptr1 ptr2 till either null
+                            if ptr1Pow > ptr2Pow
+                               connect ptr3 ka next to new node(ptr1Coeff,ptr1Pow) ; move ptr3 ahead
+                               move ptr1 ahead if not null else stay there
+                            else if ptr2Pow > ptr1Pow
+                               connect ptr3 ka next to new node(ptr2Coeff,ptr2Pow) ; move ptr3 ahead
+                               move ptr2 ahead if not null else stay there
+                            else if ptr1Pow == ptr2Pow
+                            |   connect ptr3 ka next to new node(ptr1Coeff + ptr2Coeff,ptr1Pow) ; move ptr3 ahead
+                            |   move ptr1 ahead if not null else stay there
+                            |   move ptr2 ahead if not null else stay there
+                            |
+                            else if because ptr modifies inside if else
+                            and ptr1 ,ptr2 used as conditiom 
+
+                        return head                //null check for modifying single node/1st node ; null check for attachment
+                                                    
+                        //NULL CHECK FOR HEAD:4 combinations       
          
          */
         /*
-         
+        //NULL CHECK FOR HEAD
+        if(head1 == null && head2 == null){return null;}
+        if(head1 != null && head2 == null){return head1;}
+        if(head1 == null && head2 != null){return head2;}
+        if(head1 != null && head2 != null){}//do nothing
+
+        
+        Node ptr1 = head1;
+        Node ptr2 = head2;
+        Node dummyNode = new Node(-1,-1); 
+        Node ptr3 = dummyNode;
+        while(ptr1!= null || ptr2 != null){
+            int ptr1Pow   = (ptr1 != null)? ptr1.pow:0;
+            int ptr1Coeff = (ptr1 != null)? ptr1.coeff:0;
+            int ptr2Pow   = (ptr2 != null)? ptr2.pow:0;
+            int ptr2Coeff = (ptr2 != null)? ptr2.coeff:0;
+            
+            if(ptr1Pow> ptr2Pow){
+               ptr3.next = new Node(ptr1Coeff,ptr1Pow); 
+               ptr3 = ptr3.next;
+               
+               ptr1 = (ptr1 != null)? ptr1.next:ptr1;
+            }
+            else if(ptr2Pow> ptr1Pow){
+                ptr3.next = new Node(ptr2Coeff,ptr2Pow);
+                ptr3 = ptr3.next;
+                
+                ptr2 = (ptr2 != null)? ptr2.next:ptr2;
+            }
+            else if(ptr1Pow== ptr2Pow){
+                ptr3.next = new Node(ptr1Coeff+ ptr2Coeff,ptr1Pow);
+                ptr3 = ptr3.next;
+                
+                ptr1 = (ptr1 != null)? ptr1.next:ptr1;
+                ptr2 = (ptr2 != null)? ptr2.next:ptr2;
+            }
+            
+        }
+
+        
+        
+        Node head3 = dummyNode.next;                     //null check for modifying single node/1st node ;
+        dummyNode.next = null;                           // null check for attachment
+        return head3;
+    
          */
 
 

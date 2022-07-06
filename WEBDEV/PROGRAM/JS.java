@@ -1694,7 +1694,6 @@ FOR –IN
 for(let i  in  arr , obj ){}  --> i =  index of array ,key(iterate over  both instance ; prototype member whose enumerate = true) of obj
 
 
-
 FOR-OF
 for(let i of arr , Object.keys(obj)  ,Object.entries(obj) ){ }--> i = value of array , key of object ,[“key” , value] of object 
 

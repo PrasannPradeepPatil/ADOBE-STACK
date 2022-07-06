@@ -7,6 +7,6 @@ import posts from './posts';
 
 //COMBINERS
 /*
-export const reducers = combineReducers({ posts });--update the state in reduxStore(posts) to newState returned by action(posts)
+export const reducers = combineReducers({  posts:posts });--update the state in reduxStore(posts) to newState returned by action(posts)
  */
 export const reducers = combineReducers({ posts:posts });

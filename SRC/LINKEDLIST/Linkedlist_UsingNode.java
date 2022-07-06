@@ -25,9 +25,6 @@ v|n,p --> v|n,p ----->v|n,p  -->last node has link to head node
     */
 
 //LINKEDLIST CODING CONCEPTS
-/* #region Main */
-
-//PTR AND NULL CHECK(ALWAYS REMEMBER RO RETURN IN NULL CHECKS SO THAT CODE AFTER IT IS NOT ENCOUNTERED) 
 /*
 //NULL CHECK BEFORE WHILE LOOP 
 if(head == null){return something }
@@ -46,132 +43,53 @@ Node nextptrtemp = null
                                                                 
                                                                                                                                                                                                                                                
 //MOVING FWD                                                            
-while(ptr!=null ; ptr.next!= null ; ptr!=null && p.next!= null ; ptr != null && count <=(k)-1/(K+1)-1){     
+while(ptr!=null ; ptr.next!= null ;ptr.next != head; ptr!=null && p.next!= null ; ptr != null && count <=(k)-1/(K+1)-1;ptr1 != null && ptr2 != null; ptr1 != null || ptr2 != null){     
                                 CODE BEFORE MOVING PTR
-                                ptr encounters till lastNode ;2nd lastNode;2nd lastNode(For even) and 3rd lastNode(For odd);k-1 /k th node;
+                                ptr encounters till lastNode ;2nd lastNode;2nd Lsst Node(For circular LL);2nd lastNode(For even) and 3rd lastNode(For odd);k-1 /k th node;ptr1 ptr2 at lastNode of smaller LL(For 2 LL); ptr1 ptr2 can reach null so null check here itself(For 2 LL modified version of and)
 
                                 CODE AT PTR
-    prevptr  = ptr              ptr  enc till null ; lastNode; null(For even) and lastNode(For odd);  k/k+1 the Node      EG:removeK1IntervalK2Nodes();reverseUptoKthNode(); reverseBetweenK1K2Node() -- k+1
+    prevptr  = ptr              ptr  enc till null;lastNode;lastNode(For circular LL);null(For even) and lastNode(For odd); k/k+1 th Node ;ptr1 ptr2 at null of smaller LL(For 2 LL) ;ptr1 ptr2 can reach null so null check here itself(For 2 LL modified version of and)       
     nextptrTemp = ptr.next       
     ptr = ptr.next/ptr.next.next;
     cnt++                            
 
                                 CODE AFTER MOVING PTR
-                                ptr  enc till null ; lastNode;null(For even) and lastNode(For odd);  k/k+1 the Node 
+                                ptr  enc till null ; lastNode;null(For even) and lastNode(For odd);k/k+1 the Node ;ptr1 ptr2 at null of smaller LL(For 2 LL) ;ptr1 ptr2 can reach null so null check here itself(For 2 LL modified version of and )        
 
 }
 
 //NULL CKECK AFTER WHILE LOOP
-while(ptr!=null){ptr = ptr.next}   
-if(ptr != null){ptr.next}  --null chek if(ptr == null) as ptr exits at null at end of while loop
+if(ptr != null);if(---);if(---);if(ptr== null) elseif(ptr.next == null) ;if(--); if(ptr1 != null) if(ptr2 != null) ; if(---)
+                                 --ptr exits while loop at null ; lastNode;lastNode(For circular LL);null(For even) and lastNode(For odd);k/k+1 th Node;null for smaller LL and not null for bigger(For 2 LL); null checked inside while loop(For 2 LL modified version of and )  
  
-while(ptr.next!=null){ptr = ptr.next} 
-ptr.next                  --null chek  not req  as ptr exits at lastNode at end of while loop
-
-while(ptr!=null && ptr.next!=null)    
-if(ptr == null){}         --null check for even nodes because ptr exits at null(FOR EVEN) and lastNode(FOR ODD)so you have to handle two results seperately
-else if(ptr.next==null)     EG:getMiddle(),loopExists() ,loopStartNode(), 
-                               reorderEvenOddNodes(),copyRandomPtrLL() usingNoHashMap[noOfNodes=even]
                                                 
 head = dummyNode.next;    //null check for modifying 1st/single node 
 dummyNode.next = null;    //null check for attachment
 return head;
 
+EG:
+even odd
+getMiddle(),loopExists() ,loopStartNode(), 
+reorderEvenOddNodes(),copyRandomPtrLL() usingNoHashMap[noOfNodes=even]
 
-*/
+circular LL
+addInCircularSorted()
 
-//PTR AND NULL CHECK FOR CIRCULAR LL(ALWAYS REMEMBER RO RETURN IN NULL CHECKS SO THAT CODE AFTER IT IS NOT ENCOUNTERED)  
-/*
+k
+EG:removeK1IntervalK2Nodes();reverseUptoKthNode(); reverseBetweenK1K2Node() 
 
-
-//NULL CHECK FOR HEAD
-same as above
-//NULL CHECK FOR K
-same as above
-
-//INITIALISING
-Same as aboive
-
-//MOVING FWD   
-while(ptr.next != head){    
-                                    //NULL CHECK IN WHILE LOOP//
-                                    SAME AS ABOVE+null check  not req as ptr,prevptr,nextptrTemp can never be null as they are in loop
-                                        
-
-
-                                    CODE BEFORE
-                                    ptr encounter till 2nd last node                            
- 
-    prevptr = ptr;
-    nextptrTemp = ptr.next         MOVE FWD(IN ACCORDANCE TO WHILE LOOP CONDITION)
-    ptr = ptr.nextk                ptr move and without encountering exit(if no code after)  at last node
-                              
-                                   CODE AFTER
-                                   ptr encounter and  exit  at last node
-}
-
-                                   //NULL CHECK AFTER WHILE LOOP//
-                                    SAME AS ABOVE+null check  not req as ptr,prevptr,nextptrTemp can never be null as they are in loop
-                                    +
-                                    null check if(condition for modifying1stNode){} before while loop; because ypu have to rearrange the incoming loop at 1st node also
-                                    null check if(condition for modifyingLastNode){} after while loop; because  you dont encounter the last node
-
-                                   
-EG : addInCircularLL()
-
-
-
-
-
-*/
-
-//PTR AND NULL CHECK FOR 2 LL(ALWAYS REMEMBER RO RETURN IN NULL CHECKS SO THAT CODE AFTER IT IS NOT ENCOUNTERED)  
-/*
-
-//NULL CHECK FOR HEAD
-4 combiations
-//NULL CHECK FOR K
-same as above
-
-//INITIALISING
-Same as aboive
-
-                
-//MOVING FWD   
-while(ptr1 != null && ptr2 != null){    
-                                    //NULL CHECK IN WHILE LOOP//
-                                    SAME AS ABOVE 
-
-                                    CODE BEFORE
-                                    ptr1 encounter till last node,pt2 encounter till equivalent node  [ LL1 is smaller ,LL2 is smaller vice versa]                              
-         
-
-
-    pt1 = ; ptr2 =  ;ptr3 =         MOVE FWD(IN ACCORDANCE TO WHILE LOOP CONDITION)
-                                    ptr1 move till null and exit without encountering null ,ptr2 move till equivalent node and exit without encountering equivalent node [LL1 is smaller,,LL2 is smaller vice versa]] 
-                                    
-                              
-                                    CODE AFTER
-                                    ptr1 encounter and exit at null ,ptr2 encounter at exit at equivalent node[LL1 is smaller,LL2 is smaller vice versa]]
-
-
-                                    //NULL CHECK AFTER WHILE LOOP//
-                                    SAME AS ABOVE 
-                                    +
-                                    null check if(ptr1!=null){}  for smaller LL2
-                                    null check if(ptr2 !=null){} for smaller LL1
-                                  
-            
-                                  
-EG : compare2LLForAddition() ,compare2LLForAdditionOfPolynomial(), compare2LLSortedForMerging(),compare2LLForIntersectingNode()[ ptr1!=ptr2 ]; linkedListisPallindrome()
-
-
+2 LL
+compare2LLForAddition() ,compare2LLForAdditionOfPolynomial(), compare2LLSortedForMerging(),
+compare2LLForIntersectingNode()[ ptr1!=ptr2 ]; linkedListisPallindrome()
 
 */
 
 
 
-/* #endregion */
+
+
+
+
 
 public class Linkedlist_UsingNode {
 
@@ -2588,7 +2506,7 @@ public class Linkedlist_UsingNode {
 
         */
 
-        
+        //USING AND
         /*
         9--9--9--9--9--n 
         9--9--n
@@ -2634,9 +2552,7 @@ public class Linkedlist_UsingNode {
        
                          
         */
-
-        
-
+        /* 
         //NULL CHECK FOR HEAD
         if(head1 == null && head2 == null){return null;}
         if(head1 != null && head2 == null){return head1;}
@@ -2669,7 +2585,7 @@ public class Linkedlist_UsingNode {
             
             while(ptr1 != null){  
                 int operand1 = ptr1.val;
-                int operand2 = ptr2.val;
+                int operand2 =0;
                 int sum = operand1 + operand2 + carry;
                 carry = sum /10;
                 sum = sum %10;
@@ -2687,7 +2603,7 @@ public class Linkedlist_UsingNode {
         }
         if(ptr2 != null){          
             while(ptr2 != null){
-                int operand1 = ptr1.val;
+                int operand1 = 0;
                 int operand2 = ptr2.val;
                 int sum = operand1 + operand2 + carry;
                 carry = sum /10;
@@ -2711,7 +2627,77 @@ public class Linkedlist_UsingNode {
         Node head3= dummyNode.next;  //null check for modifying single node/1st node 
         dummyNode.next = null;       //null check for attachment
         return head3;
+        */
         
+        
+        //USING OR(MODIFICATION OF AND)
+        /*
+        9--9--9--9--9--n 
+        9--9--n
+        dN              -initialise ptr1 , ptr2 to head , ptr3 to dummyNode
+                         move ptr1 ptr2 till both either null
+                                int operand1 = (ptr1 != null)? ptr1.val:0;
+                                int operand2 = (ptr2 != null)? ptr2.val:0;
+                                int sum = operand1 + operand2 + carry;
+                                carry = sum /10;   -->calculate carry before sum  becaused sum is reassigned                        
+                                sum = sum %10;
+
+                                connect ptr3 ka next to sum ;move ptr3 ahead
+                                move ptr1 ahead if not null else stay there
+                                move ptr2 ahead if not null else stay there
+                        
+
+                        if(carry != 0){                  -->TAKE INTO ACCOUNT THE CARRY LEFT AFTER LAST ADDITIONM
+                            connect ptr3 ka next to carry}      
+
+                        return head               //null check for modifying single node/1st node ; null check for attachment
+                                                    
+                        //NULL CHECK FOR HEAD:4 combinations     
+         */
+        /* 
+        if(head1 == null && head2 == null){return null;}
+        if(head1 != null && head2 == null){return head1;}
+        if(head1 == null && head2 != null){return head2;}
+        if(head1 != null && head2 != null){}//do nothing
+
+        Node ptr1 = head1;
+        Node ptr2 = head2;
+        Node dummyNode = new Node(-1);
+        Node ptr3 = dummyNode;
+     
+
+        int carry= 0; 
+        while(ptr1 != null || ptr2 != null){
+            int operand1 = (ptr1 != null)? ptr1.val:0;
+            int operand2 = (ptr2 != null)? ptr2.val:0;
+            int sum = operand1 + operand2 + carry;
+            carry = sum /10;
+            sum = sum %10;
+        
+            
+            ptr3.next  = new Node(sum);
+            ptr3 = ptr3.next;
+            
+            ptr1 =(ptr1 != null)? ptr1.next:ptr1;
+            ptr2 =(ptr2 != null)? ptr2.next:ptr2;     
+        }
+        
+
+        
+        if(carry !=0){              
+            ptr3.next = new Node(carry);
+            ptr3 = ptr3.next;
+        }
+        
+        
+        Node head3= dummyNode.next;  //null check for modifying single node/1st node 
+        dummyNode.next = null;       //null check for attachment
+        return head3;
+        */
+
+
+        return null;
+
         
         
     }
@@ -2725,7 +2711,7 @@ public class Linkedlist_UsingNode {
 
         */
 
-        
+        //USING AND
         /*
         1x^3--3x^2---2x^1--1x^0      
         3x^2--2x^1   
@@ -2761,10 +2747,8 @@ public class Linkedlist_UsingNode {
        
                          
         */
-
-        
-
-        //NULL CHECK FOR HEAD
+        /*         
+              //NULL CHECK FOR HEAD
         if(head1 == null && head2 == null){return null;}
         if(head1 != null && head2 == null){return head1;}
         if(head1 == null && head2 != null){return head2;}
@@ -2773,37 +2757,34 @@ public class Linkedlist_UsingNode {
         
         Node ptr1 = head1;
         Node ptr2 = head2;
-        Node dummyNode = new Node(-1); // Node dummyNode = new Node(-1,-1);
+        Node dummyNode = new Node(-1,-1); 
         Node ptr3 = dummyNode;
         while(ptr1!= null && ptr2 != null){
             
-            //if(ptr1.pow > ptr2.pow){
-               //ptr3.next = new Node(ptr1.coeff,ptr1.pow); 
+            if(ptr1.pow > ptr2.pow){
+               ptr3.next = new Node(ptr1.coeff,ptr1.pow); 
                ptr3 = ptr3.next;
                
                ptr1 = ptr1.next;
-            //}
-            //else if(ptr2.pow > ptr1.pow){
-                //ptr3.next = new Node(ptr2.coeff,ptr2.pow);
+            }
+            else if(ptr2.pow > ptr1.pow){
+                ptr3.next = new Node(ptr2.coeff,ptr2.pow);
                 ptr3 = ptr3.next;
                 
                 ptr2 = ptr2.next;
-            //}
-            //else if(ptr1.pow == ptr2.pow){
-                //ptr3.next = new Node(ptr1.coeff+ ptr2.coeff,ptr1.pow);
+            }
+            else if(ptr1.pow == ptr2.pow){
+                ptr3.next = new Node(ptr1.coeff+ ptr2.coeff,ptr1.pow);
                 ptr3 = ptr3.next;
                 
                 ptr1 = ptr1.next;
                 ptr2 = ptr2.next;
-            //}
-            
+            }
             
         }
-        
-        
-        if(ptr1!=null){                                    //null check if(ptr1!=null){}  for smaller LL2
+        if(ptr1!=null){                                   
             while(ptr1 != null){
-                //ptr3.next = new Node(ptr1.coeff,ptr1.pow); 
+                ptr3.next = new Node(ptr1.coeff,ptr1.pow); 
                 ptr3 = ptr3.next;
                 
                 ptr1 = ptr1.next;
@@ -2811,9 +2792,9 @@ public class Linkedlist_UsingNode {
             
             
         }
-        if(ptr2!=null){                                   //null check if(ptr1!=null){}  for smaller LL1
+        if(ptr2!=null){                                 
             while(ptr2 != null){
-                //ptr3.next = new Nodee(ptr2.coeff,ptr2.pow); 
+                ptr3.next = new Node(ptr2.coeff,ptr2.pow); 
                 ptr3 = ptr3.next;
                 
                 ptr2 = ptr2.next;
@@ -2828,7 +2809,18 @@ public class Linkedlist_UsingNode {
         return head3;
     
     
+    */
         
+        //USING OR(MODIFICATION OF AND)
+        /*
+         
+         */
+        /*
+         
+         */
+
+
+        return null;
         
         
     }
@@ -3003,21 +2995,13 @@ public class Linkedlist_UsingNode {
           
         Node ptr1 = head1;
         Node ptr2 = head2;
-        while(ptr1 != ptr2){
-                                                            
+        while(ptr1 != ptr2){                                               
             ptr1 = (ptr1 != null) ? ptr1.next: head2;      //move ptr1 ptr acc to condition till ptr1!=ptr2      
             ptr2 = (ptr2 != null) ? ptr2.next: head1;
           }   
           
   
-        return ptr1;                                    
-  
-          
-          
-          
-          
-          
-          
+        return ptr1;                                      
       }
     public Node     matrixLLCompareRowForMerging(Node[] arr){
          /*

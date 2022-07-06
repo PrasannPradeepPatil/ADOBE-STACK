@@ -57,46 +57,32 @@ Binary AVL Tree           =Each node has max 2 children;lefnode <(! <=)rootnode 
 
 */
 
-//BINARY TREE CODING 
+//BINARY TREE CODING(In examples fnNameI and fnNameII means in the fn you will see 2 methods I is with no ret type and II is with ret type)
 /* #region Main */
 
-//NOTE: In examples fnNameI and fnNameII means in the fn you will see 2 methods I is with no ret type and II is with ret type
+
 
 /*
-//RECURSIVE PATH        
-      n1           --> Recursive path left-right  :n1 d,n2 d,n4 d,n4 u,n5 d,n5 u,n2,n3 d,n6 d,n6 u,n7 d,n7 u,n3 u, n1 u
-     /    \                            top-bottom :n1,n2,n4,n5,n3,n6,n7
-    /      \                           bottom-top :n4,n5,n2,n6,n7,n3,n1
-   n2       n3                         bottom-top(top in middle):n4,n2,n5,n1,n6,n3,n7 
-   / \      / \        Recursive path right-left  :n1 d,n3 d,n7 d,n7 u,n6 d,n6 u,n3 u,n2 d,n5 d,n5 u,n4 d ,n4 u,n2 u , n1 u
-  /   \     /   \                      top-bottom : n1,n3,n7,n6,n2,n5,n4 
- n4     n5  n6    n7                   bottom-top :n7,n6,n3,n5,n4,n4,n1
-                                       bottom-top(top in middle):n7,n3,n6,n1,n5,n2,n4
-                                
-                                      *d = wile coming down
-                                       u = while going up
-
-
+  
 //VOID RECURSIVE                                           
 public void sumOfNodes(Node root){
                                      while going top-bottom                                                                      
 if(root == null){return;}            return start moving up                                          
 pathSize = pathSize +root.val;       Do something with nodes                                               //NULL CHECK                                                         
-                                                                                                          //CHANGES TO ARG(IMMUTABLE,MUTABLE(res,arg))   (LEVEL,PREVIOUSNODE)
-sumOfNodes(root.left,level+1);      while going left-right/right-left(while going down itself)             |
-sumOfNodes(root.right,level+1);                                                                            |                                 
-                                    while going bottom-up                                                LOOK AT BOTTOM
+                                                                                                          //CHANGES TO ARG(IMMUTABLE,MUTABLE ,LEVEL,PREVIOUSNODE)--LOOK AT BOTTOM
+sumOfNodes(root.left,level+1);      while going left-right/right-left(while going down itself)             
+sumOfNodes(root.right,level+1);                                                                                                             
+                                    while going bottom-up                                                
 pathSize = pathSize +root.val       Do something with nodes                                                     
  
                                   
                                             
 //RETURN RECURSIVE(YOU WANT TO STORE WALUE WHILE GOING TOP-DOWN OR BOTTOM-TOP)
-(
-    CONSIDER NO OF NODES                                         PRIME  EXAMPLES
-                     7 l=3;r=3                                   DFSPrePostInOrderLowestCommonAncestorII       (RETURN BOOLEAN ,HOLD INTEGER)
-         3      /          \  3                                  DFSPrePostInOrderLowestCommonAncestorII(BST)  (FN IS BROKEN , LINE AFTER Fn IS WHILE COMING BOTTOM-TOP) 
-               /            \                                    DFSPrePostInOrderINsertII(BST)                (FN IS BROKEN , LINE AFTER Fn IS WHILE COMING BOTTOM-TOP) 
-    l=1;r=1  4                1   l=1,r=1                        DFSPrePostInOrderMergeII 
+    CONSIDER NO OF NODES                                     
+                     7 l=3;r=3                                   
+         3      /          \  3                                  
+               /            \                                   
+    l=1;r=1  4                1   l=1,r=1                    
              /  \          /    \  
          1  /    \ 1    1 /      \  1    --return left + right+1
            /      \      /        \
@@ -105,210 +91,193 @@ pathSize = pathSize +root.val       Do something with nodes
        0/  \ 0  0/  \0  0/  \0  0/  \0   -- return 0
         n  n    n    n   n  n    n  n
 
-)
 public int  sumOfNodes(Node root){      
                                         while going top-down                           
-if(root == null){return 0; }            return(start moving up) and pass value to node above  
-pathSize = pathSize +root.val;           Do something with nodes
+if(root == null){return 0; }            return val to node above and  start moving up 
+pathSize = pathSize +root.val;          Do something with nodes
                                                                
-                                     
-                                       while going left-right/right-left(while going down itself)   
-int left = sumOfNodes(root.left)       left,right holds val coming from leftSubtree, rightSubtree  based on what we return while going top-bottom,bottom-top                                                       
-int right = sumOfNodes(root.right);                                                                                     
-          |
-         Fn is broken then
-         Line after the fn call is 
-         while coming bottom-top
-         EG: DFSPrePostInOrderLowestCommonAncestorII(BST)
-             DFSPrePostInOrderInsertII(BST)
+                                                                                                    //NULL CHECK                                                         
+                                       while going left-right/right-left(while going down itself)  //CHANGES TO ARG(IMMUTABLE,MUTABLE ,LEVEL,PREVIOUSNODE)--LOOK AT BOTTOM  
+int left = sumOfNodes(root.left)       left,right holds val coming from leftSubtree                                                 
+int right = sumOfNodes(root.right);    rightSubtree  based on what we return while going top-bottom,bottom-top                                                                                     
+
 
                 
-                                      
                                         while going bottom-up 
  pathSize = pathSize +root.val;         Do something with nodes(L,R VALUES ARE AVAILAVLE) 
- return left + right + root.val;        return(store in temp and later return temp EG AnyToAny LeafToLeaf) and  pass value to node above(L,R VALUES ARE AVAILAVLE) 
+ return left + right + root.val;        return val to node above(L,R VALUES ARE AVAILAVLE) 
   
-           |
-        Arithmetic exp cannot be broken                     
-        Boolean exp can be broken                             
-        l||r||node seperate node by returning true     
-        l && r && node seperate node by returning false 
-        EG:DFSPrePostInOrder ke II   examples  
-                                      
+
                     
 
 */                                       
-//                                                            |                         
-//                                                            | 
-//                                                            |                                       
+//                                       |                                                             
 
-                                                        //CHANGES TO ARG
-                                                        /*
-                                                        //IMMUTABLE                                        
-                                                        int pathSum  = 0;                                                       -->Immutable arg that are result  are declared globally and recursive fn works on them;                            
-                                                        public void main(){      
-                                                            int level = 0;                         
-                                                            recursiveFn1(root,level);  
+                                        //CHANGES TO ARG
+                                        /*
+                                        //IMMUTABLE                                        
+                                        int pathSum  = 0;                                   
+                                        public void main(){      
+                                            int level = 0;                         
+                                            recursiveFn1(root,level);
+                                            return parhSum;
+                                        }  
 
-                                                        public void recursiveFn1(Node root, int level){             
-                                                            pathSum = pathSUm + root.val;
+                                        public void recursiveFn1(Node root, int level){             
+                                            pathSum = pathSUm + root.val;                  -->Immutable arg that are result  are declared globally and recursive fn works on them;                            
 
-                                                            recursiveFn1(root.left,level+1)                                       -->Immutable arg that change while going left-right/right-  left are given to recursive fn       
-                                                            recursiveFn1(root.right,level+1)     
+                                            recursiveFn1(root.left,level+1)                 -->Immutable arg that change while going left-right/right-  left are given to recursive fn       
+                                            recursiveFn1(root.right,level+1)     
 
-                                                        //MUTABLE
-                                                        public void main(){                     
-                                                        List<List<Ineger>> nodes = new ArrayList<>();                            -->Mutale arg that are result  are declared and given to recursive fn arg and recursive fn works on them                             
-                                                        List<Ineger> path = new ArrayList<>();
-                                                        recursiveFn1(root,nodes,path);  
+                                        //MUTABLE
+                                        public void main(){                     
+                                            List<List<Ineger>> nodes = new ArrayList<>();                                  
+                                            List<Ineger> path = new ArrayList<>();
+                                            recursiveFn1(root,nodes,path);  
+                                            return list
+                                        }
 
 
-                                                        public void RecursiveFn (Node root, List<List<Integer>> nodes ,List<Integer> path , int val){
-                                                            if(root == null)
-                                                            return;
+                                        public void RecursiveFn (Node root, List<List<Integer>> nodes ,List<Integer> path , int val){
+                                            if(root == null)
+                                                return;
 
-                                                            path.add(root.val);                     
-                                                                                                    
-                                                            if(root.val == val){                          
-                                                            nodes.add(path);                                                       
-                                                            return;}                                                                                          
-                                                                        
-
-                                                            RecursiveFn(root.left ,nodes,new ArrayList<Integer>(path),val);        -->Mmutable arg that change while going left-right/right-left are given to recursive fns(nodes) 
-                                                            RecursiveFn(root.right,nodes,new ArrayList<Integer>(path),val);         AND MAKE "NEW OBJ" AND "RETURN WHEN YOU ADD PATH TO NODES" TO PREVENT CHANGING MADE TO OBJ  OBJ WHILE COMING UP 
-                                                                }                                             
-                                                                                                                                        3           Consider ypu want to find ancestor of 5 to upar ke code ke hisab se(new ArratList<> X)
-                                                                                                                                        / \         niche ate vakt [3]
-                                                                                                                                        5  1        niche ate vakt [3,5]     [[3,5]]
-                                                                                                                                        /\  /\      niche ate vakt [3,5,6]           --> agar new na hota to yaha node ban jata [[3,5,6]
-                                                                                                                                        6 2 0 8     upar ate vakt  [3,5]             -->agar 5 pe return karke kalti na marte to node ban jata [[3,5]] 
-                                                                                                                                                    niche ate vakt [3,5,2]           -->agar new na hota to node ban jata [[3,5,2]]
-                                                                                                                                                        upar ate vakt  []
+                                            path.add(root.val);                                           -->Mutale arg that are result  are declared and given to recursive fn arg and recursive fn works on them                                              
+                                                                                    
+                                            if(root.val == val){                          
+                                            nodes.add(path);                                                       
+                                            return;}                                                                                          
                                                         
-                                                        //LEVEL          
-                                                        public void methodName(Node root , int level){
-                                                        methodName(root.left ,level + 1);               -- while going left-right(top-bottom)                                      EWUIVALENT TO   
-                                                        methodName(root.left , level+1);                   while going top bottom you increase level from previous node           -------------> while coming top-bottom level + 1
-                                                                                                        while going bottom-top you already have have the level for that node                   while coming  bottom-top level-1
-                                                        
-                                                                                                            7   0
-                                                                                                            /  \
-                                                                                                            /    \  
-                                                                                                        1 8      9  1
-                                                                                                        / \    / \
-                                                                                                        /   \  /   \
-                                                                                                    10   11  12   13
-                                                                                                    2     2  2     2
-                                                                                                    EG:
-                                                                                                    DFSLevelOrder, BFSLevelOrder and its examples
-                                                                                                    DFSPPrePostOrderIsCompleteI, DFSPPrePostOrderIsCompleteII -->use long as node vals may be max and min of integers
-                                                                                                    DFSPrePostOrderWords(Trie)  --> BOTH EQUIVALENT PARTS DOE IN HYPOTHESISI , HYPOTHESISII
 
-                                                        //PREVIOUS NODE 
-                                                        PREVIOUS NODE FOR PREORDER                 
-                                                        public void methodName(Node root , Node/int previousNode){
+                                            RecursiveFn(root.left ,nodes,new Al<Integer>(path),val);        -->Mmutable arg that change while going left-right/right-left are given to recursive fns(nodes) 
+                                            RecursiveFn(root.right,nodes,new al<Integer>(path),val);         AND MAKE "NEW OBJ" AND "RETURN WHEN YOU ADD PATH TO NODES" TO PREVENT CHANGING MADE TO OBJ  OBJ WHILE COMING UP 
+                                        }                                             
+                                                                                                                        3           Consider ypu want to find ancestor of 5 to upar ke code ke hisab se(new ArratList<> X)
+                                                                                                                        / \         niche ate vakt [3]
+                                                                                                                        5  1        niche ate vakt [3,5]     [[3,5]]
+                                                                                                                        /\  /\      niche ate vakt [3,5,6]           --> agar new na hota to yaha node ban jata [[3,5,6]
+                                                                                                                        6 2 0 8     upar ate vakt  [3,5]             -->agar 5 pe return karke kalti na marte to node ban jata [[3,5]] 
+                                                                                                                                    niche ate vakt [3,5,2]           -->agar new na hota to node ban jata [[3,5,2]]
+                                                                                                                                        upar ate vakt  []
+                                        
+                                        //LEVEL          
+                                        public void methodName(Node root , int level){
+                                        methodName(root.left ,level + 1);  -- while going left-right(top-bottom) increase level from previous node                                    
+                                        methodName(root.left , level+1);                               
+                                                                            --while going bottom-top you already have have the level for that node                
+                                        
+                                                                                        7   0
+                                                                                            /  \
+                                                                                            /    \  
+                                                                                        1 8      9  1
+                                                                                            / \    / \
+                                                                                        /   \  /   \
+                                                                                    10   11  12   13
+                                                                                    2     2  2     2
+                                                                                    EG:
+                                                                                    DFSLevelOrder, BFSLevelOrder and its examples
+                                                                                    DFSPPrePostOrderIsCompleteI, DFSPPrePostOrderIsCompleteII -->use long as node vals may be max and min of integers
+                                                                                    DFSPrePostOrderWords(Trie)  --> BOTH EQUIVALENT PARTS DOE IN HYPOTHESISI , HYPOTHESISII
 
-                                                            if(previousNode!=null){//use prevNode here}
-                                                            if(previous=null){//check if this case is req as previous case might omt certain cases }  
-                                                            
-                                                            methodName(root.left , root/root.val);        -- While going left - right(ie going top-down)
-                                                            methodName(root.rigt, root/root.val)            store previousNode(we store Node itself so BT can have duplicates)/previosNode value(we store Node value itself so BT must have unique values)              
-                                                                                                            EG
-                                                                                                                7   0
-                                                                                                                /  \
-                                                                                                                /    \  
-                                                                                                            7 8      9  7  
-                                                                                                            / \    / \
-                                                                                                            /   \  /   \
-                                                                                                        10   11  12   13
-                                                                                                        8     8   9    9
-                                                                                                        EG: 
-                                                                                                        DFSPrPosteOrderOrderAreSiblingsI,DFSPrPosteOrderOrderAreSiblingsII -- using root.left , root.right dont use previous node for parenr
-                                                                                                        DFSLevelOrderAreCousins
-                                                                                                        DFSAnyToAnyPathsUnivalUnivalNoOfNodesMax
-                                                        PREVIOUS NODE FOR POSTORDER                                              
-                                                        private Node/int previousNode;
-                                                        public void methodName(Node root){
+                                        //PREVIOUS NODE 
+                                        PREVIOUS NODE FOR PREORDER                 
+                                        public void methodName(Node root , Node/int previousNode){
+                                            
+                                            if(previousNode!=null){//use prevNode here}
+                                            if(previous=null){//check if this case is req as previous case might omt certain cases }  
+                                            
+                                            methodName(root.left , root/root.val);        -- While going left - right(ie going top-down)
+                                            methodName(root.rigt, root/root.val)            store previousNode(we store Node itself so BT can have duplicates)/previosNode value(we store Node value itself so BT must have unique values)              
+                                        }                                                   EG
+                                                                                                7   0
+                                                                                                /  \
+                                                                                                /    \  
+                                                                                            7 8      9  7  
+                                                                                            / \    / \
+                                                                                            /   \  /   \
+                                                                                        10   11  12   13
+                                                                                        8     8   9    9
+                                                                                        EG: 
+                                                                                        DFSPrPosteOrderOrderAreSiblingsI,DFSPrPosteOrderOrderAreSiblingsII -- using root.left , root.right dont use previous node for parenr
+                                                                                        DFSLevelOrderAreCousins
+                                                                                        DFSAnyToAnyPathsUnivalUnivalNoOfNodesMax
+                                        PREVIOUS NODE FOR POSTORDER                                              
+                                        private Node/int previousNode;
+                                        public void methodName(Node root){
 
-                                                            methodName(root.left , root/root.val);      
-                                                            methodName(root.rigt, root/root.val)               
+                                            methodName(root.left , root/root.val);      
+                                            methodName(root.rigt, root/root.val)               
 
-                                                            if(previousNode!=null){//use prevNode here}
-                                                            if(previous=null){//check if this case is req as previous case might omt certain cases }      --While going  bottom-top
-                                                            previousNode =root/root.val                                                                   store previousNode(we store Node itself so BT can have duplicates)/previosNode value(we store Node value itself so BT must have unique values)
-                                                                                                                                    EG
-                                                                                                                                    7  9
-                                                                                                                                    /  \
-                                                                                                                                    /    \  
-                                                                                                                                11 8      9  13
-                                                                                                                                / \    / \
-                                                                                                                                /   \  /   \
-                                                                                                                            10     11  12   13
-                                                                                                                            null    10   8   12
-                                                                                                                            EG: 
-                                                                                                                            DFSPrePostInOrderFalattenToLLI(prev node not held); DFSPrePostInOrderFalattenToLLIM
-
-                                                                            
-                                                        PREVIOUS NODE FOR INORDER
-                                                        private Node/int previousNode
-                                                        public void methodName(Node root){
-                                                            methodName(root.left , root/root.val);     
-                                                            
-                                                            if(previousNode!=null){//use prevNode here}
-                                                            if(previous=null){//check if this case is req as previous case might omt certain cases }                                       
-                                                            previousNode =root/root.val                                      --While going  bottom-top(top middle wala ie inorder)
-                                                                                                                                store previousNode(we store Node itself so BT can have duplicates)/previosNode value(we store Node value itself so BT must have unique values)
-                                                                                                                                    EG
-                                                                                                                                    8  9
-                                                                                                                                    / \
-                                                                                                                                    /   \  
-                                                                                                                                10 8      9  12
-                                                                                                                                / \    / \
-                                                                                                                                /   \  /   \
-                                                                                                                            10     11  12   13
-                                                                                                                            null    8 null  9
-                                                                                                                            EG: 
-                                                                                                                            DFSPrePosttInOrderISBSTI,DFSPrePosttInOrderISBSTI
-                                                                                                                            DFSPrePosttInOrderModesI(BST),DFSPrePosttInOrderModesII(BST)
+                                            if(previousNode!=null){//use prevNode here}
+                                            if(previous=null){//check if this case is req as previous case might omt certain cases }      --While going  bottom-top
+                                            previousNode =root/root.val                                                                   store previousNode(we store Node itself so BT can have duplicates)/previosNode value(we store Node value itself so BT must have unique values)
+                                        }                                                                           EG
+                                                                                                                    7  9
+                                                                                                                    /  \
+                                                                                                                    /    \  
+                                                                                                                11 8      9  13
+                                                                                                                / \    / \
+                                                                                                                /   \  /   \
+                                                                                                            10     11  12   13
+                                                                                                            null    10   8   12
+                                                                                                            EG: 
+                                                                                                            DFSPrePostInOrderFalattenToLLI(prev node not held); DFSPrePostInOrderFalattenToLLIM
 
                                                             
+                                        PREVIOUS NODE FOR INORDER
+                                        private Node/int previousNode
+                                        public void methodName(Node root){
+                                            methodName(root.left , root/root.val);     
+                                            
+                                            if(previousNode!=null){//use prevNode here}
+                                            if(previous=null){//check if this case is req as previous case might omt certain cases }                                       
+                                            previousNode =root/root.val                                      --While going  bottom-top(top middle wala ie inorder)
+                                        }                                                                       store previousNode(we store Node itself so BT can have duplicates)/previosNode value(we store Node value itself so BT must have unique values)
+                                                                                                                    EG
+                                                                                                                    8  9
+                                                                                                                    / \
+                                                                                                                    /   \  
+                                                                                                                10 8      9  12
+                                                                                                                / \    / \
+                                                                                                                /   \  /   \
+                                                                                                            10     11  12   13
+                                                                                                            null    8 null  9
+                                                                                                            EG: 
+                                                                                                            DFSPrePosttInOrderISBSTI,DFSPrePosttInOrderISBSTI
+                                                                                                            DFSPrePosttInOrderModesI(BST),DFSPrePosttInOrderModesII(BST)
 
-                                                                methodName(root.rigt, root/root.val)           
+                                            
+
+                                        methodName(root.rigt, root/root.val)           
+                                            
+
                                                             
+                                        */                                               
 
-                                                                            
-                                                        */                                               
+                                        //NULL CHECK
+                                        /* 
+                                        root ==null                                         --root.left , root.right cant eb null inside recursive call ;root, root.val cant be null anywhere in fn 
 
-                                                        //NULL CHECK
-                                                        /* 
-                                                        root ==null                                         --root.left , root.right cant eb null inside recursive call ;root, root.val cant be null anywhere in fn 
+                                        if(root.left != null && root.right != null){}       --root.left , root.right  cant be null inside fn 
+                                                                                            EG 
+                                                                                            DFSPrePostInOrderAreSiblingsI,DFSPrePostInOrderAreSiblingsII
+                                                                                            DFSPrePostInOrderInvertI,DFSPrePostInOrderInvertII              (DONT DO NULL CHECK BECAUSE YOU NEED ROOT.LEFT AND ROOT.RIGHT  NULL VALUES FOR SWAPPING  EG:CONSIDER [1,2,null])
+                                                                                            DFSPrePostInOrderDoubleI,DFSPrePostInOrderDobleII               (DONT DO NULL CHECK BECAUSE YOU NEED ROOT.LEFT AND ROOT.RIGHT  NULL VALUES FOR ASSIGNING EG:CONSIDER [1,2,null])
+                                                                                            DFSPrePostInOrderFalattenToLLI,DFSPrePostInOrderFalattenToLLII  (DONT DO NULL CHECK BECAUSE ROOT.LEFT AND ROOT.RIGHT ARE REQUIRED AS WE  ASSIGNING THEM VAUES EVEN IF THEY ARE NULL EG: CONSIDER[1,2,null,5,6] )
+                                                                                            DFSPrePostInOrderConectI,DFSPrePostInOrderConectII              (HANDLE EACH CASE SEPERATELY  DUE TO CONSTRAINTS OF QUESTION )
 
-                                                        if(root.left != null && root.right != null){}       --root.left , root.right  cant be null inside fn 
-                                                                                                            EG 
-                                                                                                            DFSPrePostInOrderAreSiblingsI,DFSPrePostInOrderAreSiblingsII
-                                                                                                            DFSPrePostInOrderInvertI,DFSPrePostInOrderInvertII              (DONT DO NULL CHECK BECAUSE YOU NEED ROOT.LEFT AND ROOT.RIGHT  NULL VALUES FOR SWAPPING  EG:CONSIDER [1,2,null])
-                                                                                                            DFSPrePostInOrderDoubleI,DFSPrePostInOrderDobleII               (DONT DO NULL CHECK BECAUSE YOU NEED ROOT.LEFT AND ROOT.RIGHT  NULL VALUES FOR ASSIGNING EG:CONSIDER [1,2,null])
-                                                                                                            DFSPrePostInOrderFalattenToLLI,DFSPrePostInOrderFalattenToLLII  (DONT DO NULL CHECK BECAUSE ROOT.LEFT AND ROOT.RIGHT ARE REQUIRED AS WE  ASSIGNING THEM VAUES EVEN IF THEY ARE NULL EG: CONSIDER[1,2,null,5,6] )
-                                                                                                            DFSPrePostInOrderConectI,DFSPrePostInOrderConectII              (HANDLE EACH CASE SEPERATELY  DUE TO CONSTRAINTS OF QUESTION )
+                                        if(root.left == null || root.right == null){}      --root.left , root.right  being   null yeild different results 
+                                        OR                                                     EG DFSLeafToLeaf,DFSLeafToLeafkaSabSums
+                                        if(root.left == null){}
+                                        if(root.righ == null)                                                       
 
-                                                        if(root.left == null || root.right == null){}      --root.left , root.right  being   null yeild different results 
-                                                        OR                                                     EG DFSLeafToLeaf,DFSLeafToLeafkaSabSums
-                                                        if(root.left == null){}
-                                                        if(root.righ == null)                                                       
+                                        if(n1 == null && n2 == null){}                     -- When you are checking 2 node simultaneously(NULL WHILE COMING DOWN ONLY NOT WHILE GOING UP AS YOU USE N1,N2 IN RECURSIVE CALL)
+                                        if(n1 == null || n2 == null){}                        n1,n2 both being null yeild a different result ; either being null yeild a different result 
+                                        OR                                                     EG :DFSPrePostInOrderSymmetricI,DFSPrePostInOrderSymmetricII 
+                                        if(root.left == null){}                                    DFSPrePostInOrderAreEqualTreesI,DFSTPrePostOrderAreEqualTreesII
+                                        if(root.right == null)                                     DFSPrePostInOrderMergeTreesI,DFSPrePostInOrderMergeTreesII
 
-                                                        if(n1 == null && n2 == null){}                     -- When you are checking 2 node simultaneously(NULL WHILE COMING DOWN ONLY NOT WHILE GOING UP AS YOU USE N1,N2 IN RECURSIVE CALL)
-                                                        if(n1 == null || n2 == null){}                        n1,n2 both being null yeild a different result ; either being null yeild a different result 
-                                                        OR                                                     EG :DFSPrePostInOrderSymmetricI,DFSPrePostInOrderSymmetricII 
-                                                        if(root.left == null){}                                    DFSPrePostInOrderAreEqualTreesI,DFSTPrePostOrderAreEqualTreesII
-                                                        if(root.right == null)                                     DFSPrePostInOrderMergeTreesI,DFSPrePostInOrderMergeTreesII
-
-
-
-
-
-                                                                                                        
-
-                                                        */
+                                        */
 
 
 
@@ -547,7 +516,7 @@ binarySearchTreeConstructionFromInorder_SortedArrToBST
 
     /*
 
-    BINARY SEARCH TREE
+    BINARY  TREE
 
               7       -->each node has max 2 children
              /  \        
@@ -603,16 +572,16 @@ binarySearchTreeConstructionFromInorder_SortedArrToBST
          /*
       PREORDER INORDER POSTORDER TRAVERSAL
            7        -->PREORDER:  
-          /  \         Left-right,Top-bottom(ROOT,LEFT,RIGHT)-->[7,4,1,6,9,8,10]        
-         4    9        Right-left,Top-Bottom(ROOT,RIGHT,LEFT)-->[7,9,10,8,4,6,1]
+          /  \         Top-bottom,Left-right(ROOT,LEFT,RIGHT)-->[7,4,1,6,9,8,10]        
+         4    9        Top-Bottom,Right-left(ROOT,RIGHT,LEFT)-->[7,9,10,8,4,6,1]
         / \    / \             
        1  6   8  10    POSTORDER
-      /  \ /\  /\ / \  Left-Righ;Bottom-topt(LEFT,RIGHT,ROOT) -->[1,6,4,8,10,9,7] 
-      n  n  n n n n  n Right-Left;Bottom-top (RIGHT,LEFT,ROOT)-->[10,8,9,6,1,4,7]
+      /  \ /\  /\ / \  Bottom-top,Left-Right(LEFT,RIGHT,ROOT) -->[1,6,4,8,10,9,7] 
+      n  n  n n n n  n Bottom-top ,Right-Left(RIGHT,LEFT,ROOT)-->[10,8,9,6,1,4,7]
 
                         INORDER :
-                        Left-Righ;Bottom-top(top middle me)(LEFT,ROOT,RIGHT) -->[1,4,6,7,8,9,10]
-                        Right-Left;Bottom-top(top middle me);(RIGHT,ROOT,LEFT) -->[10,9,8,7,6,4,1]
+                        Bottom-top(top middle me),Left-Righ(LEFT,ROOT,RIGHT) -->[1,4,6,7,8,9,10]
+                        Bottom-top(top middle me);,Right-Left(RIGHT,ROOT,LEFT) -->[10,9,8,7,6,4,1]
         */
 
           //RECURSIVE IP OP TREE
@@ -722,21 +691,20 @@ binarySearchTreeConstructionFromInorder_SortedArrToBST
 
     }
     public void DFSPostOrder      (Node root , List<Integer> nodes){
-        /*
+         /*
       PREORDER INORDER POSTORDER TRAVERSAL
            7        -->PREORDER:  
-          /  \         Left-right,Top-bottom(ROOT,LEFT,RIGHT)-->[7,4,1,6,9,8,10]        
-         4    9        Right-left,Top-Bottom(ROOT,RIGHT,LEFT)-->[7,9,10,8,4,6,1]
+          /  \         Top-bottom,Left-right(ROOT,LEFT,RIGHT)-->[7,4,1,6,9,8,10]        
+         4    9        Top-Bottom,Right-left(ROOT,RIGHT,LEFT)-->[7,9,10,8,4,6,1]
         / \    / \             
-        1  6   8  10   POSTORDER
-      /  \ /\  /\ / \  Left-Righ;Bottom-topt(LEFT,RIGHT,ROOT) -->[1,6,4,8,10,9,7] 
-      n  n  n n n n  n Right-Left;Bottom-top (RIGHT,LEFT,ROOT)-->[10,8,9,6,1,4,7]
+       1  6   8  10    POSTORDER
+      /  \ /\  /\ / \  Bottom-top,Left-Right(LEFT,RIGHT,ROOT) -->[1,6,4,8,10,9,7] 
+      n  n  n n n n  n Bottom-top ,Right-Left(RIGHT,LEFT,ROOT)-->[10,8,9,6,1,4,7]
 
                         INORDER :
-                        Left-Righ;Bottom-top(top middle me)(LEFT,ROOT,RIGHT) -->[1,4,6,7,8,9,10]
-                        Right-Left;Bottom-top(top middle me);(RIGHT,ROOT,LEFT) -->[10,9,8,7,6,4,1]
+                        Bottom-top(top middle me),Left-Righ(LEFT,ROOT,RIGHT) -->[1,4,6,7,8,9,10]
+                        Bottom-top(top middle me);,Right-Left(RIGHT,ROOT,LEFT) -->[10,9,8,7,6,4,1]
         */
-  
 
         //RECURSIVE IP OP TREE
         /*  
@@ -856,19 +824,19 @@ binarySearchTreeConstructionFromInorder_SortedArrToBST
 
     }
     public void DFSInOrder        (Node root , List<Integer> nodes){
-        /*
+         /*
       PREORDER INORDER POSTORDER TRAVERSAL
            7        -->PREORDER:  
-          /  \         Left-right,Top-bottom(ROOT,LEFT,RIGHT)-->[7,4,1,6,9,8,10]        
-         4    9        Right-left,Top-Bottom(ROOT,RIGHT,LEFT)-->[7,9,10,8,4,6,1]
+          /  \         Top-bottom,Left-right(ROOT,LEFT,RIGHT)-->[7,4,1,6,9,8,10]        
+         4    9        Top-Bottom,Right-left(ROOT,RIGHT,LEFT)-->[7,9,10,8,4,6,1]
         / \    / \             
-        1  6   8  10   POSTORDER
-      /  \ /\  /\ / \  Left-Righ;Bottom-topt(LEFT,RIGHT,ROOT) -->[1,6,4,8,10,9,7] 
-      n  n  n n n n  n Right-Left;Bottom-top (RIGHT,LEFT,ROOT)-->[10,8,9,6,1,4,7]
+       1  6   8  10    POSTORDER
+      /  \ /\  /\ / \  Bottom-top,Left-Right(LEFT,RIGHT,ROOT) -->[1,6,4,8,10,9,7] 
+      n  n  n n n n  n Bottom-top ,Right-Left(RIGHT,LEFT,ROOT)-->[10,8,9,6,1,4,7]
 
                         INORDER :
-                        Left-Righ;Bottom-top(top middle me)(LEFT,ROOT,RIGHT) -->[1,4,6,7,8,9,10]
-                        Right-Left;Bottom-top(top middle me);(RIGHT,ROOT,LEFT) -->[10,9,8,7,6,4,1]
+                        Bottom-top(top middle me),Left-Righ(LEFT,ROOT,RIGHT) -->[1,4,6,7,8,9,10]
+                        Bottom-top(top middle me);,Right-Left(RIGHT,ROOT,LEFT) -->[10,9,8,7,6,4,1]
         */
   
 
@@ -979,52 +947,57 @@ binarySearchTreeConstructionFromInorder_SortedArrToBST
 
     }
     public void DFSLevelOrder     (Node root,int level,List<List<Integer>> nodes){
-        /*
+          /*
                  7        Traverse top to bottom , left to right   (DFS)
                 /\         and return path of nodes  at each level (LevelOrder)
                /  \        LEFT-RIGHT
-              /    \       left-right;top-bottom -->[ [7] , [4,9], [1,6,8,10] ]
-             4      9      left-right;bottom-top   -->[[1,6,8,10],[4,9],[7]] 
-             / \    / \    RIGHT-LEFT
-            1  6   8  10   right-left;top-bottom -->[ [7] , [9,4], [10,8,6,1] ] 
-                           right-left;bottom-top -->[[[10,8,6,1],[9,4],[7] ]
-                           
-                           LEFT-RIGHT ALTERNATE
-                           left-right  alternate(zigzag);top-bottom -->[[7] , [9,4], [1,6,8,10] 
-                           left-right alternate(zigzag);bottom-top -->[[1,6,8,10],[9,4],[7]]
-                           RIGHT-LEFT ALTERNATRE
+              /    \       top-bottom;left-right-->[ [7] , [4,9], [1,6,8,10] ]
+             4      9      bottom-top;left-right   -->[[1,6,8,10],[4,9],[7]] 
+             / \    / \    
+            1  6   8  10   RIGHT-LEFT 
+                           top-bottom;right-left -->[ [7] , [9,4], [10,8,6,1] ]  
+                           bottom-top;right-left-->[[[10,8,6,1],[9,4],[7] ]
+
+                           LEFT-RIGHT ALTERNATE(ZIG ZAG)
+                           top-bottom ;left-right alternate(zigzag)-->[[7] , [9,4], [1,6,8,10] 
+                           bottom-top;left-right alternate(zigzag) -->[[1,6,8,10],[9,4],[7]]
+
+                           RIGHT-LEFT ALTERNATE
                            --
 
                            LEFT VIEW
-                           left-view;top-bottom    (nodes you will see considering you are standing on left of tree )    -->[7,4,1]
-                           left-view;bottom-top    (nodes you will see considering you are standing on left of tree )    -->[1,4,7]
-                           RIGHT-VIEW
-                           right-view ;top-bottom  (nodes you will see considering you are standing on right of tree )  -->[7,9,10]
-                           right-viewbottom-top   (nodes you will see considering you are standing on right of tree )  -->[10,9,7]
+                           top-bottom  ;left-view  (nodes you will see considering you are standing on left of tree )    -->[7,4,1]
+                           bottom-top ;left-view (nodes you will see considering you are standing on left of tree )    -->[1,4,7]
+                           
+                           RIGHT VIEW
+                           top-bottom  ;right-view (nodes you will see considering you are standing on right of tree )  -->[7,9,10]
+                           bottom-top ;right-view (nodes you will see considering you are standing on right of tree )  -->[10,9,7]
                            
                            LEFT-BOUNDARY
-                           leftboundary;top-bottom  (nodes you will see while going from root to leftmost leaf node preferring travelling  the left subtree over the right subtree; if root doesnt have left subtree then root is itself left boundary) -- [7,4,1]
-                           leftboundary;bottom-top (nodes you will see while going from root to leftmost leaf node preferring travelling  the left subtree over the right subtree; if root doesnt have left subtree then root is itself left boundary) -- [1,4,7]
-                           RIGHT-BOUNDARY
-                           rightboundary;top-bottom(nodes you will see while going from root to rightmost leaf node preferring travelling  the right subtree over the right subtree; if root doesnt have left subtree then root is itself left boundary) -- [7,9,10]
-                           rightboundary;top-bottom (nodes you will see while going from root to rightmost leaf node preferring travelling  the right subtree over the right subtree; if root doesnt have left subtree then root is itself left boundary) -- [10,9,7]
+                           top-bottom ;leftboundary (nodes you will see while going from root to leftmost leaf node preferring travelling  the left subtree over the right subtree; if root doesnt have left subtree then root is itself left boundary) -- [7,4,1]
+                           bottom-top;leftboundary (nodes you will see while going from root to leftmost leaf node preferring travelling  the left subtree over the right subtree; if root doesnt have left subtree then root is itself left boundary) -- [1,4,7]
+
+                           RIGHT BOUNDARY
+                           top-bottom;rightboundary(nodes you will see while going from root to rightmost leaf node preferring travelling  the right subtree over the right subtree; if root doesnt have left subtree then root is itself left boundary) -- [7,9,10]
+                           bottom-top ;rightboundary;(nodes you will see while going from root to rightmost leaf node preferring travelling  the right subtree over the right subtree; if root doesnt have left subtree then root is itself left boundary) -- [10,9,7]
                            
                            LEAF NODE
-                           leafnode;top to bottom      (nodes at leaf) -[1,6,8,10]
+                           top to bottom ;leafnode     (nodes at leaf) -[1,6,8,10]
                            
                            ANTICLOCKWISE
-                           anticlockwise;top to bottom(nodes you see while travellting rightboundary,leftboundary,leafNodes   ) -[7,4,1,6,8,10,9,7]
+                           top to bottom;anticlockwise(nodes you see while travellting rightboundary,leftboundary,leafNodes   ) -[7,4,1,6,8,10,9,7]
                            CLOCKWISE
-                           clockwise;top to bottom (nodes you see while travellting leftboundary,leafNodes ,rightboundary  ) -[7,9,10,8,6,1,4,7]
+                           top to bottom;clockwise (nodes you see while travellting leftboundary,leafNodes ,rightboundary  ) -[7,9,10,8,6,1,4,7]
  
          */
 
 
       
+
         //RECURSIVE IP OP TREE
         /*
         public void DFSLevelOrder     (Node root,int level,List<List<Integer>> nodes)                                                 
-            //LEFT-RIGHT;TOP-BOTTOM                           -- while going top-bottom    
+            //TOP-BOTTOM ;LEFT-RIGHT                          -- while going top-bottom    
             if (root == null){return;}                          return at null and  start moving up                                                                                                                     
             if(nodes.size()==level)                             [[l-r] , [l-r]] -- when we reach a level create a arraylist at last index(top-bottom) 
                 nodes.add(new ArrayList<Integer>());             lo       l1       get the arrayList at that level and add nodes at lastindex(left right)
@@ -1041,7 +1014,7 @@ binarySearchTreeConstructionFromInorder_SortedArrToBST
                                         
 
                                                                 
-            //LEFT-RIGHT ;BOTTOM-TOP                           -- while going top-bottom   
+            //BOTTOM-TOP ;LEFT-RIGHT                           -- while going top-bottom   
             if (root == null){return;}                         return at null and  start moving up                                   
             if(nodes.size()==level)                             [[l-r] , [l-r]] -- when we reach a level create a arraylist at first index(bottom-top)
                 nodes.add(0,new ArrayList<Integer>());            l1     lo        get the arrayList at that level and add nodes at lastindex(left-right)
@@ -1050,7 +1023,7 @@ binarySearchTreeConstructionFromInorder_SortedArrToBST
             DFSLevelOrder(root.right ,level+1,nodes);            ''' same as above
 
                                                                     
-            //RIGHT-LEFT;TOP-BOTTOM                            -- while going top-bottom  
+            //TOP-BOTTOM  ;RIGHT-LEFT                          -- while going top-bottom  
             if (root == null){return;}                          return at null and  start moving up   
             if(nodes.size()==level)                             [[r-l] , [r-l]] -- when we reach a level create a arraylist at last index(top-bottom) 
                 nodes.add(new ArrayList<Integer>());             l0       l1       get the arrayList at that level and add nodes at firstindex(right-left)
@@ -1059,7 +1032,7 @@ binarySearchTreeConstructionFromInorder_SortedArrToBST
             DFSLevelOrder(root.left ,level+1,nodes);              ''' same as above1 
 
                                                                     
-            //RIGHT-LEFT;BOTTOM-TOP                             --while going top-bottom 
+            //BOTTOM-TOP ;RIGHT-LEFT                            --while going top-bottom 
             if (root == null){return;}                          return at null and  start moving up                             
             if(nodes.size()==level)                             [[r-l] , [r-l]] -- when we reach a level create a arraylist at first index(bottom-top) 
                 nodes.add(0,new ArrayList<Integer>());            l1      l0          get the arrayList at that level and add nodes at lastindex(right-left)
@@ -1067,8 +1040,8 @@ binarySearchTreeConstructionFromInorder_SortedArrToBST
             DFSLevelOrder(root.right,level+1,nodes);            --while going  right-left 
             DFSLevelOrder(root.left ,level+1,nodes);               ''' same as above
 
-            (ZIG - ZAG)                                                         
-            //LEFT-RIGHT ALTERNATE  ;TOP-BOTTOM ;                --while going top-bottom 
+                                                                  
+            //TOP-BOTTOM;LEFT-RIGHT ALTERNATE(ZIG - ZAG)                    --while going top-bottom 
             if (root == null){return;}                          return at null and  start moving up                         
             if(nodes.size()==level)                             [[l-r] , [r-l]] -- when we reach a level create a arraylist at last index(top-bottom) 
                 nodes.add(new ArrayList<Integer>());             l0        l1      get the arrayList at that level and if even level add nodes at lastindex(left-right) and if odd level add nodes atr firstindex(right-left)
@@ -1079,8 +1052,8 @@ binarySearchTreeConstructionFromInorder_SortedArrToBST
             DFSLevelOrder(root.left,level+1,nodes);            --while going  left-right 
             DFSLevelOrder(root.right ,level+1,nodes);              ''' same as above
 
-            (ZIG - ZAG)                                               
-            //LEFT-RIGHT ALTERNATE;BOTTOM-TOP                  --while going top-bottom 
+                                                       
+            //BOTTOM-TOP ;LEFT-RIGHT ALTERNATE (ZIG - ZAG)                  --while going top-bottom 
             if (root == null){return;}                            return at null and  start moving up                                
             if(nodes.size()==level)                               [[l-r] , [r-l]] -- when we reach a level create a arraylist at first index(bottom-top) 
                 nodes.add(0,new ArrayList<Integer>());              l1      l0      get the arrayList at that level and if even level add nodes at lastindex(left-right) and if odd level add nodes atr firstindex(right-left)
@@ -1092,7 +1065,7 @@ binarySearchTreeConstructionFromInorder_SortedArrToBST
             DFSLevelOrder(root.right ,level+1,nodes);             ''' same as above
         
                                                                     
-            //LEFT VIEW;TOP-BOTTOM(ZIG-ZAG)                       --while going top-bottom 
+            //TOP-BOTTOM;LEFT VIEW                           --while going top-bottom 
             if (root == null){return;}                             return at null and  start moving up 
             if(nodes.size()==level)                                 [7   4  1] -- when we reach a level add  root.val to nodes last index(top-bottom)
                 nodes.add(root.val); //list<Integer>                l0 l1 l2                    
@@ -1101,7 +1074,7 @@ binarySearchTreeConstructionFromInorder_SortedArrToBST
 
 
                                                                     
-            //LEFT VIEW ;BOTTOM-TOP                                --while going top-bottom 
+            //BOTTOM-TOP  ;LEFT VIEW                               --while going top-bottom 
             if (root == null){return;}                            return at null and  start moving up
             if(nodes.size()==level)                                [1   4  7] -- when we reach a level add  root.val to nodes first index(bottom-top)
                 nodes.add(0,root.val); //list<Integer>              l0 l1 l2
@@ -1110,14 +1083,14 @@ binarySearchTreeConstructionFromInorder_SortedArrToBST
 
 
                                                                         
-            //RIGHT VIEW ;TOP-BOTTOM                              --while going top-bottom  
+            //TOP-BOTTOM ;RIGHT VIEW                             --while going top-bottom  
             if (root == null){return;}                            return at null and  start moving up
             if(nodes.size()==level)                                [7   9  10] -- when we reach a level add  root.val to nodes last index(top-bottom)
                 nodes.add(root.val;  //list<Integer>                l0 l1 l2                          
             DFSLevelOrder(root.right,level+1,nodes);            --while going  right-left 
             DFSLevelOrder(root.left ,level+1,nodes);            ''' same as above
                                                                         
-            //RIGHT VIEW;BOTTOM-TOP                              -- while going top-bottom 
+            //BOTTOM-TOP ;RIGHT VIEW                            -- while going top-bottom 
             if (root == null){return;}                            return at null and  start moving up           
             if(nodes.size()==level)                               [10,,9,7] -- when we reach a level add  root.val to nodes first index(bottom-top)
                 nodes.add(0,root.val);  //list<Integer>            l0 l1 l2                            
@@ -1125,7 +1098,7 @@ binarySearchTreeConstructionFromInorder_SortedArrToBST
             DFSLevelOrder(root.left ,level+1,nodes);              ''' same as above
 
 
-            //LEFT BOUNDARY;TOP-BOTTOM                            --while going top-bottom 
+            //TOP-BOTTOM ;LEFT BOUNDARY                          --while going top-bottom 
             if (root == null){return;}                            return at null and  start moving up
             nodes.add(root.val);                                  add root.val to  to nodes last index(top-bottom)
             
@@ -1134,7 +1107,7 @@ binarySearchTreeConstructionFromInorder_SortedArrToBST
             else
                 DFSLevelOrder(root.right, nodes);
 
-            //LEFT BOUNDARY;BOTTOM-TOP                             --while going top-bottom (choose any 1 bw top-bottom;bottom-top)
+            //BOTTOM-TOP;LEFT BOUNDARY                             --while going top-bottom (choose any 1 bw top-bottom;bottom-top)
             if (root == null){return;}                             return at null and  start moving up                                                                  
             nodes.add(0,root.val);                                 add root.val to  to nodes first index(bottom-top)
                   |__CHOOSE ANY 1
@@ -1147,7 +1120,7 @@ binarySearchTreeConstructionFromInorder_SortedArrToBST
             nodes.add(root.val);                                    add root.val to  to nodes last index(bottom-top)
                   |__CHOOSE ANY 1
 
-            //RIGHT BOUNDARY ;TOP-BOTTOM                           -- while going top-bottom 
+            //TOP-BOTTOM  ;RIGHT BOUNDARY                          -- while going top-bottom 
             if (root == null){return;}                             return at null and  start moving up  
             nodes.add(root.val);                                    add root.val to  to nodes last index(top-bottom)
             
@@ -1156,7 +1129,7 @@ binarySearchTreeConstructionFromInorder_SortedArrToBST
             else
                 DFSLevelOrder(root.left, nodes);
 
-            //RIGHT BOUNDARY;BOTTOM-TOP                             --while going top-bottom (choose any 1 bw top-bottom;bottom-top)
+            //BOTTOM-TOP;RIGHT BOUNDARY                             --while going top-bottom (choose any 1 bw top-bottom;bottom-top)
             if (root == null){return;}                               return at null and  start moving up  
             nodes.add(0,root.val);                                   add root.val to  to nodes first index(bottom-top) 
                    |__CHOOSE ANY 1
@@ -1169,7 +1142,7 @@ binarySearchTreeConstructionFromInorder_SortedArrToBST
             nodes.add(root.val);                                      add root.val to  to nodes last index(bottom-top)-->-->GOING UP (choose any one) 
                   |__CHOOSE ANY 1
 
-            //LEAF;TOP-BOTTOM                                        -- while going top-bottom
+            //TOP-BOTTOM  ;LEAF                                      -- while going top-bottom
             if (root == null){return;}                                return at null and  start moving up  
             if(root.left==null && root.right == null)                 [10,,9,7] -- when we reach a leaves add  root.val to nodes last index(top-bottom)
                 nodes.add(root.val);              
@@ -1178,7 +1151,7 @@ binarySearchTreeConstructionFromInorder_SortedArrToBST
             DFSLevelOrder(root.right ,nodes);                          
 
 
-            //ANTI-CLOCKWISE;TOP-BOTTOM(SOLN --https://massivealgorithms.blogspot.com/2014/07/print-edge-nodes-boundary-of-binary.html)
+            //TOP-BOTTOM;ANTI-CLOCKWISE(SOLN --https://massivealgorithms.blogspot.com/2014/07/print-edge-nodes-boundary-of-binary.html)
             public List<Integer> DFSLevelOrder(Node root,List<>Integer> nodes ){
                     if (root.left != null || root.right != null)
                         nodes.add(root.val);
@@ -1193,7 +1166,7 @@ binarySearchTreeConstructionFromInorder_SortedArrToBST
             }
 
 
-            //CLOCKWISE;TOP-BOTTOM
+            //TOP-BOTTOM;CLOCKWISE
             public List<Integer> DFSLevelOrder(Node root,List<>Integer> nodes ){
                 if (root.left != null || root.right != null)
                     nodes.add(root.val);
@@ -1400,7 +1373,7 @@ binarySearchTreeConstructionFromInorder_SortedArrToBST
     }  
     public void DFSRootToLeaf     (Node root, List<List<Integer>> nodes ,List<Integer> path){
         /*
-         root-- 7      -->Traverse left- right  top -bottom (DFS)
+         root-- 7      -->Traverse top -bottom  left- right (DFS)
                /  \       return path of nodes  from root to leaf (RootToLeaf)
               4    9      [[7,4,1],[7,4,6],[7,9,8],[7,9,10]]  
              / \    / \  
@@ -1464,7 +1437,7 @@ binarySearchTreeConstructionFromInorder_SortedArrToBST
      }
     public void DFSRootToAny      (Node root, List<List<Integer>> nodes ,List<Integer> path , int val){
         /*
-         root-- 7      -->Traverse  left-right,top-bottom (DFS)
+         root-- 7      -->Traverse  top -bottom ,left-right (DFS)
                /  \       return path of nodes  from root to any node with given val (RootToANy)
               4    9      val = 10 [[7,9,10]]
              / \    / \   
@@ -1525,7 +1498,7 @@ binarySearchTreeConstructionFromInorder_SortedArrToBST
      }
     public int  DFSLeafToLeaf     (Node root){
         /*
-         root-- 7      ---->Traverse  left-right,top-bottom (DFS)
+         root-- 7      ---->Traverse  top -bottom ,left-right (DFS)
                /  \        return path of leaf node to leaf node  (LeafToLeaf)     
               4    9      ** LEAF TO LEAF not ncessarily pass throught root
              / \    / \    Eg:Returning all paths for leaf to leaf is tedious
@@ -1549,7 +1522,7 @@ binarySearchTreeConstructionFromInorder_SortedArrToBST
     public int  DFSAnyToAny       (Node root){
         
         /*
-         root-- 7      -->Traverse  left-right,top-bottom (DFS)
+         root-- 7      -->Traverse  top -bottom ,left-right(DFS)
                /  \       return path of any node to any node  (AnyToAny)    
               4    9      ** ANY TO ANY not ncessarily pass throught root
              / \    / \    Eg:Returning all paths for any to any is tedious
@@ -1573,7 +1546,7 @@ binarySearchTreeConstructionFromInorder_SortedArrToBST
     }
     public int  DFSTopToBottom(Node root, int currentsum, int targetSum, Map<Integer, Integer> map) {
         /*
-         root-- 10      -->Traverse  left-right,top-bottom (DFS) 
+         root-- 10      -->Traverse  top -bottom ,left-right (DFS) 
                /  \       return path of  top to bottom node(top to bottom means any to any just your traversal  must be top to bottom) -- returning top to bottom path is tedious 
               5    3     ** TOP TO BOTTOM not ncessarily pass throught root                                                                                                                         so I have done top to bottom   paths that have targetSum
              / \     \     Eg:Returning all paths for any to any is tedious                                                               
@@ -1659,7 +1632,7 @@ rs=1              rs=0     rs=1
     //DFSPREPOSTINORDER
     public void DFSPrePostInOrderNoOfNodes  (Node root){
         /*
-          root-- 7        -->travel left-right;top-bottom      (DFS)
+          root-- 7        -->travel top-bottom ;left-right     (DFS)
                 /  \         and return no of nodes 
                4    9        7 
               / \    / \    
@@ -1751,7 +1724,7 @@ rs=1              rs=0     rs=1
     }
     public void DFSPrePostInOrderMaxNode    (Node root){
         /*
-          root-- 7        -->travel left-right;top-bottom        (DFS)
+          root-- 7        -->travel top-bottom ;left-right       (DFS)
                 /  \         and return nmax 
                4    9        10
               / \    / \    
@@ -1837,7 +1810,7 @@ rs=1              rs=0     rs=1
     }
     public void DFSPrePostInOrderMinNode    (Node root){
         /*
-          root-- 7        -->travel left-right;top-bottom        (DFS)
+          root-- 7        -->travel top-bottom ;left-right         (DFS)
                 /  \         and return min  of nodes 
                4    9        1
               / \    / \    
@@ -1920,7 +1893,7 @@ rs=1              rs=0     rs=1
     }
     public void DFSPrePostInOrderSumOfNodes (Node root){
         /*
-          root-- 7        --travel left-right;top-bottom      (DFS)
+          root-- 7        --travel top-bottom ;left-right        (DFS)
                 /  \         and return sum  of nodes 
                4    9        45
               / \    / \    
@@ -1999,7 +1972,7 @@ rs=1              rs=0     rs=1
     }
     public void DFSPrePostInOrderSumOfNodesInRange(Node root, int low , int high){
        /*
-          root-- 7        --travel left-right;top-bottom      (DFS)
+          root-- 7        --travel top-bottom ;left-right       (DFS)
                 /  \         and return sum  of nodes which lie the range [low,high] inclusive
                4    9        45
               / \    / \    
@@ -2084,7 +2057,7 @@ rs=1              rs=0     rs=1
     }
     public void DFSPrePostInOrderContains   (Node root, int val){
         /*
-           root-- 7        -->travel left-right;top-bottom       (DFS)
+           root-- 7        -->travel top-bottom ;left-right       (DFS)
                  /  \         and  if contains return true false 
                 4    9        and if contains return node or null Eg 4
                / \    / \     and if contains return node and its subtrenodes or null  Eg [4,1,6]
@@ -2159,9 +2132,9 @@ rs=1              rs=0     rs=1
             return left || right || nodeContains;                        pass to next node
             OR                                                          
             if (root.val == val)                                         left has val || right has val ; node has val   pass to next node 
-                    pathNode=new Node(val);//pathNode,pathNodeSbbtre global pass to next node                          
-                    pathNodeSubtree = root                                                                           
-                    return true;
+                pathNode=new Node(val);//pathNode,pathNodeSbbtre global pass to next node                          
+                pathNodeSubtree = root                                                                           
+                return true;
             return left || right;
         }
 
@@ -2187,7 +2160,7 @@ rs=1              rs=0     rs=1
      }
     public void DFSPrePostInOrderIsBalanced (Node root){
         /*
-          root-- 7        -->travel left-right;top-bottom   (DFS)
+          root-- 7        -->travel top-bottom ;left-right     (DFS)
                 /  \         and return whether  tree is balanced
                4    9        
               / \    / \    
@@ -2333,7 +2306,7 @@ rs=1              rs=0     rs=1
     }
     public void DFSPrePostInOrderisFull     (Node root){
        /*
-          root-- 7        -->travel left-right;top-bottom         (DFS)
+          root-- 7        -->travel top-bottom ;left-right         (DFS)
                 /  \         and return whether  tree is full
                4    9        
               / \    / \    
@@ -2424,7 +2397,7 @@ rs=1              rs=0     rs=1
     }
     public void DFSPrePostInOrderIsComplete (Node root ,int index , int noOfnodes){
         /*
-           root-- 7        -->travel left-right;top-bottom        (DFS)
+           root-- 7        -->travel top-bottom ;left-right      (DFS)
                  /  \         and return whether  tree is complete
                 4    9        
                / \    / \    
@@ -2530,7 +2503,7 @@ rs=1              rs=0     rs=1
      }
     public void DFSPrePostInOrderisPerfect  (Node root){
         /*
-          root-- 7        -->travel left-right;top-bottom     (DFS)
+          root-- 7        -->travel top-bottom ;left-right       (DFS)
                 /  \         and return whether  tree is perfect
                4    9        
               / \    / \    
@@ -2592,7 +2565,7 @@ rs=1              rs=0     rs=1
     }
     public void DFSPrePostInOrderIsBST      (Node root){
         /*
-           root-- 7        -->travel left-right;top-bottom        (DFS)
+           root-- 7        -->travel top-bottom ;left-right         (DFS)
                  /  \         and return if it is a BST 
                 4    9        
                / \    / \      
@@ -2688,7 +2661,7 @@ rs=1              rs=0     rs=1
     }
     public void DFSPrePostInOrderIsBAT      (Node root){
         /*
-           root-- 7        -->travel left-right;top-bottom        (DFS)
+           root-- 7        -->travel top-bottom ;left-right        (DFS)
                  /  \         and return if it is a BAT(bin avl tree)
                 4    9        
                / \    / \      
@@ -2748,7 +2721,7 @@ rs=1              rs=0     rs=1
     }
     public void DFSPrePostInOrderAreSiblings   (Node root ,int n1 , int n2){
         /*
-           root-- 7        -->travel left-right;top-bottom         (DFS)
+           root-- 7        -->travel top-bottom ;left-right        (DFS)
                  /  \         and  return whether  nodes are siblings ie belong to same parent
                 4    9        4,9 are siblings
                / \    / \     
@@ -2849,7 +2822,7 @@ rs=1              rs=0     rs=1
    }
     public void DFSPrePostInOrderLCA        (Node n1, Node n2){
         /*
-           root-- 7        -->travel left-right;top-bottom         (DFS)
+           root-- 7        -->travel top-bottom ;left-right     (DFS)
                  /  \         and  return lowest common ancestor of n1,n2
                 4    9        where we allow a node to be a descendant of itself 8,10 
                / \    / \      4,9 lowest common ancestor is 7 ; 4 1 lowest common ancestor is 4
@@ -2902,9 +2875,9 @@ rs=1              rs=0     rs=1
                                                                                         (return boolean but hold l,r as integer because we have to do l+r+ni and nit l&&r&&ni)
 
                                                                             -- while coming  bottom-top 
-            int nodeItself = (root.val == n1.val || root.val == n2.val)?1:0;      nodeItself = 1/0 if it itself is a node or not \
-            if(lef+right+nodeitself=2){ancestor=root.val//global var}             if l+r+ni=2 we have our ancestor
-            return  left+right+nodeItself >0;                                     return left+right+nodeItself to next node
+        int nodeItself = (root.val == n1.val || root.val == n2.val)?1:0;      nodeItself = 1/0 if it itself is a node or not \
+        if(lef+right+nodeitself=2){ancestor=root.val//global var}             if l+r+ni=2 we have our ancestor
+        return  left+right+nodeItself >0;                                     return left+right+nodeItself to next node
             
                                                                                     
                                                                                 ( Return boolean but hold int in l,r because int covers many ases
@@ -3015,7 +2988,7 @@ rs=1              rs=0     rs=1
     }
     public void DFSPrePostInOrderIsSymmetric(Node n1, Node n2){
         /*
-           root-- 7                   -->travel left-right;top-bottom       (DFS)
+           root-- 7                   -->travel top-bottom ;left-right        (DFS)
                  /  \                    and  return whether two trees are symmetric    
                 4     4               
                / \    / \      
@@ -3176,7 +3149,7 @@ rs=1              rs=0     rs=1
     }
     public void DFSPrePostInOrderInvert     (Node root){
         /*
-           7            7      -->travel left-right;top-bottom       (DFS)
+           7            7      -->travel top-bottom ;left-right        (DFS)
          /  \           /\         and invert binary tree about y axis 
         4    9         9  4       
         / \  / \      /\  /\
@@ -3310,7 +3283,7 @@ rs=1              rs=0     rs=1
     }
     public void DFSPrePostInOrderDouble     (Node root){
         /*
-           7            7      -->travel left-right;top-bottom       (DFS)
+           7            7      -->travel top-bottom ;left-right        (DFS)
          /  \           /\         and  souble tree by inserting a duplicate node on left  
         4    9         7  9
                       /   /
@@ -3410,7 +3383,7 @@ rs=1              rs=0     rs=1
     }
     public void DFSPrePostInOrderCompare2TreeForEqual     (Node n1, Node n2){
         /*
-         root-- 7               7      -->travel left-right;top-bottom      (DFS)
+         root-- 7               7      -->travel top-bottom ;left-right    (DFS)
                /  \            /\         and  return whether two trees are same    ()
               4    9          4  9         both trees are equal
              / \    / \      /\  /\
@@ -3509,7 +3482,7 @@ rs=1              rs=0     rs=1
 }
     public void DFSPrePostInOrderCompare2TreesForMergingByAddition  (Node n1, Node n2){
         /*
-               1            1    =>   2      -->travel left-right;top-bottom        (DFS)
+               1            1    =>   2      -->travel top-bottom ;left-right       (DFS)
              /  \           /\        /\        merge the binary tree such that 
             2    3         3  6      5  9       if two nodes overlap, then sum node values up as the new value of the merged node.
             / \           /   /\    /\   /\     otherwise, the NOT null node will be used as the node of the new tree
@@ -3576,7 +3549,7 @@ rs=1              rs=0     rs=1
     }
     public void DFSPrePostInOrderCompare2TreeForSubtree   (Node n1, Node n2){
             /*
-         root-- 7                     -->travel left-right;top-bottom      (DFS)
+         root-- 7                     -->travel top-bottom ;left-right      (DFS)
                /  \                     and  return tree2 is a subtree of tree1
               4    9          4           
              / \    / \      /\  
@@ -3632,7 +3605,7 @@ rs=1              rs=0     rs=1
     }
     public void DFSPrePostInOrderCompare2TreesForConnect(Node root) {
         /*
-            1----null         --Travel left-right;top-bottom  (DFS)
+            1----null         --Travel top-bottom ;left-right    (DFS)
             /   \               Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NUL 
           2-----3---null        Initially, all next pointers are set to NULL.  
         /  \    \               class Node{l,r,next} 
@@ -3723,7 +3696,7 @@ rs=1              rs=0     rs=1
     //DFSLEVELORDER 
     public void DFSLevelOrderPathsKaNoOfNodesList (Node root,int level,List<Integer> pathCountList){
         /*
-          root-- 7        -->travel left-right ,top-bottom            (DFS)
+          root-- 7        -->travel top-bottom ;left-right            (DFS)
                 /  \         and return no of Nodes at each level  [1,2,4] (level order)
                4    9        
               / \    / \     
@@ -3768,7 +3741,7 @@ rs=1              rs=0     rs=1
     }
     public void DFSLevelOrderPathsNoOfNodesMax  (Node root,int level,List<Integer> pathCountList){
         /*
-          root-- 7        -->travel left-right ,top-bottom      (DFS)
+          root-- 7        -->travel top-bottom ;left-right     (DFS)
                 /  \         and return max no of Nodes of all level   (level order)
                4    9        4 
               / \    / \    
@@ -3824,7 +3797,7 @@ rs=1              rs=0     rs=1
     }
     public void DFSLevelOrderPathsNoOfNodesMin  (Node root,int level,List<Integer> pathCountList){
         /*
-          root-- 7        -->travel left-right ,top-bottom             (DFS)
+          root-- 7        -->travel top-bottom ;left-right             (DFS)
                 /  \        and return max no of Nodes of all level] (level order)
                4    9        1
               / \    / \     
@@ -3883,7 +3856,7 @@ rs=1              rs=0     rs=1
     }
     public void DFSLevelOrderPathsKaSumOfNodesList(Node root,int level,List<Integer> pathSumList){
         /*
-          root-- 7        -->travel left-right ,top-bottom  
+          root-- 7        -->travel top-bottom ;left-right  
                 /  \         and return sum of Nodes at each level
                4    9        [7,13,25]
               / \    / \     
@@ -3931,7 +3904,7 @@ rs=1              rs=0     rs=1
     }
     public void DFSLevelOrderPathsKaSumOfNodesMax (Node root,int level,List<Integer> pathSumList){
         /*
-          root-- 7        -->travel left-right ,top-bottom 
+          root-- 7        -->travel top-bottom ;left-right  
                 /  \         and return max od sum of Nodes of  level
                4    9        25
               / \    / \     
@@ -3985,7 +3958,7 @@ rs=1              rs=0     rs=1
     }
     public void DFSLevelOrderPathsKaSumOfNodesMin (Node root,int level,List<Integer> pathSumList){
         /*
-          root-- 7        -->travel left-right ,top-bottom 
+          root-- 7        -->travel top-bottom ;left-right  
                 /  \         and return max od sum of Nodes of  level
                4    9        7
               / \    / \     
@@ -4071,7 +4044,7 @@ rs=1              rs=0     rs=1
     public void DFSLevelOrderPathsKaAvgOfNodes    (Node root,int level,List<Double> pathCountList,List<Double> pathSumList){
            /*
            DFS LEVEL ORDER
-          root-- 7        -->travel left-right ,top-bottom (DFS) 
+          root-- 7        -->travel top-bottom ;left-right   (DFS) 
                 /  \         and return  average at each level(level order)
                4    9        [7.0,6.5,6,25]
               / \    / \     
@@ -4134,7 +4107,7 @@ rs=1              rs=0     rs=1
     public void DFSLevelOrderPathsKaMaxMinNodesList (Node root,int level,List<Integer> pathMaxList ,List<Integer> pathMinList){
         /*
         DFS LEVEL ORDER
-       root-- 7        -->travel left-right ,top-bottom     (DFS ) 
+       root-- 7        -->travel top-bottom ;left-right     (DFS ) 
              /  \        and  return max/min of nodes at each level (level Order)
             4    9       [7,9,10]/[7,4,1]
            / \    / \     
@@ -4187,7 +4160,7 @@ rs=1              rs=0     rs=1
     public void DFSLevelOrderAreCousins           (Node root,Node previousNode,int level, int n1 ,int n2 ){
     /*
     DFS LEVEL ORDER
-   root-- 7        -->travel left-right ,top-bottom       (DFS ) 
+   root-- 7        -->travel top-bottom ;left-right      (DFS ) 
          /  \        and  return whether node1 and node2 are cousins ie same level different parents (level Order)
         4    9       1,10 are cousins , 4,9 are not
        / \    / \     
@@ -4243,7 +4216,7 @@ rs=1              rs=0     rs=1
     //DFSROOTOLEAF
     public void DFSRootToLeafPathsKaNoOfNodesList (Node root ,List<Integer> pathCountList , int pathCount){
           /*
-          root-- 7        -->travel left-right ,top-bottom            (DFS)
+          root-- 7        -->travel top-bottom ;left-right            (DFS)
                 /  \         and return no of nodes on path from root to leaf(root to leaf)
                4    9        [4,4,4,4]
               / \    / \     
@@ -4292,7 +4265,7 @@ rs=1              rs=0     rs=1
    }
     public void DFSRootToLeafPathsKaNoOfNodesMax  (Node root ,int pathCount){
           /*
-          root-- 7        -->travel left-right ,top-bottom             (DFS)
+          root-- 7        -->travel top-bottom ;left-right          (DFS)
                 /  \         and return max no of nodes on path from root to leaf(root to leaf)
                4    9        3
               / \    / \     
@@ -4343,7 +4316,7 @@ rs=1              rs=0     rs=1
    }
     public void DFSRootToLeafPathsKaNoOfNodesMin  (Node root ,int pathCount){
           /*
-          root-- 7        -->travel left-right ,top-bottom             (DFS)
+          root-- 7        -->travel top-bottom ;left-right          (DFS)
                 /  \         and return min no of nodes on path from root to leaf(root to leaf)
                4    9        3
               / \    / \     
@@ -4394,7 +4367,7 @@ rs=1              rs=0     rs=1
    }
     public void DFSRootToLeafPathsKaSumOfNodesList(Node root ,List<Integer> pathSumList , int pathSum){
           /*
-          root-- 7        -->travel left-right ,top-bottom          (DFS)
+          root-- 7        -->travel top-bottom ;left-right       (DFS)
                 /  \         and return sum of nodes on path from root to leaf(root to leaf)
                4    9        [12,17,24,26]
               / \    / \     
@@ -4445,7 +4418,7 @@ rs=1              rs=0     rs=1
    }
     public void DFSRootToLeafPathsKaSumOfNodesMax (Node root ,int pathSum){
           /*
-          root-- 7        -->travel left-right ,top-bottom            (DFS)
+          root-- 7        -->travel top-bottom ;left-right           (DFS)
                 /  \         and return max sum of nodes on path from root to leaf(root to leaf)
                4    9        26
               / \    / \     
@@ -4499,7 +4472,7 @@ rs=1              rs=0     rs=1
    }
     public void DFSRootToLeafPathsKaSumOfNodesMin (Node root ,int pathSum){
           /*
-          root-- 7        -->travel left-right ,top-bottom     (DFS)
+          root-- 7        -->travel top-bottom ;left-right      (DFS)
                 /  \         and return min sum of nodes on path from root to leaf(root to leaf)
                4    9        17
               / \    / \     
@@ -4552,7 +4525,7 @@ rs=1              rs=0     rs=1
    }
     public void DFSRootToLeafPathsKaSumOfNodesEqualsTargetList ( Node root, List<List<Integer>> nodes ,List<Integer> pathSumList, int pathSum,int targetSum){
     /*
-      root-- 7        -->travel left-right ,top-bottom           (DFS)
+      root-- 7        -->travel top-bottom ;left-right            (DFS)
             /  \         and return path from root to leaf which add to target sum(root to leaf)
            4    9        ie [[7,4,6],[7,9,1]] for targetSum = 17
           / \    / \     
@@ -4605,7 +4578,7 @@ rs=1              rs=0     rs=1
     }
     public void DFSRootToLeafPathsKaSumOfNodesEqualsTargetExists(Node root, int pathSum,  int targetSum){
    /*
-      root-- 7        -->travel left-right ,top-bottom                                      (DFS)
+      root-- 7        -->travel top-bottom ;left-right                                     (DFS)
             /  \         and return if path exists path from root to leaf which add to target sum(root to leaf)
            4    9        ie 7,4,6] for targetSum = 17 so return true
           / \    / \     
@@ -4662,7 +4635,7 @@ rs=1              rs=0     rs=1
     public void DFSRootToLeafPathsAsCharacterStringMax(Node root, String pathSum){  
 
         /*
-          root-- 7          -->travel left-right ,top-bottom                             (DFS)
+          root-- 7          -->travel top-bottom ;left-right                            (DFS)
                 /  \          and return  "lexicographically max string"  from "leaf to root" (root to leaf)
                4    9         ie 1-4-7 = "beh" ;   6-4-7 = "geh"  .. ;10-9-8 = "kji" 
               / \    / \         "kji" is lexicographically max string
@@ -4733,7 +4706,7 @@ rs=1              rs=0     rs=1
     public void DFSRootToLeafPathsAsCharacterStringMin (Node root, String pathSum){  
 
         /*
-          root-- 7        -->travel left-right ,top-bottom                           (DFS)
+          root-- 7        -->travel top-bottom ;left-right                           (DFS)
                 /  \         and return  "lexicographically min string"  from "leaf to root" (root to leaf)
                4    9        ie 1-4-7 = "beh" ;   6-4-7 = "geh"  .. ;10-9-8 = "kji" 
               / \    / \         "beh" is lexicographically max string
@@ -4805,7 +4778,7 @@ rs=1              rs=0     rs=1
     }
     public void DFSRootToLeafPathsAsIntegerString    (Node root,List<String> pathStringList , String  pathString){ 
          /*
-          root-- 7        -->travel left-right ,top-bottom           (DFS)
+          root-- 7        -->travel top-bottom ;left-right           (DFS)
                 /  \         and return path from root to leaf as string(root to leaf)
                4    9        ["7->4->1","7->4->6","7->9->8","7->9->10"]
               / \    / \     
@@ -4863,7 +4836,7 @@ rs=1              rs=0     rs=1
     }                                                                                                             
     public void DFSRootToLeafPathsAsIntegerStringSum  (Node root,String  pathString ){
         /*
-          root-- 7        -->travel left-right ,top-bottom            (DFS)
+          root-- 7        -->travel top-bottom ;left-right           (DFS)
                 /  \         and return path from root to leaf as string and add them(root to leaf)
                4    9        "741"+"746"+"798"+"7910"
               / \    / \     
@@ -4919,7 +4892,7 @@ rs=1              rs=0     rs=1
     //DFSROOTTOANY
     public void DFSRootToAnyPathsKaAncestors (Node root, List<List<Integer>> nodes ,List<Integer> path , int val){
         /*
-         root-- 7      -->Traverse left-right ,top-bottom  (DFS)
+         root-- 7      -->Traverse top-bottom ;left-right   (DFS)
                /  \       return ancestors  of nodes excluding the node   (RootToANy)
               4    9      val = 9 so return [7] 
              / \    / \   val = 6 so return [7,4]
@@ -4974,7 +4947,7 @@ rs=1              rs=0     rs=1
     //DFSLEAFTOLEAF
     public void  DFSLeafToLeafPathsSumOfNodesMax(Node root){
         /*
-         root-- 7      -->Traverse left-right ,top-bottom  (DFS)
+         root-- 7      -->Traverse top-bottom ;left-right   (DFS)
                /  \       return leaf to leaf  path max no of nodes  (LeafToLeaf)    
               4    9      
              / \    / \  
@@ -5061,7 +5034,7 @@ rs=1              rs=0     rs=1
     }
     public void  DFSLeafToLeafPathsSumOfNodesMin(Node root){
         /*
-         root-- 7      -->Traverse left-right ,top-bottom  (DFS)
+         root-- 7      -->Traverse top-bottom ;left-right    (DFS)
                /  \       return leaf to leaf  path min no of nodes  (LeafToLeaf)    
               4    9      
              / \    / \  
@@ -5150,7 +5123,7 @@ rs=1              rs=0     rs=1
     //DFSANYTOANY
     public void DFSAnyToAnyPathsNoOfNodesMax(Node root){
         /*
-         root-- 7      -->Traverse left-right ,top-bottom  (DFS)
+         root-- 7      -->Traverse top-bottom ;left-right   (DFS)
                /  \        return any to any path max no of nodes  (AnyToAny)    
               4    9      
              / \    / \  
@@ -5219,7 +5192,7 @@ rs=1              rs=0     rs=1
     }
     public void DFSAnyToAnyPathsKaNoOfNodesMin(Node root){
         /*
-         root-- 7      -->Traverse left-right ,top-bottom  (DFS)
+         root-- 7      -->Traverse top-bottom ;left-right    (DFS)
                /  \       return any to any path min no of nodes  (AnyToAny)   
               4    9      
              / \    / \  
@@ -5290,7 +5263,7 @@ rs=1              rs=0     rs=1
     public void DFSAnyToAnyPathsKaSumOfNodesMax(Node root){
 
         /*
-         root-- 7      -->Traverse left-right ,top-bottom t (DFS)
+         root-- 7      -->Traverse top-bottom ;left-right   (DFS)
                /  \      return any to any path max sum of nodes
               4    9      
              / \    / \  
@@ -5362,7 +5335,7 @@ rs=1              rs=0     rs=1
     }
     public void DFSAnyToAnyPathsKaSumOfNodesMin(Node root){
         /*
-         root-- 7      -->Traverse left-right ,top-bottom  (DFS)
+         root-- 7      -->Traverse top-bottom ;left-right   (DFS)
                /  \      return any to any path min sum of nodes
               4    9      
              / \    / \  
@@ -5432,7 +5405,7 @@ rs=1              rs=0     rs=1
     public void DFSAnyToAnyPathsUnivalUnivalNoOfNodesMax(Node root , Node previousNode){
        
         /*
-         root-- 5      -->Traverse left-right ,top-bottom                                        (DFS)
+         root-- 5      -->Traverse top-bottom ;left-right                                       (DFS)
                /  \        return any to any unival path(all nodes along path are same) max no of nodes  (AnyToAny)    
               5    5      
              / \    / \  
@@ -5502,7 +5475,7 @@ rs=1              rs=0     rs=1
     //DFSTOPTOBOTTOM
     public int  DFSTopToBottomSumOfNodesEqualsTargetList(Node root, int currentsum, int targetSum, Map<Integer, Integer> map) {
         /*
-         root-- 10      -->Traverse  left-right,top-bottom (DFS) 
+         root-- 10      -->Traverse  top-bottom ;left-right   (DFS) 
                /  \       return path of  top to bottom node(top to bottom means any to any just your traversal  must be top to bottom) paths that have targetSum  
               5    3      ** TOP TO BOTTOM not ncessarily pass throught root                                                                                                            
              / \     \    EG 5,3 ; 5,2,1 ; 3-11,16 for target  = 8                                                                

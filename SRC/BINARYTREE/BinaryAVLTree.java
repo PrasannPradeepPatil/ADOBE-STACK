@@ -242,7 +242,7 @@ public class BinaryAVLTree {
      */
     public void DFSPrePostInOrderNoOfNode(Node root ,int val){
         /*
-          root-- 7        -->travel travel left-right;top-bottom(DFS)
+          root-- 7        -->travel travel top-bottom ;left-right  (DFS)
                 /  \         and return no of nodes(root to leaf)
                4    9        7
               / \    / \     
@@ -327,7 +327,7 @@ return 2^lh-1 -- 3 /         \  2
     }
     public void DFSPrePostInOrderInsert(Node root ,int val){
         /*
-        root-- 4       -->Travel left -righ ; top bottom (DFS)
+        root-- 4       -->Traveltop-bottom ;left-right   (DFS)
                 /  \        and insert node to mantain BST 
                 2     5      and retur root [4,2,1,3,5,6,7] 
             / \    / \    NOTE : WE INSERT AT LEAF NODE ONLY SO NO NEED TO WORRY ABOUT MIDDLE INSERTION IN MIDDLE
@@ -399,7 +399,7 @@ return 2^lh-1 -- 3 /         \  2
     //DFSROOTTOLEAF
     public void DFSRootToLeafMaxNoOfNodes(Node root){
         /*
-          root-- 7        -->travel travel left-right;top-bottom            (DFS)
+          root-- 7        -->travel travel top-bottom ;left-right(DFS)
                 /  \         and return max no of nodes on path from root to leaf(root to leaf)
                4    9        3
               / \    / \     

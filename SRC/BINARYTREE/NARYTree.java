@@ -78,12 +78,12 @@ public class NARYTree {
     public void DFSPreOrder   (Node root , List<Integer> nodes){
         /*
             1                  -->PREORDER:  
-        /   |   \   \            Left-right,Top-bottom(ROOT,LEFT,RIGHT)-->[1,2,3,6,7,11,14,4,8,12,5,9,13,10]   
-       2    3    4    5          Left-right,Top-bottom(ROOT,LEFT,RIGHT)-->[1,5,10,9,13,4,8,12,3,7,11,14,6,2] 
+        /   |   \   \            Top-bottom,Left-Right(ROOT,LEFT,RIGHT)-->[1,2,3,6,7,11,14,4,8,12,5,9,13,10]   
+       2    3    4    5          Top-bottom,Right-Left(ROOT,RIGHT,LEFT)-->[1,5,10,9,13,4,8,12,3,7,11,14,6,2] 
        |    /\    |    /\
        n   6  7   8    9 10      POSTORDER
-           | |   |    |   |      Left-Righ;Bottom-topt(LEFT,RIGHT,ROOT) -->[2,6,14,11,7,3,12,4,8,13,9,10,5,1] 
-           n 11  12   13  null   Right-Left;Bottom-top (RIGHT,LEFT,ROOT)-->[10,13,9,5,12,8,4,14,11,7,6,3,2,1]
+           | |   |    |   |      Bottom-top,Left-Righ;(LEFT,RIGHT,ROOT) -->[2,6,14,11,7,3,12,4,8,13,9,10,5,1] 
+           n 11  12   13  null   Bottom-top ;Right-Left(RIGHT,LEFT,ROOT)-->[10,13,9,5,12,8,4,14,11,7,6,3,2,1]
              |
              14
             
@@ -193,12 +193,12 @@ public class NARYTree {
     public void DFSPostOrder  (Node root , List<Integer> nodes){
         /*
             1                  -->PREORDER:  
-        /   |   \   \            Left-right,Top-bottom(ROOT,LEFT,RIGHT)-->[1,2,3,6,7,11,14,4,8,12,5,9,13,10]   
-       2    3    4    5          Left-right,Top-bottom(ROOT,LEFT,RIGHT)-->[1,5,10,9,13,4,8,12,3,7,11,14,6,2] 
+        /   |   \   \            Top-bottom,Left-Right(ROOT,LEFT,RIGHT)-->[1,2,3,6,7,11,14,4,8,12,5,9,13,10]   
+       2    3    4    5          Top-bottom,Right-Left(ROOT,RIGHT,LEFT)-->[1,5,10,9,13,4,8,12,3,7,11,14,6,2] 
        |    /\    |    /\
        n   6  7   8    9 10      POSTORDER
-           | |   |    |   |      Left-Righ;Bottom-topt(LEFT,RIGHT,ROOT) -->[2,6,14,11,7,3,12,4,8,13,9,10,5,1] 
-           n 11  12   13  null   Right-Left;Bottom-top (RIGHT,LEFT,ROOT)-->[10,13,9,5,12,8,4,14,11,7,6,3,2,1]
+           | |   |    |   |      Bottom-top,Left-Righ;(LEFT,RIGHT,ROOT) -->[2,6,14,11,7,3,12,4,8,13,9,10,5,1] 
+           n 11  12   13  null   Bottom-top ;Right-Left(RIGHT,LEFT,ROOT)-->[10,13,9,5,12,8,4,14,11,7,6,3,2,1]
              |
              14
             
@@ -312,9 +312,9 @@ public class NARYTree {
     }
     public void DFSLevelOrder (Node root,int level,List<List<Integer>> nodes){
         /*
-                7         Traverse top to bottom , left to right   (DFS)
+                7         Traverse top to bottom , eft to right   (DFS)
                 /\        and return path of nodes  at each level (LevelOrder)
-                / \       left-right;top-bottom -->[ [7] , [4,9], [1,6,8,10] ]
+                / \       top-bottom ;left-right-->[ [7] , [4,9], [1,6,8,10] ]
                 /   \     REST SAME AS BT 
                 4    9        
                 / \    / \    
@@ -334,7 +334,7 @@ public class NARYTree {
         //RECURSION - BINARY RECURSIVE TREE(Binary tree is  recursive DS)
         /*
         public void DFSLevelOrder (Node root,int level,List<List<Integer>> nodes){                                                  
-            //LEFT-RIGHT;TOP-BOTTOM                           -- while going top-bottom    
+            //TOP-BOTTOM ;LEFT-RIGHT                          -- while going top-bottom    
             if (root == null){return;}                          return at null and  start moving up                                                                                                                     
             if(nodes.size()==level)                             [[l-r] , [l-r]] -- when we reach a level create a arraylist at last index(top-bottom) 
                 nodes.add(new ArrayList<Integer>());             lo       l1       get the arrayList at that level and add nodes at lastindex(left right)
@@ -360,7 +360,6 @@ public class NARYTree {
         */
 
         //ITERATIVE
-        
         /*                 
                                   //QUEUE(queue using LL cause queue using AD doesnt take null)   
         7                           10    
@@ -494,7 +493,7 @@ public class NARYTree {
      */
     public void DFSRootToLeafMaxNoOfNode(Node root){
         /*
-          root-- 7        -->travel travel left-right;top-bottom            (DFS)
+          root-- 7        -->travel travel top-bottom  ;left-right          (DFS)
                 /  \         and return max no of nodes on path from root to leaf(root to leaf)
                4    9        3
               / \    / \     

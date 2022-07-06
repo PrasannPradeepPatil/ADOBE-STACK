@@ -100,7 +100,7 @@ public class BinarySearchTrees {
     //DFSPREPOSTORDER
     public void DFSPrePostInOrderMaxNode   (Node root){
         /*
-          root-- 4        -->travel left-right;top-bottom        (DFS)
+          root-- 4        -->travel top-bottom ;left-right      (DFS)
                 /  \         and return max node in BST
                2     6        7
               / \    / \    
@@ -228,7 +228,7 @@ public class BinarySearchTrees {
     }
     public void DFSPrePostInOrderMinNode   (Node root){
         /*
-          root-- 4        -->travel left-right;top-bottom        (DFS)
+          root-- 4        -->travel top-bottom ;left-right         (DFS)
                 /  \         and return min node in BST
                2     6        1
               / \    / \    
@@ -358,7 +358,7 @@ public class BinarySearchTrees {
     }
     public void DFSPrePostInOrderKthMaxNode(Node root){
         /*
-           root-- 4        -->travel left-right;top-bottom       (DFS)
+           root-- 4        -->travel top-bottom ;left-right         (DFS)
                  /  \         and  return kth max node in  BST 
                 2     6        
                / \    / \      
@@ -466,7 +466,7 @@ l=0,r=0  1 l,r=0 3     6 l,r=0  7  l=0,r=0
      }
     public void DFSPrePostInOrderKthMinNode(Node root){
         /*
-           root-- 4        -->travel left-right;top-bottom       (DFS)
+           root-- 4        -->travel top-bottom ;left-right       (DFS)
                  /  \         and  return kth min node in  BST 
                 2     6        
                / \    / \      
@@ -579,7 +579,7 @@ l=0,r=0  1 l,r=0 3     6 l,r=0  7  l=0,r=0
      }
     public void DFSPrePostInOrderSumOfNodesInRange(Node root, int low , int high){
         /*
-           root-- 4        --travel left-right;top-bottom      (DFS)
+           root-- 4        --travel top-bottom ;left-right      (DFS)
                  /  \         and return sum  of nodes which lie the range [low,high] inclusive
                 2    6        
                / \    / \    
@@ -676,7 +676,7 @@ l=0,r=0  1 l,r=0 3     6 l,r=0  7  l=0,r=0
      }
     public void DFSPrePostInOrderContains  (Node root, int val){
         /*
-           root-- 4        -->travel left-right;top-bottom       (DFS)
+           root-- 4        -->travel top-bottom ;left-right        (DFS)
                  /  \         and  if contains return true false 
                 2     6        and if contains return node or null Eg 6
                / \    / \      and if contains eturn node and its subtrenodes or null  Eg [6,5,7]
@@ -833,7 +833,7 @@ l=0,r=0  1 l,r=0 3     6 l,r=0  7  l=0,r=0
      }
     public void DFSPrePostInOrderModes     (Node root,List<Integer> pathList){
         /*
-          root-- 4        -->travel left-right;top-bottom       (DFS)  
+          root-- 4        -->travel top-bottom ;left-right       (DFS)  
                 /  \         For a special BST where left <=root <= right  
                2     6       return list of modes in any order ie nodes with max frequency
               / \    / \     ie [1,5]     
@@ -922,7 +922,7 @@ l=0,r=0  1 l,r=0 3     6 l,r=0  7  l=0,r=0
    }    
     public void DFSPrePostInOrderLCA       (Node root,Node n1, Node n2){
         /*
-           root-- 7        -->travel left-right;top-bottom         (DFS)
+           root-- 7        -->travel top-bottom ;left-right        (DFS)
                  /  \         and  return lowest common ancestor of n1,n2
                 4    9        where we allow a node to be a descendant of itself 8,10 
                / \    / \      4,9 lowest common ancestor is 7 ; 4 1 lowest common ancestor is 4
@@ -1118,7 +1118,7 @@ l=0,r=0  1 l,r=0 3     6 l,r=0  7  l=0,r=0
     }
     public void DFSPrePostInOrderInsert    (Node root ,int val){
         /*
-       root-- 4       -->Travel left -righ ; top bottom (DFS)
+       root-- 4       -->Travel top-bottom ;left-right  (DFS)
              /  \        and insert node to mantain BST 
             2     5      and retur root [4,2,1,3,5,6,7] 
            / \    / \    NOTE : WE INSERT AT LEAF NODE ONLY SO NO NEED TO WORRY ABOUT MIDDLE INSERTION IN MIDDLE
@@ -1250,7 +1250,7 @@ l=0,r=0  1 l,r=0 3     6 l,r=0  7  l=0,r=0
     //DFSANYTOANY
     public void DFSAnyToAnyPathDifferenceOfNodesMin(Node root){
         /*
-         root-- 7      -->Traverse left-right ,top-bottom  (DFS)
+         root-- 7      -->Traverse top-bottom ;left-right   (DFS)
                /  \        return any to any path ka min difference between any 2 nodes  (AnyToAny)    
               2     11     EG 2-1 = 1 is the min diff bw any 2 nides   
              / \    / \  

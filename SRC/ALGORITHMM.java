@@ -233,8 +233,8 @@ public class ALGORITHMM{
     BinaryRecursive  O(log2 n)     O(n)    -->Array must be sorted 
     Ternary          O(log3 n)     O(1)    -->Array must be sorted 
     TernaryRecursive O(log2 n)     O(n)    -->Array must be sorted 
-    Jump search      O(sqrt(n))    O(1)    -->Array can be unsorted                    
-    Exponential      O(log i)      O(1)    -->Array can be unsorted  ;i is the index of element    
+    Jump search      O(sqrt(n))    O(1)    -->Array must be sorted                
+    Exponential      O(log i)      O(1)    -->Array must be sorted   ;i is the index of element    
                      
 
 
@@ -245,27 +245,27 @@ public class ALGORITHMM{
     InsertSort         O(n^2)    O(n)             O(1)   O(1)     -->Good for nearly sorted array
     QuickSortRecursive O(n^2)    O(nlog2n)        O(n)   O(log2n) -->Fastest in best case and less memory in best case 
     MergesortRecursive O(nlog2n) O(nlog2n)        O(n)   O(n)     -->Fastest but requires  memory 
-    Count sort         O(n+k)    O(n+k)           O(k)   O(k)     -->Good if array  +ve array elements and max range k is given(both must be given)
     Heap sort          O(nlog2n) O(nlog2n)        O(n)   O(n)     -->Fastest but requires memory 
+    Count sort         O(n+k)    O(n+k)           O(k)   O(k)     -->Good if array  +ve array elements and max range k is given(both must be given)
+
 
     */
-
 
     //CONSTRAINTS
     /*
 
 
 
-    | ----1 <= arr.length <= 10^8---------------
-    |    --- 1 <=     a[i]        <= 10^9 -----    |
-    |    |                                   |     |
-    |    |                                   |     |
-    ARRAY| EDGE CASE                         |    DATATYPE(int range = 2*10^9)
-    0 ele|ment , 1 element etc               |    constraint    datatype
-         |                                   |    0-10^9         int[] arr
-         |                                   |    >10^9          long[] arr
-    ARRAY ELEMENTS EDGE CASE                 | 
-    -ve numbers etc                 TIME COMPLEXITY(time <= 1sec = 10^8) 
+    | ----1 <= arr.length <= 10^8--------------------------------
+    |    --- 1 <=     a[i]        <= 10^9 -----                  |
+    |    |                                   |                   |
+    |    |                                   |                   |
+    | ARRAY EDGE CASE               DATATYPE(int range = 2*10^9) |
+    | -ve numbers etc               constraint    datatype       | 
+    |                              0-10^9         int[] arr      |
+    |                               >10^9         long[] arr    |
+    ARRAY ELEMENTS EDGE CASE                                     | 
+    0 ele|ment , 1 element etc      TIME COMPLEXITY(time <= 1sec = 10^8) 
                                     constraints    Time complexity(O(log2 n),O(n),O(n^2),O(2^n),O(n!))
                                     10^18          O(lg2n) because  log2(10^8) <= 10^8      
                                     10^8           O(n)    because 10^8 <= 10^8               
@@ -274,8 +274,6 @@ public class ALGORITHMM{
                                     20             O(2^n)  becaue 2^20 <=  10^8             
                                     11             O(n!)   becaue 11! <=  10^8  
     */
-
-
 
 
     //ALGORITHMS

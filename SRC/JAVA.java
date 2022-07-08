@@ -783,7 +783,7 @@ acessmod nonacessmod   Class  classname/interFaceName  <Generic>    extends/ imp
                                                                               val1 - val2  OR val2 - val1                                              --> sort in asc/desc based on values of Integers
                                                                               value1.compare(value2) OR value2.compare(value1)                         --> sort in asc/desc orded based on "lexicographical" values of String
                                                                               a[0] != b[0]) ? a[0] - b[0] :a[1] - b[1]                                  -->sort in ascending order based on 0th index of arrays and if they are same sort in asc order based on 1st index of arrays  
-                                                                              map.get(value1) != map.get(value2)) ? map.get(value1) - map.get.(value2):value1- value2   -->sort in ascending order based on value of hashmap and if they are same same sort in asc  based on element                
+                                                                              map.get(value1) != map.get(value2) ? map.get(value1) - map.get.(value2):value1- value2   -->sort in ascending order based on value of hashmap and if they are same same sort in asc  based on element                
     }
     ComparatorClass comparatorObject = new ComparatorClass()
     OR
@@ -800,16 +800,16 @@ acessmod nonacessmod   Class  classname/interFaceName  <Generic>    extends/ imp
          |
         LAMBDA FN CAN BE WRITTEN IN 4 WAYS
         1.LAMBDA FN
-        Comparator<Animal> comparatorObject = (Animal a1,Animal a2)->{ return a1.name.compateTo(a2.name);}  -->Compare based on name
+        Comparator<Animal> comparatorObject = (Animal a1,Animal a2)->{ return a1.height-a2.height);}      -->Compare based on height
         
         2.LAMBDA FN + METHOD REFERENCING 
-        Comparator<Animal> comparatorObj    = (Animal:: compareName}                                        -->Since Lambda fn is only calling a method we can use method reference as ClassName:methodName
-                                                                                                             (write a compareName fn in Animal class--> public int compareName(Animal a1, Animal a2)->{return a1.name.compateTo(a2.name)})
+        Comparator<Animal> comparatorObj    = (Animal:: compareHeight}                                     -->Since Lambda fn is only calling a method we can use method reference as ClassName:methodName
+                                                                                                             (write a compareName fn in Animal class--> public int compareHeight(Animal a1, Animal a2)->{return a1.height- a2.height})
         3.COMPARATOR(LAMBDA FN)
-        Comparator<Animal> comparatorObj    = Comparator.comparing((Animal animal) -> animal.name);         -->Compare based on name           
+        Comparator<Animal> comparatorObj    = Comparator.comparing((Animal animal) -> animal.height);         -->Compare based on height           
     
         4.COMPARATOR(LAMBDA FN) + METHOD REFERENCING 
-        Comparator<Animal> comparatorObj    = Comparator.comparing(Animal::getName)                         ->Since Lambda fn is only calling a method we can use method reference as ClassName:methodName
+        Comparator<Animal> comparatorObj    = Comparator.comparing(Animal::getHeight)                         ->Since Lambda fn is only calling a method we can use method reference as ClassName:methodName
                                                            |
                                                            |
                                             Comparator.comparing()        -- compare strings
@@ -1483,15 +1483,9 @@ acessmod nonacessmod   Class  classname/interFaceName  <Generic>    extends/ imp
                                                                 Character.isLetter(ch)
                                                                 Character.isDigit(ch)
                                                                 Character.isLetterOrDigit(ch)
-                                                                EG
-                                                                String s = "a1b2"
-                                                                if( Character.isLetter(s.getCharAt(0)))
     */
     //CONVERSION(CONVERSION OPERATION)
     /*
-
-
-
             1.DECLARATION
             byte/short/int/long/float/double     a = 1    --1 taken as int ; 1.11 taken as double;7/3 takn as int by truncating decimale
             Byte/Short/Integer/Long/Float/Double a = 1    --converted internaly
@@ -1658,7 +1652,7 @@ acessmod nonacessmod   Class  classname/interFaceName  <Generic>    extends/ imp
                                             2 = 000000000000000000000000000000010   
                                             -2 = 11111111111111111111111111111110 (2 ka 2's comp = 2 ka 1's comp + 1)
                                             (int(Java) :signed integers format(-2^31 to 2^31-1) ; not unsigned integers format(0 to 2^64) 
-                                            bin(Java) :32 bits binary for
+                                             bin(Java) :32 bits binary for
 
                                             OPERATION
                                             + -- 0 + 0 = 0; 0 + 1 = 1 ;1 + 0 = 1 ; 1 + 1 = 0 carry 1 
@@ -1706,13 +1700,13 @@ acessmod nonacessmod   Class  classname/interFaceName  <Generic>    extends/ imp
 
 
     1.
-    mask = 1 <<< n -->mask ka index = n from right is set ; rest all 0 
+    mask = 1 <<< n -->mask n th from right is set ; rest all 0 
     a & mask -->get bit at index = n from from right
     a|mask   -->set bit at index = n from from right
     a ^ mask -->flip bit at index = n from from right
 
     2.
-    mask = n ^ -n -->mask ka index = "n ka 1st set index from right "is set ; rest all 0 
+    mask = n ^ -n -->mask  "n ka 1st set index from right"index is set ; rest all 0 
     a & mask      -->get bit at index = n ka 1st set index from right
     a | mask      -->set bit at index = n ka 1st set index from right
     a ^ mask      -->flip bit at index = n ka 1st set index from right
@@ -1724,12 +1718,6 @@ acessmod nonacessmod   Class  classname/interFaceName  <Generic>    extends/ imp
 
 
     EG:LOOK IN RELATED QUES BIT MANIPULATION
-        
-
-
-
-                                                                    
-    
     */
     //SORTING
     /*
@@ -1759,7 +1747,7 @@ acessmod nonacessmod   Class  classname/interFaceName  <Generic>    extends/ imp
 
     
     */
-    //SUBARRAY/SUBSTRING,SUBSEQUENCE,SUBSET, COMBINATION,PERMUTATION
+    //SUBARRAY/SUBSTRING,SUBSEQUENCE,SUBSET,COMBINATION,PERMUTATION
     /*
     S = "abc"     
     COMBINATION   : Element are non-continuous,non-ordered
@@ -1793,26 +1781,7 @@ acessmod nonacessmod   Class  classname/interFaceName  <Generic>    extends/ imp
                     
 
 
-
-    NOTE:
-    COMBINATION WITH UNIQUE PAIR = SUBSET WITH UNIQUE PAIRS
-    SUBSET = SUBSEQUENCE  + []
-    EG:
-    https://leetcode.com/problems/combination-sum-ii/
-    array ka unique combination ka sum equals target ka arrays  =array ka  unique subsequence ka sum equals target ka arrays
-    arraySubsequenceKaSumEqualsTargetKaArraysII_CoinChangeCombinationArray()
     
-    https://leetcode.com/problems/combination-sum/
-    array ka unique combination ka sum equals target ka arrays  =array ka  unique subsequence ka sum equals target ka arrays
-    arraySubsequenceKaSumEqualsTargetKaArraysI()
-
-    https://leetcode.com/problems/combination-sum-iii/
-    array ka unique combination of size k ka sum equals target ka arrays  =array ka  unique subsequence of size k ka sum equals target ka arrays
-    arraySubsequenceOfSizeKKaSumEqualsTargetKaArraysI()
-    
-    https://leetcode.com/problems/combinations/
-    array ka unique combination of size k ka arrays= array ka unique subsequence of size k ka arrays
-    arraySubArraySubsequenceSubsetCombinationPermutationfSizeK
 
 
 
@@ -1825,7 +1794,7 @@ acessmod nonacessmod   Class  classname/interFaceName  <Generic>    extends/ imp
                  Pair of values are unique if they have  different even though formed from different elements or different combination
                  Eg:[4,4,1,4]
                  (4(0th index), 1) , (4(1st index), 1) --same pair as they must have same values even though formed from different 4
-                 (4(0th index), 1) , (1,4(3rd index)) -- same pair as they have same values in different combination
+                 (4(0th index), 1) , (1,4(0th Index)) -- same pair as they have same values in different combination
     UNIQUE PAIR:1.SORTING ARRAY AND SKIPPING DUPLICATES
                 Sort arr and skip the duplicates
 
@@ -1861,8 +1830,7 @@ acessmod nonacessmod   Class  classname/interFaceName  <Generic>    extends/ imp
     CONVERT ARRAYS OF INT TO UNIQUE STRING :ele1#ele2#ele3#(not sorted) -- Iterate pair and do not sort;add pair ka value + #
                                            Eg:binaryTreeSerializeDeserialize(),binarySearchTreeSerializeDeserialize()
 
-    CONVERT ARRAYS OF STR TO UNIQU STRING  :ele1#ele2#ele3#                    -- Iterate arr and add element + # ;but string may contain anything even "#" so can use any character as delimeter
-                                           :ele1KaLength#ele1ele2KaLength#ele2 -- Iterate arr and add element ka length + #  + element
+    CONVERT ARRAYS OF STR TO UNIQU STRING  :ele1KaLength#ele1ele2KaLength#ele2 -- Iterate arr and add element ka length + #  + element
                                            Eg: stringEncodeDecode()
                     
             
@@ -1903,9 +1871,6 @@ acessmod nonacessmod   Class  classname/interFaceName  <Generic>    extends/ imp
 
     */
 //)
-
-
-
 
 
             /*
@@ -1955,6 +1920,13 @@ acessmod nonacessmod   Class  classname/interFaceName  <Generic>    extends/ imp
 
 
             2.MUTABLE IMMUTABLE:-
+            MUTABLE
+            int[] arr1 = {1,2,3,4}    arr1 ---->{1,2,3,4}   
+            int[] arr2 = arr1         arr2 -------/
+
+            arr2[1]  = 5             arr1 -------------{1,2,5,4}   (array   is mutable so change  in place)
+                                    arr2 -------------/
+
             IMMUTABLE
             String x = "pras"     x------>"pras"  
             String y = x          y------/
@@ -1962,17 +1934,12 @@ acessmod nonacessmod   Class  classname/interFaceName  <Generic>    extends/ imp
             y = "pat"                x ------->"pras"  (string  is immutable so change  by  forming copy)
                                     y --------->"pat"
                                                                 
-            MUTABLE
-            int[] arr1 = {1,2,3,4}    arr1 ---->{1,2,3,4}   
-            int[] arr2 = arr1         arr2 -------/
 
-            arr2[1]  = 5             arr1 -------------{1,2,5,4}   (array   is mutable so change  in place)
-                                    arr2 -------------/
            
                                     
 
             3.ITERABLE, INITERABLE:
-            for(i in arr)                   (array is iterable hence we can iterate)
+            for(i in arr)                    (array is iterable hence we can iterate)
             for(i in str.toCharArray())      (string is initerable hence convert to array)                                                                                                                 
 
             */
@@ -2086,8 +2053,7 @@ split('RE',limit) --> returns a new list of string by splitting  string at RE no
                        s.trim().split(" ");   //returns array of words from a string with words seperated by single space 
                        s.trim().split(" +"); //returns array of words from a string with words seperated by single space 
 substring(si,ei)  --> returns a new trimmed  string  from startindex(default 0)  to endindex (default n) exclusive                          O(n)
-     |
-second s is small 
+   (swcond s is small =)
 
 
 
@@ -2148,13 +2114,19 @@ Arrays.copyOfRange(array,from:startindex,to:endindex) --> copy array from starti
 
 
 2.FNS
-Arrays.eqauals(al1,al2)                                                            -->compares array                                                                  O(n)
+a.
+new ArrayList(Arrays.asList(arr))                                                 -->Arrays.asList(arr) returns view list ie mutable list whose change affects  array; new ArrayList returns normal list ie mutable and changes doesnt affect arr
+Arrays.toString(arr)                                                                 Convert arr to string 
+b.
+Arrays.eqaals(arr1,arr2)                                                          -->compares value of array                                                                  O(n)
+c.
 Arrays.copyOfRange(array,from:startindex,to:endindex)                              -->return a  copy array from startindex to endindex  exclusive                     O(n)
+d.
 Arrays.sort(arr,startindex,endindex)                                               -->sorts array,ist in place from startindex to endindex exclusive[LOOK IN SORTING]  O(n logn)        
 Arrays.sort(arr,comparatorObject)
 Collections.sort(list)
 Collections.sort(list,comparatorObject)                                                 
-Collections.reverse(list                                                            -->reverses list in place                                                          O(n)
+Collections.reverse(list)                                                            -->reverses list in place                                                          O(n)
 
                                              
 */
@@ -2166,8 +2138,8 @@ Collections.reverse(list                                                        
                                                 |
                                      CollectionInterface
                                           /     |  \   \
-                List(I)                                        Queue(I)                           Map(I)                            Set(I) 
-                |                                               |         |                        |             |                   |             |         
+                List(I)                                      Queue(I)                           Map(I)                            Set(I) 
+                |                                             |           |                        |             |                   |             |         
                 |                           ____ __ _________Deque(I)     |                        |           SortedMap(I)          |         SortedSet(I)        
                 |                          |                 |            |                        |             |                   |             |        
                 |-ArrayList                |                 |-ArrayDeque |-PriorityQueue          |--HashMap    |- TreeMap          |--HashSet    |-TreeSet     
@@ -2175,7 +2147,7 @@ Collections.reverse(list                                                        
                 |-Vector                                                                               |                                 |
                     |                                                                                  |                                 |
                     |-Stack                                                                            |-LinkedHashMap                   |--LinkedHashSet
-                (ArrayList – exoands b 50% when full 
+                (ArrayList – expands by 50% when full 
                 Vector- expands by 100% when full)
 */
 
@@ -2466,7 +2438,7 @@ remove() ke badle poll()                                  --> remove item and do
 
 */
 
-//PRIOROTY QUEUE/MAX MIN HEAP -->EFERENCE, MUTABLE , INITERABLE
+//PRIOROTY QUEUE/MAX MIN HEAP -->REFERENCE, MUTABLE , INITERABLE
 /*
 Queue<datatype>  priorityQueue = new PriorityQueue<>();                 -->All the methods of Queue  interface overwridden in Priority Queue  class can be
 PriorityQueue<Integer> priorityQueue = new PriorityQueue<>();   -->All the methods of Queue  interface overwridden in PQ + PQ class methods    
@@ -2542,7 +2514,7 @@ size()                                                    --> returns size of ma
 
 */
 
-//HASHSSET-->REFERENCE, MUTABLE ,ITERABLE -->**key unique and non-null,  
+//HASHSET-->REFERENCE, MUTABLE ,ITERABLE -->**key unique and non-null,  
 /*
 Set<key datatype >  hashset  =  new subclass<>();        -->All methods of set interface class overwridden in Hashsets subclass can be called
 Hashsets<key datatyoe> hashset = new Hashsets<>()<       --> All methods of HashSets class can be called  (keys added in any order)

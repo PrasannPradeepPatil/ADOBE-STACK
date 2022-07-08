@@ -14,48 +14,42 @@ SAME AS BT
 /*
 SAME AS BT 
 +
-LEFTNODE <(! <=)ROOTNODE <(! <=) RIGHTNODE
-left subtree < right subtree                                                                  EG:DFSPrePosttInOrderContains,II(BST);DFSPrePosttInOrderInsertI,II(BT)); 
-left subtree < right subtree  so ancestor will be at splitting point                          EG:DFSPrePostInOrderLowestComonAncestorI,II(BST) 
-bottom-top,left-right(inorder) will give nodes in strictly ascending order                    EG:DFSPrePosttInOrderkthMinNodeI,II(BST); DFSPrePosttInOrderkthMaxNodeI,II(BST); DFSPrePosttInOrderIsBSTI,II(BT)); 
-bottom-top;right-left(inorder) will give nodes in strictly descending order       
-leftmost Node is purely min                                                                   EG: DFSPrePosttInOrderMinNodeI,II(BST); DFSPrePosttInOrderMaxNodeI,II(BT) 
-rightmost node is purely max                                                                     
+LEFTNODE < ROOTNODE <  RIGHTNODE
+1.
+left subtree < right subtree                                                                  EG:DFSPrePosttInOrderContains;DFSPrePosttInOrderInsert
+left subtree < right subtree  so ancestor will be at splitting point                          EG:DFSPrePostInOrderLowestComonAncestor
+2.
+leftmost Node is purely min                                                                   EG: DFSPrePosttInOrderMinNode; DFSPrePosttInOrderMaxNode
+rightmost node is purely max     
+3.
 min difference nodes will be together                                                         EG:DFSAnyToAnyPathDifferenceOfNodesMin
 max difference nodes will be extreme left and extreme right
+4.
+bottom-top,left-right(inorder) will give nodes in strictly ascending order                    EG:DFSPrePosttInOrderkthMinNode; DFSPrePosttInOrderkthMaxNode; DFSPrePosttInOrderIsBST(BT); 
+bottom-top;right-left(inorder) will give nodes in strictly descending order                                                                      
+
 
 LEFTNODE  <=ROOTNODE <= RIGHTNODE -->SPECIFIED IN QUES    
-left subtree <= right subtree 
-left-right;bottom-top(top middle me ie inorder) will give nodes in  ascending order     
-right-left;bottom-top(top middle me ie inorder) will give nodes in  descending order      
+1.
+left subtree <= right subtree   
+left subtree <= right subtree  so ancestor will be at splitting point  
+2.
 leftmost Node is  min                                                              
 rightmost node is  max
+3.
 min difference nodes will be together 
 max difference nodes will be extreme left and extreme right
 +
-Duplicate Nodes will be together                                                              EG:DFSPrePosttInOrderModesI,II(BST);                                                                 
-        
+Duplicate Nodes will be together                                                              EG:DFSPrePosttInOrderModes                                                               
+4.
+left-right;bottom-top(top middle me ie inorder) will give nodes in  ascending order     
+right-left;bottom-top(top middle me ie inorder) will give nodes in  descending order  
 
 */
 
 
 
 public class BinarySearchTrees {
-    /*
-
-    BINARY SEARCH TREE
-
-              7   -->each node has max 2 children 
-             /  \    lefnode < rootnode < rightnode  ; so entire left subtree < right subtree
-            4    9
-           / \    / \
-           1  6   8  10
-         /  \ /\  /\  / \
-        n  n  n n n n  n n
-
-
-
-      */
 
     //NODE CLASS
     private class Node {
@@ -829,7 +823,7 @@ l=0,r=0  1 l,r=0 3     6 l,r=0  7  l=0,r=0
 
 
      }
-    public void DFSPrePostInOrderModes     (Node root,List<Integer> pathList){
+    public void DFSPrePostInOrderFrequencyOfNodesMax     (Node root,List<Integer> pathList){
         /*
           root-- 4        -->travel top-bottom ;left-right       (DFS)  
                 /  \         For a special BST where left <=root <= right  
@@ -844,12 +838,12 @@ l=0,r=0  1 l,r=0 3     6 l,r=0  7  l=0,r=0
 
        //RECURSION IP -OP TREE
        /* 
-       public void DFSPrePostInOrderModesI(Node root,List<Integer> pathList
+       public void DFSPrePostInOrderFrequencyOfNodesMaxI(Node root,List<Integer> pathList
                                                                            -- while going top-bottom   
            if (root == null){return;}                                          return at null and  start moving up 
 
            
-           DFSPrePostInOrderModes(root.left);                              --while going left-right  
+           DFSPrePostInOrderFrequencyOfNodesMax(root.left);                              --while going left-right  
 
                                                
                                                                                
@@ -883,14 +877,14 @@ l=0,r=0  1 l,r=0 3     6 l,r=0  7  l=0,r=0
            
            previousNode = root;
 
-           DFSPrePostInOrderModesI(root.right);
+           DFSPrePostInOrderFrequencyOfNodesMaxI(root.right);
            
        }
 
        //OVERRIDE
-       public void DFSPrePostInOrderModes(Node root){
+       public void DFSPrePostInOrderFrequencyOfNodesMax(Node root){
            List<Integer> pathList = new ArrayList<>(); 
-           DFSPrePostInOrderModes(Node root,List<Integer> pathList);
+           DFSPrePostInOrderFrequencyOfNodesMax(Node root,List<Integer> pathList);
            return pathList;
        }
        
@@ -938,9 +932,9 @@ l=0,r=0  1 l,r=0 3     6 l,r=0  7  l=0,r=0
 
                                                                         --while going left-right ( lefnode <(! <=)rootnode <(! <=) so leftSubtree < rightSubtree)
             if(root.val > n1.val && root.val > n2.val){                     if root.val > n1,n2 then move to left as n1,n2 are on left  
-                DFSPrePostInOrderLowestComonAncestor(root.left,n1,n2)}     else if root.val < n1,n2 then move to right as n1,n2 are on right 
-            else if(root.val < n1.val && root.val < n2.va){                 else n1 on left n2 on right or vice versa which means we have reached split point
-                DFSPrePostInOrderLowestComonAncestor(root.right,n1,n2)}    and  split point is  ancestor 
+                DFSPrePostInOrderLowestComonAncestor(root.left,n1,n2)}      else if root.val < n1,n2 then move to right as n1,n2 are on right 
+            else if(root.val < n1.val && root.val < n2.val){                 else n1 on left n2 on right or vice versa which means we have reached split point
+                DFSPrePostInOrderLowestComonAncestor(root.right,n1,n2)}     and split point is  ancestor 
             else{
                 ancestor = root.val; //ancestor is global 
             }

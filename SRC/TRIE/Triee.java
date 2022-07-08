@@ -4,8 +4,8 @@ package SRC.TRIE;
 public class Triee {
     /*
     Implement Trie class in which 
-    Triee() Initializes the trie object.
-    void add(String word)          :adds the string word into the trie.
+    Triee()                           :Initializes the trie object.
+    void add(String word)             :adds the string word into the trie.
     boolean search(String word)       :Returns true if the string word is in the trie (i.e., was added before), and false otherwise.
     boolean startsWith(String word)   :Returns true if there is a previously added string word that has the prefix word, and false otherwise.
     

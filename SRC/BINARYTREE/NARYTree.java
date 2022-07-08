@@ -6,31 +6,18 @@ import java.util.*;
 1.NARY TREE
 EACH NODE HAS N CHILDREN;  
 
-
-2.NARY  TEST CASES
-[1,null,2,3,4,5,null,null,6,7,null,8,null,9,10,null,null,11,null,12,null,13,null,null,14] --> nodes are level wise ; each group of children sepereate by null
-
-            1   
-        /   |   \   \
-       2    3    4    5
-       |    /\    |    /\
-       n   6  7   8    9 10
-           | |   |    |   |
-           n 11  12   13  null
-             |
-             14
 */
 
 //NARY CODING
 /*
 SAME AS BT 
 +
-for(var Node : root.children){  OR for(int i=0 ; i < root.children.size();i++){ -->while going left-right
-    fn(Node)                           fn(root.children.get(i));                   while going left-right  through children
-}                                                                                  [For every iteration entire recursive tree is called]
-return max(c1,c2,c3...cn) +1   -->max(l,r) + 1 ke badle  
-                                 int max = 0                 -->INITIALISE MAX , MIN TO 0 NOT Integer.MAX_VALUE/Integer.MIN_VALUE bBECAUSE IN END YOU ARE USINFG THIS MAX VALUE FOR MAX + 1
-                                 for(){max(c1,c2...cn)}         EG:DFSPrePostOrderMaxNoOfNodeII
+for(var Node : root.children){  OR for(int i=0 ; i < root.children.size();i++){ -->while going left-right  through children
+    fn(Node)                           fn(root.children.get(i));                   
+}                                                                                
+return max(c1,c2,c3...cn) +1   -->max(l,r) + 1 ke badle                        -->INITIALISE MAX , MIN TO 0 NOT Integer.MAX_VALUE/Integer.MIN_VALUE bBECAUSE IN END YOU ARE USINFG THIS MAX VALUE FOR MAX + 1
+                                 int max = 0                                       EG:DFSPrePostOrderMaxNoOfNodeII 
+                                 for(){max(c1,c2...cn)}        
                                  return max+1      
 
 */

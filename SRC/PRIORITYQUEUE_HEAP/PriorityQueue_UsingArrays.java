@@ -2,9 +2,9 @@ package SRC.PRIORITYQUEUE_HEAP;
 import java.util.Arrays;
 
 public class PriorityQueue_UsingArrays {
-     //DIFFERENCE
-     //Priority queue using Arrays : Insertion :O(n) ;Deletion :O(1)           -->Slower Insertion , Faster deletion
-    //Priority queue using Heap    : Insertion :O(log n) ;Deletion :O(log n)  
+    //DIFFERENCE
+    //Priority queue using Arrays : Insertion :O(n) ;Deletion :O(1)           -->Slower Insertion , Faster deletion
+    //Priority queue using Heap   : Insertion :O(log n) ;Deletion :O(log n)  
 
 
 

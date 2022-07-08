@@ -7,8 +7,6 @@ public class BasicsAlgorithm {
 
     //RELATION
     /* #region Main */
-
-
     //SUBARRAY/SUBSTRING,SUBSEQUENCE,SUBSET,COMBINATION,PERMUTATION 
     /*
     arraySubArrayKaArrays(R)
@@ -17,9 +15,30 @@ public class BasicsAlgorithm {
     arrayCombinationKaArray(R)
     arrayPermutaionKaArray(R)
     arraySubArraySubsequenceSubsetCombinationPermutationfSizeK(R)
+
+    
+    NOTE:
+    COMBINATION WITH UNIQUE PAIR = SUBSET WITH UNIQUE PAIRS
+    SUBSET = SUBSEQUENCE  + []
+    
+    EG:
+    arraySubsequenceKaSumEqualsTargetKaArraysII_CoinChangeCombinationArray() -- https://leetcode.com/problems/combination-sum-ii/
+    array ka unique combination ka sum equals target ka arrays  =array ka  unique subsequence ka sum equals target ka arrays
+    
+    
+    arraySubsequenceKaSumEqualsTargetKaArraysI()  -- https://leetcode.com/problems/combination-sum/
+    array ka unique combination ka sum equals target ka arrays  =array ka  unique subsequence ka sum equals target ka arrays
+    
+
+    arraySubsequenceOfSizeKKaSumEqualsTargetKaArraysI() -- https://leetcode.com/problems/combination-sum-iii/
+    array ka unique combination of size k ka sum equals target ka arrays  =array ka  unique subsequence of size k ka sum equals target ka arrays
+    
+    
+    arraySubArraySubsequenceSubsetCombinationPermutationfSizeK -- https://leetcode.com/problems/combinations/
+    array ka unique combination of size k ka arrays= array ka unique subsequence of size k ka arrays
     */
 
-
+    
     //NUMBER
     /*
     numerIsHappy(R)
@@ -539,7 +558,6 @@ public class BasicsAlgorithm {
     matrixIsValidSudoku(BA)
 
     */
-
 
 
     //ALGORITHM

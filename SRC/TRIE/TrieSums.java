@@ -101,7 +101,7 @@ public class TrieSums {
                 trie.DFSWordOrderInsertWord(root,words.get(i));                               insert the word in trie
             }
 
-            return trie.DFSWordOrderPrefixKaLongestPossibleString(root,word);            -->Search Trie for longest possible prefix
+            return trie.DFSWordOrderWordPrefixKaLongestPossibleString(root,word);            -->Search Trie for longest possible prefix
         }
 
         

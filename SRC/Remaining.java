@@ -1,15 +1,6 @@
 
-//REMAINING -- LEARN
-/*
- 1.ALGORITHM --> TIME AND SPACE COMP RELATED -->GRA[H]
- */
 
-
-
-
-
- 
-//IMP 
+//LINKS 
 /*
 //IMP PROBLEMS
 1.LEETCODE 
@@ -44,22 +35,26 @@
 
 */
 
-//BLIND 75
-
+//IMP REMAINING *****
 /*
+//ALGORITHM.JAVA 
+ TIME AND SPACE COMP RELATED -->GRA[H]
 
-    GRAPH
-    1.Alien dict(TS)
-    2.clone graph -- https://leetcode.com/problems/clone-graph/submissions/
-    3.Pacific Atlantic Water Flow
+//BLIND 75
+GRAPH
+1.Alien dict(TS)
+2.clone graph -- https://leetcode.com/problems/clone-graph/submissions/
+3.Pacific Atlantic Water Flow
 
-    DP
-    Comb sum IV
+DP
+Comb sum IV
 
-    OTHGERS
-    TOP 100 INTERVIEW QUESTIONS KE TODOS
-    TOP 100 LIKED QUESTIONS KE TODOS
-    */
+//TOP 100 INTERVIEW QUESTIONS 
+TODOS
+
+//TOP 100 LIKED QUESTIONS 
+TODOS
+*/
 
 
 //IMPLEMENTATION
@@ -613,9 +608,6 @@ merge Sort    --https://leetcode.com/problems/sort-list/
 */
 
 
-
-
-
 //BINARY TREE
 /*
 ##########BINARY TREE DONE#############
@@ -721,9 +713,8 @@ BST ITERATOR -- https://leetcode.com/problems/binary-search-tree-iterator/(LOT O
 
 //BAT
 /*
-###############BAT REMAINING######################## 
-DFSPrePostInOrderNoOfNodes--  https://leetcode.com/problems/count-complete-tree-nodes/
-DFSPrePostInOrderMaxNoOfNode -- verified
+DFSPrePostInOrderCompleteTreeNoOfNode--  https://leetcode.com/problems/count-complete-tree-nodes/
+DFSRootToLeafCompleteTreeNoOfNodesMax -- verified
 DFSPrePostInOrderInsert -- verifies
 
 

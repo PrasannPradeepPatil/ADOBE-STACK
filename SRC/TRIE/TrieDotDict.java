@@ -1,9 +1,9 @@
 package SRC.TRIE;
 
 
-public class TrieWordDict {
+public class TrieDotDict {
     /*
-    TrieWordDict()        :Initializes the object.
+    TrieDotDict()        :Initializes the object.
     add(String word)      :Adds word to the data structure, it can be matched later.
     search(String word)   :Returns true if there is any string in the data structure that matches word or false otherwise
                            word may contain dots '.' where dots can be matched with any letter.
@@ -26,7 +26,7 @@ public class TrieWordDict {
     //CONSTRUCTOR
     public Trie trie;
     public Trie.Node root;
-    public TrieWordDict() {   
+    public TrieDotDict() {   
         /* 
         Initialise Trie class and root 
         */                    

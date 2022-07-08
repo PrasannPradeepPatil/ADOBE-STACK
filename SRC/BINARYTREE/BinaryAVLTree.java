@@ -4,24 +4,19 @@ package SRC.BINARYTREE;
 
 //BAT DEFN
 /*
-
-SAME AS BT
-
-
+SAME AS BT+ SAME AS BST
 */
 
 //BAT CODING
 /*
-SAME AS BT
+SAME AS BT + SAME AS BST (l< r < r)
 +
-LEFTNODE <(! <=)ROOTNODE <(! <=) RIGHTNODE
-SAME AS BST 
-+
-COMPLETE TREE
-MaxNoOfNode  = MaxNoOfNodesOnLeftMostTree                                           EG DFSPrePostInOrderMaxNoOfNodeI,DFSPrePostInOrderMaxNoOfNodeII
-NoOfNodes    =  2 ^leftHeight+1(for a node below which we have perfect bin tree)    EG DFSPrePostInOrderNoOfNodeI,DFSPrePostInOrderNoOfNodeII
-              = left + right +1 for a node below which we have complete tree) 
-
+BALANCED TREE
+Complete Tree NoOfNodes    
+= left + right +1 (for a node below which we have complete tree)   EG DFSPrePostInOrderCompleteTreeNoOfNode
+= 2 ^leftHeight+1(for a node below which we have perfect bin tree) 
+Complete Tree Root To Leaf MaxNoOfNode  
+= MaxNoOfNodesOnLeftMostTree                                       EG DFSPrePostInOrderMaxNoOfNode
 
 
 */
@@ -240,7 +235,7 @@ public class BinaryAVLTree {
     /*
     HeightOfBinTree   -->DFSPrePostInOrderMaxNoOfNode
      */
-    public void DFSPrePostInOrderNoOfNode(Node root ,int val){
+    public void DFSPrePostInOrderCompleteTreeNoOfNode(Node root ,int val){
         /*
           root-- 7        -->travel travel top-bottom ;left-right  (DFS)
                 /  \         and return no of nodes(root to leaf)
@@ -270,7 +265,7 @@ return 2^lh-1 -- 3 /         \  2
     l,r=nr 2       1 lr=nr  3 l=0,r=0           
                                           -- return 0
                                                    
-        public int DFSPrePostInOrderNoOfNode(Node root) {
+        public int DFSPrePostInOrderCompleteTreeNoOfNode(Node root) {
                                                                 --while going top-bottom  
             if (root == null) {return 0;}                           return 0 at null and  start moving up                
             int leftHeight =leftHeight(root);                       if leftheight and rightheight are equal means below this node we have a perfect bin tree 
@@ -279,8 +274,8 @@ return 2^lh-1 -- 3 /         \  2
                 return (int)Math.pow(2,leftHeight)-(int)1;} 
             
             
-            int left = DFSPrePostInOrderNoOfNode(root.left);     --while going left-right
-            int right = DFSPrePostInOrderNoOfNode(root.right);      left,right holds no of nodes on left subtree
+            int left = DFSPrePostInOrderCompleteTreeNoOfNode(root.left);     --while going left-right
+            int right = DFSPrePostInOrderCompleteTreeNoOfNode(root.right);      left,right holds no of nodes on left subtree
 
             return left + right + 1;                               --while going bottom-top
                                                                     no of nodes on letf + right+1
@@ -308,8 +303,8 @@ return 2^lh-1 -- 3 /         \  2
 
 
         //OVERLOAD
-        public int DFSPrePostInOrderNoOfNode(Node root){
-           return DFSPrePostInOrderNoOfNode(root);
+        public int DFSPrePostInOrderCompleteTreeNoOfNode(Node root){
+           return DFSPrePostInOrderCompleteTreeNoOfNode(root);
         }
        
 
@@ -376,7 +371,7 @@ return 2^lh-1 -- 3 /         \  2
                                                                   /   root.left = left  
                                                                  /   root.right = right
         return helper.balance(root)   ------------------------       return  helper.balance(root) and  pass to next node 
-        }
+        }                                                            (LOOK ABOVE FOR HELPER CLASS)
 
         //OVERRIDE
         public void DFSPrePostInOrderInsert(int val) {
@@ -397,7 +392,7 @@ return 2^lh-1 -- 3 /         \  2
     }
 
     //DFSROOTTOLEAF
-    public void DFSRootToLeafMaxNoOfNodes(Node root){
+    public void DFSRootToLeafCompleteTreeNoOfNodesMax(Node root){
         /*
           root-- 7        -->travel travel top-bottom ;left-right(DFS)
                 /  \         and return max no of nodes on path from root to leaf(root to leaf)
@@ -417,14 +412,14 @@ return 2^lh-1 -- 3 /         \  2
             if (root == null){return;}                            return at null and  start moving up          
             pathCount = pathCount + 1;//pathcount is global var   add 1 to pathcount 
             
-            DFSPrePostInOrderNoOfNodes(root.left);                 --while going left-right
+            DFSPrePostInOrderCompleteTreeNoOfNodes(root.left);    --while going left-right
                                                                     go left only(complete tree so MaxNoOfNode = MaxNoOfNodesOnLeftMostTree)
         }
 
         //OVERLOAD
         int pathCount = 0;  
-        public void DFSPrePostInOrderNoOfNodes(Node root){
-            DFSPrePostInOrderNoOfNodes(root);
+        public void DFSPrePostInOrderCompleteTreeNoOfNodes(Node root){
+            DFSPrePostInOrderCompleteTreeNoOfNodes(root);
             return pathCount;
 
          }
@@ -450,7 +445,7 @@ return 2^lh-1 -- 3 /         \  2
                                                                 --while going top-bottom  
             if (root == null){return 1;}                           return 0 at null and  start moving up          
 
-            int left = DFSPrePostInOrderNoOfNodes(root.left);    --while going left-right
+            int left = DFSPrePostInOrderCompleteTreeNoOfNodes(root.left);    --while going left-right
                                                                     go left only(complete tree so MaxNoOfNode = MaxNoOfNodesOnLeftMostTree)
                                                                     left holds no of nodes on left subtree
                                                                 
@@ -460,8 +455,8 @@ return 2^lh-1 -- 3 /         \  2
         }
 
         //OVERLOAD
-        public void DFSPrePostInOrderNoOfNodes(Node root){
-            return DFSPrePostInOrderNoOfNodes(root);
+        public void DFSPrePostInOrderCompleteTreeNoOfNodes(Node root){
+            return DFSPrePostInOrderCompleteTreeNoOfNodes(root);
          }
 
 

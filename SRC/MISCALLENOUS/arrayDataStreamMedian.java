@@ -6,7 +6,7 @@ public class arrayDataStreamMedian {
     [1,2,3,4]
     |
     arrayDataStreamMedian():initializes dataStream object
-    add(int vak)           :adds val to data stream at end
+    add(int val)           :adds val to data stream at end
     getMedian()            :returns  median of data stream(median is mmiddle for odd,avg of middle for even of the sorted array) 
                            
     */

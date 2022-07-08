@@ -9,24 +9,23 @@ import java.util.List;
 
 //TRIE/PREFIX TREE  DEFINATIONS(DUE TO DEFN TRIE  HAS SOME METHODS DIFFERENT FROM NARY TREE )
 /*
-1.EACH NODE HAS 26 CHILDREN:ROOT IS  NULL
-ALL SUM SAME AS NARYTREE (there it was ArrayList here it is array with index as [ch-'a'] )
+1.EACH NODE HAS 26 CHILDREN;ROOT IS  NULL
+*/
+
+//TRIE/PREFIX TREE CODING 
+/*
+SAME AS N ARY TREE 
++
+instead of  ArrayList here it is array with index as [ch-'a'] 
 +
 isEndOfWord  mantained in Node class ; which gives us words in tries EG DFSPrePostOrderNoOfWordsI,II, DFSPrePostOrderListOfWordsI,II,
 
 
-2.TEST CASE
---
+ */
 
-*/
 
 
 public class Trie {
-
-
-
-
-
     //NODE CLASS
     public class Node{
         /*
@@ -339,8 +338,6 @@ public class Trie {
     
 
 
-
-
     //DFS PRE,POST ORDER
     public void DFSPrePostOrderWords   (Node root , List<String> nodes, String pathString){
         /*
@@ -549,6 +546,9 @@ public class Trie {
         */
 
     }
+    
+
+    //DFS WORD ORDER
     public void DFSWordOrderWordMatchingIsPossible(Node root, String word ){
         /*
             null              -->Traverse the tree
@@ -731,7 +731,7 @@ public class Trie {
 
 
     }
-    public void DFSWordOrderPrefixKaLongestPossibleString(Node root, String word){
+    public void DFSWordOrderWordPrefixKaLongestPossibleString(Node root, String word){
         /*
             null             -->Traverse left-right , top-bottom across trie (DFS)  
             /   |   \   \       along the word                              (WordOrder)   
@@ -885,7 +885,5 @@ public class Trie {
 
         */
     }
-
-
 }
 

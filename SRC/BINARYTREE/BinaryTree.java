@@ -198,7 +198,7 @@ int right = sumOfNodes(root.right);    rightSubtree  based on what we return whi
                                                                                         EG: 
                                                                                         DFSPrePostInOrderAreSiblings-- using root.left , root.right dont use previous node for parenr
                                                                                         DFSLevelOrderAreCousins
-                                                                                        DFSAnyToAnyPathsUnivalUnivalNoOfNodesMax
+                                                                                        DFSAnyToAnyPathsUnivalNoOfNodesMax
                                         PREVIOUS NODE FOR POSTORDER                                              
                                         private Node/int previousNode;
                                         public void methodName(Node root){
@@ -288,7 +288,7 @@ int right = sumOfNodes(root.right);    rightSubtree  based on what we return whi
 DFSPreOrder
 DFSPostOrder
 DFSInOrder
-DFSLevelOrder  -->LEFT-RIGHT,RIGHT-LEFT,LEFT-RIGHT ALTERNATE,RIGHT-LEFT ALTERNATRE ; 
+DFSLevelOrder  -->LEFT-RIGHT,RIGHT-LEFT,LEFT-RIGHT ALTERNATE,RIGHT-LEFT ALTERNATRE(ZIG ZAG); 
 DFSRootToLeaf     LEFT VIEW,RIGHT-VIEW,LEFT-BOUNDARY,RIGHT-BOUNDARY,LEAF NODE
 DFSLeafToLeaf     ANTICLOCKWISE,CLOCKWISE
 DFSAnyToAny
@@ -307,7 +307,7 @@ DFSLevelOrder
 BFSLevelOrder
 */
 
-//PRE POST INORDER
+//PRE POST INORDER(ENTIRE TREE)
 /* 
 //BT
 DFSPrePostInOrderMaxNode
@@ -325,12 +325,13 @@ DFSPrePostInOrderMinNode
 DFSPrePostInOrderKthMaxNode
 DFSPrePostInOrderKthMinNode
 DFSPrePostInOrderSumOfNodesInRange
+DFSPrePostInOrderFrequencyOfNodesMax
 DFSPrePostInOrderContains
-DFSPrePostInOrderModes
+
 
 //BAT
-Same as BT +
-DFSPrePostInOrderNoOfNode
+Same as BT + Same as BST 
+DFSPrePostInOrderCompleteTreeNoOfNode
 */
 
 //LEVEL
@@ -349,7 +350,7 @@ DFSLevelOrderPathsKaAvgOfNodes
 Same as BT
 
 //BAT
-Same as BT
+Same as BT + Same as BST 
 
 */
 
@@ -372,8 +373,8 @@ DFSRootToLeafPathsAsIntegerStringSum
 Same as BT
 
 //BAT
-Same as BT + 
-DFSRootToLeafMaxNoOfNodes
+Same as BT + Same as BST 
+DFSRootToLeafCompleteTreeNoOfNodesMax
 */
 
 //ROOT TO ANY
@@ -391,7 +392,7 @@ DFSLeafToLeafPathsSumOfNodesMin
 Same as BT
 
 //BAT
-Same as BT 
+Same as BT + Same as BST 
 */
 
 //ANY TO ANY
@@ -399,12 +400,12 @@ Same as BT
 //BT
 DFSAnyToAnyPathsNoOfNodesMax
 DFSAnyToAnyPathsKaNoOfNodesMin
-DFSAnyToAnyPathsUnivalUnivalNoOfNodesMax
+DFSAnyToAnyPathsUnivalNoOfNodesMax
 DFSAnyToAnyPathsKaSumOfNodesMax
 DFSAnyToAnyPathsKaSumOfNodesMin
 
 //BST
-Same as BT+
+Same as BT + Same as BST 
 DFSAnyToAnyPathDifferenceOfNodesMin
 
 //BAT
@@ -420,39 +421,7 @@ DFSTopToBottomSumOfNodesEqualsTargetList
 Same as BT
 
 //BAT
-Same as BT 
-*/
-
-//TREE PROPERTIES
-/*
-//BT
-DFSPrePostInOrderMaxNoOfNode,DFSRootToLeafPathsKaNoOfNodesMax --HeightOfBinTree
-DFSPrePostInOrderMaxNoOfNode,DFSRootToLeafPathsKaNoOfNodesMax --MaxDepthOfBinTree
-DFSPrePostInOrderMinNoOfNode,DFSRootToLeafPathsKaNoOfNodesMin --MinDepthOfTree
-DFSAnyToAnyPathsNoOfNodesMax --DiameterOfBinTree
-DFSPrePostInOrderNoOfNodes  --SizeOfBinTree
-
-DFSPrePostInOrderIsBalanced
-DFSPrePostInOrderisFull
-DFSPrePostInOrderIsComplete
-DFSPrePostInOrderisPerfect
-DFSPrePostInOrderIsBST
-DFSPrePostInOrderIsBAT
-
-DFSPrePostInOrderIsSymmetric
-DFSPrePostInOrderAreSiblings
-DFSLevelOrderAreCousins
-DFSPrePostInOrderLCA
-DFSRootToAnyPathsKaAncestors
-DFSPrePostInOrderIOSucessor
-
-//BST
-Same as BT + 
-DFSPrePostInOrderLCA
-DFSPrePostInOrderIOSucesor
-
-//BAT
-Same as BT
+Same as BT + Same as BST 
 */
 
 //COMPARE 2 TREES
@@ -467,7 +436,43 @@ DFSPrePostInOrderCompare2TreesForConnect
 Same as BT 
 
 //BAT
-Same as BT
+Same as BT + Same as BST 
+*/
+
+//TREE PROPERTIES
+/*
+//BT
+DFSPrePostInOrderHeightOfNode    -- Height Of Node
+DFSRootToLeafPathsKaNoOfNodesMax --HeightOfBinTree
+DFSRootToLeafPathsKaNoOfNodesMax --MaxDepthOfBinTree
+DFSRootToLeafPathsKaNoOfNodesMin --MinDepthOfTree
+DFSAnyToAnyPathsNoOfNodesMax     --DiameterOfBinTree
+DFSPrePostInOrderNoOfNodes       --SizeOfBinTree
+
+DFSPrePostInOrderIsBalanced
+DFSPrePostInOrderisFull
+DFSPrePostInOrderIsComplete
+DFSPrePostInOrderisPerfect
+DFSPrePostInOrderIsBST
+DFSPrePostInOrderIsBAT
+
+DFSPrePostInOrderIsSymmetric
+DFSPrePostInOrderAreSiblings
+DFSLevelOrderAreCousins
+DFSPrePostInOrderLCA
+DFSRootToAnyPathsKaNodeKaAllAncestors
+DFSPrePostInOrderIOSucessor
+
+//BST
+Same as BT + Same as BST 
+DFSPrePostInOrderLCA
+DFSPrePostInOrderIOSucesor
+
+//BAT
+Same as BT + BST
+DFSPrePostInOrderCompleteTreeNoOfNode
+DFSRootToLeafCompleteTreeNoOfNodesMax
+
 */
 
 //TREE MANIPULATIOPN
@@ -476,18 +481,27 @@ Same as BT
 DFSPrePostInOrderInvert
 DFSPrePostInOrderDouble
 DFSPrePostInOrderCompare2TreesForConnect
-binaryTreeFlattenToLL
-binaryTreeSerializeDeserialize
-   
+
+//BST
+Same as BT 
+
+//BAT
+Same as BT + Same as BST 
+*/
+
+//TREE INSERT
+/*
+//BT
+--
+
 //BST
 Same as BT + 
 DFSPrePostInOrderInsert  
-binarySearchTreeSerializeDeserialize
 
 //BAT
-Same as BT + 
+Same as BT + Same as BST 
 DFSPrePostInOrderInsert
-*/
+ */
 
 //TREE CONSTRUCT
 /* 
@@ -495,35 +509,23 @@ DFSPrePostInOrderInsert
 binaryTreeConstructionFromPreInOrder
 binaryTreeConstructionFromPostInOrder
 binaryTreeConstructionFromPreOrderWithNull
+binaryTreeFlattenToLL
+binaryTreeSerializeDeserialize
 
 //BST
 binarySearchTreeConstructionFromPreOrder
 binarySearchTreeConstructionFromPostOrder
 binarySearchTreeConstructionFromInorder_SortedArrToBST
+binarySearchTreeSerializeDeserialize
 
-
+//BAT
+Same as BT + Same as BST 
 */
  /* #endregion */
 
 
 
  public class BinaryTree {
-
-    /*
-
-    BINARY  TREE
-
-              7       -->each node has max 2 children
-             /  \        
-            4    9
-           / \    / \
-           1  6   8  10
-         /  \ /\  /\  / \
-        n  n  n n n n  n n
-      */
-
-
-
 
     //NODE CLASS
     private class Node {
@@ -2060,10 +2062,7 @@ rs=1              rs=0     rs=1
               /  \ /\  /\  / \
              n  n  n n n n  n n
          */
- 
-
-
-         
+    
         //RECURSION IP -OP TREE
         /*
 
@@ -2153,6 +2152,52 @@ rs=1              rs=0     rs=1
       
          
      }
+    public void DFSPrePostInOrderHeightOfNode(Node node){
+        //RECURSION IP -OP TREE
+        /*
+        You need value while coming up
+         */    
+        
+        //RECURSION IP -OP TREE
+        /*
+           Consider item to find is 6
+                  4 l=2;r=2                                 
+         2      /          \  2                                         
+               /            \ 
+    l=1;r=1   2              6   l=1,r=1
+             /  \          /    \                     -- return Math.max(left,right) + 1
+         1  /    \ 1    1 /      \  1                    
+           /      \      /        \
+ l=0;r=0  1  l,r=0 3     5 l,r=0    7 l=f;r=0
+         /\       /\      /\      /\
+       0/  \ 0  0/  \0  0/  \0  0/  \0                -- return 0
+      n  n    n    n   n  n      n  n
+
+
+        private int DFSPrePostInOrderHeightOfNode(Node node){
+                                                       --while going top-bottom
+          if (node == null)                             return 0 at null and start moving up
+                return 0;
+                                                       --while going top-bottom
+         int left = height(node.left);                   left holds height of left subtree and right holds height of right subtree
+         int right = height(node.right);
+                                                        --while going bottom-top
+        return Math.max(left,right) + 1;                   pass max height of left + right subtree + 1 for node itself to next node
+       }
+ 
+        
+        Time :O(n) if it is balanced tree  as we traverse all nodes in tree
+             :O(n)  if it is unbalanced completely left/right skewed tree  as we traverse all nodes 
+        Space:O(h) = O(log n) if it is balanced tree  as we traverse entire height 
+             :O(h) = O(n) if it is unbalanced completely left/right skewed tree   as we traverse entire height 
+              +
+            O(n) we are  using list that takes extra space
+
+
+      */
+      
+
+    }
     public void DFSPrePostInOrderIsBalanced (Node root){
         /*
           root-- 7        -->travel top-bottom ;left-right     (DFS)
@@ -2226,8 +2271,8 @@ rs=1              rs=0     rs=1
             
                                             
                                                                                             --while coming bottom-top 
-            int leftHeight = DFSPrePostInOrderMaxNoOfNode(root.left);
-            int rightHeight =  DFSPrePostInOrderMaxNoOfNode(root.right);
+            int leftHeight = DFSPrePostInOrderHeightOfNode(root.left);
+            int rightHeight =  DFSPrePostInOrderHeightOfNode(root.right);
             var nodeIsBalanced = Math.abs(leftHeight- rightHeight) <=1 ;                  left is balance  && right is balance && node is balance pass to next node 
             return left && right && nodeIsBalanced                                          pass to next node 
             OR
@@ -2512,7 +2557,7 @@ rs=1              rs=0     rs=1
         /*
         public void DFSPrePostInOrderisPerfect(Node root){
             int size = DFSPrePostInOrderNoOfNodesI(root);
-            int height = DFSPrePostInOrderMaxNoOfNodeI(root);
+            int height = DFSPrePostInOrderHeightOfNodeI(root);
             if(size == (Math.pow(2, height(root) + 1) - 1)){
                 isPerfect =  true; //isPerfect is global
             }
@@ -2538,7 +2583,7 @@ rs=1              rs=0     rs=1
         /*
         public boolean DFSPrePostInOrderisPerfect(Node root){
             int size = DFSPrePostInOrderNoOfNodesI(root);
-            int height = DFSPrePostInOrderMaxNoOfNodeI(root);
+            int height = DFSPrePostInOrderHeightOfNodeI(root);
             return size == (Math.pow(2, height(root) + 1) - 1)
             }
         }
@@ -3600,11 +3645,11 @@ rs=1              rs=0     rs=1
     }
     public void DFSPrePostInOrderCompare2TreesForConnect(Node root) {
         /*
-            1----null         --Travel top-bottom ;left-right    (DFS)
+              1----null         --Travel top-bottom ;left-right    (DFS)
             /   \               Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NUL 
-          2-----3---null        Initially, all next pointers are set to NULL.  
-        /  \    \               class Node{l,r,next} 
-        4--- 5--- 6--null      
+           2-----3---null        Initially, all next pointers are set to NULL.  
+         /  \    \               class Node{l,r,next} 
+         4--- 5--- 6--null      
         /          \
         7---------  8--null
             */
@@ -4153,62 +4198,62 @@ rs=1              rs=0     rs=1
 
  }
     public void DFSLevelOrderAreCousins           (Node root,Node previousNode,int level, int n1 ,int n2 ){
-    /*
-    DFS LEVEL ORDER
-   root-- 7        -->travel top-bottom ;left-right      (DFS ) 
-         /  \        and  return whether node1 and node2 are cousins ie same level different parents (level Order)
-        4    9       1,10 are cousins , 4,9 are not
-       / \    / \     
-      1  6   8  10    
-      /  \ /\  /\  / \
-     n  n  n n n n  n n
-    */
+        /*
+        DFS LEVEL ORDER
+    root-- 7        -->travel top-bottom ;left-right      (DFS ) 
+          /  \        and  return whether node1 and node2 are cousins ie same level different parents (level Order)
+         4    9       1,10 are cousins , 4,9 are not
+        / \    / \     
+        1  6   8  10    
+        /  \ /\  /\  / \
+        n  n  n n n n  n n
+        */
 
 
-    //RECURSION IP -OP TREE
-    /*
-    public void DFSLevelOrderAreCousins(Node root,Node previousNode,int level, int n1 ,int n2 )
+        //RECURSION IP -OP TREE
+        /*
+        public void DFSLevelOrderAreCousins(Node root,Node previousNode,int level, int n1 ,int n2 )
 
-                                                                            --while going top-bottom  
-        if(root==null) {return;}                                               return at null and start moving up 
-        if(root.val == n1){                                               
-            levelOfNode1 = level;   //levelOfNode1 is global variable          when we reach a level update the level and  parent of node( when yu go l,r retain root.val)  
-            if(previousNode!=null) parentOfNode1 = previousNode;  //parentOfNode1 is global variable   
-        }                                                                   
-  
+                                                                                --while going top-bottom  
+            if(root==null) {return;}                                               return at null and start moving up 
+            if(root.val == n1){                                               
+                levelOfNode1 = level;   //levelOfNode1 is global variable          when we reach a level update the level and  parent of node( when yu go l,r retain root.val)  
+                if(previousNode!=null) parentOfNode1 = previousNode;  //parentOfNode1 is global variable   
+            }                                                                   
+    
 
-        if(root.val == n2){
-            levelOfNode2 = level;        //levelOfNode2 is global variable
-            if(previousNode!=null) parentOfNode2 = previousNode;  //parentOfNode2 is global variable
+            if(root.val == n2){
+                levelOfNode2 = level;        //levelOfNode2 is global variable
+                if(previousNode!=null) parentOfNode2 = previousNode;  //parentOfNode2 is global variable
+            }
+            
+            DFSLevelOrderAreCousins(root.left,root,level+1,n1,n2);       -- while going left-right(ie goint top-bottom) 
+            DFSLevelOrderAreCousins(root.right,root,level+1,n1,n2);         ''' same as level order
+                                                                            store previousNode(allows duplicate node in BT)/previosNode value(allows only unique BT values) then previousNode will be available with us               
+
         }
-        
-        DFSLevelOrderAreCousins(root.left,root,level+1,n1,n2);       -- while going left-right(ie goint top-bottom) 
-        DFSLevelOrderAreCousins(root.right,root,level+1,n1,n2);         ''' same as level order
-                                                                        store previousNode(allows duplicate node in BT)/previosNode value(allows only unique BT values) then previousNode will be available with us               
+
+        //OVERLOAD
+        int levelOfNode1 = 0;
+        int levelOfNode2 = 0;
+        Node parentOfNode1 = 0;
+        Node parentOfNode2 = 0;
+        public boolean DFSLevelOrderAreCousins(TreeNode root, int n1 int n2) {
+            DFSLevelOrderAreCousins(root,root,0,n1,n2);
+            return depthOfNode1 == depthOfNode2 && parentOfNode1 != parentOfNode2;
+            
+        }
+
+        Time :O(n) if it is balanced tree  as we traverse all nodes in tree
+                :O(n)  if it is unbalanced completely left/right skewed tree  as we traverse all nodes in tree
+        Space:O(h) = O(log n) if it is balanced tree  as we traverse entire height 
+                :O(h) = O(n) if it is unbalanced completely left/right skewed tree   as we traverse entire height
+        */
+
+
+
 
     }
-
-    //OVERLOAD
-    int levelOfNode1 = 0;
-    int levelOfNode2 = 0;
-    Node parentOfNode1 = 0;
-    Node parentOfNode2 = 0;
-    public boolean DFSLevelOrderAreCousins(TreeNode root, int n1 int n2) {
-        DFSLevelOrderAreCousins(root,root,0,n1,n2);
-        return depthOfNode1 == depthOfNode2 && parentOfNode1 != parentOfNode2;
-        
-    }
-
-    Time :O(n) if it is balanced tree  as we traverse all nodes in tree
-            :O(n)  if it is unbalanced completely left/right skewed tree  as we traverse all nodes in tree
-    Space:O(h) = O(log n) if it is balanced tree  as we traverse entire height 
-            :O(h) = O(n) if it is unbalanced completely left/right skewed tree   as we traverse entire height
-    */
-
-
-
-
-}
 
 
     //DFSROOTOLEAF
@@ -4888,7 +4933,7 @@ rs=1              rs=0     rs=1
 
 
     //DFSROOTTOANY
-    public void DFSRootToAnyPathsKaAncestors (Node root, List<List<Integer>> nodes ,List<Integer> path , int val){
+    public void DFSRootToAnyPathsKaNodeKaAllAncestors (Node root, List<List<Integer>> nodes ,List<Integer> path , int val){
         /*
          root-- 7      -->Traverse top-bottom ;left-right   (DFS)
                /  \       return ancestors  of nodes excluding the node   (RootToANy)
@@ -4903,7 +4948,7 @@ rs=1              rs=0     rs=1
 
         //RECURSION IP -OP TREE
         /*
-        public void DFSRootToAnyPathsKaAncestors (Node root, List<List<Integer>> nodes ,List<Integer> path , int val){
+        public void DFSRootToAnyPathsKaNodeKaAllAncestors (Node root, List<List<Integer>> nodes ,List<Integer> path , int val){
                                                                     --while going top-bottom  
             if(root==null) {return;}                                  return at null and start moving up 
             path.add(root.val);                                       [7,4,1]   --add node to last index of path         
@@ -5400,7 +5445,7 @@ rs=1              rs=0     rs=1
 
 
     }
-    public void DFSAnyToAnyPathsUnivalUnivalNoOfNodesMax(Node root , Node previousNode){
+    public void DFSAnyToAnyPathsUnivalNoOfNodesMax(Node root , Node previousNode){
        
         /*
          root-- 5      -->Traverse top-bottom ;left-right                                       (DFS)
@@ -5430,13 +5475,13 @@ rs=1              rs=0     rs=1
 
     
 
-        public int DFSAnyToAnyPathsUnivalUnivalNoOfNodesMax(Node root , Node previousNode){  
+        public int DFSAnyToAnyPathsUnivalNoOfNodesMax(Node root , Node previousNode){  
             
                                             --while going top-bottom  
             if(root==null) {return 0 ;}     return 0  at null and start moving up 
 
-            int left = DFSAnyToAnyPathsUnivalUnivalNoOfNodesMax(root.left, root);  --while going left right 
-            int right = DFSAnyToAnyPathsUnivalUnivalNoOfNodesMax(root.right,root);   store previousNode(allows duplicate node in BT)/previosNode value(allows only unique BT values) then previousNode will be available with us               
+            int left = DFSAnyToAnyPathsUnivalNoOfNodesMax(root.left, root);  --while going left right 
+            int right = DFSAnyToAnyPathsUnivalNoOfNodesMax(root.right,root);   store previousNode(allows duplicate node in BT)/previosNode value(allows only unique BT values) then previousNode will be available with us               
                                                                                 left right holds no of nodes from left,right
                                         --while going bottom-top
             int temp1 = 0;
@@ -5455,8 +5500,8 @@ rs=1              rs=0     rs=1
 
         //OVERRIDE
         int res = Integer.MIN_val;
-        public int DFSAnyToAnyPathsUnivalUnivalNoOfNodesMax(Node root) {
-            DFSAnyToAnyPathsUnivalUnivalNoOfNodesMax(root,root);
+        public int DFSAnyToAnyPathsUnivalNoOfNodesMax(Node root) {
+            DFSAnyToAnyPathsUnivalNoOfNodesMax(root,root);
             return res;
         }
 

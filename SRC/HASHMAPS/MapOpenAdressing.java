@@ -46,7 +46,6 @@ public class MapOpenAdressing {
          array = new Entry[size];
          ptr = 0;
     }
-
     private int hashfunction(int key, int i) {
         /*
         RETURNS AN INDEX

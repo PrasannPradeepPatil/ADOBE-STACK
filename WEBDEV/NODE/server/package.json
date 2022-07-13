@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "nodemon ./bin/www",
+    "test":"jest --watchAll"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -13,8 +14,10 @@
     "express": "^4.16.4",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
+    "jest": "^28.1.2",
     "mongoose": "^5.12.14",
     "morgan": "~1.9.1",
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "supertest": "^6.2.4"
   }
 }

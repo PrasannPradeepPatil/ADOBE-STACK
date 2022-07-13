@@ -1,0 +1,4 @@
+CONFIG,IN_doc,IN_seq,IN_Category,IN_SubCategory,IN_FeatureName,IN_FeatureTime,OUT_event.workflow,OUT_event.subcategory,OUT_event.subtype,OUT_event.dts,OUT_hb.params
+                missing-key-value=unknown,(?<doc>.*),(.*),(.*),(.*),,,$3-$+{doc},$4,,,
+                non-standard-keys=include,,,,,,,,,,,$0
+                non-standard-keys=exclude,,,,,,,,,,,

@@ -1,0 +1,4 @@
+CONFIG,IN_doc,IN_seq,IN_Category,IN_SubCategory,IN_FeatureName,IN_FeatureTime,OUT_event.workflow,OUT_event.subcategory,OUT_event.subtype,OUT_event.dts
+,(.*),40,,,,,,$+{SubCategory},,$+{FeatureTime}
+,,,(.*),,,,$1,,,
+,,,,(.*),,,,$1,,

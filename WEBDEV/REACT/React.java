@@ -31,10 +31,11 @@ SET ENV VAR -->No Need
 >sudo npm install react-redux
 >sudo npm install @material-ui/core
 >sudo npm install @material-ui/icons
+>sudo npm install @testing-library/react react-test-render 
 >sudo npm install dotenv                  -->install env var dependency locally 
 
 **sudo npm install --force packageName     --> force install package in  if package installation is not working
-**Look in packagejson.Java in server for more info
+
 
 //RUN REACT
 >cd client
@@ -126,7 +127,6 @@ client
 
 */
                                                                                                                
-
 
 
 

@@ -24,18 +24,10 @@ DUNSMIS SDK SAMPLES
 
 2.TEST
 dunamis-sdk-sample/main.cpp/main() method -->Calls API directly
-Put break point at rc = dunamis_setIaasMapping ;rc = dunamis_iaasToIngestSDM; after cout << ouptutjson
-Press the run button 
-dunamis_setIaasMapping()  ip: configGuid,iaasCSViaasCSV
-                          op: store filename = configGuid , fileContent = iaasCSV at C:\Users\prasannpradp\AppData\Roaming\com.adobe.dunamis\configGuid
-                              return error
-dunamis_iaasToIngestSDM() ip:configGuid,ipJson,opJSON
-                          op:based on configGuid find the file and acc to rules of file transform ipJson to opJson
-                            return opJson 
 
 
 MORE TEST CASES
-eventttransformer_test.cpp
+dunamis-sdk-test me eventtransformer_test.cpp
 TransformParams{IaaCSV,IPJSON,OPJSON)
 
 

@@ -1,0 +1,4 @@
+IN_activityname,IN_type,IN_monitor,IN_oldkey1,IN_oldkey2,OUT_event.type,OUT_newkey1,OUT_newkey2
+click,oldval2,oldval3,,,success,,newval2
+,,,"hello","oldval2",,"success","$$1"
+,(.*),,"(.*)","oldval2",,"$1","$1$$$2"

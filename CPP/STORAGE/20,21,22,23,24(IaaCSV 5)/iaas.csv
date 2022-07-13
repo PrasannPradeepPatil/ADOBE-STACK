@@ -1,0 +1,7 @@
+CONFIG,IN_a,IN_b,IN_c,IN_d,IN_e,OUT_p,OUT_q,OUT_r,OUT_s,OUT_t
+,val_a,val_b,val_c,val_d,val_e,val_p,val_q,val_r,val_s,val_t
+,val_w,val_x,,,,val_w,val_x,,,
+,,,val_y,(.*),,,,val_y,$1,$1
+,(.*)(abc)(.*),,,,,$1,$2,$3,,
+missing-key-action=skip,(.*),(.*),,,,,$1-$2,,,
+,(.*),,,,,$1,,,,

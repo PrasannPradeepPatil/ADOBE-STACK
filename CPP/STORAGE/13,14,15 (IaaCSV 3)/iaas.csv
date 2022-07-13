@@ -1,0 +1,5 @@
+IN_ABC,IN_DEF,IN_GHI,OUT_event.type,OUT_event.subtype,OUT_event.subcategory
+success,failure,,,,
+success,,,success,,
+,success,,,success,
+,,"hello-world",,,"hello-world"

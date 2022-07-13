@@ -63,24 +63,25 @@ SET ENV VAR -->No Need
 >https://www.freecodecamp.org/news/how-to-enable-es6-and-beyond-syntax-with-node-and-express-68d3e11fe1ab/-->Convert Express template to ES6 if requires
 
 >cd server
->sudo npm install                    -->install package.json dependencies which include "express","cookie-parser","morgan","debug","http-errors","jade"
->sudo npm install express --save     -->install express locally and add to package.json
->sudo npm install mongoose --save    -->install mongooselocally and add to package.json
->sudo npm install cors --save         -->install cors locally and add to package.json
->sudo npm install dotenv --save       -->install dotenv var dependency locally and add to package.json
->sudo npm install --force packageName --> force install package in  if package installation is not working
+>sudo npm install              -->install package.json dependencies which include "express","cookie-parser","morgan","debug","http-errors","jade"
+>sudo npm install express     -->install express locally and add to package.json
+>sudo npm install mongoose    -->install mongooselocally and add to package.json
+>sudo npm install cors        -->install cors locally and add to package.json
+>sudo npm install dotenv      -->install dotenv var dependency locally and add to package.json
+>sudo npm install  jest supertest  -->install jest and supertest locally and add to package.json
 
-**Look in packagejson.Java in server for more info
-
+**sudo npm install --force packageName --> force install package in  if package installation is not working
+**Look in packageJson.java for more  details
 
 //RUN SERVER  
 >cd server
 >sudo npx kill-port 3000  -->kill the port if already in use for server, mongodb connection to server
 >sudo npm start           -->run server at http://127.0.0.1:3000(node runs at 3000 by default;react runs on 3000 by default(hence 1st run node then react so that react runs on 3001);mongodb runs on 5000 as written in code while connecting to mongoDB))                 
-                            package.json
+>sudo npm test            -->run all files with extension .test.js at level of src  
+                          package.json
                             "scripts": {
-                                    "start": "node ./bin/www"    -->npm start = node ./bin/www      (runs app.js file)
-                                    "start": "nodemon ./bin/www" -->npm start = nodemon ./bin/www   (runs app.js file with hot reload)
+                                    "start": "nodemon ./bin/www" -->npm start = nodemon ./bin/www   (node runs app.js and nodemon runs app.js file with hot reload)
+                                    "test":"jest --watchAll"     -->npm test = jest --watchAll      ()
                             },                                      and rerun terminal to reflect changes in package.json
 
 
@@ -108,6 +109,8 @@ server
     |-post.JS              
   |-controllers(custom made folder) -->explaind below            
     |-post.JS              
+  |-test                           
+    |-server.test.js
   |-app.js     
   |- .env                        -->environment variable file
   |- .git                        --> github file
@@ -125,3 +128,5 @@ connect node to mongodb server(ATLAS server wjoch will host DB)
   
                                
 */
+
+

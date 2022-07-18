@@ -73,8 +73,16 @@ SET ENV VAR -->No Need
                                                                                                     and keep it empty
                         }
                     }
-                              
                     Rerun terminal to reflect changes in package.json
+
+                    
+                    Add This command at top of FileName.test.js 
+                      /**
+                       * @jest-environment jsdom
+                       * backSlash
+                       
+                                                
+                    
 
 
 

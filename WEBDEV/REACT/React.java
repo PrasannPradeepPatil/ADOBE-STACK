@@ -32,8 +32,14 @@ SET ENV VAR -->No Need
 >sudo npm install @material-ui/core
 >sudo npm install @material-ui/icons
 >sudo npm install @testing-library/react react-test-render 
->sudo npm install dotenv                  -->install env var dependency locally 
+>sudo npm install @babel/core
+>sudo npm install @babel/preset-env
+>sudo npm install @babel/preset-react
+>sudo npm install dotenv
+>sudo npm install identity-obj-proxy
+>sudo npm install jest-environment-jsdom 
 
+                    
 **sudo npm install --force packageName     --> force install package in  if package installation is not working
 
 
@@ -41,21 +47,38 @@ SET ENV VAR -->No Need
 >cd client
 >sudo npx kill-port 3001 -->kill the port if already in use for client
 >sudo npm start   -->run client at http://127.0.0.1:3000(node runs at 3000 by default;react runs on 3000 by default(hence 1st run node then react so that react runs on 3001);mongodb runs on 5000 as written in code while connecting to mongoDB))                 
-                    package.json
-                      "scripts": {                               
-                        "start": "react-scripts start",  -->npm start = "react-scripts start" 
-                        "build": "react-scripts build",    and rerun terminal to reflect changes in package.json
-                        "test": "react-scripts test",
-                        "eject": "react-scripts eject"
-                      },
-                      {                                  
-                      "name": "server",                       
-                      "version": "0.0.0",                    
-                      "private": true,                        
-                      "proxy":"http://localhost//5000" -->proxy:'http://localhost:PortNoWhereMongoDbIsConnectedToSever
-                                                           and rerun terminal to reflect changes in package.json
+>sudo npm test   -->run all files with extension .test.js at level of src  
+                    package.json                                                      
+                    "name": "server",                                           
+                    "proxy":"http://localhost//5000"    -->proxy:'http://localhost:PortNoWhereMongoDbIsConnectedToSever
+                    "scripts": {                               
+                      "start": "react-scripts start",  -->npm start = react-scripts start 
+                      "build": "react-scripts build",     nmp buld  = react-scripts build
+                      "test": "jest --watchAll"           npm test =  jest --watchAll (jest test runs .test.js file ;jest --watchAll will run all test cases with hot reload)
+                      "eject": "react-scripts eject"   
+                    },    
+                    "babel": {                           -->Used to convert ES6 to JS code for web(Write in package.json OR create a file .babelrc at src level and do module.exports = {"presets":[],"plugins":[]})
+                      "presets": [                          presets:  added to all files  for running jest test cases
+                          "@babel/preset-env",              plugins:added to all files; for running jest test cases
+                          "@babel/preset-react"
+                      ],
+                      "plugins": [["@babel/plugin-proposal-class-properties"],
+                                  ["@babel/plugin-proposal-decorators", 
+                                  {"legacy": true}]
+                                  ]
+                    },
+                    "jest":{                             -->Used for configure the test cases for jest(Write in package.json OR create a file .babelrc at src level and do module.exports = {"presets":[],"plugins":[]})
+                        "moduleNameMapper": {               moduleWrapper: used for igore CSS files  
+                            "\\.(css|less)$": "<rootDir>/src/__test__/__mockData__/styleMock.js" ->Create a file in src __test__/__mock__data/styleMock.js 
+                                                                                                    and keep it empty
+                        }
+                    }
+                              
+                    Rerun terminal to reflect changes in package.json
 
 
+
+                                                        
 */
 
 
@@ -84,7 +107,9 @@ client
        |-POSTS                      
          |-POST                         
            |-post.js,styles.js
-         |-posts.js,styles.js                               
+         |-posts.js,styles.js   
+    |-test                   -->Test cases    
+      |-client.test.js                            
     |-app.js, styles.js,app.css                        
     |-index.js,index.css         
     |- .env                        -->environment variable file

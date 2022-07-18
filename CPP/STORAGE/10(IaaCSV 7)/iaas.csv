@@ -1,5 +1,0 @@
-CONFIG,IN_IsPrerelease,OUT_event.dts,OUT_event.workflow,OUT_event.subcategory,OUT_event.subtype,OUT_event.build,OUT_source.version,OUT_source.platform,OUT_event.user_guid,OUT_event.device_guid,OUT_event.session_guid,OUT_source.os_version,OUT_source.device,OUT_event.user_agent,OUT_source.name,OUT_event.language,OUT_hb.params,OUT_hb.type,OUT_hb.table
-non-standard-keys=include,,,,,,,,,,,,,,,,,$0,,
-,,$+{FeatureTime},$+{Category},$+{SubCategory},$+{FeatureName},,$+{ProductVersion}.$+{ProductBuild},$+{OS}$+{OSType},$+{PGuid},$+{MachineID},$+{SessionID},$+{OSVersion},$+{ProcessorModel},$+{DefaultBrowser},$+{ProductName},$+{ProductLanguage},,,
-case-sensitive-values=false,TRUE,,,,,prerelease,,,,,,,,,,,,,
-non-standard-keys=exclude,,,,,,,,,,,,,,,,,,,

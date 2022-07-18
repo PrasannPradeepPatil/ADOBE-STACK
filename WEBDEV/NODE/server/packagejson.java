@@ -1,24 +1,33 @@
 /*
 package.json                             INITIALISE JSON FILE
-                                         npm init                          
+{                                         npm init                          
 
- {                                       PROPERTIES:When you create server these properties are set 
+                                         PROPERTIES:When you create server these properties are set 
   "name": "server",                      name of dir     
   "version": "0.0.0",                    version of dir 
-  "private": true,                       privacy of dir   
+  "private": true,                       privacy of dir  
+  "type":module                          add this to allow ES6 imports in Node 
                                   
-  "scripts": {                          SCRIPTS: when you run npm key ;then we execute value of the key
-    "start":"node/nodemon ./bin/www"    sudo npm start = node/nodemon ./bin/www
+  "scripts": {                          SCRIPTS: 
+    "start":"node/nodemon ./bin/www"    sudo npm start = node/nodemon ./bin/www (node ./bin/www  runs app.js ; nodemon ./bin/www  runs app.js file with hot reload)
+    "test": "jest --watchAll"           sudo npm test =  jest --watchAll (jest test runs .test.js file ;jest --watchAll will run all test cases with hot reload)
   },
 
-  "dependencies": {                    DEPENDENCIES:  When you install a package it is added in dependency and deployed
-    "cookie-parser": "~1.4.4",          |       
-  }                                     |
-  "dev-dependencies": {                //DEPENDENCY TYPES                               
-  }                                    npm install packageName
-                                             DEVELOPMENT DEPENDENCIES:When you install a package using -dev it is added in dev-dependency and is not  deployed 
-  
-                                      
+  "dependencies": {                     DEPENDENCIES
+    "cookie-parser": "~1.4.4",          sudo npm install packageName  packages get added in dependencies
+  }                                     sudo npm install packageName --save-dev  package gets added in dev-dependencies and are not deployed
+  "dev-dependencies": {                                              
+  },
+                                         BABEL(Write in package.json OR create a file .babelrc at src level and do module.exports = {"presets":[],"plugins":[]})
+  "babel": {                             Used to convert ES6 to JS code for web
+    "presets": []                        presets:  added to all files 
+    "plugins":[]                         plugins:added to all files;=
+  },
+                                         JEST(Write in package.json OR create a file jest.test.js at src level and do module.exports = {"moduleNameMapper":{}}
+  "jest":{                               Used for configure the test cases for jest
+      "moduleNameMapper": {}             moduleWrapper: Elements to ignore while running jest;used for  igore CSS files  
+  }
+                                                                      
 
                                     //INSTALL PACKAGES
                                     >npm install                                             -->install the packages already mentioned in package.json 

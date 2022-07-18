@@ -1,5 +1,0 @@
-CONFIG,OUT_event.workflow,"OUT_event.subcategory",OUT_event.subtype,OUT_event.dts,IN_Category,IN_SubCategory,IN_FeatureTime
-search-replace-substrings=true,,,,,/[\\[\\]\\(\\)]/*/g,,/\\s*(\\S(.*\\S)?)\\s*/$1/
-,"$+{Category}",\L$+{SubCategory}-\U$+{FeatureName},$+{FeatureName},,,,
-,,,,$+{FeatureTime},,,
-non-standard-keys=exclude,,,,,,,

@@ -54,6 +54,9 @@ const readXlsxFile = require('read-excel-file/node');
 
 //IMPORT , EXPORT (ES5 - NODE)
 /*
+package.json
+"type":module                         add this to allow ES6 imports in Node
+
 module1.js    
 let varname1 = "";                                  OR  module.exports.varname1 = "abc";        //only for variable and arrow fn                    
 async function fnName1(){}                              module.exports.fnName1 = async() =>{}    
@@ -80,9 +83,10 @@ var {fnName1,className1} = require('externalmodulename' OR './modulename1')
 var val = fnName1()
 var obj = new className1()   
 
+
 */
 
-//IMPORT , EXPORT (ES6 - REACT ie BROWSER)
+//IMPORT , EXPORT (ES6 - REACT)
 /*
 module1.js     
 let varname1 = "abc";                              OR     export let varname1 = "abc";                         

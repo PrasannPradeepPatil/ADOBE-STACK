@@ -78,11 +78,13 @@ SET ENV VAR -->No Need
 >sudo npx kill-port 3000  -->kill the port if already in use for server, mongodb connection to server
 >sudo npm start           -->run server at http://127.0.0.1:3000(node runs at 3000 by default;react runs on 3000 by default(hence 1st run node then react so that react runs on 3001);mongodb runs on 5000 as written in code while connecting to mongoDB))                 
 >sudo npm test            -->run all files with extension .test.js at level of src  
-                          package.json
-                            "scripts": {
-                                    "start": "nodemon ./bin/www" -->npm start = nodemon ./bin/www   (node runs app.js and nodemon runs app.js file with hot reload)
-                                    "test":"jest --watchAll"     -->npm test = jest --watchAll      ()
-                            },                                      and rerun terminal to reflect changes in package.json
+                            package.json
+                              "type":module                  -->add this to allow ES6 imports in Node 
+                              "scripts": {
+                                "start": "nodemon ./bin/www" -->npm start = nodemon ./bin/www   (node ./bin/www  runs app.js ; nodemon ./bin/www  runs app.js file with hot reload)
+                                "test":"jest --watchAll"     -->npm test = jest --watchAll      (jest test runs .test.js file ;jest --watchAll will run all test cases with hot reload)
+                              },                                                                
+                                                                rerun terminal to reflect changes in package.json
 
 
 */
@@ -109,7 +111,7 @@ server
     |-post.JS              
   |-controllers(custom made folder) -->explaind below            
     |-post.JS              
-  |-test                           
+  |-test                           -->Test cases              
     |-server.test.js
   |-app.js     
   |- .env                        -->environment variable file

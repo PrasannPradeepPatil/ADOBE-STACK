@@ -83,7 +83,7 @@ public class BasicsAlgorithm {
     stringCompare2StringForIsomorphic,stringCompare2StringForIsomorphicc(BA,BA)                             
     stringCompare2StringsForAnagram,stringCompare2StringsForAnagramm,stringCompare2StringsForAnagrammm(BA,BA,BA)                                         
     stringCompare2StringsForAnagramWithOneExtraCharacter,stringCompare2StringsForAnagramWithOneExtraCharacterr(BA,BA)  
-    stringSubStringKaContainingAnagramOfOtherStringKaStringAndCount
+    numberPermutationKaIntegerStringConvertToCharacterString
     matrixCompareRowsForAnagramsGrouping(BA)
     arrayCompare2ArrayForMedian,arrayCompare2ArrayForMediann(BA,BA) 
     arrayDataStreamMedian(MISC)      
@@ -179,17 +179,14 @@ public class BasicsAlgorithm {
     arrayRotateRightKTimes(BA)
     arrayRotateLeftKTimes(BA)
 
-    matrixRotateClockWise(BA)
-    matrixRotateAntiClockWise(BA)
-
     arrayRotatedSortedMinElement(BA)
     arrayRotatedSortedNoOfRotations(BA)
     arrayRotatedSortedFindElements(BA)
 
+    matrixRotateClockWise(BA)
+    matrixRotateAntiClockWise(BA)
 
     stringCompare2StringsForRotation,stringCompare2StringsForRotationn(BA,BA)  
-
-
     */
     //REVERSE
     /*
@@ -283,7 +280,6 @@ public class BasicsAlgorithm {
     arrayConvertToMinRangeWithIncDecOpertionsII(BA)
 
     matrixComareRowsForNonOverlappingIntervalByMinRemoval(BA)
-
 
     */
     //GROUP  
@@ -494,7 +490,7 @@ public class BasicsAlgorithm {
     //CONTAINING
     stringSubstringKaContainingOtherStringKaIndex(R) 
     stringSubsequenceContainingOtherStringIsPossible(R)
-    stringSubStringKaContainingAnagramOfOtherStringKaStringAndCount(R)
+    numberPermutationKaIntegerStringConvertToCharacterString(R)
     stringSubstringKaContainingCharactersOfOtherStringKaLongestShortestLengthAndStringAndCount(R)
     stringSubstringKaContainingCharactersOfItselfKaLongestShortestLengthAndStringAndCount(R)
 
@@ -504,7 +500,7 @@ public class BasicsAlgorithm {
     stringCompare2StringForIsomorphic,stringCompare2StringForIsomorphicc(BA,BA)                             
     stringCompare2StringsForAnagram,stringCompare2StringsForAnagramm,stringCompare2StringsForAnagrammm(BA,BA,BA)                                         
     stringCompare2StringsForAnagramWithOneExtraCharacter,stringCompare2StringsForAnagramWithOneExtraCharacterr(BA,BA)  
-    stringSubStringKaContainingAnagramOfOtherStringKaStringAndCount
+    numberPermutationKaIntegerStringConvertToCharacterString
     matrixCompareRowsForAnagramsGrouping(BA)
     arrayCompare2ArrayForMedian,arrayCompare2ArrayForMediann(BA,BA) 
     arrayDataStreamMedian(MISC)      
@@ -729,7 +725,7 @@ public class BasicsAlgorithm {
     public void    numberBitsSetInRangeSetAnotherNumber(int n1,int n2,int l , int r){
         /*
         n1,n2                 -- for all bits set in n1 in range l,r 
-        1<=l,r<=32              set equivalent pos in n2
+        1<=l,r<=32               set equivalent pos in n2
         Eg:n1 = 10 , n2 = 13 , 
            l= 2 , r = 4
            n1 = 1010 -->in pos [2,4] the set bits are at pos 2,4 

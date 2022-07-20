@@ -21,11 +21,5 @@ package.json                             INITIALISE JSON FILE
   }                                       
   "dev-dependencies": {                
   }                                   
-  "babel"{                             BABEL:same as package.json of Node
-
-  }
-  "jest":{                             JEST:same as package.json of Node
-
-  }
                                    
  */

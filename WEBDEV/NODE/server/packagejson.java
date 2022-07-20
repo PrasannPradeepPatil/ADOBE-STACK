@@ -18,17 +18,6 @@ package.json                             INITIALISE JSON FILE
   }                                     sudo npm install packageName --save-dev  package gets added in dev-dependencies and are not deployed
   "dev-dependencies": {                                              
   },
-                                         BABEL(Write in package.json OR create a file .babelrc at src level and do module.exports = {"presets":[],"plugins":[]})
-  "babel": {                             Used to convert ES6 to JS code for web
-    "presets": []                        presets:  added to all files 
-    "plugins":[]                         plugins:added to all files;=
-  },
-                                         JEST(Write in package.json OR create a file jest.test.js at src level and do module.exports = {"moduleNameMapper":{}}
-  "jest":{                               Used for configure the test cases for jest
-      "moduleNameMapper": {}             moduleWrapper: Elements to ignore while running jest;used for  igore CSS files  
-  }
-                                                                      
-
                                     //INSTALL PACKAGES
                                     >npm install                                             -->install the packages already mentioned in package.json 
                                     >npm install package@version                             -->install packages in node modules and add to dependencies{} in package.json

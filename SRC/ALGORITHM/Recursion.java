@@ -3435,7 +3435,7 @@ ptr1,ptr2               if(ptr2 -ptr1 <= k-2)               if(ptr2 -ptr1 <= k-2
 
     return 0;
   }
-    public int[] stringSubStringKaContainingAnagramOfOtherStringKaStringAndCount(String s1 , String s2){
+    public int[] numberPermutationKaIntegerStringConvertToCharacterString(String s1 , String s2){
       /*
           Question
           s1 = "aabaabaaa"   -- find all substrings of s1 

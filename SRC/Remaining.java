@@ -359,7 +359,7 @@ arraySubsequenceKaConsecutiveNumbersInAnyOrderKaLongestLength --https://leetcode
 arraySubarrayKaSizeKKaMaxMinSum -- https://practice.geeksforgeeks.org/problems/max-sum-subarray-of-size-k5313/1
 arraySubArrayKaSizeKKaFirstNegativeNumbers -- https://practice.geeksforgeeks.org/problems/first-negative-integer-in-every-window-of-size-k3345/1
 arraySubArrayOfSizeKMaximumNumbers -- https://practice.geeksforgeeks.org/problems/max-sum-subarray-of-size-k5313/1
-stringSubStringKaContainingAnagramOfOtherStringKaStringAndCount -- https://practice.geeksforgeeks.org/problems/count-occurences-of-anagrams5839/1
+numberPermutationKaIntegerStringConvertToCharacterString -- https://practice.geeksforgeeks.org/problems/count-occurences-of-anagrams5839/1
 arraySubArrayKaSumEqualsTargetKaLongestShortestKaLengthAndStringAndCount       --https://leetcode.com/problems/subarray-sum-equals-k/
                                                                                https://leetcode.com/problems/maximum-size-subarray-sum-equals-k/
                                                                                https://leetcode.com/problems/binary-subarrays-with-sum/

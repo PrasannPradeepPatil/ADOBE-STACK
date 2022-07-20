@@ -133,13 +133,13 @@ package.json
 "scripts": {                               
   "test": "cypress open"         -->npm test =  npx cypress open
 },  
-"eslintConfig": {
-  "extends": [
-    "react-app",
-    "react-app/jest",
-    "plugin:cypress/recommended" --> add this line
-  ]
-},                           
+
+Create a file named .eslintrc.json at same level as cypressjson and add the following
+{
+    "extends": [
+      "plugin:cypress/recommended"
+    ]
+  }
 
  Rerun terminal to reflect changes in package.json
  
@@ -150,7 +150,6 @@ describe(())                             -->write your code here
 
                                                       
 4.RUN TESTS
->cd __test__/cypress
 >npm test OR npx cypress open 
 >In cypress UI upen the filename.cy.js to run cypress
 

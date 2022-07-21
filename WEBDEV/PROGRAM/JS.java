@@ -298,7 +298,7 @@ Console.log(“code after calling the asynchronous fn ”)  after executing code
 //ASYNCHRONOUS FN (PROMISE USING THEN-CATCH)
 /*
 //DECLARING ASYNCHRONOUS FN THAT RETURNS PROMISE 
-let promiseName = function asyncFn(fnParam) {    -->1.Declare fn that returns a fnObj as promise
+let promiseName = function asyncFnName(fnParam) {    -->1.Declare fn that returns a fnObj as promise
     code of asyncFnName                                   
     return new Promise ((resolve,reject)=>{ 
             resolve(arg1 )                       -->4.Call fnObj stored in resolve and give arg1 to param1
@@ -333,8 +333,7 @@ function asyncFnName(fnParam) {                      -->1.Declare fn that  retur
     return new Promise ((resolve,reject)=>{ 
             resolve(arg1)                            -->4.Call fnObj stored in resolve and give arg1 to param1              
             reject(arg2)                                Call fnObj stored in reject and give arg2 to param2
-    });
-      
+    });  
 }
 //CALLING ASYNCHRONOUSFN  
 async function fnName(){                                          
@@ -345,7 +344,7 @@ async function fnName(){
         console.log(param2);                 
     }
 }
-let val = await fnName()                         -->4.fnName is itself async so if you just call fnName you will get Promise<Pending>
+let val = await fnName()                         -->5.fnName is itself async so if you just call fnName you will get Promise<Pending>
         .then((result) =>[return result]);            so await fn and resolve with then and return retValue inside then 
 
 Console.log(“code after ”)                      SO

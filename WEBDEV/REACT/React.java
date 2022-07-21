@@ -105,6 +105,17 @@ filename.test.js
  * / (move backslash 1 space beind) 
 describe(())                             -->write your code here
 
+cypress.config.js
+module.exports = defineConfig({
+  e2e: {
+    ....
+  },
+  "retries": {                               
+    "runMode": 1, //default:0   -->number of retries to be done when a test case fails(for npx cypress run)
+    "openMode": 3 //default:0   -->number of retries to be done when a test case fails(for npx cypress open)
+  }
+});
+
 
 5.RUN TESTS
 >cd client
@@ -150,6 +161,7 @@ describe(())                             -->write your code here
 
                                                       
 4.RUN TESTS
+>cd client/src/__test__/cypress ie on cypress.json levek
 >npm test OR npx cypress open 
 >In cypress UI upen the filename.cy.js to run cypress
 

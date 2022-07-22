@@ -1,4 +1,4 @@
-//RUN
+//dunamis-sdk
 /*
 1.SETUP
 DUNAMIS SDK
@@ -30,162 +30,95 @@ MORE TEST CASES
 dunamis-sdk-test me eventtransformer_test.cpp
 TransformParams{IaaCSV,IPJSON,OPJSON)
 
-
-
-
-
-
-
-
-
- */
-
-
-//MAPPINGS
-//csvData1
-/*
-{
-  "originalFile": [],
-  "header": ['CONFIG','IN_doc',...],
-  "content":[
-    {
-        "header": ['CONFIG','IN_doc',...],
-        "values":['  missing-key-value=unknown','(?<doc>.*)',..]
-    }
-    {
-        "header": ['CONFIG','IN_doc',...],
-        "values":['  non-standard-keys=exclude','','',...]
-    }
-  ]
-
-
-
 */
-//mapping1
-/*
-1.config
-{
-  rules: [
-        { 
-        "config":   {
-                       'missing-key-value': 'unknown' 
-                   },
-        "find":    [
-                        [ 'doc', '(?<doc>.*)' ],
-                        [ 'seq', '(.*)' ],
-                        [ 'Category', '(.*)' ],
-                        [ 'SubCategory', '(.*)' ],
-                    ]
-        "replace"  :[
-                        [ 'event.workflow', '$3-$+{doc}' ],
-                        [ 'event.subcategory', '$4' ],
-                    ]
-        "findcount":=4
-        },
 
-        { 
-        "config":   {
-                        'non-standard-keys': 'include'
-                    },
-        "find":     [
-                    ]
-        "replace"  :[
-                        [ 'hb.params', '$0' ]
-                    ]  
-        "findcount":0
-        },
+
+//dunamis-iaas
+/*
+database.js
+function insertIntoTable(connection, databaseName, tableName, values) {
+  let value = values[1].replaceAll("\\", "\\\\"); //TODO:ADDED
+  let insertIntoTable = `
+}
+
+stitchedRegex.js
+match(patternString,value){
+    //TODO:NOTADDED 
+    //regex_constants::syntax_option_type flags{};
+    //flags |= matchNoCase_ ? regex_constants::icase : regex_constants::syntax_option_type{};
+    //regex pattern{patternString, flags};     
+    
+    let flags = (this.matchNoCase)?"i":"";
+    let regex = new RegExp(patternString,flags);
+
+    let match = [];
+    if(typeof value === 'object'){        //TODO:ADDED  convert value of any datatatype to string 
+        value = JSON.stringify(value);    
+    } 
+}
+
+hasMissingReferences(formatString){
+    let hasMissingRefs = false;
+    let numberReferences = formatString.match(DUNAMIS_REGEX_PATTERN_SUB_EXPR_REFS);
+    if(numberReferences != null && numberReferences.length != 0){
+        let present = true;  //TODO:ADDED took present outside and added present && inside 
+        for(let numberReference of numberReferences){
+            let numberReferenceProperties = this.formatStringForNumberedReference(numberReference); //TODO:ADDED
+            ..
+        }
+    }
+    if(DUNAMIS_REGEX_SUPPORT_NAMED_SUB_EXPR){
+      if(hasMissingRefs)
+          return hasMissingRefs;
+
+      let namedReferences = formatString.match(DUNAMIS_REGEX_PATTERN_NAMED_SUB_EXPR_REFS);
+      if(namedReferences != null && namedReferences.length != 0){   
+          let present = true;  //TODO:ADDED took present outside and added present && inside 
+          for(let namedReference of namedReferences){
+}
+
+format(){
+  let numberReferences = formatString.match(DUNAMIS_REGEX_PATTERN_SUB_EXPR_REFS);
+  if(numberReferences  !== null && numberReferences.length != 0){
+      for(let numberReference of numberReferences){
+          let numberReferenceProperties = this.formatStringForNumberedReference(numberReference); //TODO:ADDED
+          numberReference = numberReferenceProperties["formatString"]; 
+      }
+  }
+
+  formatString = formatString = formatString.replaceAll("$$","$");   //TODO:ADDED  
+  formatString = this.formatStringForEscapeCharacters(formatString); //TODO:ADDED 
+  return formatString;
+}
+
+transformFindReplaceHelper.js
+function addNamedCaptures(inputJsonObj,rule){
+    for(let inputJsonObjKey in inputJsonObj){
+        if(isValidName(inputJsonObjKey)){ //TODO:ADDED
+            rule.find.push([inputJsonObjKey,"(?<" + inputJsonObjKey + ">.*)"]); 
+        }
         
-        { 
-        "config":   {
-                        'non-standard-keys': 'exclude'
-                    },
-        "find":    [
-                    ]
-        "replace"  :[
-                    ]  
-        "findcount":0
-        },
-
-
-
-
-
-    ]
-  sourceKeys: [
-    'doc',
-    'seq',
-    'Category',
-    'SubCategory',
-    'FeatureName',
-    'FeatureTime'
-  ],
-  targetKeys: [
-    'event.workflow',
-    'event.subcategory',
-    'event.subtype',
-    'event.dts',
-    'hb.params'
-  ]
+    }
 }
 
+function  addReplacement(inputJsonObj,rule,srmatch){
+    for(let kv of rule.replace){
+        if(!srmatch.hasMissingReferences(kv[1])){
+            let sKey = kv[0];
+            let formattedValue = srmatch.format(kv[1]);
+            let sValue = formattedValue;
 
- */
-//ipJson1
-/*
-
-{
-'doc': '9fceb2b1502d741bdb6f2f20ea26373b595a964b1d85147e8b7268a4ac99a160',
-'SubCategory': 'AdobePIPtestappsub-234_12',
-'FeatureName': 'toolwriteeventdata_12-34',
-'FeatureTime': '2022-01-11T12:13:20Z'
+            if(sKey in inputJsonObj){     //TODO:ADDED  To add duplicate keys in object 
+                sKey = sKey + " ";
+            }
+            inputJsonObj[sKey] = sValue;
+        }
+    }
 }
-
 
 */
 
-//mapping2
-/*
-{
-  rules: [
-        {
-            config: { 'search-replace-substrings': 'true' },
-            find: [
-                    [ 'Category', '/[\\\\[\\\\]\\\\(\\\\)]/* /g' ],
-                    [ 'FeatureTime', '/\\\\s*(\\\\S(.*\\\\S)?)\\\\s* /$1/' ]
-                ],
-            replace: [],
-            findCount: 2
-        }
-        { "
-            config: {}, 
-            find: [], 
-            replace: [
-                [ 'event.workflow', '"$+{Category}"' ],
-                [ 'event.subcategory', '\\L$+{SubCategory}-\\U$+{FeatureName}' ],
-                [ 'event.subtype', '$+{FeatureName}' ]
-            ], 
-            findCount: 0 
-        },
-        { 
-            config: { 'non-standard-keys': 'exclude' },
-            find: [], 
-            replace: [ 
-                [ 'event.dts', '$+{FeatureTime}' ] ],
-            findCount: 0 
-        },
-        { 
-            config: {'non-standard-keys': 'exclude'}, 
-            find: [], 
-            replace: [], 
-            findCount: 0 
-        }
-  ],
-  sourceKeys: [ 'Category', 'SubCategory', 'FeatureTime' ],
-  targetKeys: [
-    'event.workflow',
-    'event.subcategory',
-    'event.subtype',
-    'event.dts'
-  ]
-}
-*/
+
+
+
+
